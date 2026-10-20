@@ -47,3 +47,7 @@ PDF-Metadaten und Text geprüft: zwei Seiten, ca. 595 × 842 Punkte, DIN A4, kei
 Wikimedia-Zugriff und WebKit-Download wurden vom Umgebungsproxy blockiert. Die nötigen Netzwerkdomains sowie reproduzierbare Installations-/Startanweisungen sind im Umgebungsentwurf gespeichert; die aktive Policy enthielt beim letzten Statuscheck weiterhin keine zusätzlichen Domains. Git-Lesezugriff auf das Repository funktioniert. Ein spezifischer GitHub-API-Leseaufruf für das Repository wurde mit `Forbidden` abgewiesen. Weder ein neues Token noch freigeschaltete API-Schreibrechte werden daraus abgeleitet.
 
 Zur Unterrichtsfreigabe siehe `abnahme.md`. Die fehlenden Fotos und Übersetzungen wurden nicht mit erfundenen Daten aufgefüllt.
+
+Nach der letzten Sichtprüfung wurde die Weltkarte auf alle Breitengrade einschließlich Antarktika erweitert. Danach: erneut 163/163 Node-Tests, PDF-Prüfung und gezielt 4/4 Browserdurchläufe für Akte 001/Abschlusskarten bestanden. Startanweisungen per HTTP geprüft: zentrale Seite und alle sieben Rubriken verfügbar.
+
+Der Branch `feature/detektivspiel-komplett` wurde erfolgreich zu GitHub gepusht. Der anschließende echte PR-Erstellungsversuch über `gh pr create --draft` scheiterte mit `Post https://api.github.com/graphql: Forbidden`. Ein Pull Request wurde dadurch nicht erstellt. Der vollständige Beschreibungstext liegt in `docs/pull-request.md`; kein Merge nach `main` und kein Pages-Deployment.

@@ -76,6 +76,7 @@ test("Geografische Karten stammen aus echten Polygonen", async () => {
     );
   }
   assert.ok(!maps.world.includes("Afrika"));
+  assert.ok(maps.world.includes('viewBox="0 0 900 450"'), "Weltkarte umfasst alle Breitengrade einschließlich Antarktika");
   assert.equal((maps.world.match(/#d17852/g) || []).length, 0);
   assert.ok((maps.reveal.match(/#d17852/g) || []).length > 40);
 });

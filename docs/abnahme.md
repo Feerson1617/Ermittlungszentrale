@@ -20,3 +20,7 @@ Auf dem tatsächlichen Schul-iPad in Safari: Zentrale in Querformat öffnen; all
 ## Netzwerkfreigaben für die Entwicklung
 
 Im Umgebungsentwurf wurden `commons.wikimedia.org`, `upload.wikimedia.org`, `de.wiktionary.org` und `en.wiktionary.org` ergänzt. Die Speicherung aktiviert diese Freigaben nicht automatisch in der laufenden Maschine. Für den optionalen WebKit-Test werden zusätzlich `cdn.playwright.dev` und `playwright.download.prss.microsoft.com` benötigt. Zur Laufzeit benötigt das veröffentlichte Spiel ausschließlich seine eigenen statischen Dateien.
+
+## GitHub-Übergabe
+
+Der Projektbranch `feature/detektivspiel-komplett` ist veröffentlicht. Die automatische PR-Erstellung über die GitHub-API wurde mit `Forbidden` abgewiesen. Manueller Einstieg: https://github.com/Feerson1617/Ermittlungszentrale/pull/new/feature/detektivspiel-komplett. Zielbranch `main`; zunächst als Entwurf anlegen. Titel: „Detektivspiel: Fünf Akten, Wörterbuch und Unterrichtsmaterialien“. Beschreibung: `docs/pull-request.md`. Es wurde kein Merge oder Deployment ausgelöst.

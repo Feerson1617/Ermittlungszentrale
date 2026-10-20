@@ -43,11 +43,11 @@ def map_svg(bounds, width, height, mode='world', marker=None, highlight=None):
         out.append('<text x="18" y="28" font-size="18" font-family="Arial" fill="#344b4c">N ↑</text>')
     out.append('</svg>')
     return ''.join(out)
-world=map_svg((-180,-60,180,85),900,363)
+world=map_svg((-180,-90,180,90),900,450)
 africa_bounds=(-20,-36,56,38)
-maps={'world':world,'reveal':map_svg((-180,-60,180,85),900,363,highlight='Africa'),
-      'a':map_svg((-180,-60,180,85),900,363,highlight='Africa'),
-      'b':map_svg((-180,-60,180,85),900,363,highlight='South America')}
+maps={'world':world,'reveal':map_svg((-180,-90,180,90),900,450,highlight='Africa'),
+      'a':map_svg((-180,-90,180,90),900,450,highlight='Africa'),
+      'b':map_svg((-180,-90,180,90),900,450,highlight='South America')}
 for key,loc in [('atlas',(-7.9,31.1)),('city',(3.38,6.45)),('cocoa',(-1.6,6.3)),('summary',None)]:
     maps[key]=map_svg(africa_bounds,610,594,'africa',marker=loc)
 for key,svg in maps.items(): (root/f'assets/maps/{key}.svg').write_text(svg)
