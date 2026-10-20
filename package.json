@@ -11,6 +11,7 @@
     "materials": "node scripts/materials.mjs",
     "audit:release": "node scripts/release-audit.mjs",
     "media:credits": "node scripts/media-credits.mjs",
+    "dictionary:report": "node scripts/dictionary-report.mjs",
     "test:pdf": "python3 scripts/check-pdf.py"
   },
   "devDependencies": {

@@ -1,20 +1,30 @@
 # Testbericht
 
-Prüfstand: 20.10.2026, nach Integration aller 15 Fotografien. Node.js 24.19.0, npm 11.9.0, Playwright 1.58.2, Chromium 154 und Playwright-WebKit 26.0 unter Debian 13. Die folgenden Durchläufe wurden tatsächlich ausgeführt; kein Test auf einem echten iPad wird behauptet.
+Prüfstand: 20.10.2026, nach der Wörterbuchergänzung. Die Fotoabnahme aus Commit 5321c9c bleibt gültig; die 15 Fotos wurden in diesem Durchlauf nicht verändert. Node.js 24.19.0, npm 11.9.0, Playwright 1.58.2, Chromium 154 und Playwright-WebKit 26.0 unter Debian 13. Die folgenden Durchläufe wurden tatsächlich ausgeführt; kein Test auf einem echten iPad wird behauptet.
 
 | Prüfung | Ergebnis |
 |---|---|
-| `npm test` | **180/180 bestanden**, keine fehlgeschlagenen oder übersprungenen Tests |
-| `TEST_WEBKIT=1 npm run test:e2e` mit den unten genannten Umgebungsvariablen | **63/63 bestanden**, je 21 unter Chromium/iPad, Chromium/iPhone und WebKit/iPad |
-| `python3 scripts/prepare-media.py /tmp/approved-originals` | Alle 15 Originalrevisionen per SHA1 und SHA256 verifiziert, lokale WebP-Dateien reproduziert |
-| `npm run media:credits` | Alle 15 Nachweise in HTML und Markdown erzeugt |
+| `npm test` | **191/191 bestanden**, keine fehlgeschlagenen oder übersprungenen Tests |
+| `TEST_WEBKIT=1 npm run test:e2e` mit den unten genannten Umgebungsvariablen | **72/72 bestanden**, je 24 unter Chromium/iPad, Chromium/iPhone und WebKit/iPad |
+| `npm run dictionary:report` | Quellenbericht und lokale Statusseite aus den aktuellen Belegen erzeugt |
+| Wörterbuchquellen | 353 vorhandene kurdische Werte einzeln belegt; versionierte FreeDict-/Roj-Downloads zusätzlich gegen die dokumentierten Hashes abgeglichen |
 | `npm run materials` | Schülerbogen und aktualisierten Erwartungshorizont als HTML/PDF erzeugt; Seitenüberlauf geprüft |
 | `npm run test:pdf` | Schülerbogen exakt zwei DIN-A4-Seiten, Erwartungshorizont sieben Seiten, alle Aufgaben/Punktfelder vorhanden |
 | `sha256sum -c docs/kartendaten.sha256` | Ausgangsdaten unverändert und korrekt |
 | `git diff --check` | Keine Whitespace-Fehler |
-| `npm run audit:release` | **Exit-Code 2, zehn offene Abnahmepunkte**, ausschließlich Wörterbuch/Sprachprüfung und echter iPad-Safari-Test; keine offenen Bildpunkte |
+| `npm run audit:release` | **Exit-Code 2, zehn offene Abnahmepunkte**, 11 Kurmandschi-/10 Sorani-Lücken, sieben muttersprachliche Abnahmen und echter iPad-Safari-Test; keine offenen Bildpunkte oder beschädigten Quellenbelege |
 
-## Bildprüfung
+## Wörterbuchergänzung und erneute Sprachprüfung
+
+123 neue Kurmandschi- und 125 neue Sorani-Werte (248 insgesamt) mit überprüfbaren Einzelbelegen ergänzt. Abdeckung: 187/187 in Russisch, Ukrainisch, Polnisch, Türkisch und Arabisch; 176/187 Kurmandschi und 177/187 Sorani. 21 unbelegte Werte bleiben ausdrücklich null. Keine bloße Wortzahl-Füllung mit erfundenen Fachbegriffen, falschen Bedeutungen oder automatisierter Umschrift. Vollständige Einzelliste und Grenzen: [Wörterbuchprüfung](woerterbuch-pruefung.md).
+
+Alle sieben Sprachfassungen wurden durch Codex redaktionell auf Bedeutung im Spiel, Wortform, Schrift und auffällige Mehrdeutigkeit geprüft. Das ist keine muttersprachliche oder professionelle Prüfung. Polnisch „alle“ um die nicht-männlich-personale Form *wszystkie* ergänzt; mehrdeutige deutsche Wörter erhalten eine Bedeutungshilfe. Arabische Verbalnomen, slawische Flexion sowie kurdische regionale/idiomatische Formen bleiben muttersprachlich zu prüfen. Die Daten-/Belegzuordnung ist per SHA256 gegen veraltete Abnahmeangaben abgesichert.
+
+11 zusätzliche Node-Tests prüfen die Einzelnachweise, Dateibindung, erhaltene Lücken, Schriften/NFC, Trennung der kurdischen Varietäten und die Trennung von redaktioneller Prüfung und muttersprachlicher Abnahme. Drei zusätzliche Browserfälle je Projekt prüfen neue Begriffe in allen sieben Sprachen, RTL und Sprachkennungen, deutsche Bedeutungshilfen, bewusst fehlende Fachwörter, erhaltenen Ermittlungsstand und die lokale Quellen-/Statusseite. Nach Sichtprüfung wurde zusätzlich die Erreichbarkeit des Quellenlinks im gescrollten schmalen Dialog abgesichert; die neun Wörterbuchdurchläufe wurden gezielt erneut ausgeführt.
+
+Wörterbuchdialog in Chromium/iPad, WebKit/iPad und schmalem Chromium-Viewport visuell angesehen: Sorani-Zeichen lesbar, RTL-Ausgabe korrekt, deutsche Bedeutungshilfe LTR, keine verdeckten Eingaben. Die schmale Dialogansicht benötigt vertikales Scrollen; der Quellenlink bleibt erreichbar. Reviewaufnahmen: [Chromium](qa/woerterbuch-chromium-ipad.jpg), [WebKit](qa/woerterbuch-webkit-ipad.jpg). Kein Screenshot stammt von einem echten iPad.
+
+## Bildprüfung (unveränderter Bestand, Medien-Browsertests erneut bestanden)
 
 Alle 15 Fotos stammen von Wikimedia Commons. Für jedes Bild wurden Motiv, dokumentierter Aufnahmeort, Urheber, konkrete freie Lizenz samt Version, Attribution und Bearbeitung geprüft. Die Ortsgenauigkeit wird nicht über die Quelle hinaus behauptet. Lokale Commons-Antworten unter `docs/media/` sichern Beschreibung, Kategorien, Original-SHA1, Lizenzvorlage und Beschreibungsrevision. Die tatsächlichen Originaldownloads wurden vor der Optimierung mit diesen SHA1-Werten abgeglichen; `data/media.json` enthält zusätzlich SHA256 für Originale, WebP-Dateien und Quellenbelege.
 
@@ -47,7 +57,7 @@ Das aktualisierte Lehrerdokument wurde erneut als PDF gerastert und die geänder
 
 ## WebKit-Umgebung
 
-`PLAYWRIGHT_BROWSERS_PATH=/workspace/.playwright npx playwright install webkit` konnte WebKit 26.0 und FFmpeg herunterladen. Die fehlenden Debian-Bibliotheken wurden aus signierten Paketindizes heruntergeladen und unter `/tmp/webkit-libs` entpackt; keine Systeminstallation nötig. Der lokale WPE-Wrapper wurde um diesen Bibliothekssuchpfad ergänzt. Weil Playwrights Vorabprüfung dynamisch geladene Bibliotheken ausschließlich im Systemcache von `ldconfig` sucht, erkennt sie das lokal bereitgestellte GLES nicht. Nur diese Umgebungs-Vorabprüfung wurde abgeschaltet; der echte WebKit-Prozess und alle 21 WebKit-Funktionstests wurden ausgeführt.
+`PLAYWRIGHT_BROWSERS_PATH=/workspace/.playwright npx playwright install webkit` konnte WebKit 26.0 und FFmpeg herunterladen. Die fehlenden Debian-Bibliotheken wurden aus signierten Paketindizes heruntergeladen und unter `/tmp/webkit-libs` entpackt; keine Systeminstallation nötig. Der lokale WPE-Wrapper wurde um diesen Bibliothekssuchpfad ergänzt. Weil Playwrights Vorabprüfung dynamisch geladene Bibliotheken ausschließlich im Systemcache von `ldconfig` sucht, erkennt sie das lokal bereitgestellte GLES nicht. Nur diese Umgebungs-Vorabprüfung wurde abgeschaltet; der echte WebKit-Prozess und alle 24 WebKit-Funktionstests wurden ausgeführt.
 
 Tatsächlich verwendeter vollständiger Browserbefehl:
 
@@ -62,6 +72,6 @@ Diese lokale Einrichtung verändert keine Spielabhängigkeiten. Auf einem System
 
 ## Verbleibende Abnahme
 
-`npm run audit:release` meldet zehn offene Punkte: 134 fehlende Kurmandschi- und 135 fehlende Sorani-Übersetzungen (zwei Meldungen), muttersprachliche Prüfung aller sieben Sprachen (sieben Meldungen) sowie Safari auf einem echten Schul-iPad (eine Meldung). `data/review.json` bleibt entsprechend unbestätigt. Kein Bild oder fehlender Wörterbucheintrag wurde erfunden. Der automatische WebKit-Lauf ersetzt den echten Gerätetest mit Touch, Bildschirmtastatur, Scrollen und PDF-Druck nicht.
+`npm run audit:release` meldet zehn offene Punkte: 11 fehlende Kurmandschi- und 10 fehlende Sorani-Übersetzungen (zwei Meldungen), muttersprachliche Prüfung aller sieben Sprachen (sieben Meldungen) sowie Safari auf einem echten Schul-iPad (eine Meldung). Die sieben muttersprachlichen Einträge und Safari in `data/review.json` bleiben unbestätigt. Die neue hashgebundene `dictionaryEditorial`-Prüfung ist davon getrennt und behauptet keine Muttersprachlerbeteiligung. Kein Bild oder fehlender Wörterbucheintrag wurde erfunden. Der automatische WebKit-Lauf ersetzt den echten Gerätetest mit Touch, Bildschirmtastatur, Scrollen und PDF-Druck nicht.
 
 GitHub-Ziel ist ausschließlich der vorhandene Branch `feature/detektivspiel-komplett` und dessen offener Draft-PR #1 gegen `main`. Kein zweiter PR, kein Merge und kein Deployment.

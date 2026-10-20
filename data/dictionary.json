@@ -6,8 +6,9 @@
     "pl": "wskazówka",
     "tr": "ipucu",
     "ar": "تلميح",
-    "ku": null,
-    "ckb": null
+    "ku": "nîşan",
+    "ckb": "نیشانە",
+    "context": "Anhaltspunkt oder Hilfe zum Lösen einer Aufgabe."
   },
   {
     "de": "Aufgabe",
@@ -16,8 +17,9 @@
     "pl": "zadanie",
     "tr": "görev",
     "ar": "مهمة",
-    "ku": null,
-    "ckb": null
+    "ku": "peywir",
+    "ckb": "ئەرک",
+    "context": "Arbeitsauftrag im Spiel."
   },
   {
     "de": "Lösung",
@@ -26,8 +28,9 @@
     "pl": "rozwiązanie",
     "tr": "çözüm",
     "ar": "حل",
-    "ku": null,
-    "ckb": null
+    "ku": "çareserî",
+    "ckb": "وەڵام",
+    "context": "Antwort auf ein Rätsel; keine chemische Lösung."
   },
   {
     "de": "Antwort",
@@ -46,8 +49,8 @@
     "pl": "wybierać",
     "tr": "seçmek",
     "ar": "اختيار",
-    "ku": null,
-    "ckb": null
+    "ku": "bijartin",
+    "ckb": "هەڵبژاردن"
   },
   {
     "de": "markieren",
@@ -56,8 +59,8 @@
     "pl": "zaznaczać",
     "tr": "işaretlemek",
     "ar": "تحديد",
-    "ku": null,
-    "ckb": null
+    "ku": "nîşan kirin",
+    "ckb": "نیشان کردن"
   },
   {
     "de": "vergleichen",
@@ -66,8 +69,8 @@
     "pl": "porównywać",
     "tr": "karşılaştırmak",
     "ar": "مقارنة",
-    "ku": null,
-    "ckb": null
+    "ku": "dan ber hev",
+    "ckb": "بەراورد کردن"
   },
   {
     "de": "finden",
@@ -76,8 +79,8 @@
     "pl": "znajdować",
     "tr": "bulmak",
     "ar": "إيجاد",
-    "ku": null,
-    "ckb": null
+    "ku": "peyda kirin",
+    "ckb": "دۆزینەوە"
   },
   {
     "de": "untersuchen",
@@ -86,8 +89,8 @@
     "pl": "badać",
     "tr": "incelemek",
     "ar": "فحص",
-    "ku": null,
-    "ckb": null
+    "ku": "lêpirsîn",
+    "ckb": "لێکۆڵینەوە"
   },
   {
     "de": "Punkte",
@@ -96,8 +99,9 @@
     "pl": "punkty",
     "tr": "puanlar",
     "ar": "نقاط",
-    "ku": null,
-    "ckb": null
+    "ku": "xal",
+    "ckb": "خاڵ",
+    "context": "Punktzahl im Spiel; kurdische Belege verwenden die Grundform Punkt."
   },
   {
     "de": "Bild",
@@ -126,8 +130,8 @@
     "pl": "poprawnie",
     "tr": "doğru",
     "ar": "صحيح",
-    "ku": null,
-    "ckb": null
+    "ku": "rast",
+    "ckb": "ڕاست"
   },
   {
     "de": "falsch",
@@ -136,8 +140,8 @@
     "pl": "niepoprawnie",
     "tr": "yanlış",
     "ar": "خطأ",
-    "ku": null,
-    "ckb": null
+    "ku": "şaş",
+    "ckb": "هەڵە"
   },
   {
     "de": "Kontinent",
@@ -146,8 +150,8 @@
     "pl": "kontynent",
     "tr": "kıta",
     "ar": "قارة",
-    "ku": null,
-    "ckb": null
+    "ku": "parzemîn",
+    "ckb": "کیشوەر"
   },
   {
     "de": "Land",
@@ -157,7 +161,8 @@
     "tr": "ülke",
     "ar": "بلد",
     "ku": "welat",
-    "ckb": "وڵات"
+    "ckb": "وڵات",
+    "context": "Staat; nicht Boden oder ländlicher Raum."
   },
   {
     "de": "Stadt",
@@ -187,7 +192,8 @@
     "tr": "harita",
     "ar": "خريطة",
     "ku": "nexşe",
-    "ckb": "نەخشە"
+    "ckb": "نەخشە",
+    "context": "Geografische Karte; keine Spiel- oder Bankkarte."
   },
   {
     "de": "Welt",
@@ -197,7 +203,8 @@
     "tr": "dünya",
     "ar": "العالم",
     "ku": "cîhan",
-    "ckb": "جیهان"
+    "ckb": "جیهان",
+    "context": "Die Erde und ihre Lebensräume."
   },
   {
     "de": "Meer",
@@ -216,8 +223,8 @@
     "pl": "pasmo górskie",
     "tr": "sıradağlar",
     "ar": "سلسلة جبال",
-    "ku": null,
-    "ckb": null
+    "ku": "rêzeçiya",
+    "ckb": "زنجیرە چیا"
   },
   {
     "de": "Wüste",
@@ -226,8 +233,8 @@
     "pl": "pustynia",
     "tr": "çöl",
     "ar": "صحراء",
-    "ku": null,
-    "ckb": null
+    "ku": "çol",
+    "ckb": "بیابان"
   },
   {
     "de": "Regenwald",
@@ -246,8 +253,9 @@
     "pl": "klimat",
     "tr": "iklim",
     "ar": "مناخ",
-    "ku": null,
-    "ckb": null
+    "ku": "iqlîm",
+    "ckb": "ئاووهەوا",
+    "context": "Typische Wetterverhältnisse über lange Zeiträume."
   },
   {
     "de": "Wetter",
@@ -256,8 +264,9 @@
     "pl": "pogoda",
     "tr": "hava durumu",
     "ar": "طقس",
-    "ku": null,
-    "ckb": null
+    "ku": "hewa",
+    "ckb": "کەش",
+    "context": "Wetterverhältnisse zu einem bestimmten Zeitpunkt."
   },
   {
     "de": "Bevölkerung",
@@ -266,8 +275,9 @@
     "pl": "ludność",
     "tr": "nüfus",
     "ar": "سكان",
-    "ku": null,
-    "ckb": null
+    "ku": "nifûs",
+    "ckb": "دانیشتوان",
+    "context": "Menschen, die in einem Gebiet leben."
   },
   {
     "de": "Wirtschaft",
@@ -276,8 +286,8 @@
     "pl": "gospodarka",
     "tr": "ekonomi",
     "ar": "اقتصاد",
-    "ku": null,
-    "ckb": null
+    "ku": "aborî",
+    "ckb": "ئابووری"
   },
   {
     "de": "Landwirtschaft",
@@ -286,8 +296,8 @@
     "pl": "rolnictwo",
     "tr": "tarım",
     "ar": "زراعة",
-    "ku": null,
-    "ckb": null
+    "ku": "çandinî",
+    "ckb": "کشتوکاڵ"
   },
   {
     "de": "Wasser",
@@ -336,8 +346,9 @@
     "pl": "akta",
     "tr": "dosya",
     "ar": "ملف",
-    "ku": null,
-    "ckb": null
+    "ku": "dosye",
+    "ckb": "دۆسیە",
+    "context": "Sammlung von Unterlagen zu einem Ermittlungsfall."
   },
   {
     "de": "geheim",
@@ -346,8 +357,8 @@
     "pl": "tajny",
     "tr": "gizli",
     "ar": "سري",
-    "ku": null,
-    "ckb": null
+    "ku": "nepenî",
+    "ckb": "نهێنی"
   },
   {
     "de": "Titel",
@@ -356,8 +367,9 @@
     "pl": "tytuł",
     "tr": "başlık",
     "ar": "عنوان",
-    "ku": null,
-    "ckb": null
+    "ku": "sernav",
+    "ckb": "ناونیشان",
+    "context": "Überschrift einer Unterrichtsakte."
   },
   {
     "de": "verschwunden",
@@ -366,8 +378,8 @@
     "pl": "zaginiony",
     "tr": "kaybolmuş",
     "ar": "مفقود",
-    "ku": null,
-    "ckb": null
+    "ku": "winda",
+    "ckb": "ونبوو"
   },
   {
     "de": "Foto",
@@ -386,18 +398,19 @@
     "pl": "miejsce",
     "tr": "yer",
     "ar": "مكان",
-    "ku": null,
-    "ckb": null
+    "ku": "cih",
+    "ckb": "شوێن"
   },
   {
     "de": "alle",
     "ru": "все",
     "uk": "усі",
-    "pl": "wszyscy",
+    "pl": "wszyscy / wszystkie",
     "tr": "hepsi",
     "ar": "الجميع",
-    "ku": null,
-    "ckb": null
+    "ku": "hemû",
+    "ckb": "هەموو",
+    "context": "Bei Bildern und Orten: alle. Wortformen für Personen können abweichen."
   },
   {
     "de": "einige",
@@ -406,8 +419,8 @@
     "pl": "niektóre",
     "tr": "bazıları",
     "ar": "بعض",
-    "ku": null,
-    "ckb": null
+    "ku": "hinek",
+    "ckb": "هەندێ"
   },
   {
     "de": "wenige",
@@ -416,8 +429,8 @@
     "pl": "niewiele",
     "tr": "az",
     "ar": "قليل",
-    "ku": null,
-    "ckb": null
+    "ku": "hindik",
+    "ckb": "کەم"
   },
   {
     "de": "viele",
@@ -426,8 +439,8 @@
     "pl": "wiele",
     "tr": "çok",
     "ar": "كثير",
-    "ku": null,
-    "ckb": null
+    "ku": "gelek",
+    "ckb": "زۆر"
   },
   {
     "de": "gleich",
@@ -436,8 +449,9 @@
     "pl": "taki sam",
     "tr": "aynı",
     "ar": "متشابه",
-    "ku": null,
-    "ckb": null
+    "ku": "heman",
+    "ckb": "هەمان",
+    "context": "Gleichartig oder identisch; nicht gleich im Sinne von sofort."
   },
   {
     "de": "unterschiedlich",
@@ -446,8 +460,8 @@
     "pl": "różny",
     "tr": "farklı",
     "ar": "مختلف",
-    "ku": null,
-    "ckb": null
+    "ku": "cuda",
+    "ckb": "جیاواز"
   },
   {
     "de": "nur",
@@ -456,8 +470,8 @@
     "pl": "tylko",
     "tr": "sadece",
     "ar": "فقط",
-    "ku": null,
-    "ckb": null
+    "ku": "tenê",
+    "ckb": "تەنها"
   },
   {
     "de": "nicht",
@@ -466,8 +480,8 @@
     "pl": "nie",
     "tr": "değil",
     "ar": "ليس",
-    "ku": null,
-    "ckb": null
+    "ku": "ne",
+    "ckb": "نە"
   },
   {
     "de": "ja",
@@ -496,8 +510,9 @@
     "pl": "część",
     "tr": "parça",
     "ar": "جزء",
-    "ku": null,
-    "ckb": null
+    "ku": "par",
+    "ckb": "بەش",
+    "context": "Ein Teil eines Ganzen."
   },
   {
     "de": "ganz",
@@ -506,8 +521,8 @@
     "pl": "cały",
     "tr": "bütün",
     "ar": "كامل",
-    "ku": null,
-    "ckb": null
+    "ku": "temam",
+    "ckb": "تەواو"
   },
   {
     "de": "Ausschnitt",
@@ -516,8 +531,9 @@
     "pl": "fragment",
     "tr": "kesit",
     "ar": "جزء مقتطع",
-    "ku": null,
-    "ckb": null
+    "ku": "kurtebir",
+    "ckb": "پارچەی بچوک",
+    "context": "Teil eines Bildes; Sorani gibt dies allgemein als kleines Fragment wieder."
   },
   {
     "de": "Wirklichkeit",
@@ -526,8 +542,8 @@
     "pl": "rzeczywistość",
     "tr": "gerçeklik",
     "ar": "واقع",
-    "ku": null,
-    "ckb": null
+    "ku": "rastî",
+    "ckb": "ڕاستی"
   },
   {
     "de": "Überschrift",
@@ -536,8 +552,8 @@
     "pl": "nagłówek",
     "tr": "başlık",
     "ar": "عنوان",
-    "ku": null,
-    "ckb": null
+    "ku": "sernûçe",
+    "ckb": "سەردێڕ"
   },
   {
     "de": "Nachricht",
@@ -546,8 +562,9 @@
     "pl": "wiadomość",
     "tr": "haber",
     "ar": "خبر",
-    "ku": null,
-    "ckb": null
+    "ku": "peyam",
+    "ckb": "پەیام",
+    "context": "Mitteilung oder Nachricht einer Redaktion."
   },
   {
     "de": "Redaktion",
@@ -566,8 +583,8 @@
     "pl": "wybór",
     "tr": "seçim",
     "ar": "اختيار",
-    "ku": null,
-    "ckb": null
+    "ku": "bijartin",
+    "ckb": "هەڵبژاردن"
   },
   {
     "de": "Vorstellung",
@@ -576,8 +593,9 @@
     "pl": "wyobrażenie",
     "tr": "düşünce",
     "ar": "تصور",
-    "ku": null,
-    "ckb": null
+    "ku": "xeyal",
+    "ckb": "بیرۆکە",
+    "context": "Gedanke oder inneres Bild; keine Bühnenaufführung."
   },
   {
     "de": "denken",
@@ -586,8 +604,8 @@
     "pl": "myśleć",
     "tr": "düşünmek",
     "ar": "تفكير",
-    "ku": null,
-    "ckb": null
+    "ku": "fikirîn",
+    "ckb": "بیرکردن"
   },
   {
     "de": "wissen",
@@ -596,8 +614,8 @@
     "pl": "wiedzieć",
     "tr": "bilmek",
     "ar": "معرفة",
-    "ku": null,
-    "ckb": null
+    "ku": "zanîn",
+    "ckb": "زانین"
   },
   {
     "de": "fehlen",
@@ -606,8 +624,9 @@
     "pl": "brakować",
     "tr": "eksik olmak",
     "ar": "نقص",
-    "ku": null,
-    "ckb": null
+    "ku": "nebûn",
+    "ckb": "نەبوون",
+    "context": "Nicht vorhanden sein."
   },
   {
     "de": "schreiben",
@@ -636,8 +655,8 @@
     "pl": "oglądać",
     "tr": "bakmak",
     "ar": "نظر",
-    "ku": null,
-    "ckb": null
+    "ku": "mêze kirin",
+    "ckb": "تەمەشاکردن"
   },
   {
     "de": "antippen",
@@ -646,8 +665,9 @@
     "pl": "dotknąć",
     "tr": "dokunmak",
     "ar": "نقر",
-    "ku": null,
-    "ckb": null
+    "ku": "tikandin",
+    "ckb": null,
+    "context": "Auf der Oberfläche auswählen; wie anklicken."
   },
   {
     "de": "öffnen",
@@ -656,8 +676,8 @@
     "pl": "otworzyć",
     "tr": "açmak",
     "ar": "فتح",
-    "ku": null,
-    "ckb": null
+    "ku": "vekirin",
+    "ckb": "کردنەوە"
   },
   {
     "de": "schließen",
@@ -666,8 +686,8 @@
     "pl": "zamknąć",
     "tr": "kapatmak",
     "ar": "إغلاق",
-    "ku": null,
-    "ckb": null
+    "ku": "girtin",
+    "ckb": "داخستن"
   },
   {
     "de": "weiter",
@@ -676,8 +696,9 @@
     "pl": "dalej",
     "tr": "devam",
     "ar": "التالي",
-    "ku": null,
-    "ckb": null
+    "ku": "pêş",
+    "ckb": "دوواتر",
+    "context": "Nächster Schritt im Spiel."
   },
   {
     "de": "zurück",
@@ -686,8 +707,8 @@
     "pl": "wstecz",
     "tr": "geri",
     "ar": "رجوع",
-    "ku": null,
-    "ckb": null
+    "ku": "paşve",
+    "ckb": "دواوە"
   },
   {
     "de": "Start",
@@ -696,8 +717,9 @@
     "pl": "start",
     "tr": "başlangıç",
     "ar": "بداية",
-    "ku": null,
-    "ckb": null
+    "ku": "destpêk",
+    "ckb": "سەرەتا",
+    "context": "Beginn."
   },
   {
     "de": "neu",
@@ -717,7 +739,8 @@
     "tr": "eski",
     "ar": "قديم",
     "ku": "kevn",
-    "ckb": "کۆن"
+    "ckb": "کۆن",
+    "context": "Seit längerer Zeit vorhanden; hier nicht das Alter einer Person."
   },
   {
     "de": "jetzt",
@@ -736,8 +759,8 @@
     "pl": "wcześniej",
     "tr": "önce",
     "ar": "قبل",
-    "ku": null,
-    "ckb": null
+    "ku": "berê",
+    "ckb": "لەمەوپێش"
   },
   {
     "de": "danach",
@@ -746,8 +769,8 @@
     "pl": "potem",
     "tr": "sonra",
     "ar": "بعد ذلك",
-    "ku": null,
-    "ckb": null
+    "ku": "paşê",
+    "ckb": "پاشان"
   },
   {
     "de": "Anfang",
@@ -756,8 +779,8 @@
     "pl": "początek",
     "tr": "başlangıç",
     "ar": "بداية",
-    "ku": null,
-    "ckb": null
+    "ku": "destpêk",
+    "ckb": "سەرەتا"
   },
   {
     "de": "Ende",
@@ -766,8 +789,8 @@
     "pl": "koniec",
     "tr": "son",
     "ar": "نهاية",
-    "ku": null,
-    "ckb": null
+    "ku": "dawî",
+    "ckb": "کۆتایی"
   },
   {
     "de": "vier",
@@ -836,8 +859,8 @@
     "pl": "numer",
     "tr": "numara",
     "ar": "رقم",
-    "ku": null,
-    "ckb": null
+    "ku": "hejmar",
+    "ckb": "ژمارە"
   },
   {
     "de": "Team",
@@ -846,8 +869,8 @@
     "pl": "zespół",
     "tr": "takım",
     "ar": "فريق",
-    "ku": null,
-    "ckb": null
+    "ku": "tîm",
+    "ckb": "تیم"
   },
   {
     "de": "Name",
@@ -866,8 +889,9 @@
     "pl": "próba",
     "tr": "deneme",
     "ar": "محاولة",
-    "ku": null,
-    "ckb": null
+    "ku": "ezmûn",
+    "ckb": "هەوڵ",
+    "context": "Lösungsversuch, kein wissenschaftliches Experiment."
   },
   {
     "de": "Ergebnis",
@@ -876,8 +900,8 @@
     "pl": "wynik",
     "tr": "sonuç",
     "ar": "نتيجة",
-    "ku": null,
-    "ckb": null
+    "ku": "encam",
+    "ckb": "ئەنجام"
   },
   {
     "de": "erfolgreich",
@@ -886,8 +910,8 @@
     "pl": "pomyślnie",
     "tr": "başarılı",
     "ar": "ناجح",
-    "ku": null,
-    "ckb": null
+    "ku": "serkeftî",
+    "ckb": "سەرکەوتوو"
   },
   {
     "de": "freiwillig",
@@ -896,8 +920,8 @@
     "pl": "dobrowolnie",
     "tr": "gönüllü",
     "ar": "طوعي",
-    "ku": null,
-    "ckb": null
+    "ku": "xwewîst",
+    "ckb": "خۆویستی"
   },
   {
     "de": "Hilfe",
@@ -916,8 +940,9 @@
     "pl": "wpisać",
     "tr": "yazmak",
     "ar": "تسجيل",
-    "ku": null,
-    "ckb": null
+    "ku": "tomarkirin",
+    "ckb": "تۆمار کردن",
+    "context": "Auf Papier notieren; nicht einen Raum betreten."
   },
   {
     "de": "notieren",
@@ -926,8 +951,9 @@
     "pl": "zanotować",
     "tr": "not almak",
     "ar": "تدوين",
-    "ku": null,
-    "ckb": null
+    "ku": "tomar kirin",
+    "ckb": "تۆمار کردن",
+    "context": "Schriftlich festhalten."
   },
   {
     "de": "Papier",
@@ -936,8 +962,8 @@
     "pl": "papier",
     "tr": "kâğıt",
     "ar": "ورق",
-    "ku": null,
-    "ckb": null
+    "ku": "kaxez",
+    "ckb": "کاغەز"
   },
   {
     "de": "Bogen",
@@ -946,8 +972,9 @@
     "pl": "arkusz",
     "tr": "form",
     "ar": "ورقة",
-    "ku": null,
-    "ckb": null
+    "ku": "pel",
+    "ckb": "پەڕە",
+    "context": "Papierblatt oder Arbeitsblatt; kein Bogen zum Schießen."
   },
   {
     "de": "Stichpunkt",
@@ -957,7 +984,8 @@
     "tr": "kısa not",
     "ar": "نقطة مختصرة",
     "ku": null,
-    "ckb": null
+    "ckb": null,
+    "context": "Kurze Notiz; kein Computerpasswort."
   },
   {
     "de": "Satz",
@@ -966,8 +994,9 @@
     "pl": "zdanie",
     "tr": "cümle",
     "ar": "جملة",
-    "ku": null,
-    "ckb": null
+    "ku": "hevok",
+    "ckb": "ڕستە",
+    "context": "Eine sprachliche Äußerung; keine Sportwertung."
   },
   {
     "de": "Wort",
@@ -1006,8 +1035,9 @@
     "pl": "tłumaczenie",
     "tr": "çeviri",
     "ar": "ترجمة",
-    "ku": null,
-    "ckb": null
+    "ku": "werger",
+    "ckb": "وەرگێڕان",
+    "context": "Übertragung in eine andere Sprache."
   },
   {
     "de": "Beweis",
@@ -1016,8 +1046,9 @@
     "pl": "dowód",
     "tr": "kanıt",
     "ar": "دليل",
-    "ku": null,
-    "ckb": null
+    "ku": "belge",
+    "ckb": "بەلگە",
+    "context": "Etwas, das eine Annahme stützt."
   },
   {
     "de": "Spur",
@@ -1026,8 +1057,9 @@
     "pl": "ślad",
     "tr": "iz",
     "ar": "أثر",
-    "ku": null,
-    "ckb": null
+    "ku": "şop",
+    "ckb": "شوێنەوار",
+    "context": "Hinweis auf einen untersuchten Sachverhalt."
   },
   {
     "de": "Rätsel",
@@ -1036,8 +1068,8 @@
     "pl": "zagadka",
     "tr": "bilmece",
     "ar": "لغز",
-    "ku": null,
-    "ckb": null
+    "ku": "metel",
+    "ckb": "مەتەڵ"
   },
   {
     "de": "Fall",
@@ -1046,8 +1078,9 @@
     "pl": "sprawa",
     "tr": "vaka",
     "ar": "قضية",
-    "ku": null,
-    "ckb": null
+    "ku": "doz",
+    "ckb": "دۆسیە",
+    "context": "Ermittlungsfall; kein Sturz. Sorani bezeichnet hier die zugehörige Akte."
   },
   {
     "de": "vergleichen wir",
@@ -1057,7 +1090,8 @@
     "tr": "karşılaştıralım",
     "ar": "لنقارن",
     "ku": null,
-    "ckb": null
+    "ckb": null,
+    "context": "Aufforderung: Lasst uns vergleichen. Keine ungeprüfte Satzübersetzung ergänzen."
   },
   {
     "de": "Norden",
@@ -1106,8 +1140,8 @@
     "pl": "równik",
     "tr": "ekvator",
     "ar": "خط الاستواء",
-    "ku": null,
-    "ckb": null
+    "ku": "ekwator",
+    "ckb": "هێلی یەکسانبوون"
   },
   {
     "de": "Küste",
@@ -1116,8 +1150,8 @@
     "pl": "wybrzeże",
     "tr": "kıyı",
     "ar": "ساحل",
-    "ku": null,
-    "ckb": null
+    "ku": "sahil",
+    "ckb": "کەنار"
   },
   {
     "de": "Insel",
@@ -1126,8 +1160,8 @@
     "pl": "wyspa",
     "tr": "ada",
     "ar": "جزيرة",
-    "ku": null,
-    "ckb": null
+    "ku": "girav",
+    "ckb": "دوورگە"
   },
   {
     "de": "Fluss",
@@ -1146,8 +1180,9 @@
     "pl": "jezioro",
     "tr": "göl",
     "ar": "بحيرة",
-    "ku": null,
-    "ckb": null
+    "ku": "gol",
+    "ckb": "دەریاچە",
+    "context": "Binnengewässer (der See); nicht das Meer (die See)."
   },
   {
     "de": "Berg",
@@ -1176,8 +1211,8 @@
     "pl": "piasek",
     "tr": "kum",
     "ar": "رمل",
-    "ku": null,
-    "ckb": null
+    "ku": "xîz",
+    "ckb": "لم"
   },
   {
     "de": "Düne",
@@ -1187,7 +1222,8 @@
     "tr": "kumul",
     "ar": "كثيب رملي",
     "ku": null,
-    "ckb": null
+    "ckb": "گردێک کە با دروستیکردبێت",
+    "context": "Vom Wind aufgebauter Hügel aus Sand; Sorani-Beleg ist eine Umschreibung, kein geprüfter Fachterminus."
   },
   {
     "de": "Wald",
@@ -1196,8 +1232,8 @@
     "pl": "las",
     "tr": "orman",
     "ar": "غابة",
-    "ku": null,
-    "ckb": null
+    "ku": "daristan",
+    "ckb": "دارستان"
   },
   {
     "de": "Savanne",
@@ -1207,7 +1243,7 @@
     "tr": "savan",
     "ar": "سافانا",
     "ku": null,
-    "ckb": null
+    "ckb": "ساڤانا"
   },
   {
     "de": "Tier",
@@ -1226,8 +1262,8 @@
     "pl": "roślina",
     "tr": "bitki",
     "ar": "نبات",
-    "ku": null,
-    "ckb": null
+    "ku": "giya",
+    "ckb": "ڕووەک"
   },
   {
     "de": "Baum",
@@ -1246,8 +1282,8 @@
     "pl": "suchy",
     "tr": "kuru",
     "ar": "جاف",
-    "ku": null,
-    "ckb": null
+    "ku": "hişk",
+    "ckb": "وشک"
   },
   {
     "de": "feucht",
@@ -1256,8 +1292,8 @@
     "pl": "wilgotny",
     "tr": "nemli",
     "ar": "رطب",
-    "ku": null,
-    "ckb": null
+    "ku": "şil",
+    "ckb": "شێدار"
   },
   {
     "de": "heiß",
@@ -1266,8 +1302,8 @@
     "pl": "gorący",
     "tr": "sıcak",
     "ar": "حار",
-    "ku": null,
-    "ckb": null
+    "ku": "germ",
+    "ckb": "گەرم"
   },
   {
     "de": "kalt",
@@ -1306,8 +1342,8 @@
     "pl": "wysoki",
     "tr": "yüksek",
     "ar": "عال",
-    "ku": null,
-    "ckb": null
+    "ku": "bilind",
+    "ckb": "بەرز"
   },
   {
     "de": "Ernte",
@@ -1316,8 +1352,8 @@
     "pl": "plony",
     "tr": "hasat",
     "ar": "حصاد",
-    "ku": null,
-    "ckb": null
+    "ku": "hasil",
+    "ckb": "بەروبووم"
   },
   {
     "de": "Feld",
@@ -1326,8 +1362,9 @@
     "pl": "pole",
     "tr": "tarla",
     "ar": "حقل",
-    "ku": null,
-    "ckb": null
+    "ku": "zevî",
+    "ckb": "کێلگە",
+    "context": "Landwirtschaftlich genutzte Fläche."
   },
   {
     "de": "Betrieb",
@@ -1336,8 +1373,9 @@
     "pl": "zakład",
     "tr": "işletme",
     "ar": "منشأة",
-    "ku": null,
-    "ckb": null
+    "ku": "pargîdanî",
+    "ckb": "کۆمپانیا",
+    "context": "Unternehmen oder Produktionsstätte."
   },
   {
     "de": "Produktion",
@@ -1346,8 +1384,9 @@
     "pl": "produkcja",
     "tr": "üretim",
     "ar": "إنتاج",
-    "ku": null,
-    "ckb": null
+    "ku": "hilberîn",
+    "ckb": "بەرهەمهێنان",
+    "context": "Herstellung von Gütern."
   },
   {
     "de": "Produkt",
@@ -1356,8 +1395,9 @@
     "pl": "produkt",
     "tr": "ürün",
     "ar": "منتج",
-    "ku": null,
-    "ckb": null
+    "ku": "ber",
+    "ckb": "بەرهەم",
+    "context": "Hergestellte Ware."
   },
   {
     "de": "Kakao",
@@ -1366,8 +1406,8 @@
     "pl": "kakao",
     "tr": "kakao",
     "ar": "كاكاو",
-    "ku": null,
-    "ckb": null
+    "ku": "kakao",
+    "ckb": "کاکاو"
   },
   {
     "de": "Frucht",
@@ -1376,8 +1416,9 @@
     "pl": "owoc",
     "tr": "meyve",
     "ar": "ثمرة",
-    "ku": null,
-    "ckb": null
+    "ku": "ber",
+    "ckb": "میوە",
+    "context": "Frucht einer Pflanze."
   },
   {
     "de": "Schokolade",
@@ -1386,8 +1427,8 @@
     "pl": "czekolada",
     "tr": "çikolata",
     "ar": "شوكولاتة",
-    "ku": null,
-    "ckb": null
+    "ku": "çîkolate",
+    "ckb": "شوکولاتە"
   },
   {
     "de": "Handel",
@@ -1396,8 +1437,8 @@
     "pl": "handel",
     "tr": "ticaret",
     "ar": "تجارة",
-    "ku": null,
-    "ckb": null
+    "ku": "bazirganî",
+    "ckb": "بازرگانی"
   },
   {
     "de": "Markt",
@@ -1416,8 +1457,8 @@
     "pl": "port",
     "tr": "liman",
     "ar": "ميناء",
-    "ku": null,
-    "ckb": null
+    "ku": "bender",
+    "ckb": "بەندەر"
   },
   {
     "de": "Straße",
@@ -1426,8 +1467,9 @@
     "pl": "ulica",
     "tr": "sokak",
     "ar": "شارع",
-    "ku": null,
-    "ckb": null
+    "ku": "kolan",
+    "ckb": "شەقام",
+    "context": "Straße in einer Siedlung."
   },
   {
     "de": "Verkehr",
@@ -1436,8 +1478,9 @@
     "pl": "ruch drogowy",
     "tr": "trafik",
     "ar": "حركة المرور",
-    "ku": null,
-    "ckb": null
+    "ku": "trafîk",
+    "ckb": "هاتوچۆ لە ڕێوباندا",
+    "context": "Straßenverkehr."
   },
   {
     "de": "Wohnung",
@@ -1446,8 +1489,8 @@
     "pl": "mieszkanie",
     "tr": "daire",
     "ar": "شقة",
-    "ku": null,
-    "ckb": null
+    "ku": "apartman",
+    "ckb": "ئاپارتمان"
   },
   {
     "de": "Haus",
@@ -1466,8 +1509,9 @@
     "pl": "ludzie",
     "tr": "insanlar",
     "ar": "ناس",
-    "ku": null,
-    "ckb": null
+    "ku": "xelk",
+    "ckb": "خەڵک",
+    "context": "Personen; kein bestimmtes Volk."
   },
   {
     "de": "Kind",
@@ -1487,7 +1531,8 @@
     "tr": "yaşam",
     "ar": "حياة",
     "ku": "jiyan",
-    "ckb": "ژیان"
+    "ckb": "ژیان",
+    "context": "Das Leben (Substantiv)."
   },
   {
     "de": "wachsen",
@@ -1496,8 +1541,9 @@
     "pl": "rosnąć",
     "tr": "büyümek",
     "ar": "نمو",
-    "ku": null,
-    "ckb": null
+    "ku": "mezinbûn",
+    "ckb": "گەورەبوون",
+    "context": "Größer werden."
   },
   {
     "de": "Bevölkerungswachstum",
@@ -1507,7 +1553,8 @@
     "tr": "nüfus artışı",
     "ar": "نمو سكاني",
     "ku": null,
-    "ckb": null
+    "ckb": null,
+    "context": "Zunahme der Einwohnerzahl."
   },
   {
     "de": "Chance",
@@ -1516,8 +1563,8 @@
     "pl": "szansa",
     "tr": "fırsat",
     "ar": "فرصة",
-    "ku": null,
-    "ckb": null
+    "ku": "firset",
+    "ckb": "دەرفەت"
   },
   {
     "de": "Risiko",
@@ -1526,8 +1573,8 @@
     "pl": "ryzyko",
     "tr": "risk",
     "ar": "خطر",
-    "ku": null,
-    "ckb": null
+    "ku": "xetere",
+    "ckb": "مەترسی"
   },
   {
     "de": "Zukunft",
@@ -1536,8 +1583,8 @@
     "pl": "przyszłość",
     "tr": "gelecek",
     "ar": "مستقبل",
-    "ku": null,
-    "ckb": null
+    "ku": "paşeroj",
+    "ckb": "پاشەڕۆژ"
   },
   {
     "de": "Natur",
@@ -1546,8 +1593,9 @@
     "pl": "przyroda",
     "tr": "doğa",
     "ar": "طبيعة",
-    "ku": null,
-    "ckb": null
+    "ku": "xweza",
+    "ckb": "سروشت",
+    "context": "Natürliche Umwelt; nicht Charaktereigenschaft."
   },
   {
     "de": "Umwelt",
@@ -1556,8 +1604,9 @@
     "pl": "środowisko",
     "tr": "çevre",
     "ar": "بيئة",
-    "ku": null,
-    "ckb": null
+    "ku": "hawirdor",
+    "ckb": "ژینگە",
+    "context": "Natürliche Umgebung und Lebensbedingungen."
   },
   {
     "de": "Strom",
@@ -1566,8 +1615,9 @@
     "pl": "prąd elektryczny",
     "tr": "elektrik",
     "ar": "كهرباء",
-    "ku": null,
-    "ckb": null
+    "ku": "elektrîk",
+    "ckb": "کارەبا",
+    "context": "Elektrizität; kein Fluss."
   },
   {
     "de": "Sonne",
@@ -1596,8 +1646,8 @@
     "pl": "energia",
     "tr": "enerji",
     "ar": "طاقة",
-    "ku": null,
-    "ckb": null
+    "ku": "wize",
+    "ckb": "ووزە"
   },
   {
     "de": "brauchen",
@@ -1606,8 +1656,9 @@
     "pl": "potrzebować",
     "tr": "ihtiyaç duymak",
     "ar": "احتياج",
-    "ku": null,
-    "ckb": null
+    "ku": "hewce kirin",
+    "ckb": "پێویستی",
+    "context": "Benötigen."
   },
   {
     "de": "herstellen",
@@ -1616,8 +1667,9 @@
     "pl": "produkować",
     "tr": "üretmek",
     "ar": "تصنيع",
-    "ku": null,
-    "ckb": null
+    "ku": "hilberandin",
+    "ckb": "بەرهەمهێنان",
+    "context": "Produzieren, insbesondere Waren."
   },
   {
     "de": "anbauen",
@@ -1626,8 +1678,9 @@
     "pl": "uprawiać",
     "tr": "yetiştirmek",
     "ar": "زراعة",
-    "ku": null,
-    "ckb": null
+    "ku": "çandin",
+    "ckb": "کشتوکاڵ کردن",
+    "context": "Pflanzen zur Ernte kultivieren; kein Gebäudeteil."
   },
   {
     "de": "verkaufen",
@@ -1636,8 +1689,8 @@
     "pl": "sprzedawać",
     "tr": "satmak",
     "ar": "بيع",
-    "ku": null,
-    "ckb": null
+    "ku": "firotin",
+    "ckb": "فرۆشتن"
   },
   {
     "de": "lernen",
@@ -1647,7 +1700,8 @@
     "tr": "öğrenmek",
     "ar": "تعلم",
     "ku": "hînbûn",
-    "ckb": null
+    "ckb": "فێربوون",
+    "context": "Wissen oder Fähigkeiten erwerben."
   },
   {
     "de": "Schüler",
@@ -1656,8 +1710,8 @@
     "pl": "uczeń",
     "tr": "öğrenci",
     "ar": "تلميذ",
-    "ku": null,
-    "ckb": null
+    "ku": "xwendekar",
+    "ckb": "قوتابی"
   },
   {
     "de": "Lehrkraft",
@@ -1676,8 +1730,8 @@
     "pl": "uniwersytet",
     "tr": "üniversite",
     "ar": "جامعة",
-    "ku": null,
-    "ckb": null
+    "ku": "zanîngeh",
+    "ckb": "زانکۆ"
   },
   {
     "de": "überrascht",
@@ -1686,8 +1740,8 @@
     "pl": "zaskoczony",
     "tr": "şaşırmış",
     "ar": "متفاجئ",
-    "ku": null,
-    "ckb": null
+    "ku": "metel",
+    "ckb": "سەرسوڕماو"
   },
   {
     "de": "überall",
@@ -1696,8 +1750,8 @@
     "pl": "wszędzie",
     "tr": "her yerde",
     "ar": "في كل مكان",
-    "ku": null,
-    "ckb": null
+    "ku": "herder",
+    "ckb": "لە هەموو شوێنێکدا"
   },
   {
     "de": "Beispiel",
@@ -1706,8 +1760,8 @@
     "pl": "przykład",
     "tr": "örnek",
     "ar": "مثال",
-    "ku": null,
-    "ckb": null
+    "ku": "mînak",
+    "ckb": "نموونە"
   },
   {
     "de": "Kopf",
@@ -1736,8 +1790,8 @@
     "pl": "Maroko",
     "tr": "Fas",
     "ar": "المغرب",
-    "ku": null,
-    "ckb": null
+    "ku": "Fas",
+    "ckb": "مەغریب"
   },
   {
     "de": "Nigeria",
@@ -1746,8 +1800,8 @@
     "pl": "Nigeria",
     "tr": "Nijerya",
     "ar": "نيجيريا",
-    "ku": null,
-    "ckb": null
+    "ku": "Nîjerya",
+    "ckb": "نیجریا"
   },
   {
     "de": "Ghana",
@@ -1756,8 +1810,8 @@
     "pl": "Ghana",
     "tr": "Gana",
     "ar": "غانا",
-    "ku": null,
-    "ckb": null
+    "ku": "Gana",
+    "ckb": "غەنا"
   },
   {
     "de": "Kenia",
@@ -1766,8 +1820,8 @@
     "pl": "Kenia",
     "tr": "Kenya",
     "ar": "كينيا",
-    "ku": null,
-    "ckb": null
+    "ku": "Kenya",
+    "ckb": "کینیا"
   },
   {
     "de": "Mittelmeer",
@@ -1776,8 +1830,8 @@
     "pl": "Morze Śródziemne",
     "tr": "Akdeniz",
     "ar": "البحر الأبيض المتوسط",
-    "ku": null,
-    "ckb": null
+    "ku": "Deryaya Navîn",
+    "ckb": "دەریای سپی ناوەڕاست"
   },
   {
     "de": "Atlantik",
@@ -1786,8 +1840,8 @@
     "pl": "Ocean Atlantycki",
     "tr": "Atlas Okyanusu",
     "ar": "المحيط الأطلسي",
-    "ku": null,
-    "ckb": null
+    "ku": "Okyanûsa Atlantîk",
+    "ckb": "ئۆقیانوسی ئەتڵەسی"
   },
   {
     "de": "Golf von Guinea",
@@ -1806,8 +1860,8 @@
     "pl": "rozwój",
     "tr": "gelişme",
     "ar": "تنمية",
-    "ku": null,
-    "ckb": null
+    "ku": "pêşketin",
+    "ckb": "گەشەپێدان"
   },
   {
     "de": "nachhaltig",
@@ -1817,7 +1871,8 @@
     "tr": "sürdürülebilir",
     "ar": "مستدام",
     "ku": null,
-    "ckb": null
+    "ckb": null,
+    "context": "Ökologisch zukunftsfähig; nicht lediglich dauerhaft."
   },
   {
     "de": "zählen",
@@ -1826,8 +1881,9 @@
     "pl": "liczyć",
     "tr": "saymak",
     "ar": "عد",
-    "ku": null,
-    "ckb": null
+    "ku": "hejmartin",
+    "ckb": "ژماردن",
+    "context": "Die Anzahl bestimmen."
   },
   {
     "de": "prüfen",
@@ -1836,8 +1892,9 @@
     "pl": "sprawdzać",
     "tr": "kontrol etmek",
     "ar": "تحقق",
-    "ku": null,
-    "ckb": null
+    "ku": "ceribandin",
+    "ckb": "پشکنین",
+    "context": "Untersuchen oder kontrollieren."
   },
   {
     "de": "bestätigen",
@@ -1846,8 +1903,9 @@
     "pl": "potwierdzać",
     "tr": "onaylamak",
     "ar": "تأكيد",
-    "ku": null,
-    "ckb": null
+    "ku": "pesendkirin",
+    "ckb": "چەسپاندن",
+    "context": "Eine Eingabe bestätigen."
   },
   {
     "de": "zuordnen",
@@ -1857,7 +1915,8 @@
     "tr": "eşleştirmek",
     "ar": "مطابقة",
     "ku": null,
-    "ckb": null
+    "ckb": null,
+    "context": "Passende Elemente verbinden; nicht ein Streichholz."
   },
   {
     "de": "rot",
@@ -1866,7 +1925,7 @@
     "pl": "czerwony",
     "tr": "kırmızı",
     "ar": "أحمر",
-    "ku": null,
-    "ckb": null
+    "ku": "sor",
+    "ckb": "سوور"
   }
 ]

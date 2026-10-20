@@ -1,6 +1,7 @@
 import { readFile, stat } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { photos, clues } from "../data/cases.js";
+import { dictionaryIntegrity } from "./dictionary-integrity.mjs";
 const root = new URL("../", import.meta.url);
 const media = JSON.parse(await readFile(new URL("data/media.json", root)));
 const required = [
@@ -78,10 +79,17 @@ if (Object.keys(media.images).length !== required.length ||
   console.log("OFFEN: 15 eindeutige lokale Fotodateien erforderlich");
   open++;
 }
-const dictionary = JSON.parse(
-  await readFile(new URL("data/dictionary.json", root)),
-);
+const { dictionary, problems } = await dictionaryIntegrity(root);
+for (const problem of problems) {
+  console.log(`UNGÜLTIG: ${problem}`);
+  open++;
+}
 const review = JSON.parse(await readFile(new URL("data/review.json", root)));
+if (review.dictionaryEditorial?.dictionarySha256 !==
+  createHash("sha256").update(await readFile(new URL("data/dictionary.json", root))).digest("hex")) {
+  console.log("OFFEN: Redaktionelle Wörterbuchprüfung passt nicht zum aktuellen Inhalt");
+  open++;
+}
 for (const lang of ["ru", "uk", "pl", "tr", "ar", "ku", "ckb"]) {
   const missing = dictionary.filter((e) => !e[lang]).length;
   if (missing) {

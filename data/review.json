@@ -1,5 +1,28 @@
 {
-  "dictionary": {"ru": false, "uk": false, "pl": false, "tr": false, "ar": false, "ku": false, "ckb": false},
+  "dictionary": {
+    "ru": false,
+    "uk": false,
+    "pl": false,
+    "tr": false,
+    "ar": false,
+    "ku": false,
+    "ckb": false
+  },
   "safari": false,
-  "note": "Erst nach tatsächlicher fachlicher beziehungsweise Geräteprüfung bestätigen. Keine automatische Behauptung einer menschlichen Abnahme."
+  "note": "Erst nach tatsächlicher fachlicher beziehungsweise Geräteprüfung bestätigen. Keine automatische Behauptung einer menschlichen Abnahme.",
+  "dictionaryEditorial": {
+    "date": "2026-10-20",
+    "kind": "Quellengestützte redaktionelle Plausibilität, keine muttersprachliche Prüfung",
+    "languages": {
+      "ru": true,
+      "uk": true,
+      "pl": true,
+      "tr": true,
+      "ar": true,
+      "ku": true,
+      "ckb": true
+    },
+    "evidence": "data/dictionary-evidence.json",
+    "dictionarySha256": "1a2bb22eaf51101b963125658f00c6e9c7b36491ef66c40d82f38d093631ce06"
+  }
 }

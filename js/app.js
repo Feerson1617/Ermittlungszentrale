@@ -454,13 +454,15 @@ function dictionarySearch() {
   const r = lookup(entries, input, language),
     out = document.querySelector("#dictionary-result");
   out.dir = languages.find((l) => l[0] === language)?.[2] || "ltr";
-  out.lang = language;
+  out.lang = language === "ku" ? "kmr" : language;
   out.textContent =
     r.status === "empty"
       ? "Hier steht die Übersetzung."
       : r.status === "found"
         ? r.translation
         : "Keine Übersetzung vorhanden.";
+  document.querySelector("#dictionary-context").textContent = r.entry?.context
+    ? `Bedeutung im Spiel: ${r.entry.context}` : "";
   const suggestions = document.querySelector("#dictionary-suggestions");
   suggestions.innerHTML = r.suggestions
     .map(

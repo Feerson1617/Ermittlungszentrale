@@ -956,6 +956,11 @@ dialog::backdrop {
 .translation[dir="rtl"] {
   font-size: 1.65rem;
 }
+#dictionary a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
 .dictionary-grid .field-label {
   margin-bottom: 14px;
 }

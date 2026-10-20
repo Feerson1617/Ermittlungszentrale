@@ -2,7 +2,7 @@
 
 Ein browserbasiertes Geographie-Detektivspiel für Klasse 7: fünf unabhängige Akten, kurze Texte, Zweierteams und Ergebnisse auf Papier. Reines HTML, CSS und JavaScript, ohne Build-Schritt für das Spiel.
 
-**Abnahmestatus:** Alle fünf Akten enthalten jetzt die 15 authentischen, lokal gespeicherten Fotografien mit belegten Aufnahmeorten und freien Lizenzen. Die Unterrichtsfreigabe ist noch offen: beide kurdischen Wörterbuchvarianten sind unvollständig, die sprachliche Prüfung und der Safari-Test auf einem echten Schul-iPad stehen aus. Einzelheiten in [Abnahme](docs/abnahme.md), [Bildquellen](docs/bildquellen.md) und [Testbericht](docs/testbericht.md).
+**Abnahmestatus:** Alle fünf Akten enthalten die 15 authentischen, lokal gespeicherten Fotografien mit belegten Aufnahmeorten und freien Lizenzen. Das Wörterbuch ist auf 176 Kurmandschi- und 177 Sorani-Werte erweitert; alle sieben Sprachen sind redaktionell plausibilisiert. Offen bleiben 21 kurdische Einträge, die muttersprachliche Abnahme aller sieben Sprachen und Safari auf einem echten Schul-iPad. Einzelheiten in [Abnahme](docs/abnahme.md), [Wörterbuchprüfung](docs/woerterbuch-pruefung.md), [Bildquellen](docs/bildquellen.md) und [Testbericht](docs/testbericht.md).
 
 ## Lokal starten
 
@@ -46,7 +46,9 @@ Zur erneuten Optimierung die in `data/media.json` angegebenen Originaldateien mi
 
 ## Wörterbuch
 
-187 Begriffe. Sieben getrennte Zielsprachen: Russisch, Ukrainisch, Polnisch, Türkisch, Standardarabisch, Kurdisch (Kurmandschi) und Kurdisch (Sorani). Arabisch und Sorani erscheinen rechtsbündig mit RTL-Schreibrichtung. Sichere bekannte Tippvarianten werden erkannt; unsichere Treffer werden nur vorgeschlagen. Fehlendes bleibt „Keine Übersetzung vorhanden“. Kurdische Lücken und muttersprachliche Prüfung: siehe [Abnahme](docs/abnahme.md).
+187 Begriffe. Sieben getrennte Zielsprachen: Russisch, Ukrainisch, Polnisch, Türkisch und Standardarabisch mit jeweils 187 Werten; Kurmandschi mit 176 und Sorani mit 177. Alle 353 vorhandenen kurdischen Werte sind einzeln mit Quellen verbunden; 248 wurden neu ergänzt. Versionierte Wörterbuch-/Wiktionary-Belege, CLDR-Ländernamen und Mozilla-UI-Angaben: [Prüfbericht](docs/woerterbuch-pruefung.md), maschinenlesbar `data/dictionary-evidence.json`. `npm run dictionary:report` erzeugt den Bericht neu.
+
+Arabisch und Sorani erscheinen mit RTL-Schreibrichtung; Kurmandschi bleibt getrennt in lateinischer Schrift. Bei mehrdeutigen Begriffen nennt das Spiel die Bedeutung, beispielsweise „Strom = Elektrizität“ oder „See = Binnengewässer“. Sichere bekannte Tippvarianten werden erkannt; unsichere Treffer werden nur vorgeschlagen. Die 11 Kurmandschi- und 10 Sorani-Lücken bleiben „Keine Übersetzung vorhanden“. Die quellengestützte redaktionelle Plausibilitätsprüfung ersetzt keine muttersprachliche Freigabe. Diese steht für alle sieben Sprachen aus.
 
 ## Unterrichtsmaterialien
 

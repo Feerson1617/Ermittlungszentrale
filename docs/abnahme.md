@@ -3,11 +3,13 @@
 ## Fachliche Unterrichtsfreigabe noch offen
 
 - Alle 15 echten Fotografien sind integriert und anhand ihrer Commons-Beschreibungsseiten auf Motiv, Aufnahmeort, Urheber und freie Lizenz geprüft. Quellenrevisionen, Attributionen, Prüfsummen und Motivabweichungen: `bildquellen.md`, `data/media.json`, `docs/media/` und `bildnachweise.html`. Die Bildintegration ist abgeschlossen; eine Erprobung mit der Lerngruppe bleibt sinnvoll.
-- Wörterbuch: 187 deutsche Begriffe, je 187 Übersetzungen für Russisch, Ukrainisch, Polnisch, Türkisch und Arabisch; 53 für Kurmandschi, 52 für Sorani. Fehlende Fachbegriffe werden nicht erfunden. Sie benötigen Ergänzung aus zuverlässiger Quelle und muttersprachliche Prüfung. Auch die vorhandenen redaktionellen Übersetzungen sind keine professionell oder muttersprachlich abgenommene Fassung.
+- Wörterbuch: 187 deutsche Begriffe, je 187 Übersetzungen für Russisch, Ukrainisch, Polnisch, Türkisch und Arabisch; jetzt **176 für Kurmandschi und 177 für Sorani**. 248 der ursprünglich 269 fehlenden Werte wurden mit überprüfbaren Belegen ergänzt. Alle sieben Sprachfassungen wurden redaktionell auf Plausibilität geprüft; alle vorhandenen kurdischen Werte haben Einzelnachweise. **Keine muttersprachliche oder professionelle Freigabe** fand statt. Offen bleiben 11 Kurmandschi- und 10 Sorani-Werte, für die in den geprüften Quellen kein passender Beleg gefunden wurde. Die vollständigen Lücken, Quellen, Bedeutungshilfen und Grenzen stehen in [Wörterbuchprüfung](woerterbuch-pruefung.md) und `data/dictionary-evidence.json`. Unsichere Fachwörter wurden nicht erfunden.
 - Safari auf einem echten Schul-iPad wurde noch nicht geprüft. Playwright-WebKit 26.0 steht inzwischen für automatisierte Tests zur Verfügung. Weder Chromium mit iPad-Geräteparametern noch WebKit unter Linux ersetzen den echten Safari-Gerätetest.
 - Ein öffentlicher Quellcode schützt Lösungen nicht technisch. Der Erwartungshorizont ist nur aus der Schülernavigation ausgeblendet.
 
 `npm run audit:release` meldet diese Punkte mit Exit-Code 2. Das ist ein bewusst offener Abnahmestatus, kein übergangener Testfehler. Die technischen Funktionstests müssen separat erfolgreich sein.
+
+`data/review.json` trennt die datierte redaktionelle Prüfung (`dictionaryEditorial`, an den Datei-Hash gebunden) von den sieben weiterhin unbestätigten muttersprachlichen Abnahmen (`dictionary`). Eine redaktionelle oder automatisierte Prüfung setzt diese Abnahmen nicht auf wahr. Der Safari-Eintrag bleibt ebenfalls offen; den echten Schul-iPad-Test übernimmt das Projektteam anschließend selbst.
 
 ## Geprüfte Technik
 
@@ -23,4 +25,4 @@ Die aktive Policy erlaubt `commons.wikimedia.org`, `upload.wikimedia.org`, `cdn.
 
 ## GitHub-Übergabe
 
-Der bestehende offene Draft-PR [#1](https://github.com/Feerson1617/Ermittlungszentrale/pull/1) verwendet `feature/detektivspiel-komplett` gegen `main`. Die Bildintegration wird direkt auf diesen Entwicklungsbranch übertragen; kein zweiter PR, kein Merge und kein Deployment. Beschreibung: `docs/pull-request.md`.
+Der bestehende offene Draft-PR [#1](https://github.com/Feerson1617/Ermittlungszentrale/pull/1) verwendet `feature/detektivspiel-komplett` gegen `main`. Die Wörterbuchergänzung wird direkt auf diesen Entwicklungsbranch übertragen; kein zweiter PR, kein Merge und kein Deployment. Beschreibung: `docs/pull-request.md`.
