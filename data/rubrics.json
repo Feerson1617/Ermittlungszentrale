@@ -1,0 +1,65 @@
+{
+  "limits": [5, 3, 2, 1],
+  "tasks": {
+    "title": {
+      "case": 1, "label": "Der verschwundene Titel", "kind": "continent", "max": 5,
+      "solution": "Afrika",
+      "aliases": ["afrika", "africa", "affrika", "africka", "afirka", "afrka", "afri ka"],
+      "wrong": ["amerika", "america", "sudamerika", "sud america", "nordamerika", "asien", "asia", "antarktis", "antarktika", "europa", "australien", "ozeanien", "sudafrika", "sud afrika", "south africa"],
+      "hints": ["Hier gibt es große Wüsten und Regenwälder.", "Der Äquator verläuft durch den Kontinent.", "Im Norden liegt das Mittelmeer."],
+      "success": "Unser neues Thema ist AFRIKA!",
+      "paper": "Schreibt Afrika als Lösung auf. Tragt eure Punkte ein. Markiert Afrika auf der Weltkarte rot.",
+      "fallback": {"prompt": "Welche Karte passt zu den Hinweisen?", "options": ["Kontinent A", "Kontinent B"], "answer": "a"}
+    },
+    "selection": {
+      "case": 2, "label": "Die Auswahl der Redaktion", "kind": "selection", "max": 5,
+      "solution": "Nur einige Orte; nein; zwei Bilder außerhalb der Redaktionsauswahl.",
+      "editorial": [1, 2, 5, 10],
+      "criteria": [{"label": "Nur ein Ausschnitt", "points": 2}, {"label": "Nicht überall gleich", "points": 1}, {"label": "Erstes fehlendes Bild", "points": 1}, {"label": "Zweites fehlendes Bild", "points": 1}],
+      "hints": ["Die Redaktion zeigt nur vier Bilder.", "Denkt an die anderen Fotos.", "Ein Kontinent hat viele verschiedene Orte."],
+      "success": "Fotos zeigen immer nur einen Teil der Wirklichkeit.",
+      "paper": "Tragt eure Punkte ein. Ergänzt auf Papier: Vier Fotos zeigen nur …",
+      "fallback": {"prompt": "Was können vier Fotos zeigen?", "options": ["Nur einen Teil.", "Alle Orte."], "answer": "a"}
+    },
+    "atlas": {
+      "case": 3, "label": "Fall A · Schnee in Afrika?", "kind": "country", "max": 5,
+      "solution": "Marokko", "aliases": ["marokko", "maroko", "marr oko", "marocco", "morocco", "morroco", "marroko", "marocko", "m arokko", "marok o"],
+      "hints": ["Das Land liegt im Norden Afrikas.", "Es liegt am Atlantik und am Mittelmeer.", "Das Land beginnt mit M."],
+      "success": "Auch in Afrika gibt es Gebirge mit Schnee. Das Foto zeigt das Atlasgebirge in Marokko.",
+      "paper": "Schreibt bei Fall A Marokko auf. Tragt eure Punkte ein.",
+      "fallback": {"prompt": "Welches Land liegt beim markierten Ort?", "options": ["Marokko", "Ghana"], "answer": "a"}
+    },
+    "city": {
+      "case": 3, "label": "Fall B · Die unbekannte Großstadt", "kind": "country", "max": 5,
+      "solution": "Nigeria", "aliases": ["nigeria", "nigera", "nigieria", "nigerai", "nigiria", "nigeira"],
+      "hints": ["Das Land liegt in Westafrika.", "Es liegt am Golf von Guinea.", "Der Name beginnt mit N."],
+      "success": "Lagos ist eine große Stadt in Nigeria. Hier arbeiten Menschen zum Beispiel im Handel und in Büros.",
+      "paper": "Schreibt bei Fall B Nigeria auf. Tragt eure Punkte ein.",
+      "fallback": {"prompt": "Welches Land liegt beim markierten Ort?", "options": ["Nigeria", "Kenia"], "answer": "a"}
+    },
+    "cocoa": {
+      "case": 3, "label": "Fall C · Die geheime Zutat", "kind": "country", "max": 5,
+      "solution": "Ghana", "aliases": ["ghana", "gana", "ghanna", "ghna", "gahna", "ghnaa"],
+      "hints": ["Das Land liegt in Westafrika.", "Es liegt am Golf von Guinea.", "Der Name beginnt mit G."],
+      "success": "In Ghana wird Kakao angebaut. Kakao für Schokolade wird in viele Länder verkauft.",
+      "paper": "Schreibt bei Fall C Ghana auf. Tragt eure Punkte ein.",
+      "fallback": {"prompt": "Welches Land liegt beim markierten Ort?", "options": ["Ghana", "Nigeria"], "answer": "a"}
+    },
+    "headline": {
+      "case": 4, "label": "Der letzte Ermittlungsbericht", "kind": "headline", "max": 5,
+      "solution": "B – Ein Ort in Afrika.",
+      "hints": ["Ein Foto zeigt einen Ort.", "Menschen leben an vielen verschiedenen Orten.", "Sucht eine Überschrift ohne das Wort alle oder überall."],
+      "success": "Ein Foto zeigt einen Ort. Es zeigt nicht das Leben aller Menschen.",
+      "paper": "Tragt eure Punkte bei Akte 004 ein.",
+      "fallback": {"prompt": "Welche Überschrift passt zu einem Foto?", "options": ["Ein Ort in Afrika.", "Überall sieht es gleich aus."], "answer": "a"}
+    },
+    "future": {
+      "case": 5, "label": "Die Spur in die Zukunft", "kind": "matching", "max": 5,
+      "solution": "Wasser → A; Menschen → B; Wirtschaft → C; Zukunft → D.",
+      "hints": ["Sucht Wörter, die zusammenpassen: Wasser und Natur.", "Menschen gehören zur Bevölkerung. Ein Betrieb gehört zur Wirtschaft.", "Prüft jede Spur für sich. Die Sonne kann Strom liefern."],
+      "success": "Ihr habt neue Spuren gefunden. Im Geographieunterricht könnt ihr diese Fragen weiter untersuchen.",
+      "paper": "Tragt die Bonuspunkte getrennt ein.",
+      "fallback": {"prompt": "Eine Ernte braucht Wasser. Welche Frage passt?", "options": ["Wie beeinflusst die Natur das Leben?", "Was verändert sich, wenn die Bevölkerung wächst?"], "answer": "a"}
+    }
+  }
+}

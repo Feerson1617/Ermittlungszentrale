@@ -1,0 +1,131 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Erwartungshorizont · Ermittlungszentrale</title><style>@page{size:A4;margin:18mm}body{font:11pt/1.5 Arial,sans-serif;color:#151515;max-width:180mm;margin:25px auto}h1{font-size:22pt;line-height:1.15}h2{font-size:16pt;margin-top:25px;break-after:avoid}h3{font-size:13pt;break-after:avoid}p{orphans:3;widows:3}code{font-size:10pt;overflow-wrap:anywhere}li{margin:4px 0}strong{font-weight:700}@media print{body{margin:0;max-width:none}}</style></head><body><h1>Erwartungshorizont · Die geheime Ermittlungszentrale</h1>
+<p>Bearbeitbare Ausgangsfassung. Aufgaben, Hinweise, Lösungen und Namensvarianten werden aus <code>data/rubrics.json</code> erzeugt. Formulierungen zur Kurzantwortauswertung stammen aus <code>js/scoring.js</code>. Nach Inhaltsänderungen <code>npm run materials</code> ausführen.</p>
+<h2>Unterricht und Lernziele</h2>
+<p>Geographie, Jahrgang 7, ETS Tönning/Friedrichstadt. Bezug laut Entwicklungsauftrag: „Afrika – Abhängigkeiten von Naturraum und Bevölkerungsentwicklung und seine wirtschaftlichen Potentiale“. Kein unabhängiger Abgleich mit einer schulischen Curriculumdatei: Diese wurde nicht mitgeliefert.</p>
+<p>Fünf Schwerpunkte: Afrikabild in Deutschland; naturräumliche Abhängigkeiten; Bevölkerungswachstum als Chance und Risiko; wirtschaftlicher Aufschwung; nachhaltige Entwicklungschancen. Die Akten regen Fragen an und nehmen die folgenden Unterrichtsstunden nicht vorweg.</p>
+<p>Zweierteams; keine Zeitwertung, kein Audio. Akten sind unabhängig. Akte 001: etwa 10–12 Minuten. Akten 002 und 003: jeweils etwa 15–20 Minuten. Akte 004: 8–10 Minuten. Freiwillige Akte 005: 10–15 Minuten. Einzelne Stunden auswählen; nicht alle Akten in eine Unterrichtsstunde drängen.</p>
+<p>Akte 001: Thema aus widersprüchlich wirkenden Raumbeispielen erschließen. Akte 002: persönliche Vorstellungen ausdrücken und begrenzte Medienauswahl erkennen. Akte 003: Orte räumlich verorten und Vielfalt erkennen. Akte 004: Vorstellungen überdenken, ohne eine bestimmte Meinung zu erzwingen. Akte 005: Fragen für die weitere Einheit entwickeln.</p>
+<h2>Vor dem Einsatz: offene Abnahme</h2>
+<p>Authentische Beweisfotos sind noch nicht eingebunden. Wikimedia-Zugriff wurde vom Umgebungsproxy mit HTTP 403 verweigert. Die Anwendung zeigt beschriftete fehlende Motive, keine erfundenen Beweisbilder. Alle Bildrätsel benötigen für den vorgesehenen Unterricht echte, einzeln lizenzgeprüfte Fotos. Deshalb diese Fassung noch nicht als vollständig abgenommenes Unterrichtsspiel behandeln. Einzelheiten: <code>docs/bildquellen.md</code> und <code>docs/abnahme.md</code>.</p>
+<p>Wörterbuch: 187 deutsche Begriffe. Abdeckung: Russisch 187, Ukrainisch 187, Polnisch 187, Türkisch 187, Arabisch 187, Kurmandschi 53, Sorani 52. Fehlende Begriffe bleiben ausdrücklich leer. Redaktionelle Übersetzungen, keine professionelle Wörterbuchlizenz oder erfolgte muttersprachliche Abnahme behauptet. Vor Einsatz insbesondere beide kurdischen Varianten und arabische Fachbegriffe muttersprachlich prüfen. Die Abdeckung genügt noch nicht allen Auftragswörtern in beiden kurdischen Varianten.</p>
+<p>Der Schülerbogen enthält gemäß Auftrag das Thema bereits in mehreren Aufgaben. Für die Überraschung in Akte 001 den Bogen erst nach der Lösung ausgeben oder die späteren Aufgaben zunächst abdecken. Nicht behaupten, der öffentlich einsehbare Quellcode oder diese Datei sei technisch geheim.</p>
+<h2>Punkte und Versuche</h2>
+<p>Hinweisstufen 0 / 1 / 2 / 3 begrenzen die Punkte auf 5 / 3 / 2 / 1. Öffnen eines Hinweises senkt das Limit für diesen Fall dauerhaft. Pro früher Stufe genau eine eindeutig bewertbare Gesamtabgabe. Bei null Rohpunkten wird die Stufe gesperrt; nur der nächste Hinweis öffnet einen neuen Versuch. Nach Hinweis 3 gibt es unbegrenzt viele Versuche und eine einfache Auswahlaufgabe. Das Öffnen der Hinweise vergibt keine Punkte.</p>
+<p>Teilpunkte: Endpunkte = min(Rohpunkte, Hinweislimit). Positive Teilabgabe schließt die Aufgabe ab; richtige Teile gehen nicht durch falsche Teile verloren. Kein nachträgliches Nachprüfen einzelner Antworten. Nach jedem Ergebnis muss das Team die Papiernotiz bestätigen. Erst dann ist die Fortsetzung möglich. Akte 003 hat drei getrennte Fälle mit eigenen Limits und Ergebnisbestätigungen.</p>
+<p>Regulär: Akte 001 = 5; Akte 002 = 5; Akte 003 = 15; Akte 004 = 5; Gesamt = 30. Akte 005 = bis zu 5 Bonuspunkte, getrennt. Bonuszuordnung: vier richtig = fünf Rohpunkte; drei = drei; zwei = zwei; eins = eins; null = keine Punkte und nächster Hinweis. Die Frage am Ende ist unbewertet.</p>
+<h2>Sprachsensible Bewertung</h2>
+<p>Unicode, Großschreibung, Satzzeichen und Leerraum werden normalisiert. Häufige geografische Schreibvarianten sind ausdrücklich freigegeben. Artikel und kurze Satzrahmen sind erlaubt. Es gibt keinen Abzug für Grammatik, Stichpunkte oder Satzfragmente. Unbekannte Schreibweisen werden nicht per Levenshtein in ein vermeintlich ähnliches Land umgewandelt.</p>
+<p>„Amerika“, „America“, „Südamerika“, „Nordamerika“, „Asien“, „Antarktis“ und „Südafrika“ lösen Akte 001 nicht. „Afrika und Amerika“ ist widersprüchlich und wird nicht als richtig gewertet. Verneinung wie „nicht Afrika“ wird erkannt.</p>
+<p>Unklare Eingabe: keine Punkte und kein verbrauchter Versuch; kurze neutrale Bitte, dieselbe Aussage klarer zu schreiben. Es werden keine richtigen Teilantworten angezeigt und keine neue inhaltliche Lösungsfrage gestellt. Falls nötig prüft die Lehrkraft, ob das Team dieselbe Aussage nur verständlicher formuliert. Automatische lokale Regeln können die Bedeutung beliebiger freier Sätze nicht garantieren. Lange Erklärungen werden deshalb durch kurze oder geschlossene Teilaufgaben ersetzt.</p>
+<p>Leere oder unvollständige Abgaben verbrauchen keinen Versuch. Eindeutig falsche bekannte Antworten werden gewertet und sperren die frühe Stufe. Ohne Browser-Persistenz bleibt alles im Arbeitsspeicher spielbar. Papier sichert die Punkte über Gerätewechsel und Unterrichtsstunden.</p>
+<h3>Akte 002: Kurzantworten</h3>
+<p>Zwei Rohpunkte für einen Ausschnitt. Explizite akzeptierte Kurzformen nach Normalisierung: „einige“, „wenige“, „paar“, „nur paar“, „ein paar“, „nur ein paar“, „nur vier“, „vier“, „manche“, „nur manche“, „teil“, „ein teil“, „einen teil“, „nur ein teil“, „ausschnitt“, „ein ausschnitt“, „kleiner ausschnitt“, „nur einen teil“, „nur ein kleiner teil“, „nicht alle“, „nicht alles“, „nicht uberall“, „nur einige“, „einige orte“, „nur einige orte“, „nur wenige orte“, „wenige orte“, „nur manche orte“, „nur vier orte“, „vier orte“, „nur einen ausschnitt“, „ein kleiner ausschnitt“, „weniege“, „einiege“, „enige“, „eingie“, „einige ort“, „nur 4“, „4“, „nur 4 orte“, „nciht alle“. Einfache Satzrahmen wie „Die vier Fotos zeigen …“ werden entfernt. Auch „einige Orte“, „wenige Plätze“ und „manche Stellen“ sind zulässig.</p>
+<p>Explizit falsch: „alle“, „alles“, „alle orte“, „ganz afrika“, „den ganzen kontinent“, „der ganze kontinent“, „uberall“, „ganz“, „ganze“, „ja“; ebenso „nicht einige“, „kein Teil“ beziehungsweise verneinte Teilbehauptungen, soweit die Regel sie eindeutig erkennt. Mischformen wie „einige und alle“ bleiben ungeklärt und geben keine automatischen Punkte.</p>
+<p>Ein Rohpunkt für Vielfalt. Akzeptiert: „nein“, „nicht uberall gleich“, „nicht gleich“, „unterschiedlich“, „afrika unterschiedlich“, „afrika ist unterschiedlich“. Falsch: „ja“, „uberall gleich“, „gleich“, „afrika nicht unterschiedlich“, „afrika ist nicht unterschiedlich“, „nicht unterschiedlich“. Im Spiel ist diese Teilfrage geschlossen (Ja/Nein), damit keine langen Erklärungen nötig sind.</p>
+<h2>Der verschwundene Titel</h2>
+<p>Akte 1; Aufgaben-ID: <code>title</code>; maximal 5 punkte.</p>
+<p><strong>Lösung:</strong> Afrika</p>
+<p><strong>Hinweise (in dieser Reihenfolge):</strong></p>
+<ul>
+<li>Hier gibt es große Wüsten und Regenwälder.</li>
+<li>Der Äquator verläuft durch den Kontinent.</li>
+<li>Im Norden liegt das Mittelmeer.</li>
+</ul>
+<p><strong>Nach Hinweis 3:</strong> Welche Karte passt zu den Hinweisen? A: Kontinent A / B: Kontinent B Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.</p>
+<p><strong>Sicherung:</strong> Schreibt Afrika als Lösung auf. Tragt eure Punkte ein. Markiert Afrika auf der Weltkarte rot.</p>
+<p><strong>Rückmeldung:</strong> Unser neues Thema ist AFRIKA!</p>
+<p>Akzeptierte normalisierte Namensformen: <code>afrika</code>, <code>africa</code>, <code>affrika</code>, <code>africka</code>, <code>afirka</code>, <code>afrka</code>, <code>afri ka</code>. Dazu kurze Sätze wie „Das Land ist …“. Keine allgemeine Distanzkorrektur.</p>
+<h2>Die Auswahl der Redaktion</h2>
+<p>Akte 2; Aufgaben-ID: <code>selection</code>; maximal 5 punkte.</p>
+<p><strong>Lösung:</strong> Nur einige Orte; nein; zwei Bilder außerhalb der Redaktionsauswahl.</p>
+<p>Teilpunkte: Nur ein Ausschnitt: 2; Nicht überall gleich: 1; Erstes fehlendes Bild: 1; Zweites fehlendes Bild: 1. Gemeinsame Abgabe aller drei Teile. Jedes gewählte Foto außerhalb der Redaktion [1, 2, 5, 10] zählt einen Punkt. Auswahl genau zwei verschiedene Fotos.</p>
+<p><strong>Hinweise (in dieser Reihenfolge):</strong></p>
+<ul>
+<li>Die Redaktion zeigt nur vier Bilder.</li>
+<li>Denkt an die anderen Fotos.</li>
+<li>Ein Kontinent hat viele verschiedene Orte.</li>
+</ul>
+<p><strong>Nach Hinweis 3:</strong> Was können vier Fotos zeigen? A: Nur einen Teil. / B: Alle Orte. Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.</p>
+<p><strong>Sicherung:</strong> Tragt eure Punkte ein. Ergänzt auf Papier: Vier Fotos zeigen nur …</p>
+<p><strong>Rückmeldung:</strong> Fotos zeigen immer nur einen Teil der Wirklichkeit.</p>
+<h2>Fall A · Schnee in Afrika?</h2>
+<p>Akte 3; Aufgaben-ID: <code>atlas</code>; maximal 5 punkte.</p>
+<p><strong>Lösung:</strong> Marokko</p>
+<p><strong>Hinweise (in dieser Reihenfolge):</strong></p>
+<ul>
+<li>Das Land liegt im Norden Afrikas.</li>
+<li>Es liegt am Atlantik und am Mittelmeer.</li>
+<li>Das Land beginnt mit M.</li>
+</ul>
+<p><strong>Nach Hinweis 3:</strong> Welches Land liegt beim markierten Ort? A: Marokko / B: Ghana Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.</p>
+<p><strong>Sicherung:</strong> Schreibt bei Fall A Marokko auf. Tragt eure Punkte ein.</p>
+<p><strong>Rückmeldung:</strong> Auch in Afrika gibt es Gebirge mit Schnee. Das Foto zeigt das Atlasgebirge in Marokko.</p>
+<p>Akzeptierte normalisierte Namensformen: <code>marokko</code>, <code>maroko</code>, <code>marr oko</code>, <code>marocco</code>, <code>morocco</code>, <code>morroco</code>, <code>marroko</code>, <code>marocko</code>, <code>m arokko</code>, <code>marok o</code>. Dazu kurze Sätze wie „Das Land ist …“. Keine allgemeine Distanzkorrektur.</p>
+<h2>Fall B · Die unbekannte Großstadt</h2>
+<p>Akte 3; Aufgaben-ID: <code>city</code>; maximal 5 punkte.</p>
+<p><strong>Lösung:</strong> Nigeria</p>
+<p><strong>Hinweise (in dieser Reihenfolge):</strong></p>
+<ul>
+<li>Das Land liegt in Westafrika.</li>
+<li>Es liegt am Golf von Guinea.</li>
+<li>Der Name beginnt mit N.</li>
+</ul>
+<p><strong>Nach Hinweis 3:</strong> Welches Land liegt beim markierten Ort? A: Nigeria / B: Kenia Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.</p>
+<p><strong>Sicherung:</strong> Schreibt bei Fall B Nigeria auf. Tragt eure Punkte ein.</p>
+<p><strong>Rückmeldung:</strong> Lagos ist eine große Stadt in Nigeria. Hier arbeiten Menschen zum Beispiel im Handel und in Büros.</p>
+<p>Akzeptierte normalisierte Namensformen: <code>nigeria</code>, <code>nigera</code>, <code>nigieria</code>, <code>nigerai</code>, <code>nigiria</code>, <code>nigeira</code>. Dazu kurze Sätze wie „Das Land ist …“. Keine allgemeine Distanzkorrektur.</p>
+<h2>Fall C · Die geheime Zutat</h2>
+<p>Akte 3; Aufgaben-ID: <code>cocoa</code>; maximal 5 punkte.</p>
+<p><strong>Lösung:</strong> Ghana</p>
+<p><strong>Hinweise (in dieser Reihenfolge):</strong></p>
+<ul>
+<li>Das Land liegt in Westafrika.</li>
+<li>Es liegt am Golf von Guinea.</li>
+<li>Der Name beginnt mit G.</li>
+</ul>
+<p><strong>Nach Hinweis 3:</strong> Welches Land liegt beim markierten Ort? A: Ghana / B: Nigeria Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.</p>
+<p><strong>Sicherung:</strong> Schreibt bei Fall C Ghana auf. Tragt eure Punkte ein.</p>
+<p><strong>Rückmeldung:</strong> In Ghana wird Kakao angebaut. Kakao für Schokolade wird in viele Länder verkauft.</p>
+<p>Akzeptierte normalisierte Namensformen: <code>ghana</code>, <code>gana</code>, <code>ghanna</code>, <code>ghna</code>, <code>gahna</code>, <code>ghnaa</code>. Dazu kurze Sätze wie „Das Land ist …“. Keine allgemeine Distanzkorrektur.</p>
+<h2>Der letzte Ermittlungsbericht</h2>
+<p>Akte 4; Aufgaben-ID: <code>headline</code>; maximal 5 punkte.</p>
+<p><strong>Lösung:</strong> B – Ein Ort in Afrika.</p>
+<p><strong>Hinweise (in dieser Reihenfolge):</strong></p>
+<ul>
+<li>Ein Foto zeigt einen Ort.</li>
+<li>Menschen leben an vielen verschiedenen Orten.</li>
+<li>Sucht eine Überschrift ohne das Wort alle oder überall.</li>
+</ul>
+<p><strong>Nach Hinweis 3:</strong> Welche Überschrift passt zu einem Foto? A: Ein Ort in Afrika. / B: Überall sieht es gleich aus. Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.</p>
+<p><strong>Sicherung:</strong> Tragt eure Punkte bei Akte 004 ein.</p>
+<p><strong>Rückmeldung:</strong> Ein Foto zeigt einen Ort. Es zeigt nicht das Leben aller Menschen.</p>
+<h2>Die Spur in die Zukunft</h2>
+<p>Akte 5; Aufgaben-ID: <code>future</code>; maximal 5 Bonuspunkte.</p>
+<p><strong>Lösung:</strong> Wasser → A; Menschen → B; Wirtschaft → C; Zukunft → D.</p>
+<p><strong>Hinweise (in dieser Reihenfolge):</strong></p>
+<ul>
+<li>Sucht Wörter, die zusammenpassen: Wasser und Natur.</li>
+<li>Menschen gehören zur Bevölkerung. Ein Betrieb gehört zur Wirtschaft.</li>
+<li>Prüft jede Spur für sich. Die Sonne kann Strom liefern.</li>
+</ul>
+<p><strong>Nach Hinweis 3:</strong> Eine Ernte braucht Wasser. Welche Frage passt? A: Wie beeinflusst die Natur das Leben? / B: Was verändert sich, wenn die Bevölkerung wächst? Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.</p>
+<p><strong>Sicherung:</strong> Tragt die Bonuspunkte getrennt ein.</p>
+<p><strong>Rückmeldung:</strong> Ihr habt neue Spuren gefunden. Im Geographieunterricht könnt ihr diese Fragen weiter untersuchen.</p>
+<h2>Bildnummern und Redaktionsbeispiel</h2>
+<ul>
+<li>Savanne mit Wildtieren. Geplantes Motiv: Kenia.</li>
+<li>Wüste. Geplantes Motiv: Namib, Namibia.</li>
+<li>Tropischer Regenwald. Geplantes Motiv: Kongobecken.</li>
+<li>Moderne Großstadt. Geplantes Motiv: Lagos, Nigeria.</li>
+<li>Landwirtschaft. Geplantes Motiv: Ghana.</li>
+<li>Verschneites Gebirge. Geplantes Motiv: Atlasgebirge, Marokko.</li>
+<li>Küste. Geplantes Motiv: Sansibar, Tansania.</li>
+<li>Produktion. Geplantes Motiv: Ghana.</li>
+<li>Universität. Geplantes Motiv: Accra, Ghana.</li>
+<li>Alltag in der Stadt. Geplantes Motiv: Accra, Ghana.</li>
+</ul>
+<p>Die fiktive Redaktion wählt 1, 2, 5 und 10. Auch ihre städtische Marktaufnahme ersetzt keine Darstellung aller Lebensräume. Das Beispiel zeigt eine begrenzte Auswahl; es ist kein Beleg über alle deutschen Medien. Fehlende Motive für Teilaufgabe 3 sind folglich 3, 4, 6, 7, 8 und 9. Akte 004 nutzt dieselben zehn Datenobjekte und Nummern. Keine Veränderung einer persönlichen Auswahl wird verlangt oder bewertet.</p>
+<h2>Differenzierung und Grenzen</h2>
+<p>Lernende können Antworten vor der gemeinsamen Abgabe ändern. Wörterbuch, Partnergespräch und Papier stehen jederzeit bereit. Hinweise sind freiwillig; keine Zeitpunkte. Ab Stufe 3 hilft eine binäre, fachlich sinnvolle Abschlussaufgabe. Bei Akte 001 zeigen zwei unbeschriftete Karten Kontinente A und B; A markiert Afrika. Der Name erscheint erst nach Lösung. Akte 003 nutzt Karte und markierten Standort als Beweismittel bereits vor bezahlten Hinweisen.</p>
+<p>Karten: Natural Earth 1:110 Millionen, Public Domain. Vereinfachte Küsten und Ländergrenzen, keine Navigationskarten. Westsahara wird als eigener Raum geführt; keine Aussage zur politischen Anerkennung. Schnee im Atlasgebirge gilt nicht als Wetterbeschreibung für ganz Marokko. Stadtzuzug ist nicht gleich natürliches Bevölkerungswachstum; die Bonusspur eröffnet beide Fragen, ohne eine einzige Ursache zu behaupten. Solarenergie ist eine Möglichkeit, keine pauschale Lösung für jeden Ort.</p>
+<p>Diese Dokumente sind vom normalen Spiel aus nicht verlinkt. Im öffentlichen Repository bleiben sie zugänglich.</p></body></html>

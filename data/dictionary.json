@@ -1,0 +1,1872 @@
+[
+  {
+    "de": "Hinweis",
+    "ru": "подсказка",
+    "uk": "підказка",
+    "pl": "wskazówka",
+    "tr": "ipucu",
+    "ar": "تلميح",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Aufgabe",
+    "ru": "задание",
+    "uk": "завдання",
+    "pl": "zadanie",
+    "tr": "görev",
+    "ar": "مهمة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Lösung",
+    "ru": "решение",
+    "uk": "розв’язання",
+    "pl": "rozwiązanie",
+    "tr": "çözüm",
+    "ar": "حل",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Antwort",
+    "ru": "ответ",
+    "uk": "відповідь",
+    "pl": "odpowiedź",
+    "tr": "cevap",
+    "ar": "إجابة",
+    "ku": "bersiv",
+    "ckb": "وەڵام"
+  },
+  {
+    "de": "auswählen",
+    "ru": "выбирать",
+    "uk": "вибирати",
+    "pl": "wybierać",
+    "tr": "seçmek",
+    "ar": "اختيار",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "markieren",
+    "ru": "отмечать",
+    "uk": "позначати",
+    "pl": "zaznaczać",
+    "tr": "işaretlemek",
+    "ar": "تحديد",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "vergleichen",
+    "ru": "сравнивать",
+    "uk": "порівнювати",
+    "pl": "porównywać",
+    "tr": "karşılaştırmak",
+    "ar": "مقارنة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "finden",
+    "ru": "находить",
+    "uk": "знаходити",
+    "pl": "znajdować",
+    "tr": "bulmak",
+    "ar": "إيجاد",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "untersuchen",
+    "ru": "исследовать",
+    "uk": "досліджувати",
+    "pl": "badać",
+    "tr": "incelemek",
+    "ar": "فحص",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Punkte",
+    "ru": "баллы",
+    "uk": "бали",
+    "pl": "punkty",
+    "tr": "puanlar",
+    "ar": "نقاط",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Bild",
+    "ru": "изображение",
+    "uk": "зображення",
+    "pl": "obraz",
+    "tr": "resim",
+    "ar": "صورة",
+    "ku": "wêne",
+    "ckb": "وێنە"
+  },
+  {
+    "de": "Frage",
+    "ru": "вопрос",
+    "uk": "запитання",
+    "pl": "pytanie",
+    "tr": "soru",
+    "ar": "سؤال",
+    "ku": "pirs",
+    "ckb": "پرسیار"
+  },
+  {
+    "de": "richtig",
+    "ru": "правильно",
+    "uk": "правильно",
+    "pl": "poprawnie",
+    "tr": "doğru",
+    "ar": "صحيح",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "falsch",
+    "ru": "неправильно",
+    "uk": "неправильно",
+    "pl": "niepoprawnie",
+    "tr": "yanlış",
+    "ar": "خطأ",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Kontinent",
+    "ru": "континент",
+    "uk": "континент",
+    "pl": "kontynent",
+    "tr": "kıta",
+    "ar": "قارة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Land",
+    "ru": "страна",
+    "uk": "країна",
+    "pl": "kraj",
+    "tr": "ülke",
+    "ar": "بلد",
+    "ku": "welat",
+    "ckb": "وڵات"
+  },
+  {
+    "de": "Stadt",
+    "ru": "город",
+    "uk": "місто",
+    "pl": "miasto",
+    "tr": "şehir",
+    "ar": "مدينة",
+    "ku": "bajar",
+    "ckb": "شار"
+  },
+  {
+    "de": "Dorf",
+    "ru": "деревня",
+    "uk": "село",
+    "pl": "wieś",
+    "tr": "köy",
+    "ar": "قرية",
+    "ku": "gund",
+    "ckb": "گوند"
+  },
+  {
+    "de": "Karte",
+    "ru": "карта",
+    "uk": "карта",
+    "pl": "mapa",
+    "tr": "harita",
+    "ar": "خريطة",
+    "ku": "nexşe",
+    "ckb": "نەخشە"
+  },
+  {
+    "de": "Welt",
+    "ru": "мир",
+    "uk": "світ",
+    "pl": "świat",
+    "tr": "dünya",
+    "ar": "العالم",
+    "ku": "cîhan",
+    "ckb": "جیهان"
+  },
+  {
+    "de": "Meer",
+    "ru": "море",
+    "uk": "море",
+    "pl": "morze",
+    "tr": "deniz",
+    "ar": "بحر",
+    "ku": "derya",
+    "ckb": "دەریا"
+  },
+  {
+    "de": "Gebirge",
+    "ru": "горы",
+    "uk": "гори",
+    "pl": "pasmo górskie",
+    "tr": "sıradağlar",
+    "ar": "سلسلة جبال",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Wüste",
+    "ru": "пустыня",
+    "uk": "пустеля",
+    "pl": "pustynia",
+    "tr": "çöl",
+    "ar": "صحراء",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Regenwald",
+    "ru": "тропический лес",
+    "uk": "тропічний ліс",
+    "pl": "las deszczowy",
+    "tr": "yağmur ormanı",
+    "ar": "غابة مطيرة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Klima",
+    "ru": "климат",
+    "uk": "клімат",
+    "pl": "klimat",
+    "tr": "iklim",
+    "ar": "مناخ",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Wetter",
+    "ru": "погода",
+    "uk": "погода",
+    "pl": "pogoda",
+    "tr": "hava durumu",
+    "ar": "طقس",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Bevölkerung",
+    "ru": "население",
+    "uk": "населення",
+    "pl": "ludność",
+    "tr": "nüfus",
+    "ar": "سكان",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Wirtschaft",
+    "ru": "экономика",
+    "uk": "економіка",
+    "pl": "gospodarka",
+    "tr": "ekonomi",
+    "ar": "اقتصاد",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Landwirtschaft",
+    "ru": "сельское хозяйство",
+    "uk": "сільське господарство",
+    "pl": "rolnictwo",
+    "tr": "tarım",
+    "ar": "زراعة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Wasser",
+    "ru": "вода",
+    "uk": "вода",
+    "pl": "woda",
+    "tr": "su",
+    "ar": "ماء",
+    "ku": "av",
+    "ckb": "ئاو"
+  },
+  {
+    "de": "Regen",
+    "ru": "дождь",
+    "uk": "дощ",
+    "pl": "deszcz",
+    "tr": "yağmur",
+    "ar": "مطر",
+    "ku": "baran",
+    "ckb": "باران"
+  },
+  {
+    "de": "Schule",
+    "ru": "школа",
+    "uk": "школа",
+    "pl": "szkoła",
+    "tr": "okul",
+    "ar": "مدرسة",
+    "ku": "dibistan",
+    "ckb": "قوتابخانە"
+  },
+  {
+    "de": "Arbeit",
+    "ru": "работа",
+    "uk": "робота",
+    "pl": "praca",
+    "tr": "iş",
+    "ar": "عمل",
+    "ku": "kar",
+    "ckb": "کار"
+  },
+  {
+    "de": "Akte",
+    "ru": "дело",
+    "uk": "справа",
+    "pl": "akta",
+    "tr": "dosya",
+    "ar": "ملف",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "geheim",
+    "ru": "секретный",
+    "uk": "таємний",
+    "pl": "tajny",
+    "tr": "gizli",
+    "ar": "سري",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Titel",
+    "ru": "заголовок",
+    "uk": "заголовок",
+    "pl": "tytuł",
+    "tr": "başlık",
+    "ar": "عنوان",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "verschwunden",
+    "ru": "исчезнувший",
+    "uk": "зниклий",
+    "pl": "zaginiony",
+    "tr": "kaybolmuş",
+    "ar": "مفقود",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Foto",
+    "ru": "фотография",
+    "uk": "фотографія",
+    "pl": "zdjęcie",
+    "tr": "fotoğraf",
+    "ar": "صورة فوتوغرافية",
+    "ku": "wêne",
+    "ckb": "وێنە"
+  },
+  {
+    "de": "Ort",
+    "ru": "место",
+    "uk": "місце",
+    "pl": "miejsce",
+    "tr": "yer",
+    "ar": "مكان",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "alle",
+    "ru": "все",
+    "uk": "усі",
+    "pl": "wszyscy",
+    "tr": "hepsi",
+    "ar": "الجميع",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "einige",
+    "ru": "некоторые",
+    "uk": "деякі",
+    "pl": "niektóre",
+    "tr": "bazıları",
+    "ar": "بعض",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "wenige",
+    "ru": "немногие",
+    "uk": "небагато",
+    "pl": "niewiele",
+    "tr": "az",
+    "ar": "قليل",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "viele",
+    "ru": "много",
+    "uk": "багато",
+    "pl": "wiele",
+    "tr": "çok",
+    "ar": "كثير",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "gleich",
+    "ru": "одинаковый",
+    "uk": "однаковий",
+    "pl": "taki sam",
+    "tr": "aynı",
+    "ar": "متشابه",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "unterschiedlich",
+    "ru": "разный",
+    "uk": "різний",
+    "pl": "różny",
+    "tr": "farklı",
+    "ar": "مختلف",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "nur",
+    "ru": "только",
+    "uk": "лише",
+    "pl": "tylko",
+    "tr": "sadece",
+    "ar": "فقط",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "nicht",
+    "ru": "не",
+    "uk": "не",
+    "pl": "nie",
+    "tr": "değil",
+    "ar": "ليس",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "ja",
+    "ru": "да",
+    "uk": "так",
+    "pl": "tak",
+    "tr": "evet",
+    "ar": "نعم",
+    "ku": "erê",
+    "ckb": "بەڵێ"
+  },
+  {
+    "de": "nein",
+    "ru": "нет",
+    "uk": "ні",
+    "pl": "nie",
+    "tr": "hayır",
+    "ar": "لا",
+    "ku": "na",
+    "ckb": "نەخێر"
+  },
+  {
+    "de": "Teil",
+    "ru": "часть",
+    "uk": "частина",
+    "pl": "część",
+    "tr": "parça",
+    "ar": "جزء",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "ganz",
+    "ru": "целый",
+    "uk": "цілий",
+    "pl": "cały",
+    "tr": "bütün",
+    "ar": "كامل",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Ausschnitt",
+    "ru": "фрагмент",
+    "uk": "фрагмент",
+    "pl": "fragment",
+    "tr": "kesit",
+    "ar": "جزء مقتطع",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Wirklichkeit",
+    "ru": "действительность",
+    "uk": "дійсність",
+    "pl": "rzeczywistość",
+    "tr": "gerçeklik",
+    "ar": "واقع",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Überschrift",
+    "ru": "заголовок",
+    "uk": "заголовок",
+    "pl": "nagłówek",
+    "tr": "başlık",
+    "ar": "عنوان",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Nachricht",
+    "ru": "сообщение",
+    "uk": "повідомлення",
+    "pl": "wiadomość",
+    "tr": "haber",
+    "ar": "خبر",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Redaktion",
+    "ru": "редакция",
+    "uk": "редакція",
+    "pl": "redakcja",
+    "tr": "yayın kurulu",
+    "ar": "هيئة التحرير",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Auswahl",
+    "ru": "выбор",
+    "uk": "вибір",
+    "pl": "wybór",
+    "tr": "seçim",
+    "ar": "اختيار",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Vorstellung",
+    "ru": "представление",
+    "uk": "уявлення",
+    "pl": "wyobrażenie",
+    "tr": "düşünce",
+    "ar": "تصور",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "denken",
+    "ru": "думать",
+    "uk": "думати",
+    "pl": "myśleć",
+    "tr": "düşünmek",
+    "ar": "تفكير",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "wissen",
+    "ru": "знать",
+    "uk": "знати",
+    "pl": "wiedzieć",
+    "tr": "bilmek",
+    "ar": "معرفة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "fehlen",
+    "ru": "отсутствовать",
+    "uk": "бути відсутнім",
+    "pl": "brakować",
+    "tr": "eksik olmak",
+    "ar": "نقص",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "schreiben",
+    "ru": "писать",
+    "uk": "писати",
+    "pl": "pisać",
+    "tr": "yazmak",
+    "ar": "كتابة",
+    "ku": "nivîsîn",
+    "ckb": "نووسین"
+  },
+  {
+    "de": "lesen",
+    "ru": "читать",
+    "uk": "читати",
+    "pl": "czytać",
+    "tr": "okumak",
+    "ar": "قراءة",
+    "ku": "xwendin",
+    "ckb": "خوێندنەوە"
+  },
+  {
+    "de": "anschauen",
+    "ru": "смотреть",
+    "uk": "дивитися",
+    "pl": "oglądać",
+    "tr": "bakmak",
+    "ar": "نظر",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "antippen",
+    "ru": "коснуться",
+    "uk": "торкнутися",
+    "pl": "dotknąć",
+    "tr": "dokunmak",
+    "ar": "نقر",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "öffnen",
+    "ru": "открыть",
+    "uk": "відкрити",
+    "pl": "otworzyć",
+    "tr": "açmak",
+    "ar": "فتح",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "schließen",
+    "ru": "закрыть",
+    "uk": "закрити",
+    "pl": "zamknąć",
+    "tr": "kapatmak",
+    "ar": "إغلاق",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "weiter",
+    "ru": "дальше",
+    "uk": "далі",
+    "pl": "dalej",
+    "tr": "devam",
+    "ar": "التالي",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "zurück",
+    "ru": "назад",
+    "uk": "назад",
+    "pl": "wstecz",
+    "tr": "geri",
+    "ar": "رجوع",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Start",
+    "ru": "начало",
+    "uk": "початок",
+    "pl": "start",
+    "tr": "başlangıç",
+    "ar": "بداية",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "neu",
+    "ru": "новый",
+    "uk": "новий",
+    "pl": "nowy",
+    "tr": "yeni",
+    "ar": "جديد",
+    "ku": "nû",
+    "ckb": "نوێ"
+  },
+  {
+    "de": "alt",
+    "ru": "старый",
+    "uk": "старий",
+    "pl": "stary",
+    "tr": "eski",
+    "ar": "قديم",
+    "ku": "kevn",
+    "ckb": "کۆن"
+  },
+  {
+    "de": "jetzt",
+    "ru": "сейчас",
+    "uk": "зараз",
+    "pl": "teraz",
+    "tr": "şimdi",
+    "ar": "الآن",
+    "ku": "niha",
+    "ckb": "ئێستا"
+  },
+  {
+    "de": "vorher",
+    "ru": "раньше",
+    "uk": "раніше",
+    "pl": "wcześniej",
+    "tr": "önce",
+    "ar": "قبل",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "danach",
+    "ru": "после этого",
+    "uk": "після цього",
+    "pl": "potem",
+    "tr": "sonra",
+    "ar": "بعد ذلك",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Anfang",
+    "ru": "начало",
+    "uk": "початок",
+    "pl": "początek",
+    "tr": "başlangıç",
+    "ar": "بداية",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Ende",
+    "ru": "конец",
+    "uk": "кінець",
+    "pl": "koniec",
+    "tr": "son",
+    "ar": "نهاية",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "vier",
+    "ru": "четыре",
+    "uk": "чотири",
+    "pl": "cztery",
+    "tr": "dört",
+    "ar": "أربعة",
+    "ku": "çar",
+    "ckb": "چوار"
+  },
+  {
+    "de": "zwei",
+    "ru": "два",
+    "uk": "два",
+    "pl": "dwa",
+    "tr": "iki",
+    "ar": "اثنان",
+    "ku": "du",
+    "ckb": "دوو"
+  },
+  {
+    "de": "drei",
+    "ru": "три",
+    "uk": "три",
+    "pl": "trzy",
+    "tr": "üç",
+    "ar": "ثلاثة",
+    "ku": "sê",
+    "ckb": "سێ"
+  },
+  {
+    "de": "fünf",
+    "ru": "пять",
+    "uk": "п’ять",
+    "pl": "pięć",
+    "tr": "beş",
+    "ar": "خمسة",
+    "ku": "pênc",
+    "ckb": "پێنج"
+  },
+  {
+    "de": "eins",
+    "ru": "один",
+    "uk": "один",
+    "pl": "jeden",
+    "tr": "bir",
+    "ar": "واحد",
+    "ku": "yek",
+    "ckb": "یەک"
+  },
+  {
+    "de": "zehn",
+    "ru": "десять",
+    "uk": "десять",
+    "pl": "dziesięć",
+    "tr": "on",
+    "ar": "عشرة",
+    "ku": "deh",
+    "ckb": "دە"
+  },
+  {
+    "de": "Nummer",
+    "ru": "номер",
+    "uk": "номер",
+    "pl": "numer",
+    "tr": "numara",
+    "ar": "رقم",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Team",
+    "ru": "команда",
+    "uk": "команда",
+    "pl": "zespół",
+    "tr": "takım",
+    "ar": "فريق",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Name",
+    "ru": "имя",
+    "uk": "ім’я",
+    "pl": "imię",
+    "tr": "isim",
+    "ar": "اسم",
+    "ku": "nav",
+    "ckb": "ناو"
+  },
+  {
+    "de": "Versuch",
+    "ru": "попытка",
+    "uk": "спроба",
+    "pl": "próba",
+    "tr": "deneme",
+    "ar": "محاولة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Ergebnis",
+    "ru": "результат",
+    "uk": "результат",
+    "pl": "wynik",
+    "tr": "sonuç",
+    "ar": "نتيجة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "erfolgreich",
+    "ru": "успешно",
+    "uk": "успішно",
+    "pl": "pomyślnie",
+    "tr": "başarılı",
+    "ar": "ناجح",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "freiwillig",
+    "ru": "добровольно",
+    "uk": "добровільно",
+    "pl": "dobrowolnie",
+    "tr": "gönüllü",
+    "ar": "طوعي",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Hilfe",
+    "ru": "помощь",
+    "uk": "допомога",
+    "pl": "pomoc",
+    "tr": "yardım",
+    "ar": "مساعدة",
+    "ku": "alîkarî",
+    "ckb": "یارمەتی"
+  },
+  {
+    "de": "eintragen",
+    "ru": "вписать",
+    "uk": "вписати",
+    "pl": "wpisać",
+    "tr": "yazmak",
+    "ar": "تسجيل",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "notieren",
+    "ru": "записать",
+    "uk": "записати",
+    "pl": "zanotować",
+    "tr": "not almak",
+    "ar": "تدوين",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Papier",
+    "ru": "бумага",
+    "uk": "папір",
+    "pl": "papier",
+    "tr": "kâğıt",
+    "ar": "ورق",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Bogen",
+    "ru": "бланк",
+    "uk": "бланк",
+    "pl": "arkusz",
+    "tr": "form",
+    "ar": "ورقة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Stichpunkt",
+    "ru": "краткая заметка",
+    "uk": "коротка нотатка",
+    "pl": "punkt",
+    "tr": "kısa not",
+    "ar": "نقطة مختصرة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Satz",
+    "ru": "предложение",
+    "uk": "речення",
+    "pl": "zdanie",
+    "tr": "cümle",
+    "ar": "جملة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Wort",
+    "ru": "слово",
+    "uk": "слово",
+    "pl": "słowo",
+    "tr": "kelime",
+    "ar": "كلمة",
+    "ku": "peyv",
+    "ckb": "وشە"
+  },
+  {
+    "de": "Sprache",
+    "ru": "язык",
+    "uk": "мова",
+    "pl": "język",
+    "tr": "dil",
+    "ar": "لغة",
+    "ku": "ziman",
+    "ckb": "زمان"
+  },
+  {
+    "de": "Wörterbuch",
+    "ru": "словарь",
+    "uk": "словник",
+    "pl": "słownik",
+    "tr": "sözlük",
+    "ar": "قاموس",
+    "ku": "ferheng",
+    "ckb": "فەرهەنگ"
+  },
+  {
+    "de": "Übersetzung",
+    "ru": "перевод",
+    "uk": "переклад",
+    "pl": "tłumaczenie",
+    "tr": "çeviri",
+    "ar": "ترجمة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Beweis",
+    "ru": "доказательство",
+    "uk": "доказ",
+    "pl": "dowód",
+    "tr": "kanıt",
+    "ar": "دليل",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Spur",
+    "ru": "след",
+    "uk": "слід",
+    "pl": "ślad",
+    "tr": "iz",
+    "ar": "أثر",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Rätsel",
+    "ru": "загадка",
+    "uk": "загадка",
+    "pl": "zagadka",
+    "tr": "bilmece",
+    "ar": "لغز",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Fall",
+    "ru": "дело",
+    "uk": "справа",
+    "pl": "sprawa",
+    "tr": "vaka",
+    "ar": "قضية",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "vergleichen wir",
+    "ru": "сравним",
+    "uk": "порівняймо",
+    "pl": "porównajmy",
+    "tr": "karşılaştıralım",
+    "ar": "لنقارن",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Norden",
+    "ru": "север",
+    "uk": "північ",
+    "pl": "północ",
+    "tr": "kuzey",
+    "ar": "شمال",
+    "ku": "bakur",
+    "ckb": "باکوور"
+  },
+  {
+    "de": "Süden",
+    "ru": "юг",
+    "uk": "південь",
+    "pl": "południe",
+    "tr": "güney",
+    "ar": "جنوب",
+    "ku": "başûr",
+    "ckb": "باشوور"
+  },
+  {
+    "de": "Osten",
+    "ru": "восток",
+    "uk": "схід",
+    "pl": "wschód",
+    "tr": "doğu",
+    "ar": "شرق",
+    "ku": "rojhilat",
+    "ckb": "ڕۆژهەڵات"
+  },
+  {
+    "de": "Westen",
+    "ru": "запад",
+    "uk": "захід",
+    "pl": "zachód",
+    "tr": "batı",
+    "ar": "غرب",
+    "ku": "rojava",
+    "ckb": "ڕۆژئاوا"
+  },
+  {
+    "de": "Äquator",
+    "ru": "экватор",
+    "uk": "екватор",
+    "pl": "równik",
+    "tr": "ekvator",
+    "ar": "خط الاستواء",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Küste",
+    "ru": "побережье",
+    "uk": "узбережжя",
+    "pl": "wybrzeże",
+    "tr": "kıyı",
+    "ar": "ساحل",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Insel",
+    "ru": "остров",
+    "uk": "острів",
+    "pl": "wyspa",
+    "tr": "ada",
+    "ar": "جزيرة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Fluss",
+    "ru": "река",
+    "uk": "річка",
+    "pl": "rzeka",
+    "tr": "nehir",
+    "ar": "نهر",
+    "ku": "çem",
+    "ckb": "ڕووبار"
+  },
+  {
+    "de": "See",
+    "ru": "озеро",
+    "uk": "озеро",
+    "pl": "jezioro",
+    "tr": "göl",
+    "ar": "بحيرة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Berg",
+    "ru": "гора",
+    "uk": "гора",
+    "pl": "góra",
+    "tr": "dağ",
+    "ar": "جبل",
+    "ku": "çiya",
+    "ckb": "چیا"
+  },
+  {
+    "de": "Schnee",
+    "ru": "снег",
+    "uk": "сніг",
+    "pl": "śnieg",
+    "tr": "kar",
+    "ar": "ثلج",
+    "ku": "berf",
+    "ckb": "بەفر"
+  },
+  {
+    "de": "Sand",
+    "ru": "песок",
+    "uk": "пісок",
+    "pl": "piasek",
+    "tr": "kum",
+    "ar": "رمل",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Düne",
+    "ru": "дюна",
+    "uk": "дюна",
+    "pl": "wydma",
+    "tr": "kumul",
+    "ar": "كثيب رملي",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Wald",
+    "ru": "лес",
+    "uk": "ліс",
+    "pl": "las",
+    "tr": "orman",
+    "ar": "غابة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Savanne",
+    "ru": "саванна",
+    "uk": "савана",
+    "pl": "sawanna",
+    "tr": "savan",
+    "ar": "سافانا",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Tier",
+    "ru": "животное",
+    "uk": "тварина",
+    "pl": "zwierzę",
+    "tr": "hayvan",
+    "ar": "حيوان",
+    "ku": "heywan",
+    "ckb": "ئاژەڵ"
+  },
+  {
+    "de": "Pflanze",
+    "ru": "растение",
+    "uk": "рослина",
+    "pl": "roślina",
+    "tr": "bitki",
+    "ar": "نبات",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Baum",
+    "ru": "дерево",
+    "uk": "дерево",
+    "pl": "drzewo",
+    "tr": "ağaç",
+    "ar": "شجرة",
+    "ku": "dar",
+    "ckb": "دار"
+  },
+  {
+    "de": "trocken",
+    "ru": "сухой",
+    "uk": "сухий",
+    "pl": "suchy",
+    "tr": "kuru",
+    "ar": "جاف",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "feucht",
+    "ru": "влажный",
+    "uk": "вологий",
+    "pl": "wilgotny",
+    "tr": "nemli",
+    "ar": "رطب",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "heiß",
+    "ru": "жаркий",
+    "uk": "спекотний",
+    "pl": "gorący",
+    "tr": "sıcak",
+    "ar": "حار",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "kalt",
+    "ru": "холодный",
+    "uk": "холодний",
+    "pl": "zimny",
+    "tr": "soğuk",
+    "ar": "بارد",
+    "ku": "sar",
+    "ckb": "سارد"
+  },
+  {
+    "de": "groß",
+    "ru": "большой",
+    "uk": "великий",
+    "pl": "duży",
+    "tr": "büyük",
+    "ar": "كبير",
+    "ku": "mezin",
+    "ckb": "گەورە"
+  },
+  {
+    "de": "klein",
+    "ru": "маленький",
+    "uk": "малий",
+    "pl": "mały",
+    "tr": "küçük",
+    "ar": "صغير",
+    "ku": "biçûk",
+    "ckb": "بچووک"
+  },
+  {
+    "de": "hoch",
+    "ru": "высокий",
+    "uk": "високий",
+    "pl": "wysoki",
+    "tr": "yüksek",
+    "ar": "عال",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Ernte",
+    "ru": "урожай",
+    "uk": "урожай",
+    "pl": "plony",
+    "tr": "hasat",
+    "ar": "حصاد",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Feld",
+    "ru": "поле",
+    "uk": "поле",
+    "pl": "pole",
+    "tr": "tarla",
+    "ar": "حقل",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Betrieb",
+    "ru": "предприятие",
+    "uk": "підприємство",
+    "pl": "zakład",
+    "tr": "işletme",
+    "ar": "منشأة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Produktion",
+    "ru": "производство",
+    "uk": "виробництво",
+    "pl": "produkcja",
+    "tr": "üretim",
+    "ar": "إنتاج",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Produkt",
+    "ru": "продукт",
+    "uk": "продукт",
+    "pl": "produkt",
+    "tr": "ürün",
+    "ar": "منتج",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Kakao",
+    "ru": "какао",
+    "uk": "какао",
+    "pl": "kakao",
+    "tr": "kakao",
+    "ar": "كاكاو",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Frucht",
+    "ru": "плод",
+    "uk": "плід",
+    "pl": "owoc",
+    "tr": "meyve",
+    "ar": "ثمرة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Schokolade",
+    "ru": "шоколад",
+    "uk": "шоколад",
+    "pl": "czekolada",
+    "tr": "çikolata",
+    "ar": "شوكولاتة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Handel",
+    "ru": "торговля",
+    "uk": "торгівля",
+    "pl": "handel",
+    "tr": "ticaret",
+    "ar": "تجارة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Markt",
+    "ru": "рынок",
+    "uk": "ринок",
+    "pl": "targ",
+    "tr": "pazar",
+    "ar": "سوق",
+    "ku": "bazar",
+    "ckb": "بازاڕ"
+  },
+  {
+    "de": "Hafen",
+    "ru": "порт",
+    "uk": "порт",
+    "pl": "port",
+    "tr": "liman",
+    "ar": "ميناء",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Straße",
+    "ru": "улица",
+    "uk": "вулиця",
+    "pl": "ulica",
+    "tr": "sokak",
+    "ar": "شارع",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Verkehr",
+    "ru": "движение транспорта",
+    "uk": "рух транспорту",
+    "pl": "ruch drogowy",
+    "tr": "trafik",
+    "ar": "حركة المرور",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Wohnung",
+    "ru": "квартира",
+    "uk": "квартира",
+    "pl": "mieszkanie",
+    "tr": "daire",
+    "ar": "شقة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Haus",
+    "ru": "дом",
+    "uk": "будинок",
+    "pl": "dom",
+    "tr": "ev",
+    "ar": "بيت",
+    "ku": "mal",
+    "ckb": "ماڵ"
+  },
+  {
+    "de": "Menschen",
+    "ru": "люди",
+    "uk": "люди",
+    "pl": "ludzie",
+    "tr": "insanlar",
+    "ar": "ناس",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Kind",
+    "ru": "ребёнок",
+    "uk": "дитина",
+    "pl": "dziecko",
+    "tr": "çocuk",
+    "ar": "طفل",
+    "ku": "zarok",
+    "ckb": "منداڵ"
+  },
+  {
+    "de": "Leben",
+    "ru": "жизнь",
+    "uk": "життя",
+    "pl": "życie",
+    "tr": "yaşam",
+    "ar": "حياة",
+    "ku": "jiyan",
+    "ckb": "ژیان"
+  },
+  {
+    "de": "wachsen",
+    "ru": "расти",
+    "uk": "зростати",
+    "pl": "rosnąć",
+    "tr": "büyümek",
+    "ar": "نمو",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Bevölkerungswachstum",
+    "ru": "рост населения",
+    "uk": "зростання населення",
+    "pl": "wzrost liczby ludności",
+    "tr": "nüfus artışı",
+    "ar": "نمو سكاني",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Chance",
+    "ru": "шанс",
+    "uk": "шанс",
+    "pl": "szansa",
+    "tr": "fırsat",
+    "ar": "فرصة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Risiko",
+    "ru": "риск",
+    "uk": "ризик",
+    "pl": "ryzyko",
+    "tr": "risk",
+    "ar": "خطر",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Zukunft",
+    "ru": "будущее",
+    "uk": "майбутнє",
+    "pl": "przyszłość",
+    "tr": "gelecek",
+    "ar": "مستقبل",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Natur",
+    "ru": "природа",
+    "uk": "природа",
+    "pl": "przyroda",
+    "tr": "doğa",
+    "ar": "طبيعة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Umwelt",
+    "ru": "окружающая среда",
+    "uk": "довкілля",
+    "pl": "środowisko",
+    "tr": "çevre",
+    "ar": "بيئة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Strom",
+    "ru": "электричество",
+    "uk": "електроенергія",
+    "pl": "prąd elektryczny",
+    "tr": "elektrik",
+    "ar": "كهرباء",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Sonne",
+    "ru": "солнце",
+    "uk": "сонце",
+    "pl": "słońce",
+    "tr": "güneş",
+    "ar": "شمس",
+    "ku": "roj",
+    "ckb": "خۆر"
+  },
+  {
+    "de": "Solaranlage",
+    "ru": "солнечная установка",
+    "uk": "сонячна установка",
+    "pl": "instalacja słoneczna",
+    "tr": "güneş enerjisi sistemi",
+    "ar": "منظومة طاقة شمسية",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Energie",
+    "ru": "энергия",
+    "uk": "енергія",
+    "pl": "energia",
+    "tr": "enerji",
+    "ar": "طاقة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "brauchen",
+    "ru": "нуждаться",
+    "uk": "потребувати",
+    "pl": "potrzebować",
+    "tr": "ihtiyaç duymak",
+    "ar": "احتياج",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "herstellen",
+    "ru": "производить",
+    "uk": "виробляти",
+    "pl": "produkować",
+    "tr": "üretmek",
+    "ar": "تصنيع",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "anbauen",
+    "ru": "выращивать",
+    "uk": "вирощувати",
+    "pl": "uprawiać",
+    "tr": "yetiştirmek",
+    "ar": "زراعة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "verkaufen",
+    "ru": "продавать",
+    "uk": "продавати",
+    "pl": "sprzedawać",
+    "tr": "satmak",
+    "ar": "بيع",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "lernen",
+    "ru": "учиться",
+    "uk": "вчитися",
+    "pl": "uczyć się",
+    "tr": "öğrenmek",
+    "ar": "تعلم",
+    "ku": "hînbûn",
+    "ckb": null
+  },
+  {
+    "de": "Schüler",
+    "ru": "ученик",
+    "uk": "учень",
+    "pl": "uczeń",
+    "tr": "öğrenci",
+    "ar": "تلميذ",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Lehrkraft",
+    "ru": "учитель",
+    "uk": "учитель",
+    "pl": "nauczyciel",
+    "tr": "öğretmen",
+    "ar": "معلم",
+    "ku": "mamoste",
+    "ckb": "مامۆستا"
+  },
+  {
+    "de": "Universität",
+    "ru": "университет",
+    "uk": "університет",
+    "pl": "uniwersytet",
+    "tr": "üniversite",
+    "ar": "جامعة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "überrascht",
+    "ru": "удивлённый",
+    "uk": "здивований",
+    "pl": "zaskoczony",
+    "tr": "şaşırmış",
+    "ar": "متفاجئ",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "überall",
+    "ru": "везде",
+    "uk": "скрізь",
+    "pl": "wszędzie",
+    "tr": "her yerde",
+    "ar": "في كل مكان",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Beispiel",
+    "ru": "пример",
+    "uk": "приклад",
+    "pl": "przykład",
+    "tr": "örnek",
+    "ar": "مثال",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Kopf",
+    "ru": "голова",
+    "uk": "голова",
+    "pl": "głowa",
+    "tr": "baş",
+    "ar": "رأس",
+    "ku": "ser",
+    "ckb": "سەر"
+  },
+  {
+    "de": "Afrika",
+    "ru": "Африка",
+    "uk": "Африка",
+    "pl": "Afryka",
+    "tr": "Afrika",
+    "ar": "أفريقيا",
+    "ku": "Afrîka",
+    "ckb": "ئەفریقا"
+  },
+  {
+    "de": "Marokko",
+    "ru": "Марокко",
+    "uk": "Марокко",
+    "pl": "Maroko",
+    "tr": "Fas",
+    "ar": "المغرب",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Nigeria",
+    "ru": "Нигерия",
+    "uk": "Нігерія",
+    "pl": "Nigeria",
+    "tr": "Nijerya",
+    "ar": "نيجيريا",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Ghana",
+    "ru": "Гана",
+    "uk": "Гана",
+    "pl": "Ghana",
+    "tr": "Gana",
+    "ar": "غانا",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Kenia",
+    "ru": "Кения",
+    "uk": "Кенія",
+    "pl": "Kenia",
+    "tr": "Kenya",
+    "ar": "كينيا",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Mittelmeer",
+    "ru": "Средиземное море",
+    "uk": "Середземне море",
+    "pl": "Morze Śródziemne",
+    "tr": "Akdeniz",
+    "ar": "البحر الأبيض المتوسط",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Atlantik",
+    "ru": "Атлантический океан",
+    "uk": "Атлантичний океан",
+    "pl": "Ocean Atlantycki",
+    "tr": "Atlas Okyanusu",
+    "ar": "المحيط الأطلسي",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Golf von Guinea",
+    "ru": "Гвинейский залив",
+    "uk": "Гвінейська затока",
+    "pl": "Zatoka Gwinejska",
+    "tr": "Gine Körfezi",
+    "ar": "خليج غينيا",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "Entwicklung",
+    "ru": "развитие",
+    "uk": "розвиток",
+    "pl": "rozwój",
+    "tr": "gelişme",
+    "ar": "تنمية",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "nachhaltig",
+    "ru": "устойчивый",
+    "uk": "сталий",
+    "pl": "zrównoważony",
+    "tr": "sürdürülebilir",
+    "ar": "مستدام",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "zählen",
+    "ru": "считать",
+    "uk": "рахувати",
+    "pl": "liczyć",
+    "tr": "saymak",
+    "ar": "عد",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "prüfen",
+    "ru": "проверять",
+    "uk": "перевіряти",
+    "pl": "sprawdzać",
+    "tr": "kontrol etmek",
+    "ar": "تحقق",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "bestätigen",
+    "ru": "подтверждать",
+    "uk": "підтверджувати",
+    "pl": "potwierdzać",
+    "tr": "onaylamak",
+    "ar": "تأكيد",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "zuordnen",
+    "ru": "соотносить",
+    "uk": "співвідносити",
+    "pl": "przyporządkować",
+    "tr": "eşleştirmek",
+    "ar": "مطابقة",
+    "ku": null,
+    "ckb": null
+  },
+  {
+    "de": "rot",
+    "ru": "красный",
+    "uk": "червоний",
+    "pl": "czerwony",
+    "tr": "kırmızı",
+    "ar": "أحمر",
+    "ku": null,
+    "ckb": null
+  }
+]

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#173f40" />
+    <meta
+      name="description"
+      content="Fünf geheime Akten. Eine gemeinsame Ermittlung. Ein Spiel für den Geographieunterricht."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <title>Die geheime Ermittlungszentrale</title>
+    <link rel="icon" href="assets/icons/detective.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Zum Inhalt</a>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">E<span>Z</span></span>
+        <div>
+          <span class="eyebrow">GEHEIMSACHE · NUR FÜR EUER TEAM</span>
+          <p>Die geheime Ermittlungszentrale</p>
+        </div>
+      </div>
+      <button
+        type="button"
+        id="dictionary-open"
+        disabled
+        class="dictionary-button"
+        aria-haspopup="dialog"
+      >
+        <span aria-hidden="true">A↔文</span> Wörterbuch
+      </button>
+    </header>
+    <main id="main" tabindex="-1">
+      <p class="boot-message">Die Akten werden geöffnet …</p>
+    </main>
+    <footer class="site-footer">
+      <span>Gemeinsam ermitteln. Punkte auf Papier sichern.</span
+      ><a href="materials/ermittlungsbogen.pdf" target="_blank" rel="noopener"
+        >Ermittlungsbogen · PDF</a
+      >
+    </footer>
+    <dialog id="dictionary" aria-labelledby="dictionary-title">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow">EURE SPRACHHILFE</p>
+          <h2 id="dictionary-title">Wörterbuch</h2>
+        </div>
+        <button type="button" id="dictionary-close" class="outline">
+          Schließen <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <p>Gebt ein deutsches Wort ein.</p>
+      <div class="dictionary-grid">
+        <label
+          >Deutsch<input
+            id="dictionary-input"
+            type="search"
+            placeholder="Zum Beispiel: Karte"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false" /></label
+        ><label>Zielsprache<select id="dictionary-language"></select></label>
+        <div>
+          <span class="field-label">Übersetzung</span>
+          <div id="dictionary-result" class="translation" aria-live="polite">
+            Hier steht die Übersetzung.
+          </div>
+        </div>
+      </div>
+      <div id="dictionary-suggestions" class="suggestions"></div>
+      <p class="quiet">Eure Antworten und Hinweise bleiben erhalten.</p>
+    </dialog>
+    <dialog id="map-dialog" aria-labelledby="map-title">
+      <div class="dialog-header">
+        <h2 id="map-title">Die Karte</h2>
+        <button type="button" id="map-close" class="outline">
+          Schließen ×
+        </button>
+      </div>
+      <div id="map-content" class="big-map"></div>
+    </dialog>
+    <dialog id="restart-dialog" aria-labelledby="restart-title">
+      <h2 id="restart-title">Akte neu starten?</h2>
+      <p>
+        Die Punkte dieser Akte werden zurückgesetzt.<br />Habt ihr sie auf
+        Papier notiert?
+      </p>
+      <div class="actions">
+        <button type="button" id="restart-cancel" class="outline">
+          Akte behalten</button
+        ><button type="button" id="restart-confirm" class="primary">
+          Neu starten
+        </button>
+      </div>
+    </dialog>
+    <noscript
+      ><p>
+        Bitte aktiviert JavaScript. Das Spiel arbeitet vollständig auf diesem
+        Gerät.
+      </p></noscript
+    >
+  </body>
+</html>

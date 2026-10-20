@@ -1,1 +1,88 @@
-# Mystery-Afrika
+# Die geheime Ermittlungszentrale
+
+Ein browserbasiertes Geographie-Detektivspiel für Klasse 7: fünf unabhängige Akten, kurze Texte, Zweierteams und Ergebnisse auf Papier. Reines HTML, CSS und JavaScript, ohne Build-Schritt für das Spiel.
+
+**Abnahmestatus:** Die Spielmechanik und alle fünf Abläufe sind implementiert. Die Unterrichtsfreigabe ist noch offen: 15 authentische Fotos fehlen, beide kurdischen Wörterbuchvarianten sind unvollständig, die sprachliche Prüfung und der Safari-Test auf einem echten Schul-iPad stehen aus. Die fehlenden Fotos sind sichtbar markiert. Einzelheiten in [Abnahme](docs/abnahme.md), [Bildquellen](docs/bildquellen.md) und [Testbericht](docs/testbericht.md).
+
+## Lokal starten
+
+Mit Node.js 24 (getestet; keine Laufzeitpakete nötig):
+
+```sh
+npm start
+```
+
+Danach Port 4173 im Browser öffnen. Alternativ `python3 -m http.server 4173` im Repository. `index.html` nicht als `file://` öffnen, weil ES-Module und lokale JSON-Daten einen HTTP-Server benötigen.
+
+## GitHub Pages
+
+Nach Prüfung und Merge: im Repository **Settings → Pages → Deploy from a branch → main → / (root)** auswählen und speichern. GitHub Pages veröffentlicht `index.html` und die relativen Ressourcen. Es gibt keinen Build oder App-Server im Deployment. `.nojekyll` verhindert Jekyll-Verarbeitung. Die Anwendung ist auch unter dem Projektpfad `/Ermittlungszentrale/` getestet. Es wurde durch die Entwicklung noch kein Merge oder Pages-Deployment ausgelöst.
+
+Unterricht erst nach den offenen Abnahmen freigeben. Alle Akten starten über denselben Link. Lösungen und Lehrermaterialien sind im öffentlichen Repository technisch einsehbar; es gibt keine behauptete Zugriffssperre.
+
+## Akten und Punkte
+
+| Akte | Inhalt | Maximal |
+|---|---|---:|
+| 001 · Der verschwundene Titel | Kontinent aus Beweismaterial erschließen | 5 |
+| 002 · Die Bilder im Kopf | Persönliche Motive, Medienauswahl und Ausschnitte | 5 |
+| 003 · Ein Kontinent, viele Gesichter | Marokko, Nigeria und Ghana räumlich zuordnen | 15 |
+| 004 · Der letzte Ermittlungsbericht | Persönlicher Vergleich und passende Überschrift | 5 |
+| 005 · Die Spur in die Zukunft | Vier Spuren und Fragen für die weitere Einheit | 5 Bonus |
+
+Regulär maximal 30 Punkte; Bonus getrennt. Hinweisstufen begrenzen auf 5/3/2/1. Ein eindeutig falscher Versuch pro früher Stufe; nach Hinweis 3 unbegrenzte Versuche mit einer einfachen Abschlussauswahl. Richtige Teilkriterien bleiben erhalten. Ein positiver Teilerfolg beendet die Aufgabe. Persönliche Vorstellungen, Bildauswahl, Reflexionen und eigene Fragen werden nicht bewertet.
+
+Sprachbewertung: explizite Schreibvarianten, Unicode-/Satzzeichen-Normalisierung, Verneinungsprüfung und vorsichtige Klärung unbekannter Formulierungen. Keine allgemeine Ähnlichkeitssuche für Ländernamen. „Amerika“ und „Südafrika“ werden nicht als „Afrika“ gewertet. Unklare Abgaben geben keine willkürlichen Punkte und verbrauchen keinen Versuch; das Team formuliert dieselbe Aussage verständlicher.
+
+## Datenschutz und Betrieb
+
+Keine Konten, Cookies, Datenbank, Analytics, externen APIs, Audioausgabe oder externen Fonts. Antworten und Punkte werden lokal berechnet. Optionale `sessionStorage`-Sicherung im Tab; keine verpflichtende Speicherung, kein `localStorage`. Ohne Speicher funktioniert alles im Arbeitsspeicher. Papier sichert die Punkte über Gerätewechsel hinweg. Bei Nutzung von GitHub Pages gelten dessen übliche Hosting-Zugriffsprotokolle; es gibt keine zusätzliche Telemetrie im Spiel.
+
+Alle Ressourcen liegen lokal im Repository. Es gibt keine fremden Inhalte zur Laufzeit. Kein Service Worker, keine garantierte vollständige Offline-Neuladung nach Schließen des Browsers. Die bereits geladene Sitzung braucht keine externen Dienste.
+
+## Wörterbuch
+
+187 Begriffe. Sieben getrennte Zielsprachen: Russisch, Ukrainisch, Polnisch, Türkisch, Standardarabisch, Kurdisch (Kurmandschi) und Kurdisch (Sorani). Arabisch und Sorani erscheinen rechtsbündig mit RTL-Schreibrichtung. Sichere bekannte Tippvarianten werden erkannt; unsichere Treffer werden nur vorgeschlagen. Fehlendes bleibt „Keine Übersetzung vorhanden“. Kurdische Lücken und muttersprachliche Prüfung: siehe [Abnahme](docs/abnahme.md).
+
+## Unterrichtsmaterialien
+
+- [Ermittlungsbogen HTML](materials/ermittlungsbogen.html) und [PDF](materials/ermittlungsbogen.pdf): genau zwei DIN-A4-Seiten, beidseitig an langer Kante, 100 %, schwarz-weiß-tauglich.
+- [Erwartungshorizont Markdown](docs/erwartungshorizont.md), [HTML](materials/erwartungshorizont.html) und [PDF](materials/erwartungshorizont.pdf): aus denselben Rubrikdaten generiert; nicht in der Schüleroberfläche verlinkt.
+- [Didaktische Umsetzung](docs/didaktisches-konzept.md).
+
+Der Bogen nennt das Thema schon in den späteren Aufgaben. Für die Überraschung in Akte 001 den Bogen erst nach der Lösung ausgeben oder spätere Bereiche zunächst abdecken. Eine DOCX-Fassung wurde nicht erstellt; die HTML-Fassung ist bearbeitbar.
+
+## Entwicklung und Tests
+
+Node.js 24 und npm 11 wurden verwendet. Nur Entwicklungswerkzeuge sind abhängig von npm-Paketen:
+
+```sh
+npm ci
+npm test
+npm run test:e2e
+npm run materials
+npm run test:pdf
+npm run audit:release
+```
+
+Playwright nutzt hier `/usr/bin/chromium`. Für andere Systeme `CHROMIUM_PATH` auf eine installierte Chromium-Binärdatei setzen. Zwei Projekte prüfen iPad-Querformat (1024 × 768, Touch) und schmales iPhone-Format (390 × 664, Touch). Die Geräteemulation ist kein Nachweis eines echten Safari-Geräts. Optional bei verfügbarem WebKit: `TEST_WEBKIT=1 npm run test:e2e`. Dessen Browser vorher mit `npx playwright install webkit` installieren. Netzwerk und Browser-Bibliotheken müssen vorhanden sein.
+
+PDF-Generierung: `npm run materials` braucht Chromium und prüft den HTML-Seitenüberlauf vor der Ausgabe. Die PDF-Inhalts-/Formatprüfung nutzt Python mit `pypdf` (`python3 -m pip install pypdf` in einer Entwicklungsumgebung). Fertige PDFs liegen im Repository; zum Spielen ist keine Installation erforderlich.
+
+`npm run audit:release` beendet sich absichtlich mit Code 2, solange die dokumentierten Bild-, Sprach- und Geräteabnahmen offen sind. Das ist keine technische Funktionsprüfung. Änderungen an Rubriken: Materialien neu generieren und die betroffenen Tests wiederholen.
+
+## Struktur
+
+```text
+index.html           zentrale Schüleranwendung
+css/style.css        responsive Oberfläche und Touch-Ziele
+js/                  Navigation, Sitzung, Bewertung, Wörterbuch
+ data/               Akten, Rubriken, Übersetzungen, lokale Kartendaten
+assets/              lokale Karten, Oberflächenzeichnung und künftige Fotos
+materials/           druckbare HTML-/PDF-Dateien
+ docs/               Erwartungshorizont, Quellen, Didaktik, Abnahmestatus
+scripts/             Entwicklungsserver, Material-/Kartengenerierung, Abnahmeprüfung
+tests/               Node-Tests und Playwright-Browserdurchläufe
+```
+
+Keine Schülernamen im Spiel eingeben; Namensfelder gibt es nur auf Papier. Neuer Branch für Änderungen, kein direkter Merge in `main` durch das Entwicklungsskript.
