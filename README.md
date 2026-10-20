@@ -2,7 +2,7 @@
 
 Ein browserbasiertes Geographie-Detektivspiel für Klasse 7: fünf unabhängige Akten, kurze Texte, Zweierteams und Ergebnisse auf Papier. Reines HTML, CSS und JavaScript, ohne Build-Schritt für das Spiel.
 
-**Abnahmestatus:** Die Spielmechanik und alle fünf Abläufe sind implementiert. Die Unterrichtsfreigabe ist noch offen: 15 authentische Fotos fehlen, beide kurdischen Wörterbuchvarianten sind unvollständig, die sprachliche Prüfung und der Safari-Test auf einem echten Schul-iPad stehen aus. Die fehlenden Fotos sind sichtbar markiert. Einzelheiten in [Abnahme](docs/abnahme.md), [Bildquellen](docs/bildquellen.md) und [Testbericht](docs/testbericht.md).
+**Abnahmestatus:** Alle fünf Akten enthalten jetzt die 15 authentischen, lokal gespeicherten Fotografien mit belegten Aufnahmeorten und freien Lizenzen. Die Unterrichtsfreigabe ist noch offen: beide kurdischen Wörterbuchvarianten sind unvollständig, die sprachliche Prüfung und der Safari-Test auf einem echten Schul-iPad stehen aus. Einzelheiten in [Abnahme](docs/abnahme.md), [Bildquellen](docs/bildquellen.md) und [Testbericht](docs/testbericht.md).
 
 ## Lokal starten
 
@@ -38,7 +38,11 @@ Sprachbewertung: explizite Schreibvarianten, Unicode-/Satzzeichen-Normalisierung
 
 Keine Konten, Cookies, Datenbank, Analytics, externen APIs, Audioausgabe oder externen Fonts. Antworten und Punkte werden lokal berechnet. Optionale `sessionStorage`-Sicherung im Tab; keine verpflichtende Speicherung, kein `localStorage`. Ohne Speicher funktioniert alles im Arbeitsspeicher. Papier sichert die Punkte über Gerätewechsel hinweg. Bei Nutzung von GitHub Pages gelten dessen übliche Hosting-Zugriffsprotokolle; es gibt keine zusätzliche Telemetrie im Spiel.
 
-Alle Ressourcen liegen lokal im Repository. Es gibt keine fremden Inhalte zur Laufzeit. Kein Service Worker, keine garantierte vollständige Offline-Neuladung nach Schließen des Browsers. Die bereits geladene Sitzung braucht keine externen Dienste.
+Alle Ressourcen liegen lokal im Repository. Es gibt keine fremden Inhalte zur Laufzeit. Die Beweisfotos laden erst in der geöffneten Akte, kompakte Auswahlen zusätzlich bei Bedarf. Kein Service Worker, keine garantierte vollständige Offline-Neuladung nach Schließen des Browsers. Nicht geladene Akten benötigen auch während einer Sitzung den eigenen statischen Server; externe Dienste sind unnötig.
+
+Die [lokalen Bildnachweise](bildnachweise.html) nennen Urheber, Originalquelle, Lizenz samt Version, Ortsbeleg und Motivabweichungen für alle 15 Fotos. Im Spiel ist der Link bei anonymen Rätseln erst nach der Lösung sichtbar. Die vollständigen Commons-Quellennachweise liegen unter `docs/media/`; der Medienkatalog enthält Prüfsummen. `npm run media:credits` erzeugt die Nachweisseite und `docs/bildquellen.md` aus dem Katalog neu.
+
+Zur erneuten Optimierung die in `data/media.json` angegebenen Originaldateien mit ihren ursprünglichen Wikimedia-Dateinamen in einem separaten Verzeichnis bereitstellen. `python3 scripts/prepare-media.py /pfad/zu/originalen` prüft SHA1/SHA256 und erzeugt die WebP-Dateien neu (Entwicklungswerkzeug: Pillow 12.3.0). Danach `npm run media:credits` ausführen. Das Skript lädt selbst nichts herunter.
 
 ## Wörterbuch
 
@@ -78,11 +82,11 @@ index.html           zentrale Schüleranwendung
 css/style.css        responsive Oberfläche und Touch-Ziele
 js/                  Navigation, Sitzung, Bewertung, Wörterbuch
  data/               Akten, Rubriken, Übersetzungen, lokale Kartendaten
-assets/              lokale Karten, Oberflächenzeichnung und künftige Fotos
+assets/              lokale Karten, Oberflächenzeichnung und 15 Beweisfotos
 materials/           druckbare HTML-/PDF-Dateien
  docs/               Erwartungshorizont, Quellen, Didaktik, Abnahmestatus
 scripts/             Entwicklungsserver, Material-/Kartengenerierung, Abnahmeprüfung
 tests/               Node-Tests und Playwright-Browserdurchläufe
 ```
 
-Keine Schülernamen im Spiel eingeben; Namensfelder gibt es nur auf Papier. Neuer Branch für Änderungen, kein direkter Merge in `main` durch das Entwicklungsskript.
+Keine Schülernamen im Spiel eingeben; Namensfelder gibt es nur auf Papier. Entwicklungsbranch `feature/detektivspiel-komplett`, bestehender Draft-PR #1 gegen `main`. Kein Merge oder Deployment ohne gesonderten Auftrag.

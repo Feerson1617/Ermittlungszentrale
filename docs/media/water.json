@@ -1,0 +1,180 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "162393161": {
+        "pageid": 162393161,
+        "ns": 6,
+        "title": "File:Un champs de mil pendant la saison sèche.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2025-03-18T22:41:19Z",
+            "size": 3622304,
+            "width": 3456,
+            "height": 4608,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Un_champs_de_mil_pendant_la_saison_s%C3%A8che.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Un_champs_de_mil_pendant_la_saison_s%C3%A8che.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=162393161",
+            "sha1": "8feadf64f91598f8afda6fd02ba73b0603fb2d2a",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2025-03-18 22:41:19",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Un champs de mil pendant la saison sèche",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Millet|Agriculture in Niger|Self-published work|Uploaded via Campaign:wlafrica|Files with coordinates missing SDC location of creation|Images from Wiki Loves Africa 2025|Images from Wiki Loves Africa 2025 in Niger|Images from Wiki Loves Africa 2025 to check|Taken with Tecno Phantom 9",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "13.954190",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "1.656240",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "This is an image with the theme \"<i>Farm to Plate</i>\" from:",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2025-03-14 09:39:16",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Tawaye\" title=\"User:Tawaye\">Tawaye</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1079124895,
+            "parentid": 1079124697,
+            "timestamp": "2025-08-30T15:35:13Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "=={{int:filedesc}}==\n{{Information\n|description={{fr|1=Après la récolte du mil,d'autres champs restent libre jusqu'à la saison de pluie.}}\n{{Ig|1=Mgbe owuwe ihe ubi millet, ubi ndị ọzọ na-anọ n'efu ruo oge mmiri ozuzo.}}\n{{Wiki Loves Africa 2025 country|NE}}\n|date=2025-03-14 09:39:16\n|source={{own}}\n|author=[[User:Tawaye|Tawaye]]\n|permission=\n|other versions=\n}}\n{{Location|13.95419|1.65624}}\n\n=={{int:license-header}}==\n{{self|cc-by-sa-4.0}}\n\n{{Wiki Loves Africa 2025}}\n[[Category:Images from Wiki Loves Africa 2025 to check]]\n\n[[Category:Uploaded via Campaign:wlafrica]]\n[[Category:Agriculture in Niger]]\n[[Category:Millet]]\n\n[[Category:Taken with Tecno Phantom 9]]"
+              }
+            }
+          }
+        ],
+        "coordinates": [
+          {
+            "lat": 13.95419,
+            "lon": 1.65624,
+            "primary": "",
+            "globe": "earth"
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:Agriculture in Niger"
+          },
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-4.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Files with coordinates missing SDC location of creation"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Images from Wiki Loves Africa 2025"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Images from Wiki Loves Africa 2025 in Niger"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Images from Wiki Loves Africa 2025 to check"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Millet"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Taken with Tecno Phantom 9"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Uploaded via Campaign:wlafrica"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}

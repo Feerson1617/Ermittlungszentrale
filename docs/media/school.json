@@ -1,0 +1,143 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "24965506": {
+        "pageid": 24965506,
+        "ns": 6,
+        "title": "File:Balme Library of University of Ghana, Accra, Ghana.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2013-03-03T18:10:40Z",
+            "size": 669886,
+            "width": 1600,
+            "height": 1200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Balme_Library_of_University_of_Ghana%2C_Accra%2C_Ghana.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Balme_Library_of_University_of_Ghana,_Accra,_Ghana.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=24965506",
+            "sha1": "88b3050276154e7a744d1ef371e6e2ca739f0cda",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2013-03-03 18:10:40",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Balme Library of University of Ghana, Accra, Ghana",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Taken with Canon Digital IXUS 85 IS|Balme Library|Self-published work|Images with extracted images|2010 photographs of Ghana",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Badme Library of University of Ghana, Accra, Ghana",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2010-01-31 07:16:02",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rjruiziii&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rjruiziii (page does not exist)\">Rjruiziii</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 3.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 3.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-3.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1157012421,
+            "parentid": 910684907,
+            "timestamp": "2026-01-31T12:56:05Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "=={{int:filedesc}}==\n{{Information\n|description={{en|1=Badme Library of University of Ghana, Accra, Ghana}}\n|date=2010-01-31 07:16:02\n|source={{own}}\n|author=[[User:Rjruiziii|Rjruiziii]]\n|permission=\n|other_versions={{Image extracted|1=Balme Library of University of Ghana.jpg}}\n|other_fields=\n}}\n\n=={{int:license-header}}==\n{{self|cc-by-sa-3.0}}\n\n\n[[Category:2010 photographs of Ghana]]\n[[Category:Balme Library]]\n[[Category:Taken with Canon Digital IXUS 85 IS]]"
+              }
+            }
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:2010 photographs of Ghana"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Balme Library"
+          },
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-3.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Images with extracted images"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Taken with Canon Digital IXUS 85 IS"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}

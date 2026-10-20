@@ -1,41 +1,230 @@
 # Bildquellen und Karten
 
-## Status der dokumentarischen Fotos: offen
+## Dokumentarische Fotografien
 
-**Es sind noch keine dokumentarischen Fotografien eingebunden.** Der Zugriff auf `commons.wikimedia.org` wurde während der Entwicklung vom Netzwerkproxy mit HTTP 403 abgewiesen. Es wurden keine generierten Landschaftsbilder, fremden Fotos ohne belegte Rechte oder erfundenen Quellen verwendet. Die schraffierten Flächen sind ausdrücklich fehlende Fotos und beschreiben nur das benötigte Motiv.
+15 von 15 authentischen Fotografien sind lokal eingebunden. Recherche, Abgleich der Aufnahmeorte, Lizenzprüfung und Sichtprüfung: 20.10.2026. Keine generierten Beweisbilder; keine externen Bildabrufe beim Spielen.
 
-Die vollständig implementierten Abläufe ersetzen keine visuelle Unterrichtsabnahme. Vor Unterrichtseinsatz diese 15 Bilder beschaffen und einzeln prüfen:
+Die Ortsprüfung stützt sich auf die Autorbeschreibung, die Originalquellen und geografischen Kategorien sowie, soweit vorhanden, Koordinaten der Commons-Beschreibungsseite. Die jeweilige Genauigkeit und jede Motivabweichung stehen unten. Nicht belegte Straßen, Farmstandorte oder GPS-Koordinaten werden nicht ergänzt. Einzelbilder belegen weder gegenwärtige Zustände noch zeitliche Trends für ein ganzes Land.
 
-| Schlüssel | Bildnummer | Benötigtes reales Motiv | Geplanter Aufnahmeort, noch kein belegtes Bild |
-|---|---:|---|---|
-| savanna | 1 | Savanne mit Wildtieren | Kenia |
-| desert | 2 | Namib-Dünen | Namibia |
-| forest | 3 | Tropischer Regenwald | Kongobecken; konkreten Ort belegen |
-| lagos | 4 | Moderne Skyline | Lagos, Nigeria |
-| farm | 5 | Landwirtschaftliche Arbeit | Ghana |
-| atlas | 6 | Schnee im Atlasgebirge | Marokko |
-| coast | 7 | Küstenstadt/Strand | Sansibar, Tansania |
-| factory | 8 | Industrie/Produktion | Ghana |
-| school | 9 | Universität | Accra, Ghana |
-| market | 10 | Städtischer Markt/Alltag | Accra, Ghana |
-| cocoa | — | Kakaofrüchte und Anbau | Ghana |
-| water | — | Landwirtschaft in trockener Region | Sahelregion; konkreten Ort belegen |
-| people | — | Wachsende Stadt | Nairobi, Kenia |
-| economy | — | Kakaoverarbeitung | Ghana |
-| solar | — | Lokale Solaranlage | Marokko |
+Unter `docs/media/` liegen unveränderte Commons-API-Antworten mit Beschreibungs-Wikitext, Revisions-ID, Urheber, Lizenzvorlage, Originaldatei-URL/-SHA1 und Kategorien. `data/media.json` enthält zusätzlich die SHA256 von Nachweisen, Originaldownloads und ausgelieferten WebP-Dateien. Die heruntergeladenen Originale wurden vor der Optimierung bytegenau mit dem SHA1 aus der Commons-Dateiinformation abgeglichen. Die großen Originaldownloads werden nicht zusätzlich ausgeliefert.
 
-Alle Angaben in dieser Tabelle sind **Suchanforderungen**, keine Behauptungen über vorhandene Fotos. Es gibt noch keine Fotografen- oder Lizenzangaben, weil kein Bild übernommen wurde.
+Alle lokalen Ableitungen behalten die jeweilige Bildlizenz. WebP-Konvertierung, Verkleinerung (maximal 1400 × 1400 Pixel) und Entfernung von EXIF; kein inhaltlicher Eingriff, keine generative Bearbeitung, kein gespeicherter Beschnitt. Die Oberfläche zeigt das vollständige Bild mit `object-fit: contain`. Eventuelle Bearbeitungen bereits auf Commons stehen im gesicherten Quellennachweis.
 
-## Aufnahmeprozess
+Die sichtbare Kurzangabe nennt Urheber und Lizenz. Die lokale Seite [Bildnachweise](../bildnachweise.html) enthält Originaltitel, Quell- und Lizenzlinks, Ortsbeleg und Bearbeitung. Sie ist im Spiel bei den anonymen Rätseln erst nach der Lösung verlinkt. Akte 001 zeigt neutrale Bildnummern, Motive und Dateipfade; keine Ortsnamen oder Originaltitel. Akte 002 und 004 verwenden dieselben zehn Einträge mit identischen Nummern und Dateien. In Akte 003 folgen Atlas- und Kakaopunkt den dokumentierten Aufnahmekoordinaten; der Stadtpunkt markiert Lagos Island aus der Autorbeschreibung. Die Karten sind stark vereinfacht und keine Navigationskarten.
 
-1. Nach erlaubtem Zugriff ein echtes Foto und seine Beschreibungsseite prüfen. Motiv und geografischen Ort nachweisen; nicht allein dem Dateinamen vertrauen.
-2. Einzeln Urheber, Quelle, Lizenz einschließlich Version, erforderliche Attribution und eventuelle Bearbeitung notieren. Keine fair-use-Fotos und keine ungeklärten Lizenzen übernehmen. Personenrechte beachten.
-3. Die optimierte Datei lokal unter `assets/images/` speichern (ungefähr 1000–1400 Pixel breite JPEG/WebP, hohe visuelle Lesbarkeit). Metadaten ohne benötigte Orts- oder Personeninformationen entfernen; Quellenbeleg behalten. Bearbeitung gegebenenfalls angeben.
-4. In `data/media.json` den Schlüssel ergänzen. Pflichtfelder: `path`, `description`, `location`, `author`, `source`, `license`, `attribution`, `sha256`. Pfad relativ zum Repository, keine externe URL als Bildpfad. SHA256 mit `sha256sum assets/images/DATEI` bestimmen. Lizenzbeleg als lokale Text-/JSON-Datei in `docs/` sichern.
-5. Hier den tatsächlichen Einzelbildnachweis ergänzen. Die Lernoberfläche zeigt in Akte 001 zunächst nur Beweisnummern und neutrale Motive. Quellen und Ortsnamen dürfen die Themenauflösung nicht vorwegnehmen.
-6. `npm run audit:release`, Funktions- und Sichtprüfungen ausführen. Erst bei vollständiger Lizenz- und Motivprüfung `status` im Medienkatalog auf `complete` setzen. Ein ausgefülltes JSON allein ersetzt keine Prüfung.
+Die Fotos laden erst in der geöffneten Akte, kompakte Auswahlen zusätzlich mit Lazy Loading. Zusammen: 2.84 MiB. Kein Vorladen der 15 Fotos auf dem Startbildschirm. Bildabnahme ist von der weiterhin offenen sprachlichen und echten Geräteabnahme getrennt.
 
-Es gibt keine externen Bildabrufe während des Spiels. Das einzige derzeit verwendete Oberflächenbild ist eine selbst erstellte, als Dekoration erkennbare SVG-Zeichnung von Akte und Lupe (`assets/icons/detective.svg`). Sie dient nicht als geografischer Beweis.
+| Nachweis | Spielschlüssel | Motiv / belegter Ort | Urheber | Lizenz | Datei |
+|---|---|---|---|---|---|
+| F01 | savanna | Zebras und Gnus auf einer weiten Grasfläche der Maasai Mara. Maasai Mara, Narok County, Kenia | Michelle Juma | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [assets/images/01.webp](../assets/images/01.webp) |
+| F02 | desert | Sanddünen mit Windrippeln in der Namib. Zwischen Deadvlei und Sossusvlei, Namib-Naukluft-Nationalpark, Namibia | Daniel Kraft | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [assets/images/02.webp](../assets/images/02.webp) |
+| F03 | forest | Geschlossene Baumkronen des tropischen Ituri-Regenwalds aus der Luft. Ituri-Regenwald, Demokratische Republik Kongo, Kongobecken | MONUSCO / Abel Kavanagh | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [assets/images/03.webp](../assets/images/03.webp) |
+| F04 | lagos | Hochhäuser und dichte Bebauung auf Lagos Island. Blick vom City Hall, Lagos Island, Lagos, Nigeria | Jamie Tubers | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [assets/images/04.webp](../assets/images/04.webp) |
+| F05 | farm | Menschen bei der landwirtschaftlichen Arbeit auf einer Demonstrationsfarm. Darsfield-Demonstrationsfarm, Ghana | Trees For The Future (TFTF) | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [assets/images/05.webp](../assets/images/05.webp) |
+| F06 | atlas | Schneebedeckte Hänge im Hohen Atlas. Hoher Atlas, Marokko | Richard Allaway | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [assets/images/06.webp](../assets/images/06.webp) |
+| F07 | coast | Sandstrand, Palmen und Meer an der Ostküste Sansibars. Ostküste von Unguja (Sansibar), Tansania | Bakersville | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [assets/images/07.webp](../assets/images/07.webp) |
+| F08 | factory | Außenansicht eines Ghacem-Zementwerks mit Produktionssilo. Ghacem-Anlage im Großraum Accra/Tema, Ghana | Gideon Fiadowu Norkplim | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [assets/images/08.webp](../assets/images/08.webp) |
+| F09 | school | Balme Library auf dem Campus der University of Ghana. Legon, Accra, Ghana | Rjruiziii | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [assets/images/09.webp](../assets/images/09.webp) |
+| F10 | market | Straßenszene mit Geschäften und Passanten am Makola-Markt. Makola-Markt, Accra Central, Ghana | Amuzujoe | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [assets/images/10.webp](../assets/images/10.webp) |
+| F11 | cocoa | Kakaofrüchte am Baum in einem ghanaischen Anbaugebiet. Ostghana (6.599547 N, 0.881836 W), Ghana | Otuo-Akyampong Boakye | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [assets/images/11.webp](../assets/images/11.webp) |
+| F12 | water | Abgeerntetes Hirsefeld in der Trockenzeit. Sahelzone, westlicher Niger (13.95419 N, 1.65624 E) | Tawaye | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [assets/images/12.webp](../assets/images/12.webp) |
+| F13 | people | Skyline von Nairobi, vom Stadtteil Upper Hill aus gesehen. Upper Hill, Nairobi, Kenia | Lmwangi | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [assets/images/13.webp](../assets/images/13.webp) |
+| F14 | economy | Gebäude und Anlage eines kakaoverarbeitenden Betriebs. Industriegebiet Tema, Ghana | Hiroo Yamagata | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [assets/images/14.webp](../assets/images/14.webp) |
+| F15 | solar | Spiegelfelder des solarthermischen Kraftwerks Noor I/II. Noor-Solarkomplex bei Ouarzazate, Marokko | Richard Allaway | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [assets/images/15.webp](../assets/images/15.webp) |
+
+### F01 · savanna
+
+- **Original:** [Zebras and wildebeest Maasai Mara.jpg](https://commons.wikimedia.org/wiki/File:Zebras_and_wildebeest_Maasai_Mara.jpg); [geprüfte Beschreibungsrevision 1047727220](https://commons.wikimedia.org/w/index.php?oldid=1047727220).
+- **Aufnahmeort:** Maasai Mara, Narok County, Kenia.
+- **Aufnahmedatum laut Quelle:** 2018-12-10.
+- **Ortsbeleg:** Autorbeschreibung nennt weidende Zebras und Gnus in der Maasai Mara, Kenia; die Kategorien bestätigen beide Tierarten und das Schutzgebiet.
+- **Urheber / Lizenz:** [Michelle Juma](https://commons.wikimedia.org/w/index.php?title=User:Michelle_Juma&action=edit&redlink=1); [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+- **Erforderliche Attribution der lokalen Fassung:** Zebras and wildebeest Maasai Mara.jpg — Michelle Juma, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Zebras_and_wildebeest_Maasai_Mara.jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Keine Abweichung vom geplanten Motiv.
+- **Lokal:** assets/images/01.webp, 1400 × 933 Pixel, 438 KiB; SHA256 `408f9a8027cd376df2ad5416ca4e0b2f801c4c7d07cde65847b4b8f1fc12a18f`.
+- **Quellennachweis:** [docs/media/savanna.json](../docs/media/savanna.json); SHA256 `3ef1513e475defcfe43b94b8684af4204ec66418aea11f5f1dbba780049368b2`.
+
+
+### F02 · desert
+
+- **Original:** [Sossusvlei Dune Rippled cropped.jpg](https://commons.wikimedia.org/wiki/File:Sossusvlei_Dune_Rippled_cropped.jpg); [geprüfte Beschreibungsrevision 912746299](https://commons.wikimedia.org/w/index.php?oldid=912746299).
+- **Aufnahmeort:** Zwischen Deadvlei und Sossusvlei, Namib-Naukluft-Nationalpark, Namibia.
+- **Aufnahmedatum laut Quelle:** Taken on 21 May 2019, 09:13:09.
+- **Ortsbeleg:** Beschreibung und Aufnahmekoordinaten -24.751763, 15.292119 stimmen mit Sossusvlei überein.
+- **Urheber / Lizenz:** [Daniel Kraft](https://commons.wikimedia.org/wiki/User:Domob); [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0).
+- **Erforderliche Attribution der lokalen Fassung:** Sossusvlei Dune Rippled cropped.jpg — Daniel Kraft, CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Sossusvlei_Dune_Rippled_cropped.jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Keine Abweichung vom geplanten Motiv.
+- **Lokal:** assets/images/02.webp, 1400 × 836 Pixel, 140 KiB; SHA256 `b30f83c92efff90b0db0aed397a2b5f5e8b3bbc18e202dfe25cf3004251b841c`.
+- **Quellennachweis:** [docs/media/desert.json](../docs/media/desert.json); SHA256 `0c3c2b9c6f98ab44089559cef8acc8282b0030c7f0e0e1398863ad45a966dc15`.
+
+
+### F03 · forest
+
+- **Original:** [Rainforest - Ituri (20874628148).jpg](https://commons.wikimedia.org/wiki/File:Rainforest_-_Ituri_(20874628148).jpg); [geprüfte Beschreibungsrevision 1083190379](https://commons.wikimedia.org/w/index.php?oldid=1083190379).
+- **Aufnahmeort:** Ituri-Regenwald, Demokratische Republik Kongo, Kongobecken.
+- **Aufnahmedatum laut Quelle:** 2015-08-22 09:53.
+- **Ortsbeleg:** MONUSCO-Aufnahme Rainforest – Ituri; Commons ordnet sie Ituri Province, Ituri rainforest und der DR Kongo zu. Keine punktgenauen Koordinaten angegeben.
+- **Urheber / Lizenz:** [MONUSCO / Abel Kavanagh](https://www.flickr.com/people/67163702@N07); [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0).
+- **Erforderliche Attribution der lokalen Fassung:** Rainforest - Ituri (20874628148).jpg — MONUSCO / Abel Kavanagh, CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Rainforest_-_Ituri_(20874628148).jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Luftaufnahme des Kronendachs statt Aufnahme vom Waldboden.
+- **Lokal:** assets/images/03.webp, 1400 × 933 Pixel, 342 KiB; SHA256 `83ce56e5475503f3cdc0dece12f8471805129b227bdfcd9cc7b3f78ac0acca53`.
+- **Quellennachweis:** [docs/media/forest.json](../docs/media/forest.json); SHA256 `9a6bcbedaab7f735e9c8911b9b32c659db3a776b06ed438db25ad665b5c173e7`.
+
+
+### F04 · lagos
+
+- **Original:** [Lagos Island City Scape.jpg](https://commons.wikimedia.org/wiki/File:Lagos_Island_City_Scape.jpg); [geprüfte Beschreibungsrevision 733816235](https://commons.wikimedia.org/w/index.php?oldid=733816235).
+- **Aufnahmeort:** Blick vom City Hall, Lagos Island, Lagos, Nigeria.
+- **Aufnahmedatum laut Quelle:** 2016-05-27 01:33:44.
+- **Ortsbeleg:** Autorbeschreibung nennt den Blick vom City-Hall-Gebäude auf Lagos Island; Kategorie Lagos Island bestätigt die Zuordnung.
+- **Urheber / Lizenz:** [Jamie Tubers](https://commons.wikimedia.org/wiki/User:Jamie_Tubers); [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+- **Erforderliche Attribution der lokalen Fassung:** Lagos Island City Scape.jpg — Jamie Tubers, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Lagos_Island_City_Scape.jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Bestandsbebauung und Hochhäuser von 2016 statt einer aktuellen Aufnahme von Eko Atlantic.
+- **Lokal:** assets/images/04.webp, 1400 × 726 Pixel, 87 KiB; SHA256 `b2cf739764f69498e8690bbe3860608e9e3d40569c6962c417bd57d3bd5894d2`.
+- **Quellennachweis:** [docs/media/lagos.json](../docs/media/lagos.json); SHA256 `550d3f25d98e086dd82193f6a16a151cfb334252906dea0e5f895cf7e6134056`.
+
+
+### F05 · farm
+
+- **Original:** [Darsfield farm Ghana 2010 - 001.jpg](https://commons.wikimedia.org/wiki/File:Darsfield_farm_Ghana_2010_-_001.jpg); [geprüfte Beschreibungsrevision 1175969846](https://commons.wikimedia.org/w/index.php?oldid=1175969846).
+- **Aufnahmeort:** Darsfield-Demonstrationsfarm, Ghana.
+- **Aufnahmedatum laut Quelle:** 2010-05-27.
+- **Ortsbeleg:** Beschreibung benennt die Darsfield-Earthcare-Demonstrationsfarm; Kategorien Agriculture in Ghana und Farmers from Ghana bestätigen das Land. Genauer Ort innerhalb Ghanas nicht belegt.
+- **Urheber / Lizenz:** Trees For The Future (TFTF); [CC BY 2.0](https://creativecommons.org/licenses/by/2.0).
+- **Erforderliche Attribution der lokalen Fassung:** Darsfield farm Ghana 2010 - 001.jpg — Trees For The Future (TFTF), CC BY 2.0 (https://creativecommons.org/licenses/by/2.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Darsfield_farm_Ghana_2010_-_001.jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Keine Abweichung vom geplanten Motiv.
+- **Lokal:** assets/images/05.webp, 1400 × 1050 Pixel, 351 KiB; SHA256 `0657d223c2ad2ba9e95a96125db63af8a5862580d84c860607937fb1ab9f24a5`.
+- **Quellennachweis:** [docs/media/farm.json](../docs/media/farm.json); SHA256 `ef0959e967cb86a1c2e537bef15e84ed8cbcd751dc13bb7776b73670804bdc67`.
+
+
+### F06 · atlas
+
+- **Original:** [Extreme Environment - Snow in the Atlas Mountains, Morocco (17182710966).jpg](https://commons.wikimedia.org/wiki/File:Extreme_Environment_-_Snow_in_the_Atlas_Mountains,_Morocco_(17182710966).jpg); [geprüfte Beschreibungsrevision 1156000388](https://commons.wikimedia.org/w/index.php?oldid=1156000388).
+- **Aufnahmeort:** Hoher Atlas, Marokko.
+- **Aufnahmedatum laut Quelle:** 2015-03-26 09:42.
+- **Ortsbeleg:** Autorbeschreibung und auf Commons dokumentierte Flickr-Koordinaten belegen den Hohen Atlas in Marokko.
+- **Urheber / Lizenz:** [Richard Allaway](https://www.flickr.com/people/16287002@N00); [CC BY 2.0](https://creativecommons.org/licenses/by/2.0).
+- **Erforderliche Attribution der lokalen Fassung:** Extreme Environment - Snow in the Atlas Mountains, Morocco (17182710966).jpg — Richard Allaway, CC BY 2.0 (https://creativecommons.org/licenses/by/2.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Extreme_Environment_-_Snow_in_the_Atlas_Mountains,_Morocco_(17182710966).jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Keine Abweichung vom geplanten Motiv.
+- **Lokal:** assets/images/06.webp, 1400 × 1050 Pixel, 310 KiB; SHA256 `fe0bbc8a20173b45ee2482435156456705b0097326f1a186c494a2b102e41e6b`.
+- **Quellennachweis:** [docs/media/atlas.json](../docs/media/atlas.json); SHA256 `78bbbbc21330c93400d5737c86dc76d24c4ca67802734a0da4ef2631c8bb7f7c`.
+
+
+### F07 · coast
+
+- **Original:** [Zanzibar east coast pristine beach.JPG](https://commons.wikimedia.org/wiki/File:Zanzibar_east_coast_pristine_beach.JPG); [geprüfte Beschreibungsrevision 1066493704](https://commons.wikimedia.org/w/index.php?oldid=1066493704).
+- **Aufnahmeort:** Ostküste von Unguja (Sansibar), Tansania.
+- **Aufnahmedatum laut Quelle:** 2006-12.
+- **Ortsbeleg:** Beschreibung Pristine Beach East Zanzibar und Kategorien Zanzibar Island, Beaches of Zanzibar und Tourism in Tanzania stimmen überein; kein einzelner Strandname belegt.
+- **Urheber / Lizenz:** [Bakersville](https://commons.wikimedia.org/w/index.php?title=User:Bakersville&action=edit&redlink=1); [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+- **Erforderliche Attribution der lokalen Fassung:** Zanzibar east coast pristine beach.JPG — Bakersville, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Zanzibar_east_coast_pristine_beach.JPG). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Strandlandschaft statt Stadt-und-Meer-Ansicht.
+- **Lokal:** assets/images/07.webp, 1400 × 1050 Pixel, 138 KiB; SHA256 `17c3e0fa46a37e8f6e7c2f392e37ba86535f111d6449ad7f2ab901fb6f08e6df`.
+- **Quellennachweis:** [docs/media/coast.json](../docs/media/coast.json); SHA256 `66193bfce1b307a4318523e4e2e090fc21a1de5ddc228db1855b9e7c7a1a6eb8`.
+
+
+### F08 · factory
+
+- **Original:** [Ghacem Manufacturing Plant.jpg](https://commons.wikimedia.org/wiki/File:Ghacem_Manufacturing_Plant.jpg); [geprüfte Beschreibungsrevision 1272778096](https://commons.wikimedia.org/w/index.php?oldid=1272778096).
+- **Aufnahmeort:** Ghacem-Anlage im Großraum Accra/Tema, Ghana.
+- **Aufnahmedatum laut Quelle:** 2026-06-06 18:15:00.
+- **Ortsbeleg:** Autorbeschreibung Ghacem manufacturing plant in Accra; Koordinaten 5.666156, -0.061758 liegen im Großraum Accra/Tema.
+- **Urheber / Lizenz:** [Gideon Fiadowu Norkplim](https://commons.wikimedia.org/wiki/User:Gideon_Fiadowu_Norkplim); [CC BY 4.0](https://creativecommons.org/licenses/by/4.0).
+- **Erforderliche Attribution der lokalen Fassung:** Ghacem Manufacturing Plant.jpg — Gideon Fiadowu Norkplim, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Ghacem_Manufacturing_Plant.jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Außenansicht eines Industriebetriebs statt Arbeit im Inneren.
+- **Lokal:** assets/images/08.webp, 1400 × 874 Pixel, 75 KiB; SHA256 `c4a74f3989c6eabc847881c002a508d28671fda09ac140cb8f935ee079043c35`.
+- **Quellennachweis:** [docs/media/factory.json](../docs/media/factory.json); SHA256 `0e57c44fab45c86f31864fca96c18312f3875539fe5a66534f57b27f491433de`.
+
+
+### F09 · school
+
+- **Original:** [Balme Library of University of Ghana, Accra, Ghana.jpg](https://commons.wikimedia.org/wiki/File:Balme_Library_of_University_of_Ghana,_Accra,_Ghana.jpg); [geprüfte Beschreibungsrevision 1157012421](https://commons.wikimedia.org/w/index.php?oldid=1157012421).
+- **Aufnahmeort:** Legon, Accra, Ghana.
+- **Aufnahmedatum laut Quelle:** 2010-01-31 07:16:02.
+- **Ortsbeleg:** Autorbeschreibung benennt die Bibliothek und die University of Ghana in Accra; Kategorie Balme Library bestätigt das Bauwerk. Der Tippfehler Badme in der Quelle wird als Balme wiedergegeben.
+- **Urheber / Lizenz:** [Rjruiziii](https://commons.wikimedia.org/w/index.php?title=User:Rjruiziii&action=edit&redlink=1); [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0).
+- **Erforderliche Attribution der lokalen Fassung:** Balme Library of University of Ghana, Accra, Ghana.jpg — Rjruiziii, CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Balme_Library_of_University_of_Ghana,_Accra,_Ghana.jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Keine Abweichung vom geplanten Motiv.
+- **Lokal:** assets/images/09.webp, 1400 × 1050 Pixel, 141 KiB; SHA256 `2db3edeee7ac84a95ebafdfb0a55c89a0c3c848a775f4b98172e7ae209b1d303`.
+- **Quellennachweis:** [docs/media/school.json](../docs/media/school.json); SHA256 `407e5efea060d8be367d2a73dd36b052bdd7dc0fdaea30d458e869a8da8df310`.
+
+
+### F10 · market
+
+- **Original:** [MAKOLA.jpg](https://commons.wikimedia.org/wiki/File:MAKOLA.jpg); [geprüfte Beschreibungsrevision 1166103234](https://commons.wikimedia.org/w/index.php?oldid=1166103234).
+- **Aufnahmeort:** Makola-Markt, Accra Central, Ghana.
+- **Aufnahmedatum laut Quelle:** 2019-03-12 15:17:01.
+- **Ortsbeleg:** Autorbeschreibung nennt Makola als Markt in Accra Central; die Straßenansicht zeigt Geschäfte und städtischen Alltag.
+- **Urheber / Lizenz:** [Amuzujoe](https://commons.wikimedia.org/wiki/User:Amuzujoe); [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+- **Erforderliche Attribution der lokalen Fassung:** MAKOLA.jpg — Amuzujoe, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:MAKOLA.jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Keine Abweichung vom geplanten Motiv.
+- **Lokal:** assets/images/10.webp, 1400 × 933 Pixel, 111 KiB; SHA256 `79b0afb10529dcb61b91b0302bcce70db6aab696c188a42779fb50bc89a1725f`.
+- **Quellennachweis:** [docs/media/market.json](../docs/media/market.json); SHA256 `a123e1166e2c4f4a86e50a61aaae007af5ccd8a8a71b5a9d6869aa29a2254884`.
+
+
+### F11 · cocoa
+
+- **Original:** [Cocoa 002.jpg](https://commons.wikimedia.org/wiki/File:Cocoa_002.jpg); [geprüfte Beschreibungsrevision 1040313399](https://commons.wikimedia.org/w/index.php?oldid=1040313399).
+- **Aufnahmeort:** Ostghana (6.599547 N, 0.881836 W), Ghana.
+- **Aufnahmedatum laut Quelle:** 2020-11-04 11:19:36.
+- **Ortsbeleg:** Die Autorbeschreibung nennt Kakao als Nutzpflanze in Ghana; Aufnahmekoordinaten 6.599547, -0.881836 liegen im östlichen Ghana. Kategorien Theobroma cacao (fruit) und Cacao plantations bestätigen Frucht und Anbaukontext.
+- **Urheber / Lizenz:** [Otuo-Akyampong Boakye](https://commons.wikimedia.org/wiki/User:Otuo-Akyampong_Boakye); [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+- **Erforderliche Attribution der lokalen Fassung:** Cocoa 002.jpg — Otuo-Akyampong Boakye, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Cocoa_002.jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Keine Abweichung vom geplanten Motiv.
+- **Lokal:** assets/images/11.webp, 1400 × 1400 Pixel, 245 KiB; SHA256 `5e8d920ba4f8dc29bb76050a7ba1b0b55c1fcfe47427d527db4f0b8e8e063b98`.
+- **Quellennachweis:** [docs/media/cocoa.json](../docs/media/cocoa.json); SHA256 `664f57d4c9bc21213edabf299dc515148cc45336bf920fa921d61756400980c5`.
+
+
+### F12 · water
+
+- **Original:** [Un champs de mil pendant la saison sèche.jpg](https://commons.wikimedia.org/wiki/File:Un_champs_de_mil_pendant_la_saison_s%C3%A8che.jpg); [geprüfte Beschreibungsrevision 1079124895](https://commons.wikimedia.org/w/index.php?oldid=1079124895).
+- **Aufnahmeort:** Sahelzone, westlicher Niger (13.95419 N, 1.65624 E).
+- **Aufnahmedatum laut Quelle:** 2025-03-14 09:39:16.
+- **Ortsbeleg:** Die Beschreibung nennt abgeerntete Hirsefelder, die bis zur Regenzeit brachliegen; Kategorie Agriculture in Niger und Koordinaten verorten die Aufnahme im westlichen Niger.
+- **Urheber / Lizenz:** [Tawaye](https://commons.wikimedia.org/wiki/User:Tawaye); [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+- **Erforderliche Attribution der lokalen Fassung:** Un champs de mil pendant la saison sèche.jpg — Tawaye, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Un_champs_de_mil_pendant_la_saison_s%C3%A8che.jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Trockenzeit nach der Ernte statt laufender Feldarbeit; das Foto allein belegt keine Ernteausfälle.
+- **Lokal:** assets/images/12.webp, 1050 × 1400 Pixel, 186 KiB; SHA256 `57ede0139462dbea161835bebec00d3eed93c6d785eded69ed5da82e3138e95c`.
+- **Quellennachweis:** [docs/media/water.json](../docs/media/water.json); SHA256 `5eb2c870b22479a836dba1f05113386947bb53c6c5c94ad0bba0d43da1a2f311`.
+
+
+### F13 · people
+
+- **Original:** [Nairobi skyline P1000019.jpg](https://commons.wikimedia.org/wiki/File:Nairobi_skyline_P1000019.jpg); [geprüfte Beschreibungsrevision 1251738834](https://commons.wikimedia.org/w/index.php?oldid=1251738834).
+- **Aufnahmeort:** Upper Hill, Nairobi, Kenia.
+- **Aufnahmedatum laut Quelle:** 19 April 2008 (according to Exif data).
+- **Ortsbeleg:** Autorbeschreibung Nairobi skyline from Upperhill und Koordinaten -1.296500, 36.817778 verorten die Aufnahme in Nairobi.
+- **Urheber / Lizenz:** [Lmwangi](https://commons.wikimedia.org/wiki/User:Lmwangi?action=edit&redlink=1); [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0).
+- **Erforderliche Attribution der lokalen Fassung:** Nairobi skyline P1000019.jpg — Lmwangi, CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Nairobi_skyline_P1000019.jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Stadtansicht von 2008 als Ausgangspunkt für das Thema Stadtentwicklung; ein einzelnes Foto belegt kein Bevölkerungswachstum.
+- **Lokal:** assets/images/13.webp, 1400 × 1050 Pixel, 103 KiB; SHA256 `b4b257ad602370edc41915795a4f5f59ac4877458053568c2cf06de5bb3898cb`.
+- **Quellennachweis:** [docs/media/people.json](../docs/media/people.json); SHA256 `7337a719cf0003175d699533745c12bb72fbc70c0e64d413073f0a82964e3262`.
+
+
+### F14 · economy
+
+- **Original:** [Cocoa Processing Company Building (Cocoa Silo).jpg](https://commons.wikimedia.org/wiki/File:Cocoa_Processing_Company_Building_(Cocoa_Silo).jpg); [geprüfte Beschreibungsrevision 1129090532](https://commons.wikimedia.org/w/index.php?oldid=1129090532).
+- **Aufnahmeort:** Industriegebiet Tema, Ghana.
+- **Aufnahmedatum laut Quelle:** 2007-05-13.
+- **Ortsbeleg:** Autorbeschreibung und ursprünglicher Flickr-Titel nennen die Cocoa Processing Company, den Kakaosilo und Tema in Ghana. Commons-Kategorien Buildings in Tema und Agricultural buildings in Ghana bestätigen den Ort; Flickr-Lizenzprüfung durch Commons dokumentiert. Keine genauen Koordinaten in der ausgewählten Quelle.
+- **Urheber / Lizenz:** [Hiroo Yamagata](https://www.flickr.com/people/hiyori13/); [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0).
+- **Erforderliche Attribution der lokalen Fassung:** Cocoa Processing Company Building (Cocoa Silo).jpg — Hiroo Yamagata, CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Cocoa_Processing_Company_Building_(Cocoa_Silo).jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Außenansicht statt Einblick in den Verarbeitungsprozess.
+- **Lokal:** assets/images/14.webp, 1400 × 1050 Pixel, 123 KiB; SHA256 `22c0e17ad3c0740e762e94697d16bf33fc2d3e65558bccdcaaaed01e37ae0c5e`.
+- **Quellennachweis:** [docs/media/economy.json](../docs/media/economy.json); SHA256 `fe04dbc24ad0c1c7cd5a448f1f60d7a8731cf49ba1f13f144b54231c22642841`.
+
+
+### F15 · solar
+
+- **Original:** [Noor 1 and 2 - Ouarzazate Solar Power Station (48962353822).jpg](https://commons.wikimedia.org/wiki/File:Noor_1_and_2_-_Ouarzazate_Solar_Power_Station_(48962353822).jpg); [geprüfte Beschreibungsrevision 1188553756](https://commons.wikimedia.org/w/index.php?oldid=1188553756).
+- **Aufnahmeort:** Noor-Solarkomplex bei Ouarzazate, Marokko.
+- **Aufnahmedatum laut Quelle:** 2019-10-17 11:13.
+- **Ortsbeleg:** Autorbeschreibung Noor 1 and 2 – Ouarzazate Solar Power Station, Kategorie und Koordinaten 31.029002, -6.856492 stimmen überein.
+- **Urheber / Lizenz:** [Richard Allaway](https://www.flickr.com/people/16287002@N00); [CC BY 2.0](https://creativecommons.org/licenses/by/2.0).
+- **Erforderliche Attribution der lokalen Fassung:** Noor 1 and 2 - Ouarzazate Solar Power Station (48962353822).jpg — Richard Allaway, CC BY 2.0 (https://creativecommons.org/licenses/by/2.0), via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Noor_1_and_2_-_Ouarzazate_Solar_Power_Station_(48962353822).jpg). Auf längstens 1400 Pixel verkleinert, nach WebP (Qualität 82) konvertiert; EXIF entfernt. Kein inhaltlicher Eingriff und kein gespeicherter Beschnitt.
+- **Motivabweichung / Grenze:** Solarthermische Anlage mit Spiegeln statt Photovoltaik; ein großes Kraftwerk statt einer kleinen lokalen Anlage.
+- **Lokal:** assets/images/15.webp, 1400 × 652 Pixel, 117 KiB; SHA256 `26a61ed6de0fa407f9a34b1c4fea5a88f373aa3ce0c63e30d1a0b41d2052e5b3`.
+- **Quellennachweis:** [docs/media/solar.json](../docs/media/solar.json); SHA256 `f0c0ee0911621d4d01e0b1f51246a033d28bd3853b9d28a82698ce3f280d5186`.
 
 ## Karten: Natural Earth
 

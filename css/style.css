@@ -356,6 +356,9 @@ main {
   align-items: center;
   min-height: 44px;
 }
+.site-footer a[hidden] {
+  display: none;
+}
 .notice {
   padding: 12px 16px;
   background: #f8ead2;
@@ -522,6 +525,34 @@ main {
   font-size: 0.91rem;
   line-height: 1.4;
   font-weight: 600;
+}
+.photo-credit {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.4;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+.credits-page {
+  max-width: 920px;
+  margin: 30px auto;
+  padding: 20px;
+}
+.credits-page .panel {
+  margin-top: 24px;
+  overflow-wrap: anywhere;
+}
+.credit-preview {
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+}
+.photo img {
+  object-fit: contain;
+  background: #edf0ed;
 }
 .photo-missing {
   background: repeating-linear-gradient(

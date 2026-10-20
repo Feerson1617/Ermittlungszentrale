@@ -1,0 +1,150 @@
+{
+  "continue": {
+    "iistart": "2014-04-10T08:06:00Z",
+    "continue": "||revisions|coordinates|categories"
+  },
+  "query": {
+    "pages": {
+      "32088159": {
+        "pageid": 32088159,
+        "ns": 6,
+        "title": "File:Cocoa Processing Company Building (Cocoa Silo).jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2014-04-10T08:25:02Z",
+            "size": 817080,
+            "width": 2048,
+            "height": 1536,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Cocoa_Processing_Company_Building_%28Cocoa_Silo%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cocoa_Processing_Company_Building_(Cocoa_Silo).jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=32088159",
+            "sha1": "35f189cb4b2a5a4560cea89b99406448edd7f798",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2014-04-10 08:25:02",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cocoa Processing Company Building (Cocoa Silo)",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "2007 in Ghana|Flickr images reviewed by trusted users|Flickr images missing SDC source of file|Agricultural buildings in Ghana|Unidentified locations in the Greater Accra Region|Buildings in Tema (Ghana)",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "<a href=\"https://en.wikipedia.org/wiki/Cocoa_Processing_Company\" class=\"extiw\" title=\"w:Cocoa Processing Company\">Cocoa Processing Company</a> <a href=\"https://en.wikipedia.org/wiki/Building\" class=\"extiw\" title=\"w:Building\">Building</a> and <a href=\"https://en.wikipedia.org/wiki/Cocoa_bean\" class=\"extiw\" title=\"w:Cocoa bean\">Cocoa</a> <a href=\"https://en.wikipedia.org/wiki/Silo\" class=\"extiw\" title=\"w:Silo\">Silo</a>, <a href=\"https://en.wikipedia.org/wiki/Tema\" class=\"extiw\" title=\"w:Tema\">Tema</a>",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2007-05-13",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "Self-published work by Hiroo Yamagata (originally posted to <b><a href=\"//commons.wikimedia.org/wiki/Flickr\" class=\"mw-redirect\" title=\"Flickr\">Flickr</a></b> as <a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/hiyori13/559162541/in/photostream/\">Cacao Silo in Tema, Ghana</a>)",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/hiyori13/\">Hiroo Yamagata</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 2.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 2.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-2.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1129090532,
+            "parentid": 862960589,
+            "timestamp": "2025-12-11T05:17:00Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "== {{int:filedesc}} ==\n{{Information\n|Description={{en|[[w:Cocoa Processing Company|Cocoa Processing Company]] [[w:Building|Building]] and [[w:Cocoa bean|Cocoa]] [[w:Silo|Silo]], [[w:Tema|Tema]]}}\n|Source=Self-published work by Hiroo Yamagata (originally posted to '''[[Flickr|Flickr]]''' as [https://www.flickr.com/photos/hiyori13/559162541/in/photostream/ Cacao Silo in Tema, Ghana])\n|Date= 2007-05-13\n|Author= [https://www.flickr.com/people/hiyori13/ Hiroo Yamagata]\n|Permission= \n|other_versions=}}\n{{flickrreview|Leoboudv|2014-04-20}}\n\n== {{int:license-header}} ==\n{{Cc-by-sa-2.0}}\n\n[[Category:2007 in Ghana]]\n[[Category:Agricultural buildings in Ghana]]\n[[Category:Buildings in Tema (Ghana)]]\n[[Category:Unidentified locations in the Greater Accra Region]]"
+              }
+            }
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:2007 in Ghana"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Agricultural buildings in Ghana"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Buildings in Tema (Ghana)"
+          },
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-2.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Flickr images missing SDC source of file"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Flickr images reviewed by trusted users"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Unidentified locations in the Greater Accra Region"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}

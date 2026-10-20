@@ -57,12 +57,15 @@ function photo(item, { anonymous = false, compact = false } = {}) {
     ? `Beweisfoto: ${item.motif}`
     : `${item.title || item.name || item.motif}. ${asset?.location || item.location || ""}`;
   const visual = asset
-    ? `<img src="${escape(asset.path)}" alt="${escape(alt)}" ${compact ? 'loading="lazy"' : ""}>`
+    ? `<img src="${escape(asset.path)}" alt="${escape(alt)}" width="${asset.width}" height="${asset.height}" decoding="async" ${compact ? 'loading="lazy"' : 'loading="eager"'}>`
     : `<div class="photo-missing" role="img" aria-label="Foto fehlt. ${escape(anonymous ? item.motif : alt)}">${icon("pictures")}<span>Foto noch nicht verfügbar</span><small>${escape(item.motif)}</small></div>`;
   const caption = anonymous
     ? `Beweisfoto${item.anonymousId ? " " + item.anonymousId : ""}`
     : `${item.id ? `${String(item.id).padStart(2, "0")} · ` : ""}${escape(item.title || item.name || item.motif)}`;
-  return `<figure class="photo">${visual}<figcaption>${caption}</figcaption></figure>`;
+  const credit = asset
+    ? `<span class="photo-credit">Foto: ${escape(asset.author)} · ${escape(asset.license)} · verkleinert${anonymous ? "" : ` · <span>Nachweis ${escape(asset.creditId)}</span>`}</span>`
+    : "";
+  return `<figure class="photo">${visual}<figcaption>${caption}${credit}</figcaption></figure>`;
 }
 function map(key, label) {
   return `<div class="map" role="img" aria-label="${escape(label)}">${maps[key]}</div>`;
@@ -176,7 +179,7 @@ function geography(id) {
       photo: null,
       prompt: "Aus diesen Früchten wird Kakao hergestellt. Findet das Land!",
       evidence:
-        "Der rote Punkt zeigt einen Ort mit Kakaoanbau. Lest die Ländernamen.",
+        "Der rote Punkt zeigt den Aufnahmeort in einem Gebiet mit Kakaoanbau. Lest die Ländernamen.",
     },
   }[id];
   const item = info.photo
@@ -187,7 +190,7 @@ function geography(id) {
         motif: "Kakaofrüchte am Baum",
         location: "Ghana",
       };
-  return `<h2>${escape(rubrics.tasks[id].label)}</h2><p class="instruction">${info.prompt}</p><div class="geography-layout">${photo(item, { anonymous: true })}${map(id, "Afrikakarte. Marokko, Nigeria, Ghana, Kenia und Südafrika sind beschriftet. Ein roter Punkt zeigt den Fundort.")}</div><button type="button" class="outline" data-action="map" data-map="${id}">Karte groß ansehen</button><p class="map-caption">${info.evidence}<br>Die Länder haben viele verschiedene Orte. Der Punkt zeigt einen davon.</p><label for="name-answer">Wie heißt das Land?</label><input id="name-answer" class="answer-input" name="name" value="${escape(state.tasks[id].answers.name || "")}" maxlength="100" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Ein Ländername genügt.">`;
+  return `<h2>${escape(rubrics.tasks[id].label)}</h2><p class="instruction">${info.prompt}</p><div class="geography-layout">${photo(item, { anonymous: true })}${map(id, "Afrikakarte. Marokko, Nigeria, Ghana, Kenia und Südafrika sind beschriftet. Ein roter Punkt hilft bei der Zuordnung.")}</div><button type="button" class="outline" data-action="map" data-map="${id}">Karte groß ansehen</button><p class="map-caption">${info.evidence}<br>Die Länder haben viele verschiedene Orte.</p><label for="name-answer">Wie heißt das Land?</label><input id="name-answer" class="answer-input" name="name" value="${escape(state.tasks[id].answers.name || "")}" maxlength="100" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Ein Ländername genügt.">`;
 }
 function headline() {
   return `<p class="quiet">Eine erfundene Überschrift zu einem Foto:</p><h2>„So leben alle Menschen in Afrika!“</h2><div class="photo-grid">${photo(photos[9])}</div><p class="instruction">Ist das richtig? Wählt eine bessere Überschrift.</p>${radios(
@@ -301,6 +304,12 @@ function body() {
 }
 function render({ focus = false, scroll = false } = {}) {
   main.innerHTML = state.current === null ? home() : heading() + body();
+  // Source titles and places must not disclose either anonymous photo mystery.
+  const anonymousTask = state.current === 1 ? "title"
+    : state.current === 3 ? ["atlas", "city", "cocoa"][cstate().phase] : null;
+  const sourcesVisible = state.current !== null &&
+    (!anonymousTask || state.tasks[anonymousTask].complete);
+  document.querySelector("#photo-sources").hidden = !sourcesVisible;
   persist();
   if (scroll) window.scrollTo({ top: 0, behavior: "instant" });
   if (focus) main.focus({ preventScroll: true });
@@ -504,11 +513,7 @@ async function boot() {
   document.querySelector("#dictionary-language").innerHTML = languages
     .map(([code, name]) => `<option value="${code}">${name}</option>`)
     .join("");
-  // All documentary photographs are requested at initial load, never from remote services.
-  for (const image of Object.values(media.images)) {
-    const preloaded = new Image();
-    preloaded.src = image.path;
-  }
+  // Load photographs only when their case is opened; all paths are local.
   document.querySelector("#dictionary-open").disabled = false;
   render();
 }

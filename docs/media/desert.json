@@ -1,0 +1,200 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "80570743": {
+        "pageid": 80570743,
+        "ns": 6,
+        "title": "File:Sossusvlei Dune Rippled cropped.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2019-07-20T11:49:17Z",
+            "size": 15488510,
+            "width": 4600,
+            "height": 2746,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Sossusvlei_Dune_Rippled_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Sossusvlei_Dune_Rippled_cropped.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=80570743",
+            "sha1": "172197c81004b1c73b6354137aa3d9459ebaaf26",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2019-07-20 11:49:17",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Sossusvlei Dune Rippled cropped",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Featured pictures of Namibia|Sossusvlei|Self-published work|Commons featured widescreen desktop backgrounds|Landscapes of Namibia|Files with coordinates missing SDC location of creation|Dune ripples in Namibia|Clouds and blue sky in Namibia|Namibia photographs taken on 2019-05-21|Favourite pictures by Domob|Namibia 2019 by Domob|Pictures of the day by Domob",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "featured|potd",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "-24.751763",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "15.292119",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Dune ripples in the Namib-Naukluft National Park, between Dead Vlei and Sossusvlei.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "Taken on 21 May 2019, 09:13:09",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Domob\" title=\"User:Domob\">Daniel Kraft</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 3.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 3.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-3.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 912746299,
+            "parentid": 852242070,
+            "timestamp": "2024-08-20T04:46:23Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "=={{int:filedesc}}==\n{{Information\n|description={{en|1=Dune ripples in the Namib-Naukluft National Park, between Dead Vlei and Sossusvlei.}}\n{{es|1=[[:Category:Dune ripples|Arena ondulada]] en las dunas entre [[:es:Deadvlei|Dead Vlei]] y [[:es:Sossusvlei|Sossusvlei]], [[:es:Parque nacional de Namib-Naukluft|Parque nacional Namib-Naukluft]], [[:es:Namibia|Namibia]].}}\n{{hu|Dűnék hullámai Sossusvlei közelében (Namib-Naukluft Nemzeti Park, [[:hu:Namíbia|Namíbia]])}}\n{{mk|[[:Category:Dune ripples|Брановидни песочни дини]] кај [[Sossusvlei|Сосуфлај]], Намибија.}}\n{{nl|De [[:nl:Sossusvlei|Sossusvlei]] in het [[:nl:Namib-Naukluft National Park|Namib-Naukluft National Park]] in [[:nl:Namibië|Namibië]]}}\n{{pl|1=Pomarszczone przez wiatr [[:pl:Wydma|wydmy]] koło [[:pl:Solnisko|solniska]] Sossusvlei w&nbsp;[[:pl:Park Narodowy Namib-Naukluft|Parku Narodowym Namib-Naukluft]] w&nbsp;[[Namibia|Namibii]].}}\n{{pt|Ondulações nas [[:pt:duna|dunas]] de areia entre [[:pt:Dead Vlei|Dead Vlei]] e Sossusvlei, Parque nacional Namib-Naukluft, [[:pt:Namíbia|Namíbia]]}}\n{{de|[[:Category:Dune ripples|Dünen Rippel]] nahe [[Sossusvlei]] im Namib Naukluft Nationalpark, {{w|Namibia||de}}}}\n{{cs| [[:Category:Dune ripples|Písečné duny]] v solné pláni [[Sossusvlei]] v {{w|Namibie|namibijském|cs}} národním parku {{c|Namib-Naukluft National Park|Namib Naukluft National Park}}.}}\n{{myv|[[:Category:Dune ripples|Дюнань ципаевкст]]  [[Sossusvlei|Соссусфлей]] вакссо, Намиб Науклуфт раськень вирьпусмо, [[Namibia|Намибия]].}}\n|date={{taken on|2019-05-21 09:13:09|location=Namibia}}\n|source={{own}}\n|author=[[User:Domob|Daniel Kraft]]\n|permission=\n|other versions=<gallery>\n Sossusvlei Dune Ripples.jpg|Alternative development from the same shot with more sky\n</gallery>\n}}\n{{Location|-24.751763|15.292119}}\n\n=={{Assessment}}==\n{{Assessments|featured=1|com-nom=Sossusvlei Dune Ripples.jpg|wallpaper=2}}\n{{picture of the day|year=2020|month=07|day=07}}\n\n=={{int:license-header}}==\n{{self|cc-by-sa-3.0}}\n\n[[Category:Sossusvlei]]\n[[Category:Dune ripples in Namibia]]\n[[Category:Clouds and blue sky in Namibia]]\n[[Category:Landscapes of Namibia]]\n[[Category:Pictures of the day by Domob]]\n[[Category:Featured pictures of Namibia]]\n[[Category:Namibia 2019 by Domob]]\n[[Category:Favourite pictures by Domob]]"
+              }
+            }
+          }
+        ],
+        "coordinates": [
+          {
+            "lat": -24.751763,
+            "lon": 15.292119,
+            "primary": "",
+            "globe": "earth"
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-3.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Clouds and blue sky in Namibia"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Commons featured widescreen desktop backgrounds"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Dune ripples in Namibia"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Favourite pictures by Domob"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Featured pictures of Namibia"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Featured pictures on Wikimedia Commons"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Files with coordinates missing SDC location of creation"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Landscapes of Namibia"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Namibia 2019 by Domob"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Namibia photographs taken on 2019-05-21"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Pictures of the day (2020)"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Pictures of the day by Domob"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Sossusvlei"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}

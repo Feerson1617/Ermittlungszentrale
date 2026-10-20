@@ -16,6 +16,7 @@ const r = JSON.parse(
 const dictionary = JSON.parse(
   await readFile(resolve(root, "data/dictionary.json"), "utf8"),
 );
+const media = JSON.parse(await readFile(resolve(root, "data/media.json"), "utf8"));
 const e = (s) =>
   String(s).replace(
     /[&<>"']/g,
@@ -67,7 +68,7 @@ Akte 001: Thema aus widersprüchlich wirkenden Raumbeispielen erschließen. Akte
 
 ## Vor dem Einsatz: offene Abnahme
 
-Authentische Beweisfotos sind noch nicht eingebunden. Wikimedia-Zugriff wurde vom Umgebungsproxy mit HTTP 403 verweigert. Die Anwendung zeigt beschriftete fehlende Motive, keine erfundenen Beweisbilder. Alle Bildrätsel benötigen für den vorgesehenen Unterricht echte, einzeln lizenzgeprüfte Fotos. Deshalb diese Fassung noch nicht als vollständig abgenommenes Unterrichtsspiel behandeln. Einzelheiten: \`docs/bildquellen.md\` und \`docs/abnahme.md\`.
+Alle 15 authentischen Beweisfotos sind lokal eingebunden; Aufnahmeorte und freie Lizenzen wurden einzeln anhand der gesicherten Quellen geprüft. Keine generierten Beweisbilder. Originalquellen, Attributionen und dokumentierte Motivabweichungen: \`docs/bildquellen.md\`, \`data/media.json\` und \`bildnachweise.html\`. Die Bildintegration ist abgeschlossen. Sprachabnahme und Safari-Test auf einem echten Schul-iPad stehen weiterhin aus; deshalb noch keine vollständige Unterrichtsfreigabe.
 
 Wörterbuch: ${dictionary.length} deutsche Begriffe. Abdeckung: Russisch ${coverage.ru}, Ukrainisch ${coverage.uk}, Polnisch ${coverage.pl}, Türkisch ${coverage.tr}, Arabisch ${coverage.ar}, Kurmandschi ${coverage.ku}, Sorani ${coverage.ckb}. Fehlende Begriffe bleiben ausdrücklich leer. Redaktionelle Übersetzungen, keine professionelle Wörterbuchlizenz oder erfolgte muttersprachliche Abnahme behauptet. Vor Einsatz insbesondere beide kurdischen Varianten und arabische Fachbegriffe muttersprachlich prüfen. Die Abdeckung genügt noch nicht allen Auftragswörtern in beiden kurdischen Varianten.
 
@@ -103,7 +104,7 @@ ${tasks}
 
 ## Bildnummern und Redaktionsbeispiel
 
-${photos.map((p) => p.id + ". " + p.title + ". Geplantes Motiv: " + p.location + ".").join("\n")}
+${photos.map((p) => p.id + ". " + p.title + ". Belegter Aufnahmeort: " + (media.images[p.key]?.location || p.location + " (Foto noch nicht abgenommen)") + ".").join("\n")}
 
 Die fiktive Redaktion wählt 1, 2, 5 und 10. Auch ihre städtische Marktaufnahme ersetzt keine Darstellung aller Lebensräume. Das Beispiel zeigt eine begrenzte Auswahl; es ist kein Beleg über alle deutschen Medien. Fehlende Motive für Teilaufgabe 3 sind folglich 3, 4, 6, 7, 8 und 9. Akte 004 nutzt dieselben zehn Datenobjekte und Nummern. Keine Veränderung einer persönlichen Auswahl wird verlangt oder bewertet.
 

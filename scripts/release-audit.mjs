@@ -29,8 +29,14 @@ for (const key of required) {
     "author",
     "source",
     "license",
+    "licenseUrl",
     "attribution",
     "sha256",
+    "locationEvidence",
+    "evidence",
+    "evidenceSha256",
+    "originalSha1",
+    "sourceRevision",
   ])
     if (!image[field]) {
       console.log(`OFFEN ${key}: ${field}`);
@@ -42,10 +48,35 @@ for (const key of required) {
       console.log(`HASH STIMMT NICHT ${key}`);
       open++;
     }
+    if (content.length !== image.bytes || content.length > 500 * 1024 ||
+      content.subarray(8, 12).toString() !== "WEBP" ||
+      Math.max(image.width, image.height) !== 1400) {
+      console.log(`BILDFORMAT/-BUDGET UNGÜLTIG ${key}`);
+      open++;
+    }
   } catch {
     console.log(`DATEI FEHLT ${key}`);
     open++;
   }
+  try {
+    if (!/^docs\/media\/[a-z]+\.json$/.test(image.evidence)) throw new Error();
+    const evidence = await readFile(new URL(image.evidence, root));
+    const page = Object.values(JSON.parse(evidence).query.pages)[0];
+    const original = page.imageinfo[0];
+    if (createHash("sha256").update(evidence).digest("hex") !== image.evidenceSha256 ||
+      page.revisions[0].revid !== image.sourceRevision ||
+      original.sha1 !== image.originalSha1 ||
+      original.extmetadata.LicenseShortName.value !== image.license ||
+      original.extmetadata.LicenseUrl.value !== image.licenseUrl) throw new Error();
+  } catch {
+    console.log(`QUELLEN-/LIZENZNACHWEIS UNGÜLTIG ${key}`);
+    open++;
+  }
+}
+if (Object.keys(media.images).length !== required.length ||
+  new Set(Object.values(media.images).map(i => i.path)).size !== required.length) {
+  console.log("OFFEN: 15 eindeutige lokale Fotodateien erforderlich");
+  open++;
 }
 const dictionary = JSON.parse(
   await readFile(new URL("data/dictionary.json", root)),

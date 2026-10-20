@@ -14,7 +14,7 @@ Akte 001: Thema aus widersprüchlich wirkenden Raumbeispielen erschließen. Akte
 
 ## Vor dem Einsatz: offene Abnahme
 
-Authentische Beweisfotos sind noch nicht eingebunden. Wikimedia-Zugriff wurde vom Umgebungsproxy mit HTTP 403 verweigert. Die Anwendung zeigt beschriftete fehlende Motive, keine erfundenen Beweisbilder. Alle Bildrätsel benötigen für den vorgesehenen Unterricht echte, einzeln lizenzgeprüfte Fotos. Deshalb diese Fassung noch nicht als vollständig abgenommenes Unterrichtsspiel behandeln. Einzelheiten: `docs/bildquellen.md` und `docs/abnahme.md`.
+Alle 15 authentischen Beweisfotos sind lokal eingebunden; Aufnahmeorte und freie Lizenzen wurden einzeln anhand der gesicherten Quellen geprüft. Keine generierten Beweisbilder. Originalquellen, Attributionen und dokumentierte Motivabweichungen: `docs/bildquellen.md`, `data/media.json` und `bildnachweise.html`. Die Bildintegration ist abgeschlossen. Sprachabnahme und Safari-Test auf einem echten Schul-iPad stehen weiterhin aus; deshalb noch keine vollständige Unterrichtsfreigabe.
 
 Wörterbuch: 187 deutsche Begriffe. Abdeckung: Russisch 187, Ukrainisch 187, Polnisch 187, Türkisch 187, Arabisch 187, Kurmandschi 53, Sorani 52. Fehlende Begriffe bleiben ausdrücklich leer. Redaktionelle Übersetzungen, keine professionelle Wörterbuchlizenz oder erfolgte muttersprachliche Abnahme behauptet. Vor Einsatz insbesondere beide kurdischen Varianten und arabische Fachbegriffe muttersprachlich prüfen. Die Abdeckung genügt noch nicht allen Auftragswörtern in beiden kurdischen Varianten.
 
@@ -185,16 +185,16 @@ Akte 5; Aufgaben-ID: `future`; maximal 5 Bonuspunkte.
 
 ## Bildnummern und Redaktionsbeispiel
 
-1. Savanne mit Wildtieren. Geplantes Motiv: Kenia.
-2. Wüste. Geplantes Motiv: Namib, Namibia.
-3. Tropischer Regenwald. Geplantes Motiv: Kongobecken.
-4. Moderne Großstadt. Geplantes Motiv: Lagos, Nigeria.
-5. Landwirtschaft. Geplantes Motiv: Ghana.
-6. Verschneites Gebirge. Geplantes Motiv: Atlasgebirge, Marokko.
-7. Küste. Geplantes Motiv: Sansibar, Tansania.
-8. Produktion. Geplantes Motiv: Ghana.
-9. Universität. Geplantes Motiv: Accra, Ghana.
-10. Alltag in der Stadt. Geplantes Motiv: Accra, Ghana.
+1. Savanne mit Wildtieren. Belegter Aufnahmeort: Maasai Mara, Narok County, Kenia.
+2. Wüste. Belegter Aufnahmeort: Zwischen Deadvlei und Sossusvlei, Namib-Naukluft-Nationalpark, Namibia.
+3. Tropischer Regenwald. Belegter Aufnahmeort: Ituri-Regenwald, Demokratische Republik Kongo, Kongobecken.
+4. Moderne Großstadt. Belegter Aufnahmeort: Blick vom City Hall, Lagos Island, Lagos, Nigeria.
+5. Landwirtschaft. Belegter Aufnahmeort: Darsfield-Demonstrationsfarm, Ghana.
+6. Verschneites Gebirge. Belegter Aufnahmeort: Hoher Atlas, Marokko.
+7. Küste. Belegter Aufnahmeort: Ostküste von Unguja (Sansibar), Tansania.
+8. Produktion. Belegter Aufnahmeort: Ghacem-Anlage im Großraum Accra/Tema, Ghana.
+9. Universität. Belegter Aufnahmeort: Legon, Accra, Ghana.
+10. Alltag in der Stadt. Belegter Aufnahmeort: Makola-Markt, Accra Central, Ghana.
 
 Die fiktive Redaktion wählt 1, 2, 5 und 10. Auch ihre städtische Marktaufnahme ersetzt keine Darstellung aller Lebensräume. Das Beispiel zeigt eine begrenzte Auswahl; es ist kein Beleg über alle deutschen Medien. Fehlende Motive für Teilaufgabe 3 sind folglich 3, 4, 6, 7, 8 und 9. Akte 004 nutzt dieselben zehn Datenobjekte und Nummern. Keine Veränderung einer persönlichen Auswahl wird verlangt oder bewertet.
 

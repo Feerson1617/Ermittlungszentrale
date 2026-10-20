@@ -1,26 +1,29 @@
-Das bisher leere Projekt erhält ein Geographie-Detektivspiel mit fünf unabhängig startbaren Akten, lokaler Bewertung und druckbaren Unterrichtsmaterialien. Die Unterrichtsabnahme bleibt wegen fehlender authentischer Fotos, unvollständiger kurdischer Übersetzungen und ausstehender Sprach-/Safari-Prüfung offen; diesen PR als Entwurf prüfen.
+Das Projekt enthält ein Geographie-Detektivspiel mit fünf unabhängig startbaren Akten, lokaler Bewertung, Wörterbuch und druckbaren Unterrichtsmaterialien. Alle 15 authentischen Beweisfotografien sind jetzt vollständig integriert. Der PR bleibt wegen ausstehender Sprach- und echter iPad-Abnahmen ein Entwurf.
 
-- Akte 001: Kontinent erschließen, Thema erst nach Lösung anzeigen.
-- Akte 002: persönliche Bildauswahl, fiktive Redaktion und drei gemeinsam bewertete Teilaufgaben.
-- Akte 003: drei Kartenmysteries zu Marokko, Nigeria und Ghana.
-- Akte 004: unabhängiger Papiervergleich und fachliche Überschriftenwahl.
-- Akte 005: freiwillige Zuordnung von vier Zukunftsspuren; eigene Frage unbewertet.
+- Akte 001 erschließt den Kontinent aus vier Fotos; Bildbeschriftungen, neutrale Dateinamen und verzögert eingeblendete Quellen verraten ihn vor der Lösung nicht.
+- Akte 002 und 004 nutzen dieselben zehn nummerierten Fotografien und lokale Dateien. Persönliche Vorstellungen bleiben unbewertet.
+- Akte 003 verbindet echte Fotos mit Karten zu Marokko, Nigeria und Ghana. Atlas- und Kakaopunkt folgen den belegten Aufnahmekoordinaten.
+- Akte 005 eröffnet Wasser/Naturraum, Bevölkerungs- und Stadtentwicklung, wirtschaftliche Wertschöpfung sowie Energie/Zukunft anhand von vier authentischen Fotos.
 
-Hinweislimits 5/3/2/1, begrenzte frühe Versuche, unbegrenzte einfache Abschlussaufgabe nach Hinweis 3, Teilpunkte und verpflichtende Papierbestätigung. Regulär maximal 30 Punkte, Bonus maximal 5 getrennt. Lokale aufgabenspezifische Schreibvarianten mit Verneinungs-/Widerspruchsbehandlung; Amerika oder Südafrika werden nicht als Afrika akzeptiert.
+Alle 15 Bilder stammen von Wikimedia Commons. Aufnahmeorte, Urheber, Quellenrevisionen, freie Lizenzen samt Version, Attributionen und jede Motivabweichung sind in `data/media.json`, `docs/bildquellen.md`, `docs/media/` und der lokalen Seite `bildnachweise.html` dokumentiert. Originaldownloads wurden bytegenau mit den Commons-SHA1-Werten abgeglichen; Originale, optimierte Bilder und Nachweise haben zusätzlich SHA256. Reale Alternativen umfassen unter anderem Betriebsaußenansichten, ein abgeerntetes Sahelfeld und eine solarthermische Anlage. Keine generierten Beweisbilder oder ungeklärten Bildrechte.
 
-Wörterbuch mit 187 deutschen Begriffen und sieben Sprachen: Russisch, Ukrainisch, Polnisch, Türkisch, Arabisch, Kurmandschi, Sorani. Die ersten fünf haben jeweils 187, Kurmandschi 53 und Sorani 52 Übersetzungen. RTL für Arabisch/Sorani. Fehlende Begriffe bleiben ausdrücklich ohne Übersetzung. Muttersprachliche Abnahme steht aus.
+15 WebP-Dateien mit maximal 1400 Pixeln an der längsten Seite und zusammen 2,84 MiB. Vollständige Motive ohne Beschnitt; Laden erst beim Öffnen einer Akte, kompakte Auswahlen zusätzlich bei Bedarf. Keine externen Bildabrufe zur Laufzeit. Kurzangaben an den Fotos und vollständige lokale Quellen-/Lizenzseite. Lehrermaterialien und Abnahmedokumentation aktualisiert.
 
-Schülerbogen als HTML und genau zweiseitiges DIN-A4-PDF; separater Erwartungshorizont als Markdown, HTML und siebenseitiges PDF aus gemeinsamen Bewertungsdaten. README, Didaktik, Bildquellen, Abnahme und Testbericht sind enthalten. Keine Audioausgabe, externen Dienste, Accounts, Cookies oder dauerhafte Schülerdatenspeicherung. Optionale Tabsitzung, vollständig ohne Browser-Persistenz nutzbar.
+Regulär maximal 30 Punkte und getrennt fünf Bonuspunkte. Hinweislimits 5/3/2/1, lokale Schreibvarianten, Teilpunkte, Papierbestätigung und optionale Tabsitzung. Keine externen Bewertungs-/Übersetzungsdienste, Konten, Analytics, Audio oder dauerhafte Schülerdatenspeicherung.
 
-Tatsächlich ausgeführt:
+Tatsächlich nach der Bildintegration ausgeführt:
 
-- `npm ci`: erfolgreich.
-- `npm test`: 163/163 bestanden, keine übersprungen.
-- `npm run test:e2e`: 36/36 bestanden, Chromium mit iPad-Querformat und schmalem Touch-Viewport, Projekt-Unterpfad `/Ermittlungszentrale/`.
-- `npm run materials` und `npm run test:pdf`: erfolgreich; beide Bogenseiten zusätzlich gerastert und visuell geprüft.
+- `npm test`: **180/180 bestanden**, nichts übersprungen.
+- `TEST_WEBKIT=1 npm run test:e2e` mit dokumentierter lokaler WebKit-Umgebung: **63/63 bestanden**; je 21 unter Chromium/iPad, Chromium/iPhone und WebKit/iPad. Keine externen Requests, Bildlade- oder Laufzeitfehler in den Medienprüfungen.
+- Alle fünf Akten und drei Länderfälle visuell geprüft; Chromium-/WebKit-Übersichten unter `docs/qa/`.
+- `python3 scripts/prepare-media.py /tmp/approved-originals`, `npm run media:credits`, `npm run materials`, `npm run test:pdf`: erfolgreich. Schülerbogen zwei A4-Seiten; Erwartungshorizont sieben Seiten.
 - `sha256sum -c docs/kartendaten.sha256` und `git diff --check`: erfolgreich.
-- `npm run audit:release`: Exit-Code 2 wegen der dokumentierten offenen Abnahmen.
+- `npm run audit:release`: erwarteter **Exit-Code 2 mit zehn offenen Abnahmepunkten**, keine offenen Bildpunkte.
 
-15 dokumentarische Fotos fehlen: Wikimedia wurde vom Netzwerkproxy blockiert. Alle Motive sind sichtbar als fehlend gekennzeichnet, keine generierten Beweisfotos oder erfundenen Quellen. Suchanforderungen und Aufnahmeprozess: `docs/bildquellen.md`. Karten sind lokal aus Natural-Earth-Polygonen (Public Domain) abgeleitet. WebKit-Download war blockiert; Chromium-Emulation ist kein Safari-Nachweis.
+Vor Unterrichtsfreigabe bleiben offen:
 
-GitHub Pages benötigt keinen Build: nach Abnahme und Merge in Settings → Pages den Branch `main`, Ordner `/ (root)` auswählen. `.nojekyll` und relative Ressourcen sind vorhanden. Kein Merge oder Deployment wurde eigenständig ausgelöst.
+- [ ] Kurmandschi (134 Lücken) und Sorani (135 Lücken) ergänzen.
+- [ ] Alle sieben Sprachfassungen muttersprachlich prüfen, einschließlich RTL für Arabisch/Sorani.
+- [ ] Test auf einem echten Schul-iPad in Safari mit Touch, Bildschirmtastatur, Scrollen, Dialogen, Wörterbuch, Hinweisen/Punkten und PDF-Öffnen/Drucken. Linux-WebKit ersetzt diesen Test nicht.
+
+Fortsetzung direkt auf `feature/detektivspiel-komplett` für den bestehenden Draft-PR #1 gegen `main`. Kein zweiter PR, kein Merge und kein Deployment. Einzelheiten: `docs/testbericht.md` und `docs/abnahme.md`.

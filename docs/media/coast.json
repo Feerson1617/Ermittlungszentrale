@@ -1,0 +1,160 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "3865006": {
+        "pageid": 3865006,
+        "ns": 6,
+        "title": "File:Zanzibar east coast pristine beach.JPG",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2008-04-11T17:32:37Z",
+            "size": 963621,
+            "width": 2272,
+            "height": 1704,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Zanzibar_east_coast_pristine_beach.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Zanzibar_east_coast_pristine_beach.JPG",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=3865006",
+            "sha1": "d41b888bc41ffede22d17bf97816a6cd186af3dc",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2008-04-11 17:32:37",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Zanzibar east coast pristine beach",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Tourism in Tanzania|GFDL|Taken with Canon PowerShot A80|Zanzibar Island|License migration redundant|CC-BY-SA-4.0,3.0,2.5,2.0,1.0|Self-published work|2006 in tourism|Beaches of Zanzibar",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Pristine Beach East Zanzibar",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2006-12",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Bakersville&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Bakersville (page does not exist)\">Bakersville</a>",
+                "source": "commons-desc-page"
+              },
+              "Permission": {
+                "value": "You may select the license of your choice.",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1066493704,
+            "parentid": 945905990,
+            "timestamp": "2025-08-05T00:42:01Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "{{Information\n|Description= Pristine Beach East Zanzibar\n|Source={{Own}}\n|Date=2006-12\n|Author= [[User:Bakersville|Bakersville]]\n|Permission={{self|GFDL|cc-by-sa-all}}\n|other_versions=\n}}\n\n[[Category:Tourism in Tanzania]]\n[[Category:Zanzibar Island]]\n[[Category:Beaches of Zanzibar]]\n[[Category:2006 in tourism]]\n[[Category:Taken with Canon PowerShot A80]]"
+              }
+            }
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:2006 in tourism"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Beaches of Zanzibar"
+          },
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-4.0,3.0,2.5,2.0,1.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:GFDL"
+          },
+          {
+            "ns": 14,
+            "title": "Category:License migration redundant"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Taken with Canon PowerShot A80"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Tourism in Tanzania"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Zanzibar Island"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}

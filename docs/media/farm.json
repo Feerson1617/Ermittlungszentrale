@@ -1,0 +1,167 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "30315110": {
+        "pageid": 30315110,
+        "ns": 6,
+        "title": "File:Darsfield farm Ghana 2010 - 001.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2013-12-24T13:34:10Z",
+            "size": 966002,
+            "width": 1600,
+            "height": 1200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Darsfield_farm_Ghana_2010_-_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Darsfield_farm_Ghana_2010_-_001.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=30315110",
+            "sha1": "f0916388ab6c71916936576a88d49549607168b3",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2013-12-24 13:34:10",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Darsfield farm Ghana 2010 - 001",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Taken with Canon PowerShot A480|Agriculture in Ghana|Farmers from Ghana|Flickr images reviewed by FlickreviewR|May 2010 in Ghana|Flickr images missing SDC creator|Flickr images missing SDC source of file|People of Ghana in 2010|Photographs taken on 2010-05-27|Flickr images missing SDC Flickr photo ID|Flickr images missing SDC published in",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "field of a demonstration farm established by the Darsfield Earthcare<br><a rel=\"nofollow\" class=\"external text\" href=\"http://www.darsfoundation.org/darsfield-village-farms-commercial-farming-operations/\">Internet presence of the Darsfield Village Farms (2013-12-24)</a>",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2010-05-27",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/plant-trees/4659900225/sizes/o/in/photostream/\">https://www.flickr.com/photos/plant-trees/4659900225/sizes/o/in/photostream/</a>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "Trees For The Future (TFTF)",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY 2.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution 2.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by/2.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-2.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1175969846,
+            "parentid": 885716277,
+            "timestamp": "2026-03-04T22:04:22Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "== {{int:filedesc}} ==\n{{Information\n|Description    ={{en|1=field of a demonstration farm established by the Darsfield Earthcare<br>[http://www.darsfoundation.org/darsfield-village-farms-commercial-farming-operations/ Internet presence of the Darsfield Village Farms (2013-12-24)]}}\n{{de|1=Feld einer Demonstrationsfarm der Darsfield Erthcare}}\n|Source         =https://www.flickr.com/photos/plant-trees/4659900225/sizes/o/in/photostream/\n|Author         =Trees For The Future (TFTF)\n|Date           =2010-05-27\n|Permission     =\n|other_versions =\n}}\n\n== {{int:license-header}} ==\n{{cc-by-2.0}}\n{{User:FlickreviewR/reviewed-pass|treesftf|https://www.flickr.com/photos/68632374@N00/4659900225|2013-12-24 13:50:41|cc-by-2.0|}}\n\n[[Category:Agriculture in Ghana]]\n[[Category:Farmers from Ghana]]\n[[Category:People of Ghana in 2010]]\n[[Category:May 2010 in Ghana]]\n[[Category:Photographs taken on 2010-05-27]]\n[[Category:Taken with Canon PowerShot A480]]"
+              }
+            }
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:Agriculture in Ghana"
+          },
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-2.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Farmers from Ghana"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Flickr images missing SDC Flickr photo ID"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Flickr images missing SDC creator"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Flickr images missing SDC published in"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Flickr images missing SDC source of file"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Flickr images reviewed by FlickreviewR"
+          },
+          {
+            "ns": 14,
+            "title": "Category:May 2010 in Ghana"
+          },
+          {
+            "ns": 14,
+            "title": "Category:People of Ghana in 2010"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Photographs taken on 2010-05-27"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Taken with Canon PowerShot A480"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}

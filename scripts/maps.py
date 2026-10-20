@@ -48,7 +48,9 @@ africa_bounds=(-20,-36,56,38)
 maps={'world':world,'reveal':map_svg((-180,-90,180,90),900,450,highlight='Africa'),
       'a':map_svg((-180,-90,180,90),900,450,highlight='Africa'),
       'b':map_svg((-180,-90,180,90),900,450,highlight='South America')}
-for key,loc in [('atlas',(-7.9,31.1)),('city',(3.38,6.45)),('cocoa',(-1.6,6.3)),('summary',None)]:
+# Atlas and cocoa: coordinates documented on the selected Commons photo pages.
+# City: Lagos Island, identified in the author's description.
+for key,loc in [('atlas',(-7.376697,31.322040)),('city',(3.38,6.45)),('cocoa',(-0.881836,6.599547)),('summary',None)]:
     maps[key]=map_svg(africa_bounds,610,594,'africa',marker=loc)
 for key,svg in maps.items(): (root/f'assets/maps/{key}.svg').write_text(svg)
 (root/'data/maps.js').write_text('export const maps = '+json.dumps(maps,ensure_ascii=False)+';\n')
