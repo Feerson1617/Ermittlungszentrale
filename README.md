@@ -4,7 +4,7 @@ Geographie-Detektivspiel für Klasse 7: fünf unabhängig startbare Akten, Zweie
 
 Version 2.2 übernimmt den vollständigen Stand von 2.1 und korrigiert gezielt Sprache, Rückmeldungen, Wörterbuch-Fokus und Materialien. Der Lagos-Vergleich beschränkt sich auf verifizierte Bildorte/-jahre und sichtbare Gebäude/Blickrichtungen. Lange Grenzen stehen unter „Mehr erfahren“. Jede fachliche Auswahl im unbewerteten Lernweg erhält eine passende Erklärung; persönliche Vermutungen bleiben frei. **Alle 24 Fotos, fünf Akten, 30+5 Punkte und 5/3/2/1 bleiben erhalten.** [Befundmatrix](docs/v22-umsetzung.md).
 
-**Neuer PR-Branch:** `fix/ermittlungszentrale-2-2-abnahme`, auf Grundlage von `main` mit den dort fehlenden 2.1-Änderungen. Neuer Draft-PR ausdrücklich vom Nutzer beauftragt. Kein Merge, kein Push auf den bisherigen Pages-Quellbranch und keine Änderung der Pages-Einstellungen.
+**Neuer PR-Branch:** `fix/ermittlungszentrale-2-2-abnahme`, auf Grundlage von `main` mit den dort fehlenden 2.1-Änderungen. [Draft-PR #2](https://github.com/Feerson1617/Ermittlungszentrale/pull/2) ist erstellt und bleibt offen. Kein Merge, kein Push auf den bisherigen Pages-Quellbranch und keine Änderung der Pages-Einstellungen.
 
 **Abnahme:** lokal technisch geprüft; keine pauschale Unterrichtsfreigabe. Offen sind sprachkundige Prüfungen, echte iPad-Safari- und Druckprobe, Lerngruppenerprobung/Zeitmessung, direkte Originalabgleiche einzelner Sach-/Curriculumquellen sowie die öffentliche Live-Funktion. [Abnahmestatus](docs/abnahme.md), [Testbericht](docs/testbericht.md).
 

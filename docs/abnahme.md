@@ -1,6 +1,6 @@
 # Abnahme der Version 2.2
 
-Stand 21.10.2026. [Auftrag 2.2](../sources/auftrag-v2.2.md), [Befundmatrix](v22-umsetzung.md). Neuer Branch `fix/ermittlungszentrale-2-2-abnahme` von `main`, einschließlich aller dort noch fehlenden 2.1-Änderungen. Neuer Draft-PR vom Nutzer ausdrücklich beauftragt. Kein Merge, keine Änderung von Pages-Einstellungen, kein Push auf den bisherigen Pages-Quellbranch.
+Stand 21.10.2026. [Auftrag 2.2](../sources/auftrag-v2.2.md), [Befundmatrix](v22-umsetzung.md). Neuer Branch `fix/ermittlungszentrale-2-2-abnahme` von `main`, einschließlich aller dort noch fehlenden 2.1-Änderungen. [Draft-PR #2](https://github.com/Feerson1617/Ermittlungszentrale/pull/2) ist erstellt und offen. Geprüfter Implementierungscommit: `459d795`. Kein Merge, keine Änderung von Pages-Einstellungen, kein Push auf den bisherigen Pages-Quellbranch.
 
 ## Umgesetzt und technisch prüfbar
 

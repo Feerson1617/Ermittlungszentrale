@@ -8,7 +8,7 @@ Frisch abgeglichen: `main` = `3a6274f732696048a4d45ee63964992b02f9ef58` (Merge v
 
 Neuer Branch `fix/ermittlungszentrale-2-2-abnahme` direkt von `origin/main`. Nur die beiden fehlenden Commits übernommen: `cf3b644` und `87c13c0`. Der Dateibaum danach war per `git diff --exit-code` exakt gleich dem vollständigen 2.1-Branch. Keine bereits in `main` enthaltenen Änderungen erneut übertragen. Darauf folgen ausschließlich die Korrekturen für 2.2.
 
-Der neue Auftrag gibt Push dieses neuen Branches und Erstellung eines neuen Draft-PR ausdrücklich frei. Kein Merge. Pages bezieht weiterhin den alten Entwicklungsbranch; dieser wird nicht gepusht. Keine Pages-Einstellungen geändert, keine Veröffentlichung von 2.2 auf Pages. PR #1 bleibt geschlossen.
+Der neue Auftrag gibt Push dieses neuen Branches und Erstellung eines neuen Draft-PR ausdrücklich frei. [Draft-PR #2](https://github.com/Feerson1617/Ermittlungszentrale/pull/2) ist erstellt und bleibt offen; Implementierungscommit `459d795`. Kein Merge. Pages bezieht weiterhin den alten Entwicklungsbranch; dieser wird nicht gepusht. Keine Pages-Einstellungen geändert, keine Veröffentlichung von 2.2 auf Pages. PR #1 bleibt geschlossen.
 
 ## Befundmatrix
 
