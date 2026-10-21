@@ -1,0 +1,75 @@
+name: Build single-file offline game
+on:
+  push:
+    branches: [offline-export-2026-10-21]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Bundle all game resources
+        run: node scripts/build-offline.mjs
+      - name: Validate generated HTML syntax and size
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          const s=fs.readFileSync('Ermittlungszentrale_OFFLINE_2_2.html','utf8');
+          const code=s.match(/<script>([\s\S]*?)<\/script>/)?.[1];
+          if (!code) throw Error('Inline-Skript fehlt');
+          new Function(code);
+          const photos=(s.match(/data:image\/webp;base64,/g)||[]).length;
+          if (photos < 24) throw Error('Fehlende Fotos: '+photos);
+          if (Buffer.byteLength(s) >= 10000000) throw Error('HTML zu groß');
+          console.log('Datei OK:',Buffer.byteLength(s),'Bytes,',photos,'Fotodaten');
+          JS
+      - name: Install browser for offline playtest
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+      - name: Playtest via actual file protocol with internet blocked
+        run: |
+          node --input-type=module <<'JS'
+          import {chromium} from '@playwright/test';
+          import {resolve} from 'node:path';
+          import {pathToFileURL} from 'node:url';
+          const browser=await chromium.launch({headless:true});
+          try{
+            const page=await browser.newPage({viewport:{width:1100,height:800}});
+            const errs=[],net=[];
+            page.on('pageerror',err=>errs.push(String(err)));
+            page.on('request',r=>{if(/^https?:/.test(r.url()))net.push(r.url())});
+            await page.route(/^https?:/,route=>route.abort());
+            await page.goto(pathToFileURL(resolve('Ermittlungszentrale_OFFLINE_2_2.html')).href);
+            await page.waitForSelector('button.case-card',{timeout:20000});
+            const count=await page.locator('button.case-card').count();
+            if(count!==5)throw Error('Akten: '+count);
+            if(await page.locator('#dictionary-open').isDisabled())throw Error('Wörterbuch deaktiviert');
+            await page.locator('#dictionary-open').click();
+            if(!await page.locator('#dictionary').evaluate(el=>el.open))throw Error('Wörterbuch öffnet nicht');
+            await page.locator('#dictionary-close').click();
+            for(let i=0;i<5;i++){
+              await page.locator('button.case-card').nth(i).click();
+              await page.waitForSelector('.case-heading',{timeout:8000});
+              await page.locator('button[data-action=home]').first().click();
+            }
+            await page.locator('button.case-card').first().click();
+            const visiblePhotos=await page.locator('img[src^="data:image/webp;base64,"]').count();
+            if(visiblePhotos<4)throw Error('Beweisfotos: '+visiblePhotos);
+            await page.locator('img[src^="data:image/webp;base64,"]').first().evaluate(el=>el.decode());
+            if(errs.length||net.length)throw Error(JSON.stringify({errs,net}));
+            console.log('Offline file:// browser playtest OK: five cases, dictionary, images; 0 external requests');
+          }finally{await browser.close();}
+          JS
+      - name: Commit self-contained HTML on isolated branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Ermittlungszentrale_OFFLINE_2_2.html
+          git diff --cached --quiet || git commit -m "Generate verified offline HTML (single file)"
+          git push origin HEAD:offline-export-2026-10-21
