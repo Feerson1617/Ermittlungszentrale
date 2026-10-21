@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { coreLearning, extraSpurs } from "../data/learning.js";
+import {verifyMediaLicense} from "../scripts/media-license.mjs";
 import { photos, clues } from "../data/cases.js";
 const root = new URL("../", import.meta.url);
 const read = (path) => readFile(new URL(path, root));
@@ -10,20 +11,20 @@ const media = JSON.parse(await read("data/media.json"));
 const required = [...new Set([...photos.map(p=>p.key),"cocoa",...clues.map(c=>c.key),...Object.values(coreLearning).flatMap(l=>l.steps.flatMap(s=>s.photos||[])),...Object.values(extraSpurs).flatMap(s=>s.photos||[])])];
 const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 
-test("19 eigenständige lokale Beweisfotos mit eindeutigen Nachweisen", async () => {
+test("24 eigenständige lokale Beweisfotos mit eindeutigen Nachweisen", async () => {
   assert.equal(media.status, "complete");
   assert.deepEqual(Object.keys(media.images).sort(), [...required].sort());
-  assert.equal(new Set(Object.values(media.images).map((i) => i.path)).size, 19);
-  assert.equal(new Set(Object.values(media.images).map((i) => i.sha256)).size, 19);
-  assert.equal((await readdir(new URL("assets/images/", root))).length, 19);
+  assert.equal(new Set(Object.values(media.images).map((i) => i.path)).size, 24);
+  assert.equal(new Set(Object.values(media.images).map((i) => i.sha256)).size, 24);
+  assert.equal((await readdir(new URL("assets/images/", root))).length, 24);
 });
 
 for (const key of required) test(`Foto ${key}: Datei, Ort, Lizenz und Originalrevision stimmen überein`, async () => {
   const i = media.images[key];
   assert.ok(i, key);
   assert.match(i.path, /^assets\/images\/[a-z\d-]+\.webp$/);
-  assert.match(i.license, /^CC BY(?:-SA)? (?:2\.0|3\.0|4\.0)$/);
-  assert.match(i.licenseUrl, /^https:\/\/creativecommons\.org\/licenses\/(?:by|by-sa)\/(?:2|3|4)\.0\/?$/);
+  assert.match(i.license, /^(?:CC BY(?:-SA)? (?:2\.0|3\.0|4\.0)|Public domain)$/);
+  assert.ok(i.licenseUrl.startsWith("https://"));
   assert.ok(i.location && i.locationEvidence && i.author && i.attribution && i.modification);
   assert.match(i.source, /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
   const bytes = await read(i.path);
@@ -42,7 +43,7 @@ for (const key of required) test(`Foto ${key}: Datei, Ort, Lizenz und Originalre
   assert.equal(original.sha1, i.originalSha1);
   assert.equal(original.url.split("?")[0], i.original);
   assert.equal(original.extmetadata.LicenseShortName.value, i.license);
-  assert.equal(original.extmetadata.LicenseUrl.value, i.licenseUrl);
+  assert.ok(await verifyMediaLicense(i,page,root),key);
   assert.ok(page.revisions[0].slots.main["*"].length > 100);
   const credits = (await read("bildnachweise.html")).toString();
   assert.ok(credits.includes(`id="${i.creditId}"`));

@@ -2,6 +2,7 @@ import { readFile, stat } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { photos, clues } from "../data/cases.js";
 import { coreLearning, extraSpurs } from "../data/learning.js";
+import { verifyMediaLicense } from "./media-license.mjs";
 import { dictionaryIntegrity } from "./dictionary-integrity.mjs";
 const root = new URL("../", import.meta.url);
 const media = JSON.parse(await readFile(new URL("data/media.json", root)));
@@ -70,8 +71,7 @@ for (const key of required) {
     if (createHash("sha256").update(evidence).digest("hex") !== image.evidenceSha256 ||
       page.revisions[0].revid !== image.sourceRevision ||
       original.sha1 !== image.originalSha1 ||
-      original.extmetadata.LicenseShortName.value !== image.license ||
-      original.extmetadata.LicenseUrl.value !== image.licenseUrl) throw new Error();
+      !await verifyMediaLicense(image,page,root)) throw new Error();
   } catch {
     console.log(`QUELLEN-/LIZENZNACHWEIS UNGÜLTIG ${key}`);
     open++;

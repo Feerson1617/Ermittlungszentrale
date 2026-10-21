@@ -1,4 +1,4 @@
-# HTTP-Start und Vorschau der Version 2.0
+# HTTP-Start und Vorschau der Version 2.1
 
 Stand: 21.10.2026. Die vom Projektteam genannte Adresse `https://feerson1617.github.io/Ermittlungszentrale/` ist **GitHub Pages**, keine weitergeleitete Codex-Serveradresse. Die lokale Anwendung und die tatsächliche öffentliche Website werden getrennt beurteilt.
 
@@ -6,11 +6,11 @@ Stand: 21.10.2026. Die vom Projektteam genannte Adresse `https://feerson1617.git
 
 Beim ursprünglichen Ausfall griff die Fehlerbehandlung erst in `js/app.js`. Wenn dieses Einstiegsmodul oder ein statischer Import nicht ausgeführt wurde, konnte `boot().catch(...)` nie laufen. Ausgefallenes CSS und hängende Abrufe wurden ebenfalls nicht ausreichend erkannt. Diese reproduzierten Ladebedingungen ließen die Seite dauerhaft bei der Lademeldung stehen.
 
-Die frühe Überwachung in `index.html` behebt diese Fehlerklasse: CSS-Zustand/Stil, dynamischer Modulimport, Datenfehler und Zeitlimit nach 18 Sekunden führen zu verständlicher Starthilfe. Ein exakter SHA256-Hash erlaubt ausschließlich dieses kleine Inline-Skript in der CSP, ohne `unsafe-inline`. Eine statische Erklärung bleibt bei vollständig gesperrtem JavaScript sichtbar. Späte Abrufe dürfen den abgebrochenen Start nicht überschreiben. Version 2.0 erhält diese Überwachung unverändert.
+Die frühe Überwachung in `index.html` behebt diese Fehlerklasse: CSS-Zustand/Stil, dynamischer Modulimport, Datenfehler und Zeitlimit nach 18 Sekunden führen zu verständlicher Starthilfe. Ein exakter SHA256-Hash erlaubt ausschließlich dieses kleine Inline-Skript in der CSP, ohne `unsafe-inline`. Eine statische Erklärung bleibt bei vollständig gesperrtem JavaScript sichtbar. Späte Abrufe dürfen den abgebrochenen Start nicht überschreiben. Version 2.1 erhält diese Überwachung unverändert.
 
 Zusätzlich war `/Ermittlungszentrale` ohne Slash auf dem Entwicklungsserver eine 404-Antwort; inzwischen folgt HTTP 308 auf `/Ermittlungszentrale/`, Query bleibt erhalten. Fehlende Dateien bleiben echte 404-Antworten; kein HTML-Fallback mit Status 200. CSS, ES-Module, JSON, SVG, WebP und PDFs werden mit passenden MIME-Typen ausgeliefert, erfolgreiche Ressourcen mit `nosniff`.
 
-**Der konkrete Auslöser des damaligen öffentlichen GitHub-Pages-Ausfalls ist nicht nachgewiesen.** Bereits der normale HTTP-Start des Ausgangsstands funktionierte lokal. Der direkte öffentliche HTTPS-Abruf scheitert aus dieser Cloud beim Egress-Proxy-CONNECT mit 403. Das ist keine vom Pages-Server gelieferte HTTP-403-Seite. Daher liegen hier keine belastbaren Live-Konsole-, MIME-, CSP- oder Ressourcenbefunde dieser Website vor. Es wurden für Version 2.0 keine Netzwerk-/Pages-Berechtigungen geändert.
+**Der konkrete Auslöser des damaligen öffentlichen GitHub-Pages-Ausfalls ist nicht nachgewiesen.** Bereits der normale HTTP-Start des Ausgangsstands funktionierte lokal. Der direkte öffentliche HTTPS-Abruf scheitert aus dieser Cloud beim Egress-Proxy-CONNECT mit 403. Das ist keine vom Pages-Server gelieferte HTTP-403-Seite. Daher liegen hier keine belastbaren Live-Konsole-, MIME-, CSP- oder Ressourcenbefunde dieser Website vor. Es wurden für Version 2.1 keine Netzwerk-/Pages-Berechtigungen geändert.
 
 Unter den verfügbaren Werkzeugen gibt es keinen bedienbaren Codex-Vorschau-/Portweiterleitungsendpunkt. Geöffnet und geprüft wird der tatsächlich laufende HTTP-Server in dieser Maschine. Es wird keine öffentliche Codex-Vorschauadresse erfunden und keine reparierte Codex-Webvorschau behauptet. Eine übergeordnete CSP/Sandbox kann das Spiel selbst nicht lockern; eine Einzeldateivorschau ersetzt keinen vollständigen statischen Server.
 
@@ -29,7 +29,7 @@ Mit Entwicklungsabhängigkeiten/Chromium eine beliebige bereits laufende HTTP(S)
 npm run check:start -- http://127.0.0.1:4173/ http://127.0.0.1:4173/Ermittlungszentrale/
 ```
 
-Der Prüfer startet keinen Testserver und mockt keine Ressourcen. Er kontrolliert gestaltetes Menü, Detektivmotiv, vier große Akten und separate Bonusakte, Bedienung aller fünf Akten, Wörterbuch, Hinweis-/Punktevergabe, drei Länderfälle mit den neuen Belegschritten und **alle 19 dekodierten lokalen Fotos**. Konsolenfehler, HTTP-Statuscodes, MIME-Typen, Dokument-CSP und externe/fehlgeschlagene Anfragen werden erfasst. Ergebnisse/Screenshots stehen unter `artifacts/start-check/`; Fehler führen zu einem Fehlercode. Ein erfolgreicher lokaler Lauf ist kein Live-Nachweis für eine andere URL.
+Der Prüfer startet keinen Testserver und mockt keine Ressourcen. Er kontrolliert gestaltetes Menü, Detektivmotiv, vier große Akten und separate Bonusakte, Bedienung aller fünf Akten, Wörterbuch, Hinweis-/Punktevergabe, drei Länderfälle mit den neuen Belegschritten und **alle 24 dekodierten lokalen Fotos**. Konsolenfehler, HTTP-Statuscodes, MIME-Typen, Dokument-CSP und externe/fehlgeschlagene Anfragen werden erfasst. Ergebnisse/Screenshots stehen unter `artifacts/start-check/`; Fehler führen zu einem Fehlercode. Ein erfolgreicher lokaler Lauf ist kein Live-Nachweis für eine andere URL.
 
 ## Funktionierende statische Alternative
 
@@ -49,12 +49,12 @@ Dann `http://localhost:4174/Ermittlungszentrale/` öffnen. Beide Varianten werde
 
 Die Regressionen prüfen den **sichtbaren, interaktiven Start**, das Verschwinden der Starthilfe/Lademeldung, CSS-Eigenschaften und geladene Menüillustration. Weitere Fälle simulieren fehlende/falsche/hängende CSS-, Modul- und JSON-Abrufe sowie eine vollständige Skriptsperre. Keine Aufweichung der CSP für den Test.
 
-Die neue fachliche Strecke ist im Startprüfer enthalten. Separate V2-Tests prüfen Teilauflösung nach Navigation/Reload, Entwurfserhalt, alte Sitzungen, getrennte Auswahlen, Zoom, freiwillige Spuren und das sichtbare Kakaoschema.
+Die neue fachliche Strecke ist im Startprüfer enthalten. Separate V2-/V2.1-Tests prüfen Teilauflösung nach Navigation/Reload, Entwurfserhalt, alte Sitzungen, getrennte Auswahlen, Zoom, freiwillige Spuren und das sichtbare Kakaoschema.
 
-Aktuelle Ergebnisse und Bildnachweise: [Testbericht](testbericht.md), [V2-Menü](qa/v2/desktop/zentrale.png), `docs/qa/v2/start-http-node.json`, `docs/qa/v2/start-http-static.json`. Frühere Dateien unter `docs/qa/start-*` sind historische Belege und werden nicht als neue V2-Ergebnisse ausgegeben.
+Aktuelle Ergebnisse und Bildnachweise: [Testbericht](testbericht.md), [aktuelles Menü](qa/v21/start-desktop.png), `docs/qa/v21/start-http-node.json`, `docs/qa/v21/start-http-static.json`. Frühere Dateien unter `docs/qa/start-*` und `docs/qa/v2/` sind historische Belege und werden nicht als neue 2.1-Ergebnisse ausgegeben.
 
 ## Pages-Veröffentlichung und echte Live-Abnahme
 
-GitHub-API: Legacy-Pages aus `feature/detektivspiel-komplett`, Verzeichnis `/`. Ein Push kann automatisch veröffentlichen. Die ausdrückliche zusätzliche Nutzeranweisung „Version 2.0 umsetzen, aber auch Push, PR und Deployment“ autorisiert diesen Schritt für die geprüfte Überarbeitung. Der einzige PR bleibt #1 als Draft gegen `main`; kein Merge und keine Änderung von Pages-Einstellungen.
+Zuletzt gelesene GitHub-API: Legacy-Pages aus `feature/detektivspiel-komplett`, Verzeichnis `/`. Ein Push kann automatisch veröffentlichen. Für 2.1 verlangt Auftrag Abschnitt 12 ausdrücklich eine neue Freigabe vor Push. Diese Version bleibt zunächst lokal; kein Push, PR-Update oder Deployment. PR #1 ist laut aktueller reiner Lesekontrolle bereits gemergt/geschlossen (21.10.2026, 09:08:09 UTC, Merge-Commit `3a6274f`). Ein späterer Branch-Push kann ihn nicht ergänzen. Kein neuer PR, kein eigener Merge und keine Änderung von Pages-Einstellungen.
 
 Ein erfolgreicher Pages-Build belegt die Veröffentlichung eines Commits, keine erfolgreiche Browserfunktion. Sobald der direkte Zugriff auf die öffentliche URL möglich ist, denselben `check:start` gegen genau diese Adresse ausführen. Erst der erfolgreiche Live-Durchlauf erlaubt die entsprechende Funktionsaussage. Echter Schul-iPad-Safari-Test bleibt zusätzlich Aufgabe des Projektteams.

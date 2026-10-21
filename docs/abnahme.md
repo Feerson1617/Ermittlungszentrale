@@ -1,35 +1,45 @@
-# Abnahme der Version 2.0
+# Abnahme der Version 2.1
 
-Stand: 21.10.2026. Grundlage ist der unveränderte [geprüfte Auftrag](../sources/auftrag-v2.md). Der Nutzer hat anschließend ausdrücklich „Version 2.0 umsetzen, aber auch Push, PR und Deployment“ beauftragt. Das gilt für den bestehenden Entwicklungsbranch und PR #1; kein neuer PR, kein Merge, keine Änderung von Pages-/Umgebungsberechtigungen.
+Stand: 21.10.2026. Grundlage: unveränderter [Auftrag 2.1](../sources/auftrag-v2.1.md), ausgehend vom tatsächlich geprüften Entwicklungsstand `d8a4c4c` auf `feature/detektivspiel-komplett`. Gezielt überarbeitet, kein Neubau. Abschnitt 12 verlangt eine erneute ausdrückliche Freigabe vor Push: **lokal umgesetzt und geprüft; noch nicht gepusht, PR #1 nicht aktualisiert, nicht veröffentlicht.** Kein Merge und keine Änderung von Pages-Einstellungen.
 
-## Technisch und redaktionell umgesetzt
+## Lokal umgesetzt
 
-- Fünf unabhängig startbare Akten, sieben Wertungen, 30 Hauptpunkte und fünf getrennte Bonuspunkte. Kurzer Kernweg mit neun unbewerteten Belegschritten; Vertiefungen freiwillig.
-- Befunde T1–T4, D1/D2, M1/M2 bearbeitet: geschlossene Gesamtabgabe; Teilpunkte unabhängig von Vollständigkeit; begrenzte unbezahlte Auflösung; Entwurfserhalt; aufgabenspezifische Negation und neutrale Namensklärung; unterschiedliche feste Antwortpositionen und stabile Zuordnungs-IDs; ganzer Schülerbogen neutral; nummerierte Lehrertabelle 1–12.
-- 19 authentische lokale Fotos, darunter alle 15 Bestandsdateien unverändert. Vier Ergänzungen mit geprüften Commons-Revisionen, Orts-/Lizenzbelegen, Urhebern und Prüfsummen. [Bildquellen](bildquellen.md). Alle zwölf Auswahlmotive sind in Akte 002/004 identisch. Schemata sind ausdrücklich als solche gekennzeichnet.
-- Wörterbuch: 197 deutsche Begriffe; ru 196, uk 195, pl 197, tr 195, ar 196, ku 184, ckb 184. Zehn neue Begriffe, bekannte Wortformen und Bildbeleg-Alias. Alle vorhandenen kurdischen sowie alle neuen nichtleeren V2-Werte haben Einzelbelege. Fünf andere Altbestände sind redaktionell plausibilisiert; keine vollständige Einzelbelegung dieser Altbestände behauptet. [Prüfbericht mit allen Lücken](woerterbuch-pruefung.md).
-- Schülerbogen genau zwei A4-Seiten; Erwartungshorizont elf A4-Seiten mit Nummerierung. Sämtliche 13 Seiten digital gerendert und visuell geprüft. PDF-Format-/Inhaltsprüfung und Überlaufprüfung bestanden. Keine reale Druckprobe behauptet.
-- Starthilfe, CSP-Hash, HTTP-MIME-Typen und relative Pfade bleiben erhalten. Desktop, Tablet quer/hoch und schmale Ansicht werden automatisiert geprüft. [Tatsächliche technische Ergebnisse](testbericht.md), [Vorschaugrenzen](vorschau.md).
+- Fünf unabhängig startbare Akten; sieben Wertungen, 30 Hauptpunkte und fünf getrennte Bonuspunkte. Hinweislimit 5/3/2/1, Teilpunkte mit unbezahlter Auflösung, Entwurfserhalt, Namensklärung und Papierbestätigung erhalten.
+- Gemeinsamer Katalog weiterhin genau zwölf Fotos in Akte 002/004. Nur Nummern 7/8/9/11/12 erhalten neue Identitäten: Lehmhäuser, Bergbau, Klassenraum, Wassertransport, Gesundheitsstation. Alle 19 bisherigen Dateien und Quellidentitäten bleiben unverändert und im Spiel erreichbar. Insgesamt 24 echte lokale Fotografien, 4,76 MiB.
+- Fünf neue Quellen anhand tatsächlicher Commons-Revisionen, Originaldownloads, Ortsangaben, Urheber und Lizenznachweise geprüft. Viermal CC BY-SA 4.0; Gesundheitsstation Public Domain als dokumentiertes US-Regierungswerk mit zusätzlicher gesicherter Lizenzvorlage. [Einzelnachweise und Grenzen](bildquellen.md).
+- Erste persönliche Viererwahl vor den Behauptungen. Erfundene Redaktion zeigt 2/5/7/11 und sechs ausdrücklich pauschale Behauptungen. Akte 003 differenziert in zehn unbewerteten Schritten mit vier kurzen Rückbezügen; Akte 004 erlaubt auch unveränderte Auswahl. Kein Schluss auf Armut aus Bauweise, Wasserqualität aus Kanistern oder Klinikdichte aus zwei Fotos.
+- Ältere digitale Sitzungen werden wegen der geänderten Bildidentitäten verständlich zurückgesetzt. Innerhalb von 2.1 bleiben getrennte Auswahlen, Entwürfe und Wertungen erhalten. Für einen neuen Durchlauf neuen Papierbogen verwenden; alte Notizen gehören zum alten Katalog.
+- Schülerbogen zwei neutrale A4-Seiten; Erwartungshorizont 13 nummerierte A4-Seiten. Alle 15 Seiten digital gerendert und angesehen. Keine reale Druckprobe behauptet.
+- Wörterbuchbestand unverändert: 197 Begriffe; ru 196, uk 195, pl 197, tr 195, ar 196, ku 184, ckb 184. Keine erfundenen Werte; deutsche Hilfen für Bergbau, Klischee und Gesundheitsstation ergänzt. [Sprachprüfung](woerterbuch-pruefung.md).
+- HTTP-Start, CSS, Motiv, fünf bedienbare Akten, alle Fotos, Wörterbuch, Hinweise/Punkte und beide URL-Pfade sind Teil der Prüfungen. [Tatsächliche Testresultate](testbericht.md); [Umsetzungsmatrix](v21-umsetzung.md).
 
-## Offene Abnahmen – keine pauschale Unterrichtsfreigabe
+## GitHub-Befund aus reiner Lesekontrolle
 
-`npm run audit:release` meldet **19 offene Kategorien**, Exit-Code 2. Sie enthalten:
+PR #1 wurde laut API am 21.10.2026 um 09:08:09 UTC gemergt und geschlossen, Merge-Commit `3a6274f732696048a4d45ee63964992b02f9ef58`. Der Entwicklungsbranch steht remote weiterhin auf `d8a4c4c`. In dieser 2.1-Bearbeitung wurden keine Remote-Schreibaktionen ausgeführt. Der Auftrag beschreibt somit einen überholten PR-Zustand. Ein Branch-Push könnte diesen gemergten PR nicht aktualisieren; es wird kein zweiter PR angelegt. Nach ausdrücklicher Push-Freigabe kann ein Branch-Vergleich als Änderungsnachweis dienen. [API-Befund](qa/v21/github-readonly.json).
 
-| Bereich | Offen / tatsächliche Grenze |
+## Fachliche Grenzen der fünf neuen Motive
+
+Das Dorfmotiv belegt traditionelle Bauweise, keinen nachgewiesenen Armuts- oder Versorgungsmangel; Leitungen sind sichtbar. Der Tagebau belegt einen konkreten Wirtschaftsort, keine Arbeitsbedingungen oder aktuellen Fördermengen. Der Klassenraum ist auf Landesebene Nigeria verortet, ohne belegten Schulnamen. Der Wassertransport ist auf Landesebene Uganda verortet, ohne belegte Weglänge oder Wasserqualität. Die senegalesische Gesundheitsstation ist präzise benannt und am Schild nachvollziehbar; es ist eine Außenaufnahme, ihre Innenausstattung ist unbekannt. Diese Grenzen sind beschriftet und keine fehlenden Dateien oder frei erfundenen Ortsangaben.
+
+## Weiter offene Abnahmen
+
+`npm run audit:release` meldet **19 offene Kategorien**, Exit-Code 2:
+
+| Bereich | Tatsächlich offen |
 |---|---|
-| Wörterbuchlücken | ru 1, uk 2, tr 2, ar 1, ku 13, ckb 13; insgesamt 32 leere Werte. Keine erfundenen Wörter zum Schließen der Statistik. Polnisch ohne leere Werte. |
-| Sprachkundige Abnahme | Alle sieben Sprachen. Quellen- und Schriftprüfung bestätigen keine muttersprachliche Idiomatik, Flexion oder Eignung für die Lerngruppe. |
-| Echtes Schul-iPad / Safari | Vom Projektteam anschließend vorgesehen. WebKit unter Linux und Geräteemulation ersetzen dieses Gerät nicht. |
-| Curriculum-Originale | Offizielle/schulische Originaldateien nicht zusätzlich mitgeliefert, Fachportal am Proxy blockiert. Keine selbst geprüfte aktuelle Rechtsgeltung oder erfundene Kompetenznummern. |
-| Sachquellen-Originale | Renault/SIGA/UNESCO-Beispiele aus dem bereitgestellten geprüften Auftrag; direkter Originalabgleich teilweise technisch blockiert. Quellenstatus in `data/learning.js`, Lehrerunterlagen und Umsetzungsmatrix. |
-| Reale Druckprobe | Beide Seiten auf dem tatsächlichen Drucker prüfen; digitale Sichtung allein genügt nicht. |
-| Lerngruppe | Zeiten, Verständlichkeit, Bedienwechsel, Lernwirkung und die Tragfähigkeit des 90-Minuten-Ziels ungemessen. Drei-Stunden-Alternative ist vorbereitet. |
-| Öffentliche Live-Funktion | HTTPS-Abruf von `feerson1617.github.io` scheitert aus dieser Cloud beim Proxy-CONNECT mit 403. Keine Live-Konsole/MIME-Befunde oder reparierte Codex-Vorschau behauptet. Erfolgreicher Pages-Build ist davon getrennt. |
+| Wörterbuchlücken (sechs Kategorien) | ru 1, uk 2, tr 2, ar 1, ku 13, ckb 13; insgesamt 32 leere Werte. Polnisch vollständig befüllt. |
+| Sprachkundige Prüfung (sieben Kategorien) | Alle sieben Sprachen. Redaktionelle Quellen-/Schriftprüfung ist keine muttersprachliche Idiomatik- oder Lerngruppenabnahme. |
+| Echtes Schul-iPad / Safari | Vom Projektteam vorgesehen. Linux-WebKit und Geräteparameter ersetzen das Gerät nicht. |
+| Curriculum-Originale | Offizielle/schulische Originaldateien nicht zusätzlich mitgeliefert; Fachportal am Proxy blockiert. Keine selbst geprüfte aktuelle Rechtsgeltung. |
+| Sachquellen-Originale | Renault/SIGA/UNESCO aus dem bereitgestellten geprüften Auftrag; direkter Originalabgleich teilweise blockiert. Status in `data/learning.js` und Lehrerunterlagen. |
+| Reale Druckprobe | Beide Seiten auf tatsächlichem Drucker prüfen; digitales Rendering reicht nicht. |
+| Lerngruppe | Zeiten, Verständlichkeit, Bedienwechsel und Lernwirkung ungemessen. Neuer Wasserschritt erhöht Umfang leicht; Drei-Stunden-Alternative vorhanden. |
+| Öffentliche Live-Funktion | Bisher am Proxy-CONNECT gesperrt; 2.1 ist zudem noch nicht veröffentlicht. Keine reparierte öffentliche Codex-Vorschau oder Live-Browserprüfung behauptet. |
 
-`data/review.json` hält redaktionelle Wörterbuchprüfung (mit Datei-Hash), sieben sprachkundige Abnahmen, echten Safari-Test und V2-Abnahmen getrennt. Kein menschlicher Prüfstatus wird durch technische Tests auf wahr gesetzt. Das Release-Audit erfasst jetzt auch Druck, Unterricht, Originalquellen und Live-Browserprüfung.
+`data/review.json` bleibt unverändert. Kein menschlicher Status wird durch automatisierte Prüfungen bestätigt. Keine pauschale Unterrichts-, Datenschutz- oder Sprachfreigabe.
 
-## Geräte- und Unterrichtsprüfung durch das Projektteam
+## Prüfung durch das Projektteam
 
-Auf dem Schul-iPad: Menü quer/hoch öffnen, alle Akten bedienen, zwölf Fotos scrollen/vergrößern, Bildschirmtastatur ein-/ausblenden, Arabisch/Sorani lesen, Dialoge mit Fokus-Rückgabe schließen, Hinweise und Teilauflösung nach Navigation/Neuladen prüfen. PDF im tatsächlichen Safari öffnen und beidseitig drucken. Speicher testweise sperren. Zeiten und Partnerwechsel mit Lerngruppe erproben. Erst nach tatsächlicher Durchführung zugehörige Statusfelder bestätigen.
+Auf echtem Schul-iPad: Menü quer/hoch, alle Akten, zwölf Auswahlfotos und neue Belege scrollen/vergrößern, Bildschirmtastatur, Arabisch/Sorani, Dialoge/Fokus, Hinweis-/Teilauflösung nach Navigation/Neuladen prüfen. PDF in Safari öffnen und beidseitig drucken. Speicher testweise sperren; bei gesperrtem Speicher geht Neuladen mit Verlust des digitalen Standes einher. Mit Lerngruppe Zeit und Wirkung prüfen. Erst nach tatsächlicher Durchführung zugehörige Statusfelder bestätigen.
 
-Der öffentliche Quellcode schützt Lösungen nicht technisch. Andere Akten und bewusst geöffnete Bildnachweise können den Kontinent verraten. Lehrerunterlagen sind aus der Schülernavigation ausgeblendet, im Repository auffindbar. Der Host kann Zugriffsprotokolle führen; keine zusätzliche Antworttelemetrie und keine pauschale schulische Datenschutzfreigabe.
+Andere Akten und bewusst geöffnete Quellen können das Thema vor Akte 001 verraten. Der öffentliche Quellcode schützt Lösungen nicht technisch. Die App sendet keine Schülerantworten an externe Dienste; der statische Host kann Zugriffsprotokolle führen.

@@ -23,7 +23,7 @@ test("Ein gemeinsamer Bildkatalog vermeidet abweichende Nummern", () => {
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   );
   assert.equal(new Set(photos.map((p) => p.key)).size, 12);
-  assert.deepEqual(rubrics.tasks.selection.editorial, [1, 2, 5, 11]);
+  assert.deepEqual(rubrics.tasks.selection.editorial, [2, 5, 7, 11]);
 });
 test("197 eindeutige Wörter, sieben Sprachen, keine erfundenen Ersatzwerte", () => {
   assert.equal(entries.length, 197);

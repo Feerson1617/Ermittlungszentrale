@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import {learning} from "./v2-helpers.mjs";
+import {learning,choose,paper} from "./v2-helpers.mjs";
 test.setTimeout(90000);
 const failures = new WeakMap();
 test.beforeEach(async ({ page }) => {
@@ -50,6 +50,8 @@ test("Fotos laden bedarfsweise; Akten 002/004 zeigen dieselben zwölf Bilddateie
   expect(before).toHaveLength(12);
   await shot(page,testInfo,"akte-002");
   await expect(page.locator("#photo-sources")).toBeVisible();
+  await choose(page,[1,4,7,11]);await page.getByRole('button',{name:'Auswahl ansehen',exact:true}).click();await paper(page);
+  await decoded(page);await expect(page.locator('[data-claim]')).toHaveCount(6);await shot(page,testInfo,'akte-002-redaktion');
   await home(page);await open(page,4);await decoded(page);
   expect(await catalogue()).toEqual(before);
   await shot(page,testInfo,"akte-004");
@@ -75,7 +77,13 @@ test("Akte 001 verrät vor der Lösung keinen Ort; Akte 003 zeigt drei lesbare F
     await solve(page,answer);
     await page.locator("#points-recorded").check();
     await page.locator('[data-action="result-next"]').click();
-    await learning(page,async p=>{await decodedLearning(p);await shot(p,testInfo,`akte-003-beleg-${await p.locator('[data-learning-step]').getAttribute('data-learning-step')}`);});
+    await learning(page,async p=>{await decodedLearning(p);await shot(p,testInfo,`akte-003-beleg-${await p.locator('[data-learning-step]').getAttribute('data-learning-step')}`);},async p=>{
+      const id=await p.locator('[data-learning-step]').getAttribute('data-learning-step');
+      if(await p.locator('.new-evidence').count())await shot(p,testInfo,`akte-003-neue-beweise-${id}`);
+      if(id==='atlas-evidence'){
+        await p.locator('.optional-spurs summary').click();await decodedLearning(p);await shot(p,testInfo,'akte-003-weitere-naturraume');
+      }
+    });
   }
 });
 
@@ -85,7 +93,7 @@ test("Akte 005: vier reale Zukunftsfotos und vollständige lokale Attribution", 
   await expect(page.locator(".clue-card .photo-credit")).toHaveCount(4);
   await shot(page,testInfo,"akte-005");
   await page.goto("bildnachweise.html");
-  await expect(page.locator("article")).toHaveCount(19);
+  await expect(page.locator("article")).toHaveCount(24);
   for(const img of await page.locator("article img").all()) {
     await img.scrollIntoViewIfNeeded();
     await expect.poll(()=>img.evaluate(i=>i.complete && i.naturalWidth >= 600)).toBeTruthy();

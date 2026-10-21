@@ -67,7 +67,7 @@ export async function assertCasesAndDictionary(page) {
           await expect(page.locator(".result .points")).toContainText("5");
           await page.locator("#points-recorded").check();
           await page.locator('[data-action="result-next"]').click();
-          await learning(page,decoded);
+          await learning(page,decoded,async()=>{for(const details of await page.locator(".optional-spurs").all())await details.locator("summary").click();await decoded();});
         }
       }
       if (n === 2 || n === 4) {
@@ -85,7 +85,7 @@ export async function assertCasesAndDictionary(page) {
   await page.locator("#dictionary-language").selectOption("ckb");
   await expect(page.locator("#dictionary-result")).toHaveText("نەخشە");
   await page.locator("#dictionary-close").click();
-  expect(photos.size).toBe(19);
+  expect(photos.size).toBe(24);
 }
 
 export function assertCleanStart(events) {

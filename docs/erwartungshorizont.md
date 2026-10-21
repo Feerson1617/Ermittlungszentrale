@@ -1,4 +1,4 @@
-# Erwartungshorizont · Die geheime Ermittlungszentrale 2.0
+# Erwartungshorizont · Die geheime Ermittlungszentrale 2.1
 
 Stand: 21.10.2026. Gemeinsame Datengrundlage: data/cases.js, data/rubrics.json, data/learning.js und data/media.json. Nach Änderungen: npm run materials. Die Aufgaben haben sieben Wertungen, keine zusätzlichen Punkteblöcke.
 
@@ -17,11 +17,11 @@ Natur und Umwelt, Wirtschaft und Zusammenleben sind Betrachtungsperspektiven. Er
 | Abschnitt | Planungsziel | Kern / mögliche Kürzung |
 |---|---|---|
 | Stunde 1 | 5 Minuten Organisation; 10 Akte 001; 20 Akte 002; 10 Sicherung/Puffer | Einzelüberlegung, dann Teamwahl; Bedienung wechseln |
-| Stunde 2 | 3 Minuten Wiedereinstieg; 26 Akte 003; 9 Akte 004; 7 gemeinsame Sicherung | Drei Länder; Industrie, Handel, Kakaokette, Stadtvergleich, Bildung/Gesundheit |
+| Stunde 2 | 3 Minuten Wiedereinstieg; 26 Akte 003; 9 Akte 004; 7 gemeinsame Sicherung | Drei Länder; Bergbau/Anbau/Industrie/Handel, Kakaokette, Stadtvergleich, Bildung/Gesundheit und Wasser |
 | Freiwillig | Akte 005 oder weitere Stunde | Vier erfundene Nachrichten und offene Zukunftsfrage; Weitere Spuren |
 | Drei-Stunden-Alternative | 001/002; dann 003; dann 004 und Auswertung | Stundenwechsel jeweils zwischen Akten, keine notwendige Speicherung mitten in einer Akte |
 
-Papierarbeit ist mitgedacht. Keine Garantie, dass alle Teams 90 Minuten schaffen. Zuerst freiwillige Breite kürzen; Rückmeldung und Reflexion erhalten. Film, Digitales, Energie und Logistik bleiben freiwillige Vertiefungen. Nach jedem Länderfall die Bedienung im Team wechseln.
+Papierarbeit ist mitgedacht. Keine Garantie, dass alle Teams 90 Minuten schaffen. Der Kern hat jetzt zehn kurze unbewertete Belegschritte; vier davon greifen die Redaktionsbehauptungen auf. Die neue Wasseransicht erhöht den Umfang leicht. Zuerst freiwillige Breite kürzen; Rückmeldung und Reflexion erhalten. Film, Digitales, Energie, Logistik und Küste bleiben freiwillige Vertiefungen. Nach jedem Länderfall die Bedienung im Team wechseln.
 
 ## Papierausgabe und Lösungsschutz – M1
 
@@ -34,7 +34,7 @@ Alle Akten sind unabhängig startbar. Die Empfehlung lautet „Beginnt mit Akte 
 | Wertung | Richtige Lösung / Menge | Maximal |
 |---|---|---|
 | title · Akte 1 | Afrika | 5 |
-| selection · Akte 2 | Einige Orte; nicht überall gleich; Industrie oder Markt (8/10); Universität oder Krankenhaus (9/12). | 5 |
+| selection · Akte 2 | Einige Orte; nicht überall gleich; Bergbau oder Markt (8/10); Schule oder Gesundheitsstation (9/12). | 5 |
 | atlas · Akte 3 | Marokko | 5 |
 | city · Akte 3 | Nigeria | 5 |
 | cocoa · Akte 3 | Ghana | 5 |
@@ -89,14 +89,14 @@ Aufgaben-ID: title; Akte 1; höchstens 5 Hauptpunkte.
 
 Aufgaben-ID: selection; Akte 2; höchstens 5 Hauptpunkte.
 
-**Lösung:** Einige Orte; nicht überall gleich; Industrie oder Markt (8/10); Universität oder Krankenhaus (9/12).
+**Lösung:** Einige Orte; nicht überall gleich; Bergbau oder Markt (8/10); Schule oder Gesundheitsstation (9/12).
 
-**Kriterien:** Einige Orte: 2; Unterschiedliche Orte: 1; Fabrik oder Geschäfte: 1; Lernen oder medizinische Versorgung: 1. Vier Teilfragen schrittweise eingeben, anschließend genau eine Gesamtabgabe. Für Arbeit gelten alle passenden Bilder 8/10; für Lernen/Behandlung 9/12. Die Redaktion verwendet 1, 2, 5, 11; Bilder außerhalb der Redaktion sind nicht allein deshalb sachlich passend.
+**Kriterien:** Einige Orte: 2; Unterschiedliche Orte: 1; Bergbau oder Handel: 1; Lernen oder medizinische Versorgung: 1. Vier Teilfragen schrittweise eingeben, anschließend genau eine Gesamtabgabe. Für Arbeit gelten alle passenden Bilder 8/10; für Lernen/Behandlung 9/12. Die Redaktion verwendet 2, 5, 7, 11; Bilder außerhalb der Redaktion sind nicht allein deshalb sachlich passend.
 
 **Hinweise in Reihenfolge:**
 
 1. Die Redaktion zeigt nur vier von zwölf Bildern.
-2. Sucht in den anderen Bildern einen Industriebetrieb oder Markt und einen Lern- oder Behandlungsort.
+2. Sucht in den anderen Bildern Bergbau oder Handel und einen Ort zum Lernen oder für medizinische Versorgung.
 3. Vier Fotos zeigen einige Orte. Sie stehen nicht für alle Lebensbedingungen.
 
 **Vereinfachte Abschlussaufgabe:** Was können vier Fotos zeigen? A: Alle Orte. / B: Nur einen Teil.. Richtige ID: B. Erst richtige Abgabe: ein Punkt; kein Punkt allein fürs Hinweisöffnen.
@@ -212,55 +212,69 @@ Aufgaben-ID: future; Akte 5; höchstens 5 Bonuspunkte.
 
 **Zwei unterschiedliche Spuren:** Das Atlasfoto zeigt Schnee im Gebirge. In einem Werk bei Tanger werden Fahrzeuge hergestellt: Das ist Industrie. Welche Spur zeigt einen Naturraum? Welche Spur zeigt einen Arbeitsplatz?
 
-Auflösung: Marokko hat unterschiedliche Landschaften und Arbeitsplätze. Der Schnee widerspricht „überall ganzjährig heiß“. Schnee ist örtlich und jahreszeitlich begrenzt; eine Fabrik sagt nichts über die Lage in einer trockenen Landschaft oder über den Wohlstand aller Menschen.
+Auflösung: In Marokko gibt es unterschiedliche Landschaften und Arbeitsplätze. Der Schnee widerspricht „überall ganzjährig heiß“. Schnee hängt von Ort und Jahreszeit ab. Eine Fabrik kann auch in einer trockenen Landschaft liegen und belegt keinen Wohlstand für alle.
 
-Weitere Spuren: Energie: Spiegel statt Solarzellen; Logistik: Wege zum Betrieb.
+Weitere Spuren: Energie: Spiegel statt Solarzellen; Wege zum Betrieb; Ein weiterer Naturraum: Sansibar.
 
 ### Arbeit und Leben in einer Stadt
 
-**Eine Arbeit in Lagos:** Der Quellenbeleg nennt den Balogun-Markt in Lagos. Auf dem Foto von 2007 werden Stoffe gehandelt. Welche Tätigkeit ist hier belegt?
+**Verschiedene Arbeiten:** Auf dem Balogun-Markt in Lagos werden Stoffe verkauft. Die anderen Fotos zeigen Bergbau, Landwirtschaft und einen Industriebetrieb. Welche Arbeit gehört zum Stofffoto aus Lagos?
 
-Auflösung: Handel ist ein Bereich der Wirtschaft. Das Foto belegt diesen Markt – keine Einkommen oder Arbeitsbedingungen aller Menschen in Lagos.
+Auflösung: Bergbau, Anbau, Industrie und Handel sind verschiedene Bereiche der Wirtschaft. Keiner davon ist allein ein Zeichen für „rückständig“ oder „wohlhabend“.
+
+Neue Beweise gefunden! Die erfundene Redaktion behauptete: „In Afrika arbeiten Menschen nur in der Landwirtschaft.“ Prüfung: „Nur Landwirtschaft“ ist falsch. Die Fotos und das Beispiel aus Tanger belegen auch Bergbau, Industrie und Handel. Wie häufig die Arbeiten sind, bleibt offen.
 
 **Zwei Bilder – eine Stadt?:** Schaut genau hin. Was ist auf den beiden Fotos sichtbar verschieden? Welche Beobachtung könnt ihr am Bild prüfen?
 
-Auflösung: Bild A zeigt hohe Gebäude von der Seite; Bild B viele Dächer von oben. Auch die Aufnahmeperspektive beeinflusst den Eindruck. Einkommen und Herkunft kann man daraus nicht ablesen.
+Auflösung: Bild A zeigt hohe Gebäude von der Seite; Bild B viele Dächer von oben. Auch die Blickrichtung verändert den Eindruck. Geld und Herkunft kann man daraus nicht ablesen.
 
-**Eure Vermutung:** Könnten beide Orte in derselben Stadt liegen? Es gibt keine Punkte für eure Vermutung. Was vermutet ihr?
+**Eure Vermutung:** Könnten beide Orte in derselben Stadt liegen? Eure Vermutung wird nicht bewertet. Was vermutet ihr?
 
-Auflösung: Die Quellen lösen es auf: Beide Fotos stammen aus Lagos – Bild A von Lagos Island (2016), Bild B aus Makoko (2019). Verschiedene Jahre und Orte belegen keinen zeitlichen Wachstumstrend.
+Auflösung: Beide Fotos stammen aus Lagos: Bild A von Lagos Island (2016), Bild B aus Makoko (2019). Die Orte und Jahre unterscheiden sich. Die Fotos beweisen nicht, wie schnell eine Stadt wächst.
 
-**Orte und Lebensbedingungen:** Die Quellen verorten Lagos Island und Makoko in Lagos. Lest die zwei kurzen Kontextkarten. Welche Aussage passt zu den Belegen und Kontextkarten?
+**Orte und Lebensbedingungen:** Lagos Island und Makoko liegen in Lagos. Lest die zwei kurzen Karten. Welche Aussage passt?
 
-Auflösung: Menschen können in derselben Stadt sehr unterschiedlich leben. Aus Gebäuden folgen weder Einkommen noch eine Erklärung durch Fleiß; Infrastruktur und öffentliche Versorgung prägen die Möglichkeiten mit.
+Auflösung: Auch innerhalb einer Stadt können sich die Lebensbedingungen stark unterscheiden. Gute Wege, Wasserleitungen und öffentliche Angebote spielen dabei eine Rolle.
 
-**Noch ein Blick auf den Alltag:** Der Balogun-Markt ist ein weiterer Blick auf Lagos (Aufnahme 2007). Es gibt mehr als zwei einheitliche Gruppen „arm“ und „reich“. Was können diese wenigen Bilder zeigen?
+Neue Beweise gefunden! Die erfundene Redaktion behauptete: „In Afrika leben alle Menschen in Armut.“ / „Dort wohnen alle Menschen in einfachen Hütten.“ Prüfung: Die Bilder zeigen verschiedene Gebäude. Ob Menschen arm sind, folgt nicht allein aus Bauweise oder Kleidung. Für Aussagen über ihr Geld und ihre Versorgung brauchen wir weitere Angaben.
 
-Auflösung: Die Aufnahmen zeigen einzelne Stadträume und Tätigkeiten. Die Marktaufnahme belegt keine statistische Mittelschicht; Einzelbilder zeigen keine Einkommensverteilung.
+**Weitere Orte und Wohnformen:** Die Fotos zeigen den Markt in Lagos und Lehmhäuser in Ghana. Markt und Dorf sind verschiedene Orte. Ein Strohdach ist kein Beweis für Armut. Was können diese wenigen Bilder zeigen?
+
+Auflösung: Die Aufnahmen zeigen einzelne Orte. Sie teilen Menschen nicht in zwei einheitliche Gruppen „arm“ und „reich“ ein. Die Marktaufnahme belegt keine Einkommensgruppe.
 
 Weitere Spuren: Filmwirtschaft in Nigeria; Digitale Dienstleistungen.
 
 ### Vom Anbau zum Produkt
 
-**Anbauen, verarbeiten und handeln:** In Ghana gibt es neben Kakaoanbau auch Verarbeitung und Produktherstellung, etwa die Cocoa Processing Company in Tema. Die Betriebsfassade zeigt keinen Produktionsablauf; dafür dient das vereinfachte Schema. Handeln und verkaufen: welcher Schritt? Kakaofrüchte anbauen und ernten: welcher Schritt? Produkte herstellen: welcher Schritt? Bohnen aufbereiten und verarbeiten: welcher Schritt?
+**Anbauen, verarbeiten und handeln:** In Ghana wird Kakao angebaut und verarbeitet, etwa bei der Cocoa Processing Company in Tema. Das Betriebsfoto zeigt keinen Arbeitsablauf. Dafür nutzt ihr das Schema. Handeln und verkaufen: welcher Schritt? Kakaofrüchte anbauen und ernten: welcher Schritt? Produkte herstellen: welcher Schritt? Bohnen aufbereiten und verarbeiten: welcher Schritt?
 
-Auflösung: 1 Anbau/Ernte → 2 Bohnen aufbereiten/verarbeiten → 3 Produkte herstellen → 4 handeln/verkaufen. Das Schema vereinfacht. Nicht die gesamte Ernte wird vor Ort verarbeitet; Verarbeitung garantiert weder Gewinne noch gute Arbeitsbedingungen.
+Auflösung: 1 Anbau/Ernte → 2 Bohnen aufbereiten/verarbeiten → 3 Produkte herstellen → 4 handeln/verkaufen. Das Schema vereinfacht. Nicht die ganze Ernte wird in Ghana verarbeitet. Mehr Verarbeitung bedeutet nicht automatisch mehr Geld oder gute Arbeitsbedingungen für alle.
 
 Weitere Spuren: Was braucht ein Betrieb?.
 
-### Bildung und Gesundheit
+### Schule, Behandlung und Wasser
 
-**Was zeigen diese Beispiele?:** Die Fotos belegen eine Universität in Accra und ein Krankenhaus in Butaro. Was wissen wir dadurch – und was noch nicht? Welche Aussage ist durch diese Beispiele gedeckt?
+**Lernen und medizinische Versorgung:** Vergleicht Klassenraum und Universität. Vergleicht dann Gesundheitsstation und Krankenhaus. Was zeigen die Beispiele? Was belegen Klassenraum und Universität? Was belegen Station und Krankenhaus?
 
-Auflösung: Die Einrichtungen sind örtlich belegt. Zugang, Qualität und Finanzierung sind damit nicht für alle Menschen geklärt. Eine örtlich getragene Einrichtung kann zugleich international unterstützt sein.
+Auflösung: Es gibt unterschiedliche Einrichtungen. Nicht alle Menschen haben die gleichen Möglichkeiten, sie zu nutzen. Die Fotos allein zeigen weder Lernqualität noch Ausstattung aller Räume. Auch über Finanzierung und Zusammenarbeit sagen sie wenig.
+
+Neue Beweise gefunden! Die erfundene Redaktion behauptete: „In Afrika gibt es keine Schulbildung.“ Prüfung: Der Klassenraum ist ein Lernort, auch mit einfachen Möbeln. Die Universität ist ein weiteres Bildungsbeispiel. Beides sagt noch nicht, wie gut Bildung überall erreichbar ist.
+
+Die erfundene Redaktion behauptete: „Krankenhäuser gibt es dort kaum.“ Prüfung: Station und Krankenhaus belegen zwei Einrichtungen. Ob anderswo Krankenhäuser fehlen, ist damit nicht geklärt. Dafür wären weitere Angaben nötig.
+
+**Wasser tragen und speichern:** Ein Foto zeigt Wassertransport in Uganda, das andere einen Wassertank in Kenia. Wasser zu tragen braucht Arbeit. Wege können verschieden sein. Was können wir belegen?
+
+Auflösung: Einzelne Versorgungswege können aufwendig sein. Wie weit der Weg ist und ob das Wasser trinkbar ist, zeigen diese Fotos nicht. Ein Kanister ist kein Armutsbeweis; ein Tank ist kein Reichtumsbeweis.
+
+Neue Beweise gefunden! Die erfundene Redaktion behauptete: „Überall fehlt sauberes Wasser.“ Prüfung: Die Bilder zeigen unterschiedliche Wege, Wasser zu bekommen. Die Behauptung über sauberes Wasser „überall“ ist durch sie nicht belegt. Wasserqualität muss eigens geprüft werden.
 
 Weitere Spuren: keine zusätzliche Pflichtstrecke.
 
 ### Zurück zu eurer ersten Auswahl
 
-**Welche Spur ergänzt eure Auswahl?:** Wählt einen Bild- oder Belegverweis. Notiert dazu wenige Wörter oder sprecht einen Partnersatz; auch „Das wussten wir schon“ oder eine offene Frage ist möglich.
+**Welche Spur ergänzt eure Auswahl?:** Wählt einen Bild- oder Belegverweis. Wenige Wörter oder ein gesprochener Satz genügen. Auch „Das wussten wir schon“ oder eine offene Frage ist möglich.
 
-Auflösung: Eure Vorstellungen werden nicht nach richtig oder falsch bewertet. Belege können eine Vorstellung ergänzen, bestätigen oder eine neue Frage öffnen.
+Auflösung: Eure Vorstellungen werden nicht nach richtig oder falsch bewertet. Belege können eine Vorstellung ergänzen, bestätigen oder eine Frage öffnen.
 
 Weitere Spuren: keine zusätzliche Pflichtstrecke.
 
@@ -269,58 +283,90 @@ Weitere Spuren: keine zusätzliche Pflichtstrecke.
 
 ### Energie: Spiegel statt Solarzellen
 
-Die Noor-Anlage nutzt Spiegel für Solarthermie. Wer profitiert, wer hat Zugang, und welche Umweltfolgen sind zu prüfen? Solarenergie ist kein automatisches Nachhaltigkeitssiegel.
+Die Noor-Anlage nutzt Spiegel für Solarthermie. Wer hat Nutzen, wer kann sie nutzen, und welche Folgen hat sie für die Umwelt? Solarenergie ist kein automatisches Gütesiegel.
 
-### Logistik: Wege zum Betrieb
+### Wege zum Betrieb
 
-Wie kommen Materialien zu einer Fabrik und Produkte zu Kundinnen und Kunden? Betrachtet Transportwege als weitere Frage; eine Fabrik allein belegt noch keinen allgemeinen Wohlstand.
+Wie kommen Materialien zur Fabrik und Produkte zu Kundinnen und Kunden? Eine Fabrik allein belegt keinen Wohlstand für alle.
+
+### Ein weiterer Naturraum: Sansibar
+
+Diese Küste liegt auf Unguja in Tansania. Sie ist ein weiterer Ort auf dem Kontinent; kein Bild steht für alle Landschaften oder Lebensbedingungen.
 
 ### Filmwirtschaft in Nigeria
 
-Nigeria hat eine Filmwirtschaft, oft Nollywood genannt. Welche Tätigkeiten stecken hinter einem Film? Das ist eine landesweite Perspektive, keine Behauptung, alle Produktionen lägen in Lagos.
+Nigeria hat eine Filmwirtschaft, oft Nollywood genannt. Welche Arbeiten stecken hinter einem Film? Die Produktionen liegen nicht alle in Lagos.
 
 ### Digitale Dienstleistungen
 
-Welche Arbeit ist nötig, damit zum Beispiel ein digitales Bezahlsystem funktioniert? Sammelt Fragen zu Kenntnissen, Technik und Zugang – keine zusätzlichen Punkte.
+Welche Arbeit ist nötig, damit zum Beispiel digitales Bezahlen funktioniert? Sammelt Fragen zu Wissen, Technik und Zugang – ohne zusätzliche Punkte.
 
 ### Was braucht ein Betrieb?
 
-Was braucht ein Betrieb für die Herstellung: Energie, Kenntnisse, Maschinen oder Transport? Das sind Untersuchungsfragen; mehr Produktion bedeutet nicht automatisch mehr Wohlstand für alle.
+Was braucht ein Betrieb: Energie, Wissen, Maschinen oder Transport? Mehr Produktion bedeutet nicht automatisch mehr Geld für alle.
 
 ## Bildnummern 1–12 – M2
 
-Beide Auswahlakten verwenden exakt dieselben Nummern, Motive, Beschriftungen und Dateien. Erste und zweite bestätigte Auswahl bleiben getrennt. Auch zwölf Bilder sind keine repräsentative Stichprobe des Kontinents. Die Redaktion [1, 2, 5, 11] ist ein erfundenes Modell mit begrenztem Themenfokus; kein empirischer Beleg eines allgemeinen deutschen Medienbildes und kein Beleg allgemeiner Armut.
+Beide Auswahlakten verwenden exakt dieselben Nummern, Motive, Beschriftungen und Dateien. Erste und zweite bestätigte Auswahl bleiben getrennt. Auch zwölf Bilder sind keine repräsentative Stichprobe des Kontinents. Die Redaktion [2, 5, 7, 11] ist ein erfundenes Modell mit begrenztem Themenfokus; kein empirischer Beleg eines allgemeinen deutschen Medienbildes und kein Beleg allgemeiner Armut.
 
 | Nummer | Motiv | Belegter Ort | Einsatz / Nachweis |
 |---|---|---|---|
-| 1 | Savanne mit Wildtieren | Maasai Mara, Narok County, Kenia | Akten 002/004; F01 |
-| 2 | Wüste | Zwischen Deadvlei und Sossusvlei, Namib-Naukluft-Nationalpark, Namibia | Akten 002/004; F02 |
-| 3 | Tropischer Regenwald | Ituri-Regenwald, Demokratische Republik Kongo, Kongobecken | Akten 002/004; F03 |
-| 4 | Moderne Großstadt | Blick vom City Hall, Lagos Island, Lagos, Nigeria | Akten 002/004; F04 |
-| 5 | Landwirtschaft | Darsfield-Demonstrationsfarm, Ghana | Akten 002/004; F05 |
-| 6 | Verschneites Gebirge | Hoher Atlas, Marokko | Akten 002/004; F06 |
-| 7 | Küste | Ostküste von Unguja (Sansibar), Tansania | Akten 002/004; F07 |
-| 8 | Produktion | Ghacem-Anlage im Großraum Accra/Tema, Ghana | Akten 002/004; F08 |
-| 9 | Universität | Legon, Accra, Ghana | Akten 002/004; F09; Bildung/Gesundheit |
-| 10 | Alltag in der Stadt | Makola-Markt, Accra Central, Ghana | Akten 002/004; F10 |
-| 11 | Wasserversorgung | Kajiado County, Kenia | Akten 002/004; F16; Wasserversorgung, kein automatischer Mangel |
-| 12 | Krankenhaus | Butaro, Distrikt Burera, Ruanda | Akten 002/004; F17; Bildung/Gesundheit |
+| 1 | Savanne mit Wildtieren | Maasai Mara, Narok County, Kenia | Akten 002/004; [F01](../bildnachweise.html#F01); Michelle Juma; CC BY-SA 4.0 |
+| 2 | Wüste | Zwischen Deadvlei und Sossusvlei, Namib-Naukluft-Nationalpark, Namibia | Akten 002/004; [F02](../bildnachweise.html#F02); Daniel Kraft; CC BY-SA 3.0 |
+| 3 | Tropischer Regenwald | Ituri-Regenwald, Demokratische Republik Kongo, Kongobecken | Akten 002/004; [F03](../bildnachweise.html#F03); MONUSCO / Abel Kavanagh; CC BY-SA 2.0 |
+| 4 | Moderne Großstadt | Blick vom City Hall, Lagos Island, Lagos, Nigeria | Akten 002/004; [F04](../bildnachweise.html#F04); Jamie Tubers; CC BY-SA 4.0 |
+| 5 | Landwirtschaft | Darsfield-Demonstrationsfarm, Ghana | Akten 002/004; [F05](../bildnachweise.html#F05); Trees For The Future (TFTF); CC BY 2.0 |
+| 6 | Verschneites Gebirge | Hoher Atlas, Marokko | Akten 002/004; [F06](../bildnachweise.html#F06); Richard Allaway; CC BY 2.0 |
+| 7 | Lehmhäuser mit Strohdächern | Raum Tamale, Nordghana | Akten 002/004; [F18](../bildnachweise.html#F18); Salifu Wumpini Hussein; CC BY-SA 4.0 |
+| 8 | Bergbau | Palabora-Mine bei Phalaborwa, Südafrika | Akten 002/004; [F19](../bildnachweise.html#F19); Bjørn Christian Tørrissen; CC BY-SA 4.0 |
+| 9 | Schule mit einfacher Ausstattung | Nigeria; genauer Schulstandort nicht angegeben | Akten 002/004; [F20](../bildnachweise.html#F20); Danslafrique; CC BY-SA 4.0; Bildung/Gesundheit |
+| 10 | Alltag in der Stadt | Makola-Markt, Accra Central, Ghana | Akten 002/004; [F10](../bildnachweise.html#F10); Amuzujoe; CC BY-SA 4.0 |
+| 11 | Wasser holen und transportieren | Uganda; genauer Aufnahmeort nicht angegeben | Akten 002/004; [F21](../bildnachweise.html#F21); Mstephen247; CC BY-SA 4.0; Wassertransport, Qualität unbekannt |
+| 12 | Gesundheitsstation | Dankh Sene, Gesundheitsdistrikt Diourbel, Senegal | Akten 002/004; [F22](../bildnachweise.html#F22); Nathaly Herrel / President’s Malaria Initiative; Public domain; Bildung/Gesundheit |
+
+## Erfundene Redaktion und Lernfolge
+
+Zuerst offen: „Welche vier Bilder passen für euch besonders zu Afrika?“ Kurze Einzelüberlegung, dann gemeinsame Viererauswahl. Diese persönliche Auswahl ist unbewertet. Erst nach ihrer Bestätigung und Papiernotiz zeigt Akte 002 die erfundene Redaktion: Wüste, Landwirtschaft, Lehmhäuser und Wassertransport. Keine globale Medienanalyse behauptet; kein Beschämen der ursprünglichen Vorstellungen.
+
+Die erfundene Redaktion behauptet ausdrücklich pauschal – keine Tatsachen:
+
+1. „In Afrika leben alle Menschen in Armut.“
+2. „Dort wohnen alle Menschen in einfachen Hütten.“
+3. „In Afrika arbeiten Menschen nur in der Landwirtschaft.“
+4. „In Afrika gibt es keine Schulbildung.“
+5. „Krankenhäuser gibt es dort kaum.“
+6. „Überall fehlt sauberes Wasser.“
+
+Eine kurze mündliche Frage genügt: Welche Aussage ist besonders pauschal? Akte 002 prüft danach nur Grenzen der Viererwahl und fehlende Themen. Die eigentliche Differenzierung folgt in Akte 003 an örtlich belegten Beispielen. Zulässige Gegenbelege zur bewerteten Auswahlaufgabe: Arbeit 8 (Bergbau) oder 10 (Markt/Handel); Lern-/Behandlungsort 9 (Schulraum) oder 12 (Gesundheitsstation). Die Frage lautet ausdrücklich Bergbau oder Handel; eine moderne Skyline allein erfüllt sie nicht. Das sind Beispiele, keine Aussagen über Häufigkeiten oder allgemeine Versorgungsqualität.
+
+Vier kurze, unbewertete Rückbezüge in Akte 003: verschiedene Arbeiten; Wohnen/Geld; Bildung/medizinische Einrichtungen; Wassertransport/Speicherung. „Keine Schulbildung“ und „nur Landwirtschaft“ widersprechen den konkreten Gegenbeispielen. Aussagen über verbreitete Armut, Krankenhausdichte oder Wasserqualität sind mit diesen Fotos nicht entschieden. Eine medizinische Station und ein Krankenhaus erlauben keine Schlussfolgerung, ob andernorts Einrichtungen fehlen. Dafür braucht es zusätzliche geeignete Daten.
+
+Akte 004 verwendet denselben Zwölferkatalog. Fragen: Was hat sich verändert oder ergänzt? Was ist gleich geblieben? Dazu passt Beleg … Eine unveränderte Auswahl ist zulässig. Reflexion, erster/zweiter Fotoentscheid und Rückbezüge erhalten keine Punkte. Ein Stichwort, Bildverweis oder kurzer mündlicher Satz genügt.
 
 ## Zusätzliche Belegbilder – nicht Teil des Zwölferkatalogs
 
 | Beleg-ID | Motiv | Belegter Ort / Datum | Einsatz und Grenze |
 |---|---|---|---|
+| F07 | Sandstrand, Palmen und Meer an der Ostküste Sansibars. | Ostküste von Unguja (Sansibar), Tansania; 2006-12 | Weitere Spuren: Küste auf Unguja; kein Gesamtbild |
+| F08 | Außenansicht eines Ghacem-Zementwerks mit Produktionssilo. | Ghacem-Anlage im Großraum Accra/Tema, Ghana; 2026-06-06 18:15:00 | Industrie und Betriebsbedarf; keine Wohlstandsgarantie |
+| F09 | Balme Library auf dem Campus der University of Ghana. | Legon, Accra, Ghana; 2010-01-31 07:16:02 | Bildung: Universität; kein allgemeiner Zugang belegt |
 | F11 | Kakaofrüchte am Baum in einem ghanaischen Anbaugebiet. | Ostghana (6.599547 N, 0.881836 W), Ghana; 2020-11-04 11:19:36 | Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg |
 | F12 | Abgeerntetes Hirsefeld in der Trockenzeit. | Sahelzone, westlicher Niger (13.95419 N, 1.65624 E); 2025-03-14 09:39:16 | Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg |
 | F13 | Skyline von Nairobi, vom Stadtteil Upper Hill aus gesehen. | Upper Hill, Nairobi, Kenia; 19 April 2008 (according to Exif data) | Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg |
 | F14 | Gebäude und Anlage eines kakaoverarbeitenden Betriebs. | Industriegebiet Tema, Ghana; 2007-05-13 | Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg |
 | F15 | Spiegelfelder des solarthermischen Kraftwerks Noor I/II. | Noor-Solarkomplex bei Ouarzazate, Marokko; 2019-10-17 11:13 | Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg |
-| A3-B1 | Dichte Bebauung in Makoko aus der Luft | Makoko, Lagos, Nigeria; 2019-11-13 | Lagos-Ermittlung; keine Einkommenszuordnung |
-| A3-B2 | Stoffhandel im Balogun-Markt | Balogun-Markt, Lagos, Nigeria; 2007-07-13 11:06 | Lagos-Ermittlung; keine Einkommenszuordnung |
+| F16 | Wassertank auf einem Turm | Kajiado County, Kenia; 2026-06-19 | Wasserspeicherung; Qualität unbekannt |
+| F17 | Krankenhausgebäude in Butaro | Butaro, Distrikt Burera, Ruanda; 2011-10-11 | Butaro-Krankenhaus; keine Versorgungsdichte belegt |
+| A3-B1 | Dichte Bebauung in Makoko aus der Luft | Makoko, Lagos, Nigeria; 2019-11-13 | Lagos-Vergleich; kein Einkommen ableitbar |
+| A3-B2 | Stoffhandel im Balogun-Markt | Balogun-Markt, Lagos, Nigeria; 2007-07-13 11:06 | Handel in Lagos; keine Einkommensgruppe |
 
 Lagos-Vergleich: Lagos Island 2016, Makoko 2019; weitere Alltagsperspektive Balogun-Markt 2007. Unterschiedliche Perspektiven und Jahre ausdrücklich beachten, kein Wachstumstrend und keine Einkommen aus Gebäuden/Personen ableiten. Wirtschaftliches Wachstum kann ungleich zugutekommen; die Fotos selbst belegen keinen Wachstumstrend. Die Makoko-Aufnahme zeigt dichte Bebauung aus der Luft, keinen daraus sicher feststellbaren Versorgungsgrad. Der ursprüngliche Commons-Titel bleibt nur im vollständigen Quellennachweis unverändert erhalten.
 
-Butaro: historische Krankenhaus-Außenaufnahme 2011, keine Behauptung aktueller Qualität oder universellen Zugangs. Wasserbild: Wassertank in Kajiado County, kein Beleg für Wassermangel. Landwirtschaft bleibt eine wirtschaftliche Tätigkeit; Industriebetriebe sind kein automatischer Wohlstands-/Arbeitsqualitätsbeleg.
+Neue Auswahlfotos: 7 zeigt Lehmhäuser mit Strohdächern im Raum Tamale (Ghana); sichtbare Stromleitungen verbieten die Beschriftung „ohne Strom“. Bauweise belegt keine Armut. 8 zeigt den Palabora-Tagebau bei Phalaborwa (Südafrika), ohne unbelegte Aussagen zu Arbeitsbedingungen. 9 zeigt einen leeren Klassenraum in Nigeria; Stadt und Schule sind nicht genauer belegt. Einfache Möbel bedeuten nicht fehlende Bildung. 11 zeigt Wassertransport in Uganda; Ort, Wegstrecke und Wasserqualität sind nicht genauer belegt. Ein Kanister beweist weder Armut noch Mangel.
+
+12 zeigt die Gesundheitsstation Dankh Sene im Gesundheitsdistrikt Diourbel (Senegal), am Gebäudeschild nachvollziehbar. Gewählte Alternative: dokumentarische Außenansicht statt Behandlungsraum. Die Innenausstattung und Behandlungsqualität sind nicht sichtbar; das Motiv wird deshalb neutral „Gesundheitsstation“ genannt. Keine Patientinnen, Patienten oder leidenden Kinder werden gezeigt. Urheberangabe Nathaly Herrel / President’s Malaria Initiative; Public Domain als US-Regierungswerk (PD-USGov-HHS), abgesichert durch Dateiseite, Flickr-Lizenzprüfung und lokal gesicherte Lizenzvorlage docs/media/healthlicense.json. Freiwillige Quellen-/Urheberangabe bleibt erhalten.
+
+Die bisherigen Fotos von Küste, Industrie, Universität, Wassertank und Krankenhaus sind unverändert erhalten und weiter erreichbar. Butaro: historische Krankenhaus-Außenaufnahme 2011, keine Behauptung aktueller Qualität oder universellen Zugangs. Tank in Kajiado County: kein Beleg für Wassermangel oder Reichtum. Landwirtschaft bleibt eine wirtschaftliche Tätigkeit; Industriebetriebe sind kein automatischer Wohlstands-/Arbeitsqualitätsbeleg.
 
 ## Sachquellen und ihre tatsächliche Prüfung
 
@@ -336,7 +382,7 @@ Butaro: historische Krankenhaus-Außenaufnahme 2011, keine Behauptung aktueller 
 
 Renault-/SIGA-/UNESCO-Aussagen sind im geprüften Projektauftrag benannte Beispiele; die direkten Originalabrufe sind technisch blockiert und nicht als selbst erfolgreich geprüft ausgegeben. Schemata sind ausdrücklich Schemata, keine erzeugten dokumentarischen Fotos. Allgemeine qualitative Kontextkarten ersetzen keine lokalen Einkommen-/Versorgungsstatistiken. Keine Rankings oder erfundenen Zahlen.
 
-Die 19 echten Fotografien besitzen Commons-Quellenrevisionen, Ortsbelege, Urheber, freie Lizenzen und Prüfsummen in data/media.json und docs/media/. Die Originaldownloads der vier Ergänzungen wurden per SHA1 verifiziert; alle lokalen Ableitungen per SHA256. Bilder behalten ihre Einzellizenzen. Quellen: bildnachweise.html und docs/bildquellen.md. Das kleinere Original des Balogun-Fotos wurde nicht hochskaliert.
+Die 24 echten Fotografien besitzen Commons-Quellenrevisionen, Ortsbelege in dokumentierter Genauigkeit, Urheber, freie Lizenzen und Prüfsummen in data/media.json und docs/media/. Die fünf Ergänzungen dieser Version wurden anhand ihrer Originaldownloads per SHA1 verifiziert; alle lokalen Ableitungen per SHA256. Die 19 vorherigen Fotos bleiben bytegleich. Bilder behalten ihre Einzellizenzen. Vollständige Einzelquellen mit Titel, Original-/Lizenzlink und Grenzen: bildnachweise.html und docs/bildquellen.md. Das kleinere Original des Balogun-Fotos wurde nicht hochskaliert.
 
 Karten: Natural Earth 1:110 Millionen, Public Domain; vereinfachte Länderumrisse, keine Navigation. Westsahara als eigener Raum, keine politische Anerkennungsaussage. Beim Stadtvergleich ist der Punkt eine grobe Lage von Lagos, keine punktgenaue Verortung beider Stadtteile.
 
@@ -346,7 +392,7 @@ Karten: Natural Earth 1:110 Millionen, Public Domain; vereinfachte Länderumriss
 
 ## Technik, Datenschutz und verbleibende Abnahme
 
-Kein Konto, keine Datenbank, keine Zeitwertung und kein Audio. Alle Akten funktionieren im Arbeitsspeicher ohne erlaubten Browser-Speicher. Optionale sessionStorage-Wiederherstellung kann Neuladen abfedern; bei gesperrtem Speicher verliert Neuladen die Sitzung. Schema 1 wird mit verständlicher Meldung verworfen, damit alte Wertungen nicht unbemerkt auf neue Aufgaben übertragen werden. Papier bleibt die Sicherung zwischen Geräten und Stunden.
+Kein Konto, keine Datenbank, keine Zeitwertung und kein Audio. Alle Akten funktionieren im Arbeitsspeicher ohne erlaubten Browser-Speicher. Optionale sessionStorage-Wiederherstellung kann Neuladen abfedern; bei gesperrtem Speicher verliert Neuladen die Sitzung. Schema 1 und Sitzungen aus Version 2.0 werden mit verständlicher Meldung zurückgesetzt, damit alte Bildnummern nicht unbemerkt andere Motive bedeuten. Innerhalb von 2.1 bleiben Entwürfe, Punkte und getrennte Auswahlen erhalten. Für einen 2.1-Durchlauf einen neuen Bogen verwenden; alte Papierauswahlen beziehen sich auf den alten Katalog und bleiben als alter Stand erhalten. Papier bleibt die Sicherung zwischen Geräten und Stunden.
 
 Kein garantierter vollständiger Offline-Neustart: noch nicht geladene Ressourcen benötigen den eigenen statischen Server. Die App überträgt keine Schülerantworten an externe Dienste; der Host kann Zugriffsprotokolle einschließlich IP-Adressen führen. Keine pauschale DSGVO-Freigabe behauptet. Schulische Datenschutzprüfung getrennt beurteilen.
 

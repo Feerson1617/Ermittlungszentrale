@@ -19,13 +19,13 @@ export async function result(page,points){
  await expect(page.locator('.result .points')).toContainText(String(points));await expect(page.locator('[data-action="result-next"]')).toBeDisabled();
  await page.locator('#points-recorded').check();await page.locator('[data-action="result-next"]').click();
 }
-export async function learning(page,visit=async()=>{}){
+export async function learning(page,visit=async()=>{},after=async()=>{}){
  let count=0;
  while(await page.locator('[data-learning-step]').count()){
   await visit(page);
   for(const select of await page.locator('select[data-learning]').all())await select.selectOption({index:1});
   if(await page.locator('#learning-note').count())await page.locator('#learning-note').fill('Eine Spur ergänzt unsere Auswahl.');
-  await page.locator('[data-action="learning-check"]').click();await expect(page.locator('.learning [role="status"]')).toBeVisible();
+  await page.locator('[data-action="learning-check"]').click();await expect(page.locator('.learning [role="status"]')).toBeVisible();await after(page);
   await page.locator('[data-action="learning-next"]').click();if(++count>12)throw Error('Unbegrenzte Lernschleife');
  }
  return count;
