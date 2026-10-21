@@ -1,4 +1,6 @@
 import { test, expect } from "@playwright/test";
+import {learning} from "./v2-helpers.mjs";
+test.setTimeout(90000);
 const failures = new WeakMap();
 test.beforeEach(async ({ page }) => {
   const errors = [];
@@ -22,6 +24,7 @@ async function decoded(page) {
   expect(await page.locator(".photo-missing").count()).toBe(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
 }
+async function decodedLearning(page){if(await page.locator("main .photo img").count())await decoded(page);else expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();}
 async function shot(page, testInfo, name) {
   await page.evaluate(() => scrollTo(0,0));
   await page.screenshot({path:testInfo.outputPath(name+".png"),fullPage:true});
@@ -32,19 +35,19 @@ async function solve(page, answer) {
   await expect(page.locator(".result")).toBeVisible();
 }
 
-test("Fotos laden bedarfsweise; Akten 002/004 zeigen dieselben zehn Bilddateien", async ({page}, testInfo) => {
+test("Fotos laden bedarfsweise; Akten 002/004 zeigen dieselben zwölf Bilddateien", async ({page}, testInfo) => {
   const requests = [];
   page.on("request",r=>{if(r.url().includes("assets/images/"))requests.push(r.url());});
   await page.goto("./");
   await expect(page.locator("h1")).toContainText("Willkommen");
   expect(requests).toEqual([]);
-  await expect(page.locator("#photo-sources")).toBeHidden();
+  await expect(page.locator("#photo-sources")).toBeVisible();
   await open(page,2);await decoded(page);
   const catalogue = () => page.locator(".photo-choice").evaluateAll(els=>els.map(e=>({
     id:e.dataset.photo,src:e.querySelector("img").getAttribute("src"),alt:e.querySelector("img").alt,
   })));
   const before=await catalogue();
-  expect(before).toHaveLength(10);
+  expect(before).toHaveLength(12);
   await shot(page,testInfo,"akte-002");
   await expect(page.locator("#photo-sources")).toBeVisible();
   await home(page);await open(page,4);await decoded(page);
@@ -57,7 +60,7 @@ test("Akte 001 verrät vor der Lösung keinen Ort; Akte 003 zeigt drei lesbare F
   expect(await page.locator("main .photo img").count()).toBe(4);
   const visibleEvidence=await page.locator("main .photo").evaluateAll(els=>els.map(e=>e.outerHTML).join(" "));
   expect(visibleEvidence).not.toMatch(/Afrika|Africa|Lagos|Nigeria|Marokko|Morocco|Namib|Congo|Kongo|Ituri/i);
-  await expect(page.locator("#photo-sources")).toBeHidden();
+  await expect(page.locator("#photo-sources")).toBeVisible();
   await shot(page,testInfo,"akte-001");
   await solve(page,"Afrika");
   await expect(page.locator("#photo-sources")).toBeVisible();
@@ -66,12 +69,13 @@ test("Akte 001 verrät vor der Lösung keinen Ort; Akte 003 zeigt drei lesbare F
   await open(page,3);
   for (const [n,answer] of ["Marokko","Nigeria","Ghana"].entries()) {
     await decoded(page);
-    await expect(page.locator("#photo-sources")).toBeHidden();
+    await expect(page.locator("#photo-sources")).toBeVisible();
     await expect(page.locator(".map")).toBeVisible();
     await shot(page,testInfo,`akte-003-${n+1}`);
     await solve(page,answer);
     await page.locator("#points-recorded").check();
     await page.locator('[data-action="result-next"]').click();
+    await learning(page,async p=>{await decodedLearning(p);await shot(p,testInfo,`akte-003-beleg-${await p.locator('[data-learning-step]').getAttribute('data-learning-step')}`);});
   }
 });
 
@@ -81,7 +85,7 @@ test("Akte 005: vier reale Zukunftsfotos und vollständige lokale Attribution", 
   await expect(page.locator(".clue-card .photo-credit")).toHaveCount(4);
   await shot(page,testInfo,"akte-005");
   await page.goto("bildnachweise.html");
-  await expect(page.locator("article")).toHaveCount(15);
+  await expect(page.locator("article")).toHaveCount(19);
   for(const img of await page.locator("article img").all()) {
     await img.scrollIntoViewIfNeeded();
     await expect.poll(()=>img.evaluate(i=>i.complete && i.naturalWidth >= 600)).toBeTruthy();

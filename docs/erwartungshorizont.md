@@ -1,207 +1,353 @@
-# Erwartungshorizont · Die geheime Ermittlungszentrale
+# Erwartungshorizont · Die geheime Ermittlungszentrale 2.0
 
-Bearbeitbare Ausgangsfassung. Aufgaben, Hinweise, Lösungen und Namensvarianten werden aus `data/rubrics.json` erzeugt. Formulierungen zur Kurzantwortauswertung stammen aus `js/scoring.js`. Nach Inhaltsänderungen `npm run materials` ausführen.
+Stand: 21.10.2026. Gemeinsame Datengrundlage: data/cases.js, data/rubrics.json, data/learning.js und data/media.json. Nach Änderungen: npm run materials. Die Aufgaben haben sieben Wertungen, keine zusätzlichen Punkteblöcke.
 
-## Unterricht und Lernziele
+## Unterrichtsrahmen und Grenzen
 
-Geographie, Jahrgang 7, ETS Tönning/Friedrichstadt. Bezug laut Entwicklungsauftrag: „Afrika – Abhängigkeiten von Naturraum und Bevölkerungsentwicklung und seine wirtschaftlichen Potentiale“. Kein unabhängiger Abgleich mit einer schulischen Curriculumdatei: Diese wurde nicht mitgeliefert.
+Jahrgang 7, Zweierteams, Schul-iPads. Bezug aus dem bereitgestellten geprüften Auftrag: ETS-Curriculum „Afrika – Abhängigkeiten von Naturraum und Bevölkerungsentwicklung und seine wirtschaftlichen Potentiale“. Schwerpunkte: Afrikabild, naturräumliche Abhängigkeiten, Bevölkerungsentwicklung, wirtschaftliche Möglichkeiten, nachhaltige Entwicklungschancen. Das Spiel eröffnet die Einheit und deckt nicht den ganzen Unterrichtsgegenstand ab.
 
-Fünf Schwerpunkte: Afrikabild in Deutschland; naturräumliche Abhängigkeiten; Bevölkerungswachstum als Chance und Risiko; wirtschaftlicher Aufschwung; nachhaltige Entwicklungschancen. Die Akten regen Fragen an und nehmen die folgenden Unterrichtsstunden nicht vorweg.
+Die Fachanforderungen Schleswig-Holstein 2015 und der Leitfaden 2016 sind im Auftrag benannt. Die schulischen/offiziellen Originaldateien wurden nicht zusätzlich mitgeliefert; der Abruf des offiziellen Fachportals ist vom Cloud-Proxy blockiert. Deshalb keine selbst überprüfte Aussage zur aktuellen Rechtsgeltung, keine erfundenen Kompetenznummern oder Seitenbezüge. Unterrichtsablauf, Zeitplan und „Weitere Spuren“ sind didaktische Vorschläge, keine amtlichen Vorgaben.
 
-Zweierteams; keine Zeitwertung, kein Audio. Akten sind unabhängig. Akte 001: etwa 10–12 Minuten. Akten 002 und 003: jeweils etwa 15–20 Minuten. Akte 004: 8–10 Minuten. Freiwillige Akte 005: 10–15 Minuten. Einzelne Stunden auswählen; nicht alle Akten in eine Unterrichtsstunde drängen.
+Leitlinie: Vorstellungen sichtbar machen → an räumlich verorteten Belegen prüfen/ergänzen → begründet reflektieren. Die erste Bildauswahl folgt bereits auf Akte 001; sie ist kein unbeeinflusster Vortest. Eine Teamantwort ist keine Individualdiagnose. Punkte sind Spielrückmeldung, keine individuelle Schulnote und kein objektiver Lernzuwachsnachweis. Eine geänderte Auswahl ist nicht automatisch besser.
 
-Akte 001: Thema aus widersprüchlich wirkenden Raumbeispielen erschließen. Akte 002: persönliche Vorstellungen ausdrücken und begrenzte Medienauswahl erkennen. Akte 003: Orte räumlich verorten und Vielfalt erkennen. Akte 004: Vorstellungen überdenken, ohne eine bestimmte Meinung zu erzwingen. Akte 005: Fragen für die weitere Einheit entwickeln.
+Natur und Umwelt, Wirtschaft und Zusammenleben sind Betrachtungsperspektiven. Erst die offene Frage nach Nutzen, Zugang/Teilhabe und Umweltfolgen bahnt Nachhaltigkeitsbewertung an. Landwirtschaft ist kein Gegenbegriff zu Modernität, Qualifikation oder Wohlstand. Einzelbilder zeigen weder Anteile noch allgemeine Trends.
 
-## Vor dem Einsatz: offene Abnahme
+## Kernweg und Planung – Zeiten ungemessen
 
-Alle 15 authentischen Beweisfotos sind lokal eingebunden; Aufnahmeorte und freie Lizenzen wurden einzeln anhand der gesicherten Quellen geprüft. Keine generierten Beweisbilder. Originalquellen, Attributionen und dokumentierte Motivabweichungen: `docs/bildquellen.md`, `data/media.json` und `bildnachweise.html`. Die Bildintegration ist abgeschlossen. Sprachabnahme und Safari-Test auf einem echten Schul-iPad stehen weiterhin aus; deshalb noch keine vollständige Unterrichtsfreigabe.
+| Abschnitt | Planungsziel | Kern / mögliche Kürzung |
+|---|---|---|
+| Stunde 1 | 5 Minuten Organisation; 10 Akte 001; 20 Akte 002; 10 Sicherung/Puffer | Einzelüberlegung, dann Teamwahl; Bedienung wechseln |
+| Stunde 2 | 3 Minuten Wiedereinstieg; 26 Akte 003; 9 Akte 004; 7 gemeinsame Sicherung | Drei Länder; Industrie, Handel, Kakaokette, Stadtvergleich, Bildung/Gesundheit |
+| Freiwillig | Akte 005 oder weitere Stunde | Vier erfundene Nachrichten und offene Zukunftsfrage; Weitere Spuren |
+| Drei-Stunden-Alternative | 001/002; dann 003; dann 004 und Auswertung | Stundenwechsel jeweils zwischen Akten, keine notwendige Speicherung mitten in einer Akte |
 
-Wörterbuch: 187 deutsche Begriffe. Abdeckung: Russisch 187, Ukrainisch 187, Polnisch 187, Türkisch 187, Arabisch 187, Kurmandschi 176, Sorani 177. Alle sieben Sprachen wurden redaktionell auf Plausibilität geprüft; die vorhandenen kurdischen Einträge haben einzeln zugeordnete Quellenbelege. Keine muttersprachliche oder professionelle Freigabe behauptet. Verbleibende Fachwort- und Formulierungslücken bleiben ausdrücklich leer. Vor Einsatz alle sieben Sprachen muttersprachlich prüfen, einschließlich kurdischer Idiomatik und arabischer Fachbegriffe. Quellen, Prüfgrenzen und offene Begriffe: docs/woerterbuch-pruefung.md. Einzelwortformen sind keine vollständigen Satzübersetzungen.
+Papierarbeit ist mitgedacht. Keine Garantie, dass alle Teams 90 Minuten schaffen. Zuerst freiwillige Breite kürzen; Rückmeldung und Reflexion erhalten. Film, Digitales, Energie und Logistik bleiben freiwillige Vertiefungen. Nach jedem Länderfall die Bedienung im Team wechseln.
 
-Der Schülerbogen enthält gemäß Auftrag das Thema bereits in mehreren Aufgaben. Für die Überraschung in Akte 001 den Bogen erst nach der Lösung ausgeben oder die späteren Aufgaben zunächst abdecken. Nicht behaupten, der öffentlich einsehbare Quellcode oder diese Datei sei technisch geheim.
+## Papierausgabe und Lösungsschutz – M1
 
-## Punkte und Versuche
+Ein einziges beidseitiges A4-Blatt: beide Seiten sind themenneutral, ohne vorgedruckte Kontinent- oder Ländernamen. Es kann von Beginn an ausgegeben werden; kein zusätzlicher Startbogen erforderlich. Die Weltkarte ist unbeschriftet und ohne hervorgehobenen Kontinent. Erst nach der Lösung den gesuchten Kontinent rot markieren. Stichwörter und Bild-/Belegnummern genügen; keine zwölf Fotos auf Papier.
 
-Hinweisstufen 0 / 1 / 2 / 3 begrenzen die Punkte auf 5 / 3 / 2 / 1. Öffnen eines Hinweises senkt das Limit für diesen Fall dauerhaft. Pro früher Stufe genau eine eindeutig bewertbare Gesamtabgabe. Bei null Rohpunkten wird die Stufe gesperrt; nur der nächste Hinweis öffnet einen neuen Versuch. Nach Hinweis 3 gibt es unbegrenzt viele Versuche und eine einfache Auswahlaufgabe. Das Öffnen der Hinweise vergibt keine Punkte.
+Alle Akten sind unabhängig startbar. Die Empfehlung lautet „Beginnt mit Akte 001“; es gibt keine Freischaltung. Wer andere Akten oder bewusst Bildquellen öffnet, kann das Thema erfahren. Lizenzangaben werden nicht entfernt; die Quellen sind jederzeit bewusst aufrufbar. Lehrerunterlagen sind nicht in der Schülernavigation, bleiben im öffentlichen Repository aber auffindbar.
 
-Teilpunkte: Endpunkte = min(Rohpunkte, Hinweislimit). Positive Teilabgabe schließt die Aufgabe ab; richtige Teile gehen nicht durch falsche Teile verloren. Kein nachträgliches Nachprüfen einzelner Antworten. Nach jedem Ergebnis muss das Team die Papiernotiz bestätigen. Erst dann ist die Fortsetzung möglich. Akte 003 hat drei getrennte Fälle mit eigenen Limits und Ergebnisbestätigungen.
+## Kompakte Lösungstabelle
 
-Regulär: Akte 001 = 5; Akte 002 = 5; Akte 003 = 15; Akte 004 = 5; Gesamt = 30. Akte 005 = bis zu 5 Bonuspunkte, getrennt. Bonuszuordnung: vier richtig = fünf Rohpunkte; drei = drei; zwei = zwei; eins = eins; null = keine Punkte und nächster Hinweis. Die Frage am Ende ist unbewertet.
+| Wertung | Richtige Lösung / Menge | Maximal |
+|---|---|---|
+| title · Akte 1 | Afrika | 5 |
+| selection · Akte 2 | Einige Orte; nicht überall gleich; Industrie oder Markt (8/10); Universität oder Krankenhaus (9/12). | 5 |
+| atlas · Akte 3 | Marokko | 5 |
+| city · Akte 3 | Nigeria | 5 |
+| cocoa · Akte 3 | Ghana | 5 |
+| headline · Akte 4 | Handel auf einem Markt in Accra. | 5 |
+| future · Akte 5 | Wasser → Naturraum; Menschen → Bevölkerungsentwicklung; Verarbeitung → Wirtschaft; Stromversorgung → Zukunft abwägen. | 5 Bonus |
 
-## Sprachsensible Bewertung
+## Punkte, Vollständigkeit und Auflösung – T2/D1
 
-Unicode, Großschreibung, Satzzeichen und Leerraum werden normalisiert. Häufige geografische Schreibvarianten sind ausdrücklich freigegeben. Artikel und kurze Satzrahmen sind erlaubt. Es gibt keinen Abzug für Grammatik, Stichpunkte oder Satzfragmente. Unbekannte Schreibweisen werden nicht per Levenshtein in ein vermeintlich ähnliches Land umgewandelt.
+Hinweislimit 5/3/2/1. Auf Stufen 0–2 genau eine reguläre Gesamtabgabe je Stufe; freiwillig vorgezogene Hinweise sind möglich. Bei null Rohpunkten frühe Stufe sperren, neuer Versuch erst nach nächstem Hinweis. Auf Stufe 3 unbegrenzt einfache Abschlussaufgabe, erst richtige Lösung ergibt einen Punkt.
 
-„Amerika“, „America“, „Südamerika“, „Nordamerika“, „Asien“, „Antarktis“ und „Südafrika“ lösen Akte 001 nicht. „Afrika und Amerika“ ist widersprüchlich und wird nicht als richtig gewertet. Verneinung wie „nicht Afrika“ wird erkannt.
+Leere/unvollständige Eingaben verbrauchen keinen Versuch. Mehrteilige Aufgaben erst gemeinsam bewerten, keine vorzeitigen Einzelpunkte. Bei positiven Rohpunkten: festgeschriebene Punkte = min(Rohpunkte, Hinweislimit). Danach keine Hinweise und keine Nachbepunktung.
 
-Unklare Eingabe: keine Punkte und kein verbrauchter Versuch; kurze neutrale Bitte, dieselbe Aussage klarer zu schreiben. Es werden keine richtigen Teilantworten angezeigt und keine neue inhaltliche Lösungsfrage gestellt. Falls nötig prüft die Lehrkraft, ob das Team dieselbe Aussage nur verständlicher formuliert. Automatische lokale Regeln können die Bedeutung beliebiger freier Sätze nicht garantieren. Lange Erklärungen werden deshalb durch kurze oder geschlossene Teilaufgaben ersetzt.
+Fachliche Vollständigkeit ist unabhängig vom Limit: fünf richtige Rohpunkte bei einem Hinweis ergeben drei Punkte und vollständigen Erfolg. Drei Rohpunkte am Drei-Punkte-Limit bleiben dagegen teilweise richtig. Vereinfachte Aufgabe: „Abschlussaufgabe gelöst: 1 Punkt“, keine Behauptung, alle ursprünglichen Kriterien seien erfüllt.
 
-Leere oder unvollständige Abgaben verbrauchen keinen Versuch. Eindeutig falsche bekannte Antworten werden gewertet und sperren die frühe Stufe. Ohne Browser-Persistenz bleibt alles im Arbeitsspeicher spielbar. Papier sichert die Punkte über Gerätewechsel und Unterrichtsstunden.
+Teilpunkte bei positiver Teilwertung: richtige/falsche Kriterien mit Beleg auflösen. Eine kurze unbewertete Korrektur je offenem Kernkriterium, gemeinsam prüfen. Bei weiterer falscher Auswahl Lösung erklären und bestätigen lassen, keine endlose Schleife. Rückkehr zur Zentrale ist möglich; offene Auflösung/Papierbestätigung bleiben sichtbar und gespeichert. Reguläres Fortsetzen erst nach Auflösung und Papierbestätigung. Das gilt auch für die Bonuszuordnung.
 
-### Akte 002: Kurzantworten
+Bonus-Rohpunkte: 0 richtige → 0; 1 → 1; 2 → 2; 3 → 3; 4 → 5. Danach Hinweislimit. Optionen bleiben unabhängig, keine automatische Eliminierung. Hauptsumme höchstens 30, Bonus getrennt höchstens 5. Nicht gespielte Akten nicht als gespielte Nullpunkte ausgeben.
 
-Zwei Rohpunkte für einen Ausschnitt. Explizite akzeptierte Kurzformen nach Normalisierung: „einige“, „wenige“, „paar“, „nur paar“, „ein paar“, „nur ein paar“, „nur vier“, „vier“, „manche“, „nur manche“, „teil“, „ein teil“, „einen teil“, „nur ein teil“, „ausschnitt“, „ein ausschnitt“, „kleiner ausschnitt“, „nur einen teil“, „nur ein kleiner teil“, „nicht alle“, „nicht alles“, „nicht uberall“, „nur einige“, „einige orte“, „nur einige orte“, „nur wenige orte“, „wenige orte“, „nur manche orte“, „nur vier orte“, „vier orte“, „nur einen ausschnitt“, „ein kleiner ausschnitt“, „weniege“, „einiege“, „enige“, „eingie“, „einige ort“, „nur 4“, „4“, „nur 4 orte“, „nciht alle“. Einfache Satzrahmen wie „Die vier Fotos zeigen …“ werden entfernt. Auch „einige Orte“, „wenige Plätze“ und „manche Stellen“ sind zulässig.
+## Sprache, Entwürfe und Namensklärung – T1/T3/T4
 
-Explizit falsch: „alle“, „alles“, „alle orte“, „ganz afrika“, „den ganzen kontinent“, „der ganze kontinent“, „uberall“, „ganz“, „ganze“, „ja“; ebenso „nicht einige“, „kein Teil“ beziehungsweise verneinte Teilbehauptungen, soweit die Regel sie eindeutig erkennt. Mischformen wie „einige und alle“ bleiben ungeklärt und geben keine automatischen Punkte.
+Akte 002 verwendet geschlossene Antworten statt fehleranfälliger Satzinterpretation; kein Versprechen einer allgemeinen Sprach-KI. Historische Freitextfälle bleiben als Tests dokumentiert, darunter „nur wenige“, „ein paar Orte“, „nur ein paar Orte“ und „Die Fotos zeigen nur einen kleinen Teil“.
 
-Ein Rohpunkt für Vielfalt. Akzeptiert: „nein“, „nicht uberall gleich“, „nicht gleich“, „unterschiedlich“, „afrika unterschiedlich“, „afrika ist unterschiedlich“. Falsch: „ja“, „uberall gleich“, „gleich“, „afrika nicht unterschiedlich“, „afrika ist nicht unterschiedlich“, „nicht unterschiedlich“. Im Spiel ist diese Teilfrage geschlossen (Ja/Nein), damit keine langen Erklärungen nötig sind.
+Akte 001: „Afrika ist ein Kontinent“ und „Afrika ist kein Land, sondern ein Kontinent“ richtig. „Afrika ist ein Land“ fachlich falsch, frühe Versuchsregel greift. „Afrika Land?“ wird neutral geklärt. Amerika/America/Südafrika/Asien sind keine richtigen Kontinentlösungen. Eindeutige Aliasse wie Affrika, Africka, Afirka und Afrka bleiben zulässig.
+
+Bei nicht erkennbaren Namen bietet eine neutrale Namensliste mehrere Länder/Kontinente ohne Richtig-Markierung. Diese Anzeige nennt keine Lösung; erst die abschließende inhaltliche Entscheidung zählt einmal als reguläre Abgabe auf derselben Stufe. Eindeutig falsche Antworten werden dadurch nicht zu kostenlosen Korrekturversuchen. Negationen und fachlich falsche Behauptungen bleiben relevant.
+
+Hinweise 1/2 behalten Texte, Bilder und Zuordnungen. Fokussierte Eingaben werden vor dem Rendern gesichert. Nach Hinweis 3 liegen regulärer Entwurf und vereinfachte Antwort getrennt vor. Wörterbuch, Bildzoom und Begriffshilfen kosten keine Punkte.
+
+## Sieben Aufgaben im Einzelnen
 
 ## Der verschwundene Titel
 
-Akte 1; Aufgaben-ID: `title`; maximal 5 punkte.
+Aufgaben-ID: title; Akte 1; höchstens 5 Hauptpunkte.
 
 **Lösung:** Afrika
 
-**Hinweise (in dieser Reihenfolge):**
+
+
+**Hinweise in Reihenfolge:**
 
 1. Hier gibt es große Wüsten und Regenwälder.
 2. Der Äquator verläuft durch den Kontinent.
 3. Im Norden liegt das Mittelmeer.
 
-**Nach Hinweis 3:** Welche Karte passt zu den Hinweisen? A: Kontinent A / B: Kontinent B Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.
+**Vereinfachte Abschlussaufgabe:** Welche Karte passt zu den Hinweisen? A: Kontinent A / B: Kontinent B. Richtige ID: A. Erst richtige Abgabe: ein Punkt; kein Punkt allein fürs Hinweisöffnen.
 
-**Sicherung:** Schreibt Afrika als Lösung auf. Tragt eure Punkte ein. Markiert Afrika auf der Weltkarte rot.
+**Papier:** Schreibt Afrika als Lösung auf. Tragt eure Punkte ein. Markiert Afrika auf der Weltkarte rot.
 
-**Rückmeldung:** Unser neues Thema ist AFRIKA!
-
-Akzeptierte normalisierte Namensformen: `afrika`, `africa`, `affrika`, `africka`, `afirka`, `afrka`, `afri ka`. Dazu kurze Sätze wie „Das Land ist …“. Keine allgemeine Distanzkorrektur.
+**Explizite Namensvarianten:** afrika, africa, affrika, africka, afirka, afrka, afri ka. Weitere unbekannte Namen nur neutral klären, keine pauschale Distanzschwelle. Kontinent- und Länderbehauptungen getrennt behandeln.
 
 ## Die Auswahl der Redaktion
 
-Akte 2; Aufgaben-ID: `selection`; maximal 5 punkte.
+Aufgaben-ID: selection; Akte 2; höchstens 5 Hauptpunkte.
 
-**Lösung:** Nur einige Orte; nein; zwei Bilder außerhalb der Redaktionsauswahl.
+**Lösung:** Einige Orte; nicht überall gleich; Industrie oder Markt (8/10); Universität oder Krankenhaus (9/12).
 
-Teilpunkte: Nur ein Ausschnitt: 2; Nicht überall gleich: 1; Erstes fehlendes Bild: 1; Zweites fehlendes Bild: 1. Gemeinsame Abgabe aller drei Teile. Jedes gewählte Foto außerhalb der Redaktion [1, 2, 5, 10] zählt einen Punkt. Auswahl genau zwei verschiedene Fotos.
+**Kriterien:** Einige Orte: 2; Unterschiedliche Orte: 1; Fabrik oder Geschäfte: 1; Lernen oder medizinische Versorgung: 1. Vier Teilfragen schrittweise eingeben, anschließend genau eine Gesamtabgabe. Für Arbeit gelten alle passenden Bilder 8/10; für Lernen/Behandlung 9/12. Die Redaktion verwendet 1, 2, 5, 11; Bilder außerhalb der Redaktion sind nicht allein deshalb sachlich passend.
 
-**Hinweise (in dieser Reihenfolge):**
+**Hinweise in Reihenfolge:**
 
-1. Die Redaktion zeigt nur vier Bilder.
-2. Denkt an die anderen Fotos.
-3. Ein Kontinent hat viele verschiedene Orte.
+1. Die Redaktion zeigt nur vier von zwölf Bildern.
+2. Sucht in den anderen Bildern einen Industriebetrieb oder Markt und einen Lern- oder Behandlungsort.
+3. Vier Fotos zeigen einige Orte. Sie stehen nicht für alle Lebensbedingungen.
 
-**Nach Hinweis 3:** Was können vier Fotos zeigen? A: Nur einen Teil. / B: Alle Orte. Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.
+**Vereinfachte Abschlussaufgabe:** Was können vier Fotos zeigen? A: Alle Orte. / B: Nur einen Teil.. Richtige ID: B. Erst richtige Abgabe: ein Punkt; kein Punkt allein fürs Hinweisöffnen.
 
-**Sicherung:** Tragt eure Punkte ein. Ergänzt auf Papier: Vier Fotos zeigen nur …
+**Papier:** Tragt eure festgeschriebenen Punkte ein. Notiert bei Bedarf: In der Auswahl fehlt …
 
-**Rückmeldung:** Fotos zeigen immer nur einen Teil der Wirklichkeit.
+
 
 ## Fall A · Schnee in Afrika?
 
-Akte 3; Aufgaben-ID: `atlas`; maximal 5 punkte.
+Aufgaben-ID: atlas; Akte 3; höchstens 5 Hauptpunkte.
 
 **Lösung:** Marokko
 
-**Hinweise (in dieser Reihenfolge):**
+
+
+**Hinweise in Reihenfolge:**
 
 1. Das Land liegt im Norden Afrikas.
 2. Es liegt am Atlantik und am Mittelmeer.
 3. Das Land beginnt mit M.
 
-**Nach Hinweis 3:** Welches Land liegt beim markierten Ort? A: Marokko / B: Ghana Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.
+**Vereinfachte Abschlussaufgabe:** Welches Land liegt beim markierten Ort? A: Ghana / B: Marokko. Richtige ID: B. Erst richtige Abgabe: ein Punkt; kein Punkt allein fürs Hinweisöffnen.
 
-**Sicherung:** Schreibt bei Fall A Marokko auf. Tragt eure Punkte ein.
+**Papier:** Schreibt bei Fall A Marokko auf. Tragt eure Punkte ein.
 
-**Rückmeldung:** Auch in Afrika gibt es Gebirge mit Schnee. Das Foto zeigt das Atlasgebirge in Marokko.
-
-Akzeptierte normalisierte Namensformen: `marokko`, `maroko`, `marr oko`, `marocco`, `morocco`, `morroco`, `marroko`, `marocko`, `m arokko`, `marok o`. Dazu kurze Sätze wie „Das Land ist …“. Keine allgemeine Distanzkorrektur.
+**Explizite Namensvarianten:** marokko, maroko, marr oko, marocco, morocco, morroco, marroko, marocko, m arokko, marok o. Weitere unbekannte Namen nur neutral klären, keine pauschale Distanzschwelle. Kontinent- und Länderbehauptungen getrennt behandeln.
 
 ## Fall B · Die unbekannte Großstadt
 
-Akte 3; Aufgaben-ID: `city`; maximal 5 punkte.
+Aufgaben-ID: city; Akte 3; höchstens 5 Hauptpunkte.
 
 **Lösung:** Nigeria
 
-**Hinweise (in dieser Reihenfolge):**
+
+
+**Hinweise in Reihenfolge:**
 
 1. Das Land liegt in Westafrika.
 2. Es liegt am Golf von Guinea.
 3. Der Name beginnt mit N.
 
-**Nach Hinweis 3:** Welches Land liegt beim markierten Ort? A: Nigeria / B: Kenia Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.
+**Vereinfachte Abschlussaufgabe:** Welches Land liegt beim markierten Ort? A: Nigeria / B: Kenia. Richtige ID: A. Erst richtige Abgabe: ein Punkt; kein Punkt allein fürs Hinweisöffnen.
 
-**Sicherung:** Schreibt bei Fall B Nigeria auf. Tragt eure Punkte ein.
+**Papier:** Schreibt bei Fall B Nigeria auf. Tragt eure Punkte ein.
 
-**Rückmeldung:** Lagos ist eine große Stadt in Nigeria. Hier arbeiten Menschen zum Beispiel im Handel und in Büros.
-
-Akzeptierte normalisierte Namensformen: `nigeria`, `nigera`, `nigieria`, `nigerai`, `nigiria`, `nigeira`. Dazu kurze Sätze wie „Das Land ist …“. Keine allgemeine Distanzkorrektur.
+**Explizite Namensvarianten:** nigeria, nigera, nigieria, nigerai, nigiria, nigeira. Weitere unbekannte Namen nur neutral klären, keine pauschale Distanzschwelle. Kontinent- und Länderbehauptungen getrennt behandeln.
 
 ## Fall C · Die geheime Zutat
 
-Akte 3; Aufgaben-ID: `cocoa`; maximal 5 punkte.
+Aufgaben-ID: cocoa; Akte 3; höchstens 5 Hauptpunkte.
 
 **Lösung:** Ghana
 
-**Hinweise (in dieser Reihenfolge):**
+
+
+**Hinweise in Reihenfolge:**
 
 1. Das Land liegt in Westafrika.
 2. Es liegt am Golf von Guinea.
 3. Der Name beginnt mit G.
 
-**Nach Hinweis 3:** Welches Land liegt beim markierten Ort? A: Ghana / B: Nigeria Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.
+**Vereinfachte Abschlussaufgabe:** Welches Land liegt beim markierten Ort? A: Nigeria / B: Ghana. Richtige ID: B. Erst richtige Abgabe: ein Punkt; kein Punkt allein fürs Hinweisöffnen.
 
-**Sicherung:** Schreibt bei Fall C Ghana auf. Tragt eure Punkte ein.
+**Papier:** Schreibt bei Fall C Ghana auf. Tragt eure Punkte ein.
 
-**Rückmeldung:** In Ghana wird Kakao angebaut. Kakao für Schokolade wird in viele Länder verkauft.
-
-Akzeptierte normalisierte Namensformen: `ghana`, `gana`, `ghanna`, `ghna`, `gahna`, `ghnaa`. Dazu kurze Sätze wie „Das Land ist …“. Keine allgemeine Distanzkorrektur.
+**Explizite Namensvarianten:** ghana, gana, ghanna, ghna, gahna, ghnaa. Weitere unbekannte Namen nur neutral klären, keine pauschale Distanzschwelle. Kontinent- und Länderbehauptungen getrennt behandeln.
 
 ## Der letzte Ermittlungsbericht
 
-Akte 4; Aufgaben-ID: `headline`; maximal 5 punkte.
+Aufgaben-ID: headline; Akte 4; höchstens 5 Hauptpunkte.
 
-**Lösung:** B – Ein Ort in Afrika.
+**Lösung:** Handel auf einem Markt in Accra.
 
-**Hinweise (in dieser Reihenfolge):**
 
-1. Ein Foto zeigt einen Ort.
-2. Menschen leben an vielen verschiedenen Orten.
-3. Sucht eine Überschrift ohne das Wort alle oder überall.
 
-**Nach Hinweis 3:** Welche Überschrift passt zu einem Foto? A: Ein Ort in Afrika. / B: Überall sieht es gleich aus. Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.
+**Hinweise in Reihenfolge:**
 
-**Sicherung:** Tragt eure Punkte bei Akte 004 ein.
+1. Schaut auf das Foto und den belegten Ort.
+2. Zu sehen sind Marktstände und Handel.
+3. Die Quellenangabe nennt Accra; das Foto zeigt nur diesen Ort.
 
-**Rückmeldung:** Ein Foto zeigt einen Ort. Es zeigt nicht das Leben aller Menschen.
+**Vereinfachte Abschlussaufgabe:** Welche Überschrift passt zu Foto und Ortsbeleg? A: So leben alle Menschen auf dem Kontinent. / B: Handel auf einem Markt in Accra.. Richtige ID: B. Erst richtige Abgabe: ein Punkt; kein Punkt allein fürs Hinweisöffnen.
+
+**Papier:** Notiert die gewählte Überschrift und eure Punkte bei Akte 004.
+
+
 
 ## Die Spur in die Zukunft
 
-Akte 5; Aufgaben-ID: `future`; maximal 5 Bonuspunkte.
+Aufgaben-ID: future; Akte 5; höchstens 5 Bonuspunkte.
 
-**Lösung:** Wasser → A; Menschen → B; Wirtschaft → C; Zukunft → D.
-
-**Hinweise (in dieser Reihenfolge):**
-
-1. Sucht Wörter, die zusammenpassen: Wasser und Natur.
-2. Menschen gehören zur Bevölkerung. Ein Betrieb gehört zur Wirtschaft.
-3. Prüft jede Spur für sich. Die Sonne kann Strom liefern.
-
-**Nach Hinweis 3:** Eine Ernte braucht Wasser. Welche Frage passt? A: Wie beeinflusst die Natur das Leben? / B: Was verändert sich, wenn die Bevölkerung wächst? Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.
-
-**Sicherung:** Tragt die Bonuspunkte getrennt ein.
-
-**Rückmeldung:** Ihr habt neue Spuren gefunden. Im Geographieunterricht könnt ihr diese Fragen weiter untersuchen.
+**Lösung:** Wasser → Naturraum; Menschen → Bevölkerungsentwicklung; Verarbeitung → Wirtschaft; Stromversorgung → Zukunft abwägen.
 
 
-## Bildnummern und Redaktionsbeispiel
 
-1. Savanne mit Wildtieren. Belegter Aufnahmeort: Maasai Mara, Narok County, Kenia.
-2. Wüste. Belegter Aufnahmeort: Zwischen Deadvlei und Sossusvlei, Namib-Naukluft-Nationalpark, Namibia.
-3. Tropischer Regenwald. Belegter Aufnahmeort: Ituri-Regenwald, Demokratische Republik Kongo, Kongobecken.
-4. Moderne Großstadt. Belegter Aufnahmeort: Blick vom City Hall, Lagos Island, Lagos, Nigeria.
-5. Landwirtschaft. Belegter Aufnahmeort: Darsfield-Demonstrationsfarm, Ghana.
-6. Verschneites Gebirge. Belegter Aufnahmeort: Hoher Atlas, Marokko.
-7. Küste. Belegter Aufnahmeort: Ostküste von Unguja (Sansibar), Tansania.
-8. Produktion. Belegter Aufnahmeort: Ghacem-Anlage im Großraum Accra/Tema, Ghana.
-9. Universität. Belegter Aufnahmeort: Legon, Accra, Ghana.
-10. Alltag in der Stadt. Belegter Aufnahmeort: Makola-Markt, Accra Central, Ghana.
+**Hinweise in Reihenfolge:**
 
-Die fiktive Redaktion wählt 1, 2, 5 und 10. Auch ihre städtische Marktaufnahme ersetzt keine Darstellung aller Lebensräume. Das Beispiel zeigt eine begrenzte Auswahl; es ist kein Beleg über alle deutschen Medien. Fehlende Motive für Teilaufgabe 3 sind folglich 3, 4, 6, 7, 8 und 9. Akte 004 nutzt dieselben zehn Datenobjekte und Nummern. Keine Veränderung einer persönlichen Auswahl wird verlangt oder bewertet.
+1. Sucht den jeweils gefragten Schwerpunkt. Mehrere Themen können zusammenhängen.
+2. Regen gehört zum Naturraum, Zuzug zur Stadt- und Bevölkerungsentwicklung, Verarbeitung zur Wirtschaft.
+3. Die Stromspur fragt nach einer Abwägung: Wer hat Nutzen, wer Zugang, welche Folgen entstehen?
 
-## Differenzierung und Grenzen
+**Vereinfachte Abschlussaufgabe:** Eine Ernte braucht Wasser. Welche Frage passt? A: Wie beeinflusst die Natur das Leben? / B: Was verändert sich, wenn die Bevölkerung wächst?. Richtige ID: A. Erst richtige Abgabe: ein Punkt; kein Punkt allein fürs Hinweisöffnen.
 
-Lernende können Antworten vor der gemeinsamen Abgabe ändern. Wörterbuch, Partnergespräch und Papier stehen jederzeit bereit. Hinweise sind freiwillig; keine Zeitpunkte. Ab Stufe 3 hilft eine binäre, fachlich sinnvolle Abschlussaufgabe. Bei Akte 001 zeigen zwei unbeschriftete Karten Kontinente A und B; A markiert Afrika. Der Name erscheint erst nach Lösung. Akte 003 nutzt Karte und markierten Standort als Beweismittel bereits vor bezahlten Hinweisen.
+**Papier:** Tragt die Bonuspunkte getrennt ein.
 
-Karten: Natural Earth 1:110 Millionen, Public Domain. Vereinfachte Küsten und Ländergrenzen, keine Navigationskarten. Westsahara wird als eigener Raum geführt; keine Aussage zur politischen Anerkennung. Schnee im Atlasgebirge gilt nicht als Wetterbeschreibung für ganz Marokko. Stadtzuzug ist nicht gleich natürliches Bevölkerungswachstum; die Bonusspur eröffnet beide Fragen, ohne eine einzige Ursache zu behaupten. Solarenergie ist eine Möglichkeit, keine pauschale Lösung für jeden Ort.
 
-Diese Dokumente sind vom normalen Spiel aus nicht verlinkt. Im öffentlichen Repository bleiben sie zugänglich.
+
+
+## Verbindlicher unbewerteter Kern in Akte 003
+
+### Naturraum und Arbeitsplatz
+
+**Zwei unterschiedliche Spuren:** Das Atlasfoto zeigt Schnee im Gebirge. In einem Werk bei Tanger werden Fahrzeuge hergestellt: Das ist Industrie. Welche Spur zeigt einen Naturraum? Welche Spur zeigt einen Arbeitsplatz?
+
+Auflösung: Marokko hat unterschiedliche Landschaften und Arbeitsplätze. Der Schnee widerspricht „überall ganzjährig heiß“. Schnee ist örtlich und jahreszeitlich begrenzt; eine Fabrik sagt nichts über die Lage in einer trockenen Landschaft oder über den Wohlstand aller Menschen.
+
+Weitere Spuren: Energie: Spiegel statt Solarzellen; Logistik: Wege zum Betrieb.
+
+### Arbeit und Leben in einer Stadt
+
+**Eine Arbeit in Lagos:** Der Quellenbeleg nennt den Balogun-Markt in Lagos. Auf dem Foto von 2007 werden Stoffe gehandelt. Welche Tätigkeit ist hier belegt?
+
+Auflösung: Handel ist ein Bereich der Wirtschaft. Das Foto belegt diesen Markt – keine Einkommen oder Arbeitsbedingungen aller Menschen in Lagos.
+
+**Zwei Bilder – eine Stadt?:** Schaut genau hin. Was ist auf den beiden Fotos sichtbar verschieden? Welche Beobachtung könnt ihr am Bild prüfen?
+
+Auflösung: Bild A zeigt hohe Gebäude von der Seite; Bild B viele Dächer von oben. Auch die Aufnahmeperspektive beeinflusst den Eindruck. Einkommen und Herkunft kann man daraus nicht ablesen.
+
+**Eure Vermutung:** Könnten beide Orte in derselben Stadt liegen? Es gibt keine Punkte für eure Vermutung. Was vermutet ihr?
+
+Auflösung: Die Quellen lösen es auf: Beide Fotos stammen aus Lagos – Bild A von Lagos Island (2016), Bild B aus Makoko (2019). Verschiedene Jahre und Orte belegen keinen zeitlichen Wachstumstrend.
+
+**Orte und Lebensbedingungen:** Die Quellen verorten Lagos Island und Makoko in Lagos. Lest die zwei kurzen Kontextkarten. Welche Aussage passt zu den Belegen und Kontextkarten?
+
+Auflösung: Menschen können in derselben Stadt sehr unterschiedlich leben. Aus Gebäuden folgen weder Einkommen noch eine Erklärung durch Fleiß; Infrastruktur und öffentliche Versorgung prägen die Möglichkeiten mit.
+
+**Noch ein Blick auf den Alltag:** Der Balogun-Markt ist ein weiterer Blick auf Lagos (Aufnahme 2007). Es gibt mehr als zwei einheitliche Gruppen „arm“ und „reich“. Was können diese wenigen Bilder zeigen?
+
+Auflösung: Die Aufnahmen zeigen einzelne Stadträume und Tätigkeiten. Die Marktaufnahme belegt keine statistische Mittelschicht; Einzelbilder zeigen keine Einkommensverteilung.
+
+Weitere Spuren: Filmwirtschaft in Nigeria; Digitale Dienstleistungen.
+
+### Vom Anbau zum Produkt
+
+**Anbauen, verarbeiten und handeln:** In Ghana gibt es neben Kakaoanbau auch Verarbeitung und Produktherstellung, etwa die Cocoa Processing Company in Tema. Die Betriebsfassade zeigt keinen Produktionsablauf; dafür dient das vereinfachte Schema. Handeln und verkaufen: welcher Schritt? Kakaofrüchte anbauen und ernten: welcher Schritt? Produkte herstellen: welcher Schritt? Bohnen aufbereiten und verarbeiten: welcher Schritt?
+
+Auflösung: 1 Anbau/Ernte → 2 Bohnen aufbereiten/verarbeiten → 3 Produkte herstellen → 4 handeln/verkaufen. Das Schema vereinfacht. Nicht die gesamte Ernte wird vor Ort verarbeitet; Verarbeitung garantiert weder Gewinne noch gute Arbeitsbedingungen.
+
+Weitere Spuren: Was braucht ein Betrieb?.
+
+### Bildung und Gesundheit
+
+**Was zeigen diese Beispiele?:** Die Fotos belegen eine Universität in Accra und ein Krankenhaus in Butaro. Was wissen wir dadurch – und was noch nicht? Welche Aussage ist durch diese Beispiele gedeckt?
+
+Auflösung: Die Einrichtungen sind örtlich belegt. Zugang, Qualität und Finanzierung sind damit nicht für alle Menschen geklärt. Eine örtlich getragene Einrichtung kann zugleich international unterstützt sein.
+
+Weitere Spuren: keine zusätzliche Pflichtstrecke.
+
+### Zurück zu eurer ersten Auswahl
+
+**Welche Spur ergänzt eure Auswahl?:** Wählt einen Bild- oder Belegverweis. Notiert dazu wenige Wörter oder sprecht einen Partnersatz; auch „Das wussten wir schon“ oder eine offene Frage ist möglich.
+
+Auflösung: Eure Vorstellungen werden nicht nach richtig oder falsch bewertet. Belege können eine Vorstellung ergänzen, bestätigen oder eine neue Frage öffnen.
+
+Weitere Spuren: keine zusätzliche Pflichtstrecke.
+
+
+## Freiwillige weitere Spuren
+
+### Energie: Spiegel statt Solarzellen
+
+Die Noor-Anlage nutzt Spiegel für Solarthermie. Wer profitiert, wer hat Zugang, und welche Umweltfolgen sind zu prüfen? Solarenergie ist kein automatisches Nachhaltigkeitssiegel.
+
+### Logistik: Wege zum Betrieb
+
+Wie kommen Materialien zu einer Fabrik und Produkte zu Kundinnen und Kunden? Betrachtet Transportwege als weitere Frage; eine Fabrik allein belegt noch keinen allgemeinen Wohlstand.
+
+### Filmwirtschaft in Nigeria
+
+Nigeria hat eine Filmwirtschaft, oft Nollywood genannt. Welche Tätigkeiten stecken hinter einem Film? Das ist eine landesweite Perspektive, keine Behauptung, alle Produktionen lägen in Lagos.
+
+### Digitale Dienstleistungen
+
+Welche Arbeit ist nötig, damit zum Beispiel ein digitales Bezahlsystem funktioniert? Sammelt Fragen zu Kenntnissen, Technik und Zugang – keine zusätzlichen Punkte.
+
+### Was braucht ein Betrieb?
+
+Was braucht ein Betrieb für die Herstellung: Energie, Kenntnisse, Maschinen oder Transport? Das sind Untersuchungsfragen; mehr Produktion bedeutet nicht automatisch mehr Wohlstand für alle.
+
+## Bildnummern 1–12 – M2
+
+Beide Auswahlakten verwenden exakt dieselben Nummern, Motive, Beschriftungen und Dateien. Erste und zweite bestätigte Auswahl bleiben getrennt. Auch zwölf Bilder sind keine repräsentative Stichprobe des Kontinents. Die Redaktion [1, 2, 5, 11] ist ein erfundenes Modell mit begrenztem Themenfokus; kein empirischer Beleg eines allgemeinen deutschen Medienbildes und kein Beleg allgemeiner Armut.
+
+| Nummer | Motiv | Belegter Ort | Einsatz / Nachweis |
+|---|---|---|---|
+| 1 | Savanne mit Wildtieren | Maasai Mara, Narok County, Kenia | Akten 002/004; F01 |
+| 2 | Wüste | Zwischen Deadvlei und Sossusvlei, Namib-Naukluft-Nationalpark, Namibia | Akten 002/004; F02 |
+| 3 | Tropischer Regenwald | Ituri-Regenwald, Demokratische Republik Kongo, Kongobecken | Akten 002/004; F03 |
+| 4 | Moderne Großstadt | Blick vom City Hall, Lagos Island, Lagos, Nigeria | Akten 002/004; F04 |
+| 5 | Landwirtschaft | Darsfield-Demonstrationsfarm, Ghana | Akten 002/004; F05 |
+| 6 | Verschneites Gebirge | Hoher Atlas, Marokko | Akten 002/004; F06 |
+| 7 | Küste | Ostküste von Unguja (Sansibar), Tansania | Akten 002/004; F07 |
+| 8 | Produktion | Ghacem-Anlage im Großraum Accra/Tema, Ghana | Akten 002/004; F08 |
+| 9 | Universität | Legon, Accra, Ghana | Akten 002/004; F09; Bildung/Gesundheit |
+| 10 | Alltag in der Stadt | Makola-Markt, Accra Central, Ghana | Akten 002/004; F10 |
+| 11 | Wasserversorgung | Kajiado County, Kenia | Akten 002/004; F16; Wasserversorgung, kein automatischer Mangel |
+| 12 | Krankenhaus | Butaro, Distrikt Burera, Ruanda | Akten 002/004; F17; Bildung/Gesundheit |
+
+## Zusätzliche Belegbilder – nicht Teil des Zwölferkatalogs
+
+| Beleg-ID | Motiv | Belegter Ort / Datum | Einsatz und Grenze |
+|---|---|---|---|
+| F11 | Kakaofrüchte am Baum in einem ghanaischen Anbaugebiet. | Ostghana (6.599547 N, 0.881836 W), Ghana; 2020-11-04 11:19:36 | Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg |
+| F12 | Abgeerntetes Hirsefeld in der Trockenzeit. | Sahelzone, westlicher Niger (13.95419 N, 1.65624 E); 2025-03-14 09:39:16 | Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg |
+| F13 | Skyline von Nairobi, vom Stadtteil Upper Hill aus gesehen. | Upper Hill, Nairobi, Kenia; 19 April 2008 (according to Exif data) | Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg |
+| F14 | Gebäude und Anlage eines kakaoverarbeitenden Betriebs. | Industriegebiet Tema, Ghana; 2007-05-13 | Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg |
+| F15 | Spiegelfelder des solarthermischen Kraftwerks Noor I/II. | Noor-Solarkomplex bei Ouarzazate, Marokko; 2019-10-17 11:13 | Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg |
+| A3-B1 | Dichte Bebauung in Makoko aus der Luft | Makoko, Lagos, Nigeria; 2019-11-13 | Lagos-Ermittlung; keine Einkommenszuordnung |
+| A3-B2 | Stoffhandel im Balogun-Markt | Balogun-Markt, Lagos, Nigeria; 2007-07-13 11:06 | Lagos-Ermittlung; keine Einkommenszuordnung |
+
+Lagos-Vergleich: Lagos Island 2016, Makoko 2019; weitere Alltagsperspektive Balogun-Markt 2007. Unterschiedliche Perspektiven und Jahre ausdrücklich beachten, kein Wachstumstrend und keine Einkommen aus Gebäuden/Personen ableiten. Wirtschaftliches Wachstum kann ungleich zugutekommen; die Fotos selbst belegen keinen Wachstumstrend. Die Makoko-Aufnahme zeigt dichte Bebauung aus der Luft, keinen daraus sicher feststellbaren Versorgungsgrad. Der ursprüngliche Commons-Titel bleibt nur im vollständigen Quellennachweis unverändert erhalten.
+
+Butaro: historische Krankenhaus-Außenaufnahme 2011, keine Behauptung aktueller Qualität oder universellen Zugangs. Wasserbild: Wassertank in Kajiado County, kein Beleg für Wassermangel. Landwirtschaft bleibt eine wirtschaftliche Tätigkeit; Industriebetriebe sind kein automatischer Wohlstands-/Arbeitsqualitätsbeleg.
+
+## Sachquellen und ihre tatsächliche Prüfung
+
+**Renault Group: Werk Tanger:** https://www.renaultgroup.com/en/magazine/our-group-news/tangier-factory-the-industrial-and-logistics-hub-where-everything-comes-together/ (Abschnitt 7.1). Im geprüften Projektauftrag benannte Primärquelle; direkter Abruf am 21.10.2026 vom Proxy blockiert. Originalabgleich offen.
+
+**SIGA: Cocoa Processing Company:** https://siga.gov.gh/entity/cocoa-processing-company/ (Abschnitt 7.4). Im geprüften Projektauftrag benannte Primärquelle; direkter Abruf am 21.10.2026 vom Proxy blockiert. Ergänzend örtlicher Commons-Beleg des Betriebs in Tema.
+
+**UNESCO Courier: Nollywood:** https://courier.unesco.org/en/articles/nollywoods-streaming-romance (Abschnitt 7.2). Im Projektauftrag benannte datierte Darstellung; nicht als Beleg einer ausschließlich in Lagos ansässigen Filmwirtschaft verwendet. Direkter Originalabgleich offen.
+
+**Kontext: Wohnen und Versorgung:** sources/auftrag-v2.md (Abschnitt 7.3). Qualitative didaktische Kontextinformation aus dem bereitgestellten geprüften Auftrag. Keine erfundenen Haushalte, Einkommen oder lokalen Versorgungsquoten.
+
+**Bereitgestellter geprüfter Unterrichtsauftrag:** sources/auftrag-v2.md (Abschnitt 2). Curriculumbezug aus dem Auftrag; offizielle Originaldateien nicht zusätzlich mitgeliefert. Fachportal-Abruf vom Proxy blockiert; keine aktuelle Rechtsgeltung behauptet.
+
+Renault-/SIGA-/UNESCO-Aussagen sind im geprüften Projektauftrag benannte Beispiele; die direkten Originalabrufe sind technisch blockiert und nicht als selbst erfolgreich geprüft ausgegeben. Schemata sind ausdrücklich Schemata, keine erzeugten dokumentarischen Fotos. Allgemeine qualitative Kontextkarten ersetzen keine lokalen Einkommen-/Versorgungsstatistiken. Keine Rankings oder erfundenen Zahlen.
+
+Die 19 echten Fotografien besitzen Commons-Quellenrevisionen, Ortsbelege, Urheber, freie Lizenzen und Prüfsummen in data/media.json und docs/media/. Die Originaldownloads der vier Ergänzungen wurden per SHA1 verifiziert; alle lokalen Ableitungen per SHA256. Bilder behalten ihre Einzellizenzen. Quellen: bildnachweise.html und docs/bildquellen.md. Das kleinere Original des Balogun-Fotos wurde nicht hochskaliert.
+
+Karten: Natural Earth 1:110 Millionen, Public Domain; vereinfachte Länderumrisse, keine Navigation. Westsahara als eigener Raum, keine politische Anerkennungsaussage. Beim Stadtvergleich ist der Punkt eine grobe Lage von Lagos, keine punktgenaue Verortung beider Stadtteile.
+
+## Wörterbuch und sprachliche Abnahme
+
+197 deutsche Einträge; ru: 196/197; uk: 195/197; pl: 197/197; tr: 195/197; ar: 196/197; ku: 184/197; ckb: 184/197. Sieben Sprachen: Russisch, Ukrainisch, Polnisch, Türkisch, Arabisch, Kurmandschi, Sorani. Kurmandschi lateinisch (kmr), Sorani arabisch (ckb/RTL), Arabisch RTL. Einzelwortformen sind keine Satzübersetzungen. Vorhanden, quellengestützt/redaktionell geprüft und menschlich sprachkundig geprüft bleiben getrennte Statusangaben. Keine menschliche Abnahme wurde erfunden. Fehlende Werte bleiben sichtbar statt erfunden; vollständige Belege und offene Wörter in docs/woerterbuch-pruefung.md.
+
+## Technik, Datenschutz und verbleibende Abnahme
+
+Kein Konto, keine Datenbank, keine Zeitwertung und kein Audio. Alle Akten funktionieren im Arbeitsspeicher ohne erlaubten Browser-Speicher. Optionale sessionStorage-Wiederherstellung kann Neuladen abfedern; bei gesperrtem Speicher verliert Neuladen die Sitzung. Schema 1 wird mit verständlicher Meldung verworfen, damit alte Wertungen nicht unbemerkt auf neue Aufgaben übertragen werden. Papier bleibt die Sicherung zwischen Geräten und Stunden.
+
+Kein garantierter vollständiger Offline-Neustart: noch nicht geladene Ressourcen benötigen den eigenen statischen Server. Die App überträgt keine Schülerantworten an externe Dienste; der Host kann Zugriffsprotokolle einschließlich IP-Adressen führen. Keine pauschale DSGVO-Freigabe behauptet. Schulische Datenschutzprüfung getrennt beurteilen.
+
+Offen ohne tatsächliche Durchführung: echtes Schul-iPad/Safari, reale Druckprobe, sprachkundige Prüfung, Lerngruppenerprobung/Lernwirkung und gemessene Bearbeitungszeit. Außerdem direkter Originalabgleich der blockierten Sachquellen und Live-Browserabnahme. Automatische Tests und ein erfolgreicher Pages-Build ersetzen diese Prüfungen nicht. Keine pauschale Unterrichtsfreigabe.

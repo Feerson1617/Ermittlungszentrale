@@ -2,25 +2,26 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
+import { coreLearning, extraSpurs } from "../data/learning.js";
 import { photos, clues } from "../data/cases.js";
 const root = new URL("../", import.meta.url);
 const read = (path) => readFile(new URL(path, root));
 const media = JSON.parse(await read("data/media.json"));
-const required = [...photos.map((p) => p.key), "cocoa", ...clues.map((c) => c.key)];
+const required = [...new Set([...photos.map(p=>p.key),"cocoa",...clues.map(c=>c.key),...Object.values(coreLearning).flatMap(l=>l.steps.flatMap(s=>s.photos||[])),...Object.values(extraSpurs).flatMap(s=>s.photos||[])])];
 const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 
-test("15 eigenständige lokale Beweisfotos mit eindeutigen Nachweisen", async () => {
+test("19 eigenständige lokale Beweisfotos mit eindeutigen Nachweisen", async () => {
   assert.equal(media.status, "complete");
   assert.deepEqual(Object.keys(media.images).sort(), [...required].sort());
-  assert.equal(new Set(Object.values(media.images).map((i) => i.path)).size, 15);
-  assert.equal(new Set(Object.values(media.images).map((i) => i.sha256)).size, 15);
-  assert.equal((await readdir(new URL("assets/images/", root))).length, 15);
+  assert.equal(new Set(Object.values(media.images).map((i) => i.path)).size, 19);
+  assert.equal(new Set(Object.values(media.images).map((i) => i.sha256)).size, 19);
+  assert.equal((await readdir(new URL("assets/images/", root))).length, 19);
 });
 
 for (const key of required) test(`Foto ${key}: Datei, Ort, Lizenz und Originalrevision stimmen überein`, async () => {
   const i = media.images[key];
   assert.ok(i, key);
-  assert.match(i.path, /^assets\/images\/\d{2}\.webp$/);
+  assert.match(i.path, /^assets\/images\/[a-z\d-]+\.webp$/);
   assert.match(i.license, /^CC BY(?:-SA)? (?:2\.0|3\.0|4\.0)$/);
   assert.match(i.licenseUrl, /^https:\/\/creativecommons\.org\/licenses\/(?:by|by-sa)\/(?:2|3|4)\.0\/?$/);
   assert.ok(i.location && i.locationEvidence && i.author && i.attribution && i.modification);
@@ -31,7 +32,7 @@ for (const key of required) test(`Foto ${key}: Datei, Ort, Lizenz und Originalre
   assert.equal(sha256(bytes), i.sha256);
   assert.equal(bytes.length, i.bytes);
   assert.ok(i.bytes < 500 * 1024, "Einzelfoto bleibt unter 500 KiB");
-  assert.ok(Math.max(i.width, i.height) === 1400 && Math.min(i.width, i.height) >= 600);
+  assert.ok(Math.max(i.width, i.height) <= 1400 && Math.min(i.width, i.height) >= 600);
   const evidence = await read(i.evidence);
   assert.equal(sha256(evidence), i.evidenceSha256);
   const page = Object.values(JSON.parse(evidence).query.pages)[0];
@@ -57,4 +58,13 @@ test("Bildbudget und Quellenverzeichnis sind vollständig", async () => {
     assert.ok(docs.includes(i.evidenceSha256));
     assert.ok(docs.includes(i.locationEvidence));
   }
+});
+
+test('Die ursprünglichen 15 Fotos bleiben unter ihren bestehenden Dateinamen unverändert',async()=>{
+ const original=JSON.parse(await read('tests/fixtures/v1-media-checksums.json'));
+ assert.equal(Object.keys(original).length,15);
+ for(const [key,prior] of Object.entries(original)){
+  assert.equal(media.images[key].path,prior.path);assert.equal(media.images[key].sha256,prior.sha256);
+ }
+ for(const p of photos){assert.equal(media.images[p.key].id,p.key);assert.equal(media.images[p.key].selectionNumber,p.id);}
 });

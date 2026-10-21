@@ -1,0 +1,141 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "194171944": {
+        "pageid": 194171944,
+        "ns": 6,
+        "title": "File:Water tank tower.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "size": 6708015,
+            "width": 2296,
+            "height": 4080,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Water_tank_tower.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Water_tank_tower.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=194171944",
+            "sha1": "d96064248223b6a50ab911cdd94e6e7d74a771d8",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2026-06-20 00:40:44",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Water tank tower",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Water in Kenya|Water supply and sanitation in Kenya|Self-published work|Water supply in Kenya|Wiki for Sustainable Futures 2026",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Water tank tower in Ongara Rongai-Kajiado County, Kenya",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2026-06-19",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a rel=\"mw:WikiLink\" href=\"https://commons.wikimedia.org/wiki/User:Queen_Asali\" title=\"User:Queen Asali\">Queen Asali</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1234460969,
+            "parentid": 1234351739,
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "=={{int:filedesc}}==\n{{Information\n|description={{en|1=Water tank tower in Ongara Rongai-Kajiado County, Kenya}}\n|date=2026-06-19\n|source={{own}}\n|author=[[User:Queen Asali|Queen Asali]]\n|permission=\n|other versions=\n}}\n\nWiki For Sustainable Futures 2026\n\n=={{int:license-header}}==\n{{self|cc-by-sa-4.0}}\n\n[[Category:Wiki for Sustainable Futures 2026]]\n[[Category:Water in Kenya]]\n[[Category:Water supply and sanitation in Kenya]]\n[[Category:Water supply in Kenya]]"
+              }
+            }
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-4.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Water in Kenya"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Water supply and sanitation in Kenya"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Water supply in Kenya"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Wiki for Sustainable Futures 2026"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "categories": 500
+  }
+}

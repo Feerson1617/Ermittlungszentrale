@@ -6,9 +6,10 @@ import {
   caseTasks,
 } from "../data/cases.js";
 import { maps } from "../data/maps.js";
-import { createTask, openHint, submitTask } from "./scoring.js";
+import { createTask, openHint, submitTask, attemptResolution, confirmResolution, correctionKeys } from "./scoring.js";
 import { freshState, loadState, saveState } from "./session.js";
 import { languages, lookup } from "./dictionary.js";
+import { geographyFlow, coreLearning, extraSpurs, evidenceSources } from "../data/learning.js";
 const main = document.querySelector("#main");
 const escape = (value) =>
   String(value ?? "").replace(
@@ -41,37 +42,42 @@ const cstate = () => state.cases[state.current];
 function activeTaskId() {
   if (state.current === 1) return "title";
   if (state.current === 2 && cstate().phase === 3) return "selection";
-  if (state.current === 3 && cstate().phase < 3)
-    return ["atlas", "city", "cocoa"][cstate().phase];
+  if (state.current === 3) return geographyFlow[cstate().phase]?.task || null;
   if (state.current === 4 && cstate().phase === 2) return "headline";
   if (state.current === 5 && cstate().phase === 1) return "future";
   return null;
 }
-function recordPending() {
-  const id = activeTaskId();
-  return id && state.tasks[id].complete && !state.tasks[id].ack;
+function conceptHelp() {
+ return `<details class="concept-help"><summary>Begriffe erklären · kostenlos</summary><dl><dt>Redaktion</dt><dd>Menschen, die Beiträge auswählen und bearbeiten.</dd><dt>Ausschnitt</dt><dd>Ein Teil eines Ganzen.</dd><dt>Hinweis</dt><dd>Eine Hilfe beim Rätsel. Nur Lösungshinweise senken das Punktelimit.</dd><dt>zuordnen</dt><dd>Passende Dinge zusammenbringen.</dd><dt>ernten</dt><dd>Reife Früchte oder andere Pflanzenteile einsammeln.</dd><dt>aufbereiten</dt><dd>Material für den nächsten Arbeitsschritt vorbereiten.</dd><dt>Bohnen</dt><dd>Hier: die Samen in einer Kakaofrucht. Aus ihnen können Kakaoprodukte entstehen.</dd><dt>Versorgung</dt><dd>Menschen bekommen, was sie brauchen, zum Beispiel Wasser oder medizinische Behandlung.</dd></dl></details>`;
 }
-function photo(item, { anonymous = false, compact = false } = {}) {
-  const asset = media.images[item.key];
-  const alt = anonymous
-    ? `Beweisfoto: ${item.motif}`
-    : `${item.title || item.name || item.motif}. ${asset?.location || item.location || ""}`;
-  const visual = asset
-    ? `<img src="${escape(asset.path)}" alt="${escape(alt)}" width="${asset.width}" height="${asset.height}" decoding="async" ${compact ? 'loading="lazy"' : 'loading="eager"'}>`
-    : `<div class="photo-missing" role="img" aria-label="Foto fehlt. ${escape(anonymous ? item.motif : alt)}">${icon("pictures")}<span>Foto noch nicht verfügbar</span><small>${escape(item.motif)}</small></div>`;
-  const caption = anonymous
-    ? `Beweisfoto${item.anonymousId ? " " + item.anonymousId : ""}`
-    : `${item.id ? `${String(item.id).padStart(2, "0")} · ` : ""}${escape(item.title || item.name || item.motif)}`;
-  const credit = asset
-    ? `<span class="photo-credit">Foto: ${escape(asset.author)} · ${escape(asset.license)} · verkleinert${anonymous ? "" : ` · <span>Nachweis ${escape(asset.creditId)}</span>`}</span>`
-    : "";
-  return `<figure class="photo">${visual}<figcaption>${caption}${credit}</figcaption></figure>`;
+function currentLearning() {
+ return state.current === 3 ? coreLearning[geographyFlow[cstate().phase]?.learning] : null;
+}
+function captureDraft() {
+ const id = activeTaskId(), t = id && state.tasks[id];
+ if (!t || t.scored || t.locked) return;
+ for (const input of main.querySelectorAll('#answer-form input[name], #answer-form select[name]')) {
+  if (input.type === "radio" && !input.checked) continue;
+  if (input.id === "name-choice" && !input.value) continue;
+  if (input.name.startsWith("match-")) (t.answers.matches ||= {})[input.name.slice(6)] = input.value;
+  else t.answers[input.name] = input.value;
+ }
+}
+function imageItem(key) {
+ return photos.find(p => p.key === key) || {key, title:media.images[key]?.description, motif:key === "housing" ? "Viele Dächer aus der Luft" : media.images[key]?.description};
+}
+function photo(item, {anonymous = false, compact = false, zoom = true, year = false} = {}) {
+ const asset = media.images[item.key];
+ const alt = anonymous ? `Beweisfoto: ${item.motif}` : `${item.title || item.name || item.motif}. ${asset?.location || item.location || ""}`;
+ const label = anonymous ? `Beweisfoto${item.anonymousId ? " " + item.anonymousId : ""}` : `${item.id ? `${String(item.id).padStart(2,"0")} · ` : ""}${item.title || item.name || item.motif}`;
+ if (!asset) return `<figure class="photo"><div class="photo-missing" role="img" aria-label="Foto fehlt">Foto noch nicht verfügbar</div><figcaption>${escape(label)}</figcaption></figure>`;
+ return `<figure class="photo"><img src="${escape(asset.path)}" alt="${escape(alt)}" width="${asset.width}" height="${asset.height}" decoding="async" loading="${compact ? "lazy" : "eager"}"><figcaption>${escape(label)}${year ? `<span class="photo-year">Aufnahme: ${escape(asset.taken.slice(0,4))}</span>` : ""}<span class="photo-credit">Foto: ${escape(asset.author)} · ${escape(asset.license)} · verkleinert${anonymous ? "" : ` · Nachweis ${escape(asset.creditId)}`}</span>${zoom ? `<button type="button" class="photo-zoom outline" data-action="zoom" data-media="${escape(asset.creditId)}" data-anonymous="${anonymous}" aria-label="${escape(label)} vergrößern">Bild vergrößern</button>` : ""}</figcaption></figure>`;
 }
 function map(key, label) {
   return `<div class="map" role="img" aria-label="${escape(label)}">${maps[key]}</div>`;
 }
 function photoGrid(selected, limit, action = "select") {
-  return `<div class="choice-grid">${photos.map((p) => `<button type="button" class="photo-choice" data-action="${action}" data-photo="${p.id}" aria-label="Bild ${p.id}: ${escape(p.title)}" aria-pressed="${selected.includes(p.id)}" ${selected.length >= limit && !selected.includes(p.id) ? "disabled" : ""}>${photo(p, { compact: true })}</button>`).join("")}</div><p class="selection-count" aria-live="polite">${selected.length} von ${limit} Bildern gewählt</p>`;
+ return `<div class="choice-grid">${photos.map(p => `<div class="photo-option"><button type="button" class="photo-choice" data-action="${action}" data-photo="${p.id}" aria-label="Bild ${p.id}: ${escape(p.title)}" aria-pressed="${selected.includes(p.id)}" ${selected.length >= limit && !selected.includes(p.id) ? "disabled" : ""}>${photo(p,{compact:true,zoom:false})}</button><button type="button" class="photo-zoom outline" data-action="zoom" data-media="${escape(media.images[p.key].creditId)}" aria-label="Bild ${p.id} vergrößern">Bild ${p.id} vergrößern</button></div>`).join("")}</div><p class="selection-count" aria-live="polite">${selected.length} von ${limit} Bildern gewählt</p>`;
 }
 function smallPhotos(ids) {
   return `<div class="compact-photos">${ids
@@ -84,18 +90,17 @@ function smallPhotos(ids) {
     .join("")}</div>`;
 }
 function home() {
-  return `<section class="hero"><div><div class="intro-label"><span class="status-dot"></span>Die Zentrale ist bereit.</div><h1>Willkommen,<br>Ermittlungsteam.</h1><p>Öffnet eine Akte. Folgt den Spuren.<br>Haltet eure Ergebnisse auf Papier fest.</p></div><img class="hero-art" src="assets/icons/detective.svg" alt="Eine geheime Akte und eine Lupe"></section>
+  return `<section class="hero"><div><div class="intro-label"><span class="status-dot"></span>Die Zentrale ist bereit.</div><h1>Willkommen,<br>Ermittlungsteam.</h1><p>Beginnt am besten mit Akte 001. Folgt den Spuren.<br>Haltet eure Ergebnisse auf Papier fest.</p></div><img class="hero-art" src="assets/icons/detective.svg" alt="Eine geheime Akte und eine Lupe"></section>
   <div class="section-caption"><h2>EURE ERMITTLUNGSAKTEN</h2><span>Jede Akte kann einzeln gestartet werden.</span></div>
-  <section class="case-grid" aria-label="Akten auswählen">${cases.map((c) => `<button type="button" class="case-card ${c.bonus ? "bonus" : ""} ${state.cases[c.id].done ? "done" : ""}" data-action="open" data-case="${c.id}"><span class="case-icon">${icon(c.icon)}</span><span><span class="number">AKTE ${String(c.id).padStart(3, "0")} ${c.bonus ? "· BONUS-ERMITTLUNG – FREIWILLIG" : ""}</span><strong>${escape(c.name)}</strong><span class="sub">${escape(c.subtitle)} · ${c.time}${state.cases[c.id].done ? " · abgeschlossen" : ""}</span></span><span class="arrow" aria-hidden="true">→</span></button>`).join("")}</section>
+  <section class="case-grid" aria-label="Akten auswählen">${cases.map((c) => `<button type="button" class="case-card ${c.bonus ? "bonus" : ""} ${state.cases[c.id].done ? "done" : ""}" data-action="open" data-case="${c.id}"><span class="case-icon">${icon(c.icon)}</span><span><span class="number">AKTE ${String(c.id).padStart(3, "0")} ${c.bonus ? "· BONUS-ERMITTLUNG – FREIWILLIG" : ""}</span><strong>${escape(c.name)}</strong><span class="sub">${escape(c.subtitle)} · ${c.time}${state.cases[c.id].done ? " · abgeschlossen" : casePending(c.id) ? " · Auflösung oder Papiernotiz offen" : ""}</span></span><span class="arrow" aria-hidden="true">→</span></button>`).join("")}</section>
   ${media.status !== "complete" ? `<p class="notice">Bildabnahme offen: Die Beweisfotos fehlen noch. Die Motive sind beschrieben.</p>` : ""}`;
 }
-function stageCount() {
-  return { 1: 1, 2: 4, 3: 4, 4: 4, 5: 3 }[state.current];
-}
+function casePending(id) { return caseTasks[id].some(key => state.tasks[key].scored && (!state.tasks[key].resolved || !state.tasks[key].ack)); }
+function stageCount() { return {1:1,2:5,3:9,4:4,5:3}[state.current]; }
 function heading() {
   const c = cases.find((c) => c.id === state.current),
     s = cstate();
-  return `<nav class="case-nav" aria-label="Akte steuern"><button type="button" class="outline" data-action="home" ${recordPending() ? 'disabled title="Notiert zuerst eure Punkte."' : ""}>← Zur Zentrale</button><button type="button" class="text-button" data-action="restart">Akte neu starten</button></nav><header class="case-heading"><div><p class="eyebrow">AKTE ${String(c.id).padStart(3, "0")}${c.bonus ? " · BONUS-ERMITTLUNG – FREIWILLIG" : ""}</p><h1>${escape(c.name)}</h1></div><div class="step"><span>Schritt ${Math.min(s.phase + 1, stageCount())} / ${stageCount()}</span><progress value="${Math.min(s.phase + 1, stageCount())}" max="${stageCount()}" aria-label="Fortschritt der Akte"></progress></div></header>`;
+  return `<nav class="case-nav" aria-label="Akte steuern"><button type="button" class="outline" data-action="home" >← Zur Zentrale</button><button type="button" class="text-button" data-action="restart">Akte neu starten</button></nav><header class="case-heading"><div><p class="eyebrow">AKTE ${String(c.id).padStart(3, "0")}${c.bonus ? " · BONUS-ERMITTLUNG – FREIWILLIG" : ""}</p><h1>${escape(c.name)}</h1></div><div class="step"><span>Schritt ${Math.min(s.phase + 1, stageCount())} / ${stageCount()}</span><progress value="${Math.min(s.phase + 1, stageCount())}" max="${stageCount()}" aria-label="Fortschritt der Akte"></progress></div></header>`;
 }
 function hintPanel(id) {
   const t = state.tasks[id],
@@ -114,7 +119,7 @@ function feedback(t) {
   const messages = {
     empty: "Füllt zuerst alle Antwortfelder aus.",
     unclear:
-      "Wir können eure Antwort nicht sicher verstehen. Schreibt dieselbe Aussage noch einmal klarer. Ändert eure Lösung nicht. Es wurde noch kein Versuch gewertet.",
+      "Den Namen können wir nicht sicher erkennen. Wählt ihn in der neutralen Namensliste aus. Erst die Abgabe zählt als euer Versuch.",
     wrong:
       t.hint < 3
         ? "Das ist noch nicht die Lösung. Öffnet den nächsten Hinweis."
@@ -126,95 +131,67 @@ function radios(name, options, current) {
   return `<div class="radio-stack">${options.map(([value, text]) => `<label class="radio-option"><input type="radio" name="${name}" value="${value}" ${current === value ? "checked" : ""}><span>${escape(text)}</span></label>`).join("")}</div>`;
 }
 function fallback(id) {
-  const r = rubrics.tasks[id],
-    t = state.tasks[id];
-  let visuals = "";
-  if (id === "title")
-    visuals = `<div class="fallback-maps"><div><h3>Kontinent A</h3>${map("a", "Weltkarte. Kontinent A ist markiert.")}</div><div><h3>Kontinent B</h3>${map("b", "Weltkarte. Kontinent B ist markiert.")}</div></div>`;
-  if (["atlas", "city", "cocoa"].includes(id))
-    visuals = map(
-      id,
-      "Karte mit Ländernamen und einem roten Punkt am gesuchten Ort.",
-    );
-  return `<p class="intro-label">Einfache Abschlussaufgabe · 1 Punkt</p><h2>${escape(r.fallback.prompt)}</h2>${visuals}${radios(
-    "fallback",
-    r.fallback.options.map((s, i) => [["a", "b"][i], s]),
-    t.answers.fallback,
-  )}`;
+ const r = rubrics.tasks[id], t = state.tasks[id];
+ let visuals = "";
+ if (id === "title") visuals = `<div class="fallback-maps"><div><h3>Kontinent A</h3>${map("a","Weltkarte. Kontinent A ist markiert.")}</div><div><h3>Kontinent B</h3>${map("b","Weltkarte. Kontinent B ist markiert.")}</div></div>`;
+ if (["atlas","city","cocoa"].includes(id)) visuals = map(id,"Karte mit Ländernamen und markiertem Ort.");
+ return `<p class="intro-label">Jetzt gibt es eine einfachere Abschlussaufgabe · 1 Punkt</p><p>Der bisherige Antwortentwurf bleibt getrennt erhalten.</p><h2>${escape(r.fallback.prompt)}</h2>${visuals}${radios("fallback",r.fallback.options.map(o=>[o.id,o.label]),t.answers.fallback)}`;
+}
+function nameAnswer(id, label) {
+ const t=state.tasks[id], r=rubrics.tasks[id];
+ if (t.clarification) return `<div class="feedback neutral"><p>Eure Eingabe: „${escape(t.clarificationInput || t.answers.name)}“</p><label for="name-choice">Welchen Namen meint ihr?</label><select id="name-choice" name="name"><option value="">Bitte auswählen</option>${r.neutralNames.map(name=>`<option ${name===t.answers.name?"selected":""}>${escape(name)}</option>`).join("")}</select><p>Keine Antwort ist als richtig markiert. Die nächste Gesamtabgabe zählt auf derselben Hinweisstufe.</p></div>`;
+ return `<label for="name-answer">${escape(label)}</label><input id="name-answer" class="answer-input" name="name" value="${escape(t.answers.name || "")}" maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Ein Wort genügt.">`;
 }
 function continent() {
-  const a = state.tasks.title.answers;
-  return `<p class="instruction">Eine neue Unterrichtsakte ist aufgetaucht.<br>Aber der Titel fehlt!</p><p>Untersucht die Fotos. Alle Orte liegen auf demselben Kontinent.</p><div class="photo-grid">${[6, 2, 4, 3].map((id, i) => photo({ ...photos.find((p) => p.id === id), anonymousId: i + 1 }, { anonymous: true })).join("")}</div><label for="name-answer">Welcher Kontinent ist gesucht?</label><input id="name-answer" class="answer-input" name="name" value="${escape(a.name || "")}" maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Ein Wort genügt.">`;
+ return `<p class="instruction">Alle Fotos zeigen Orte auf demselben Kontinent.<br>Wie heißt er? Ein Wort genügt.</p><div class="photo-grid">${[6,2,4,3].map((id,i)=>photo({...photos.find(p=>p.id===id),anonymousId:i+1},{anonymous:true})).join("")}</div>${nameAnswer("title","Welcher Kontinent ist gesucht?")}`;
 }
 function selection() {
-  const t = state.tasks.selection,
-    a = t.answers;
-  return `<p class="eyebrow">EIN ERFUNDENES REDAKTIONSBEISPIEL</p><h2>„So sieht Afrika aus!“</h2>${smallPhotos(rubrics.tasks.selection.editorial)}<p class="quiet">Die Redaktion zeigt nur diese vier Fotos. Es geht um dieses Beispiel.</p>
- <div class="field"><label for="scope-answer">1. Zeigen die vier Fotos alle Orte Afrikas oder nur einige?</label><input id="scope-answer" class="answer-input" name="scope" value="${escape(a.scope || "")}" maxlength="100" placeholder="Ein Wort oder Stichpunkte genügen."></div>
- <div class="field"><p class="field-label">2. Sieht es überall in Afrika gleich aus?</p>${radios(
-   "diversity",
-   [
-     ["ja", "Ja"],
-     ["nein", "Nein"],
-   ],
-   a.diversity,
- )}</div>
- <div class="field"><p class="field-label">3. Welche zwei Bilder fehlen in der Auswahl der Redaktion?</p><p class="quiet">Wählt zwei aus. Ihr gebt alle drei Antworten zusammen ab.</p>${photoGrid(a.missing || [], 2, "missing")}</div>`;
+ const a=state.tasks.selection.answers, step=cstate().questionStep || 0, r=rubrics.tasks.selection;
+ const questions=[
+  `<p class="instruction">Zeigen die vier Fotos alle Orte oder einige Orte?</p>${radios("scope",[["all","Alle Orte"],["some","Einige Orte"]],a.scope)}`,
+  `<p class="instruction">Sieht es überall auf dem Kontinent gleich aus?</p>${radios("diversity",[["different","Nein, Orte unterscheiden sich."],["same","Ja, überall gleich."]],a.diversity)}`,
+  `<label for="work-answer">Welches fehlende Bild zeigt eine Fabrik oder Geschäfte?</label>${selectPicture("work",a.work)}`,
+  `<label for="education-answer">Welches fehlende Bild zeigt Lernen oder medizinische Versorgung?</label>${selectPicture("education",a.education)}`,
+ ];
+ const review=step===4;
+ return `<p class="eyebrow">EIN ERFUNDENES REDAKTIONSBEISPIEL</p><h2>„So sieht Afrika aus!“</h2>${smallPhotos(r.editorial)}<p>Ihr gebt alle vier Antworten gemeinsam ab. Vorher wird nichts bewertet.</p><p class="question-progress">${review?"Eure Gesamtabgabe":`Teilfrage ${step+1} von 4`}</p>${review ? `<ul><li>Orte: ${a.scope==="some"?"einige":"alle"}</li><li>Überall gleich: ${a.diversity==="different"?"nein":"ja"}</li><li>Arbeit: Bild ${escape(a.work)}</li><li>Lernen/Behandlung: Bild ${escape(a.education)}</li></ul>` : questions[step]}<div class="actions">${step>0?'<button type="button" class="outline" data-action="question-prev">Zurück zur Teilfrage</button>':""}${review?"":'<button type="button" class="primary" data-action="question-next">Antwort behalten und weiter</button>'}</div>${conceptHelp()}`;
+}
+function selectPicture(name,value) {
+ const available=photos.filter(p=>!rubrics.tasks.selection.editorial.includes(p.id));
+ return `<div class="compact-photos">${available.map(p=>photo(p,{compact:true})).join("")}</div><select name="${name}" id="${name}-answer"><option value="">Bitte auswählen</option>${available.map(p=>`<option value="${p.id}" ${String(p.id)===String(value)?"selected":""}>Bild ${p.id} · ${escape(p.title)}</option>`).join("")}</select>`;
 }
 function geography(id) {
-  const info = {
-    atlas: {
-      photo: 6,
-      prompt: "Auf diesem Foto liegt Schnee. Findet das Land!",
-      evidence:
-        "Der rote Punkt liegt im Gebirge. Lest die Ländernamen auf der Karte.",
-    },
-    city: {
-      photo: 4,
-      prompt: "Hier leben sehr viele Menschen. Findet das Land!",
-      evidence:
-        "Der rote Punkt zeigt die Stadt. Vergleicht den Punkt mit den Ländernamen.",
-    },
-    cocoa: {
-      photo: null,
-      prompt: "Aus diesen Früchten wird Kakao hergestellt. Findet das Land!",
-      evidence:
-        "Der rote Punkt zeigt den Aufnahmeort in einem Gebiet mit Kakaoanbau. Lest die Ländernamen.",
-    },
-  }[id];
-  const item = info.photo
-    ? photos.find((p) => p.id === info.photo)
-    : {
-        key: "cocoa",
-        title: "Kakaofrüchte",
-        motif: "Kakaofrüchte am Baum",
-        location: "Ghana",
-      };
-  return `<h2>${escape(rubrics.tasks[id].label)}</h2><p class="instruction">${info.prompt}</p><div class="geography-layout">${photo(item, { anonymous: true })}${map(id, "Afrikakarte. Marokko, Nigeria, Ghana, Kenia und Südafrika sind beschriftet. Ein roter Punkt hilft bei der Zuordnung.")}</div><button type="button" class="outline" data-action="map" data-map="${id}">Karte groß ansehen</button><p class="map-caption">${info.evidence}<br>Die Länder haben viele verschiedene Orte.</p><label for="name-answer">Wie heißt das Land?</label><input id="name-answer" class="answer-input" name="name" value="${escape(state.tasks[id].answers.name || "")}" maxlength="100" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Ein Ländername genügt.">`;
+ const data={atlas:{key:"atlas",prompt:"Auf diesem Foto liegt Schnee. Findet das Land!",evidence:"Der rote Punkt liegt im Gebirge im Norden/Nordwesten des Kontinents."},city:{key:"lagos",prompt:"Findet das Land dieser Großstadt!",evidence:"Der rote Punkt zeigt eine Stadt an der Küste Westafrikas."},cocoa:{key:"cocoa",prompt:"Aus diesen Früchten wird Kakao hergestellt. Findet das Land!",evidence:"Der rote Punkt zeigt den belegten Aufnahmeort in Westafrika."}}[id];
+ return `<h2>${escape(rubrics.tasks[id].label)}</h2><p class="instruction">${data.prompt}</p><div class="geography-layout">${photo(imageItem(data.key),{anonymous:true})}${map(id,"Afrikakarte mit Ländernamen und rotem Punkt am gesuchten Ort.")}</div><button type="button" class="outline" data-action="map" data-map="${id}">Karte groß ansehen</button><p class="map-caption">${data.evidence} Lest die Ländernamen.</p>${nameAnswer(id,"Wie heißt das Land?")}`;
 }
 function headline() {
-  return `<p class="quiet">Eine erfundene Überschrift zu einem Foto:</p><h2>„So leben alle Menschen in Afrika!“</h2><div class="photo-grid">${photo(photos[9])}</div><p class="instruction">Ist das richtig? Wählt eine bessere Überschrift.</p>${radios(
-    "headline",
-    [
-      ["a", "A · So leben alle Menschen in Afrika."],
-      ["b", "B · Ein Ort in Afrika."],
-      ["c", "C · Überall in Afrika sieht es gleich aus."],
-    ],
-    state.tasks.headline.answers.headline,
-  )}`;
+ const r=rubrics.tasks.headline;
+ return `<p class="instruction">Welche Überschrift passt zu Foto und Ortsbeleg?</p><div class="photo-grid">${photo(photos.find(p=>p.key==="market"))}</div>${radios("headline",r.options.map(o=>[o.id,o.label]),state.tasks.headline.answers.headline)}`;
 }
 function matching() {
-  const a = state.tasks.future.answers;
-  return `<h2>Welche Frage passt zu welcher Spur?</h2><p>Ordnet alle vier Spuren zu. Dann gebt ihr gemeinsam ab.</p>${clues.map((c, i) => `<div class="match-row"><h3>Spur ${i + 1} · ${c.name}</h3><p>${c.text}</p><label for="match-${i}">Wählt die passende Frage.</label><select id="match-${i}" name="match-${i}"><option value="">Bitte auswählen</option>${futureQuestions.map((q, j) => `<option value="${j}" ${String(a.matches?.[i]) === String(j) ? "selected" : ""}>${String.fromCharCode(65 + j)} · ${q}</option>`).join("")}</select></div>`).join("")}`;
+ const a=state.tasks.future.answers;
+ return `<h2>Welche Frage passt zum gefragten Schwerpunkt?</h2><p>Mehrere Themen können zusammenhängen. Gebt die vier Zuordnungen gemeinsam ab.</p>${clues.map(c=>`<div class="match-row"><h3>${escape(c.name)}</h3><p>${escape(c.text)}</p><label for="match-${c.key}">Passende Untersuchungsfrage</label><select id="match-${c.key}" name="match-${c.key}"><option value="">Bitte auswählen</option>${futureQuestions.map(q=>`<option value="${q.id}" ${a.matches?.[c.key]===q.id?"selected":""}>${escape(q.text)}</option>`).join("")}</select></div>`).join("")}`;
+}
+function resolution(id) {
+ const t=state.tasks[id], r=rubrics.tasks[id], keys=correctionKeys(r);
+ if (t.usedFallback || t.fullCorrect) return "";
+ const descriptions = id==="selection" ? r.criteria.map(c=>c.explanation) : keys.map(k=>r.explanations[k]);
+ return `<section class="resolution" aria-label="Fachliche Auflösung"><h3>Die übrigen Spuren klären · ohne weitere Punkte</h3>${keys.map((key,i)=>`<div class="criterion ${t.criteria[i]?"criterion-correct":"criterion-open"}"><p><strong>${escape(id==="selection"?r.criteria[i].label:clues.find(c=>c.key===key).name)}: ${t.criteria[i]?"stimmt":t.resolved?"ursprünglich offen – jetzt aufgelöst":"noch zu klären"}</strong></p>${t.criteria[i] || t.resolutionTried || t.resolved ? `<p>${escape(descriptions[i])}</p>` : `<label for="correction-${key}">Welche Aussage passt?</label><select id="correction-${key}" data-correction="${key}"><option value="">Bitte auswählen</option>${correctionOptions(id,key).map(o=>`<option value="${o.id}" ${String(t.resolutionAnswers[key])===String(o.id)?"selected":""}>${escape(o.label)}</option>`).join("")}</select>`}</div>`).join("")}${t.resolved?'<p role="status">Die Auflösung ist abgeschlossen. Eure Punkte bleiben unverändert.</p>':t.resolutionTried?'<p>Die Lösung ist jetzt erklärt. Eure Punkte bleiben unverändert.</p><button type="button" data-action="resolution-confirm">Auflösung verstanden</button>':'<button type="button" data-action="resolution-check">Auflösung prüfen · ohne Punkte</button><p>Ihr prüft einmal. Falls noch etwas nicht passt, erklären wir die Lösung.</p>'}</section>`;
+}
+function correctionOptions(id,key) {
+ if(id==="future")return futureQuestions.map(q=>({id:q.id,label:q.text}));
+ if(key==="scope")return [{id:"some",label:"Die Fotos zeigen einige Orte."},{id:"all",label:"Die Fotos zeigen alle Orte."}];
+ if(key==="diversity")return [{id:"same",label:"Überall sieht es gleich aus."},{id:"different",label:"Orte unterscheiden sich."}];
+ return photos.filter(p=>!rubrics.tasks.selection.editorial.includes(p.id)).map(p=>({id:p.id,label:`Bild ${p.id} · ${p.title}`}));
 }
 function resultView(id) {
-  const t = state.tasks[id],
-    r = rubrics.tasks[id];
-  return `<section class="panel result"><p class="result-stamp">${t.points < rubrics.limits[t.hint] ? "TEILERFOLG · FALL ABGESCHLOSSEN" : "FALL GELÖST!"}</p><h2>${escape(r.success)}</h2>${id === "title" ? map("reveal", "Weltkarte mit hervorgehobenem Afrika.") : ""}<div class="points">${t.points} <small>${state.current === 5 ? "Bonuspunkte" : t.points === 1 ? "Punkt" : "Punkte"}</small></div>${t.raw < 5 && t.hint < 3 ? `<p class="correct-breakdown">${t.raw} von 5 Rohpunkten. Eure richtigen Teile zählen.</p>` : ""}<p>${escape(r.paper)}</p><p><strong>Tragt eure Punkte jetzt auf eurem Ermittlungsbogen ein.</strong></p><label class="check-label"><input type="checkbox" id="points-recorded" ${t.ack ? "checked" : ""}>Wir haben unsere Punkte notiert.</label><div class="actions"><button type="button" class="primary" data-action="result-next" ${!t.ack ? "disabled" : ""}>${id === "title" ? "Zur Ermittlungszentrale" : "Weiter"}</button></div></section>`;
+ const t=state.tasks[id], r=rubrics.tasks[id];
+ const message=t.usedFallback?"Abschlussaufgabe gelöst: 1 Punkt.":t.fullCorrect?`Alle Teile stimmen.${t.hint?` Mit ${t.hint===1?"einem Hinweis":`${t.hint} Hinweisen`}: ${t.points} Punkte.`:""}`:"Ein Teil stimmt. Eure Punkte bleiben erhalten. Schaut euch die übrigen Spuren an.";
+ return `<section class="panel result"><p class="result-stamp">${message}</p><h2>${escape(t.fullCorrect||t.usedFallback?r.success:t.resolved?"Punkte gesichert – Auflösung abgeschlossen":"Punkte gesichert – Auflösung noch wichtig")}</h2>${id==="title"?map("reveal","Weltkarte. Der gesuchte Kontinent Afrika ist hervorgehoben."):""}<div class="points">${t.points} <small>${state.current===5?"Bonuspunkte":t.points===1?"Punkt":"Punkte"}</small></div><p>Diese Wertung bleibt festgeschrieben. Es gibt keine Nachbepunktung.</p>${resolution(id)}<p>${escape(r.paper)}</p><label class="check-label"><input type="checkbox" id="points-recorded" ${t.ack?"checked":""}>Wir haben unsere Punkte notiert.</label><div class="actions"><button type="button" class="primary" data-action="result-next" ${!t.ack||!t.resolved?"disabled":""}>${id==="title"?"Zur Ermittlungszentrale":"Weiter"}</button></div>${!t.resolved?'<p>Zur Zentrale könnt ihr zurückkehren. Die offene Auflösung bleibt gespeichert.</p>':""}</section>`;
 }
 function taskView(id) {
   const t = state.tasks[id];
-  if (t.complete) return resultView(id);
+  if (t.scored) return resultView(id);
   const task =
     t.hint === 3
       ? fallback(id)
@@ -227,31 +204,48 @@ function taskView(id) {
             : id === "headline"
               ? headline()
               : matching();
-  return `<div class="case-layout"><div class="case-content"><form id="answer-form" class="panel" novalidate><fieldset ${t.locked ? "disabled" : ""}><legend class="sr-only">Eure gemeinsame Antwort</legend>${task}<div class="actions"><button type="submit" class="primary">Antwort abgeben</button></div></fieldset>${feedback(t)}</form></div>${hintPanel(id)}</div>`;
+  return `<div class="case-layout"><div class="case-content"><form id="answer-form" class="panel" novalidate><fieldset ${t.locked ? "disabled" : ""}><legend class="sr-only">Eure gemeinsame Antwort</legend>${task}${id!=="selection"||t.hint===3||cstate().questionStep===4?'<div class="actions"><button type="submit" class="primary">Antwort abgeben</button></div>':""}</fieldset>${feedback(t)}</form></div>${hintPanel(id)}</div>`;
 }
 function pictureSelection(id) {
-  const c = cstate();
-  return `<section class="panel"><p class="intro-label">Diese Auswahl gibt keine Punkte.</p><p class="instruction">${id === 2 ? "Welche vier Bilder fallen euch zuerst ein, wenn ihr an Afrika denkt?" : "Welche vier Bilder würdet ihr jetzt wählen?"}</p><p>Tippt vier Bilder an.</p>${photoGrid(c.selected, 4)}<div class="actions"><button type="button" class="primary" data-action="phase-next" ${c.selected.length !== 4 ? "disabled" : ""}>Auswahl ansehen</button></div></section>`;
+ const c=cstate();
+ return `<section class="panel"><p class="intro-label">Eure Auswahl wird nicht bewertet.</p><p class="instruction">${id===2?"Welche vier Bilder kommen euch zuerst in den Sinn, wenn ihr an Afrika denkt?":"Wählt noch einmal vier Bilder. Vergleicht mit eurer ersten Auswahl."}</p><p>${id===2?"Denkt zuerst kurz einzeln nach. Einigt euch dann als Team.":"Eine veränderte Auswahl ist nicht automatisch besser oder richtiger."}</p>${photoGrid(c.selected,4)}<div class="actions"><button type="button" class="primary" data-action="phase-next" ${c.selected.length!==4?"disabled":""}>Auswahl ansehen</button></div></section>`;
 }
 function paperSelection() {
-  const c = cstate();
-  return `<section class="panel"><h2>Eure Bildnummern</h2><p class="number-list">${c.selected.map((x) => String(x).padStart(2, "0")).join(" · ")}</p>${smallPhotos(c.selected)}<p>Schreibt die vier Bildnummern bei Akte 002 auf euren Ermittlungsbogen.</p><label class="check-label"><input type="checkbox" id="paper-recorded" ${c.paperAck ? "checked" : ""}>Wir haben die Bildnummern notiert.</label><div class="actions"><button type="button" class="primary" data-action="phase-next" ${!c.paperAck ? "disabled" : ""}>Zur Redaktion</button></div></section>`;
+ return `<section class="panel"><h2>Eure erste gemeinsame Auswahl</h2><p class="number-list">${cstate().selected.map(n=>String(n).padStart(2,"0")).join(" · ")}</p>${smallPhotos(cstate().selected)}<p>Notiert die vier Bildnummern auf Papier. Akte 001 hat eure Auswahl vielleicht schon beeinflusst.</p><label class="check-label"><input type="checkbox" id="paper-recorded" ${cstate().paperAck?"checked":""}>Wir haben die Bildnummern notiert.</label><div class="actions"><button type="button" class="primary" data-action="phase-next" ${!cstate().paperAck?"disabled":""}>Zur Redaktion</button></div></section>`;
 }
 function compare() {
-  return `<section class="panel"><p class="eyebrow">EIN ERFUNDENES REDAKTIONSBEISPIEL</p><h2>„So sieht Afrika aus!“</h2><p>Eine Redaktion wählt nur vier Fotos. Vergleicht die Bilder.</p><div class="comparison"><div><h3>Eure Auswahl</h3>${smallPhotos(cstate().selected)}</div><div><h3>Die Auswahl der Redaktion</h3>${smallPhotos(rubrics.tasks.selection.editorial)}</div></div><p class="instruction">Was ist gleich? Was fehlt?</p><p class="quiet">Sprecht kurz darüber. Ihr müsst keinen langen Text schreiben.</p><div class="actions"><button type="button" class="primary" data-action="phase-next">Die Überschrift prüfen</button></div></section>`;
+ return `<section class="panel"><p class="eyebrow">EINE ERFUNDENE REDAKTION</p><h2>„So sieht Afrika aus!“</h2><div class="comparison"><div><h3>Eure Auswahl</h3>${smallPhotos(cstate().confirmedSelection)}</div><div><h3>Die Redaktion</h3>${smallPhotos(rubrics.tasks.selection.editorial)}</div></div><p class="instruction">Was zeigt sie? Was fehlt? Sprecht kurz darüber.</p><p>Sie konzentriert sich auf Naturraum, Landwirtschaft und Wasserversorgung. Wasserzugang ist nicht automatisch Wassermangel.</p><details><summary>Vermutungen besprechen · ohne Punkte</summary><p>Sehen alle Orte gleich aus? Welche Arbeiten und Lernmöglichkeiten vermutet ihr? Ihr könnt auch sagen: Das wissen wir noch nicht.</p></details>${conceptHelp()}<div class="actions"><button type="button" class="primary" data-action="phase-next">Die Auswahl prüfen</button></div></section>`;
 }
 function reflection() {
-  return `<section class="panel"><h2>Vergleicht eure Auswahl.</h2><p class="number-list">${cstate()
-    .selected.map((x) => String(x).padStart(2, "0"))
-    .join(
-      " · ",
-    )}</p><p>Notiert diese neuen Bildnummern bei Akte 004.<br>Schaut auf eure erste Auswahl auf Papier.</p><p class="instruction">Am Anfang dachte ich …<br>Jetzt weiß ich …</p><p>Schreibt Wörter oder Stichpunkte auf euren Bogen.<br>Eure Auswahl darf gleich bleiben. Dafür gibt es keine Punkte.</p><label class="check-label"><input type="checkbox" id="paper-recorded" ${cstate().paperAck ? "checked" : ""}>Wir haben verglichen und etwas notiert.</label><div class="actions"><button type="button" class="primary" data-action="phase-next" ${!cstate().paperAck ? "disabled" : ""}>Zum letzten Rätsel</button></div></section>`;
+ const first=state.cases[2].confirmedSelection;
+ return `<section class="panel"><h2>Vergleicht eure Auswahlen.</h2><p>Neue Auswahl: <strong>${cstate().selected.join(" · ")}</strong></p>${first.length===4?`<p>Bestätigte erste Auswahl: ${first.join(" · ")}</p>`:'<p>Eine bestätigte erste Auswahl fehlt in dieser Sitzung. Nutzt euren Papierbogen. Fehlt auch er, beschreibt euren jetzigen Stand; ein früherer Vergleich wird nicht erfunden.</p>'}<p class="instruction">Gleich geblieben … / Neu oder ergänzt … / Dazu passt Beleg …</p><p>Wählt einen passenden Satzanfang. Ein Stichwort oder Bildverweis auf Papier genügt; eure Meinung wird nicht bewertet.</p><p>Auch zwölf Bilder sind keine repräsentative Auswahl aller Lebensbedingungen.</p><label class="check-label"><input type="checkbox" id="paper-recorded" ${cstate().paperAck?"checked":""}>Wir haben etwas auf Papier festgehalten.</label><div class="actions"><button type="button" class="primary" data-action="phase-next" ${!cstate().paperAck?"disabled":""}>Die Überschrift prüfen</button></div></section>`;
+}
+function sourceLink(key) {
+ const source=evidenceSources[key];
+ return source?.url?`<p class="source-note">Sachquelle: <a href="${escape(source.url)}" target="_blank" rel="noopener noreferrer">${escape(source.title)}</a></p>`:"";
+}
+function optionalSpurs(keys=[]) {
+ return keys.length?`<details class="optional-spurs"><summary>Weitere Spuren · freiwillig und ohne Punkte</summary>${keys.map(key=>{const x=extraSpurs[key];return `<article><h3>${escape(x.title)}</h3>${(x.photos||[]).map(k=>photo(imageItem(k),{compact:true})).join("")}<p>${escape(x.text)}</p>${sourceLink(x.source)}</article>`;}).join("")}</details>`:"";
+}
+function cocoaSymbols(index) {
+ const shapes = [
+  '<ellipse cx="24" cy="22" rx="13" ry="19" fill="#cdb468"/><path d="M24 4C12 16 12 28 24 41M24 4C35 16 35 28 24 41"/>',
+  '<ellipse cx="16" cy="22" rx="8" ry="14" fill="#a47757" transform="rotate(-25 16 22)"/><path d="M11 11Q21 21 20 33"/><ellipse cx="36" cy="22" rx="8" ry="14" fill="#a47757" transform="rotate(25 36 22)"/><path d="M40 11Q30 21 32 33"/>',
+  '<rect x="10" y="4" width="28" height="36" rx="3" fill="#a47757"/><path d="M24 4V40M10 16H38M10 28H38"/>',
+  '<path d="M6 17L11 5H37L42 17Z" fill="#cdb468"/><path d="M9 18V40H39V18M6 17H42M17 23H30V40"/>',
+ ];
+ return `<svg class="chain-symbol" viewBox="0 0 48 44" fill="none" stroke="#493d30" stroke-width="1.6" ${index===1?'role="img" aria-label="Kakaobohnen als Ausgangsmaterial, schematisch"':'aria-hidden="true"'}>${shapes[index]}</svg>`;
+}
+function learningView() {
+ const c=cstate(), lesson=currentLearning(), step=lesson.steps[c.learningStep], answers=c.learningAnswers;
+ const fields=step.reflection?`<label for="learning-evidence">Eure Spur oder euer Rückblick</label><select id="learning-evidence" data-learning="evidence"><option value="">Bitte auswählen</option>${photos.map(p=>`<option value="${p.id}" ${answers.evidence===String(p.id)?"selected":""}>Bild ${p.id} · ${escape(p.title)}</option>`).join("")}<option value="A3-B1" ${answers.evidence==="A3-B1"?"selected":""}>A3-B1 · Stadtvergleich Lagos</option><option value="known" ${answers.evidence==="known"?"selected":""}>Das wussten wir schon.</option><option value="question" ${answers.evidence==="question"?"selected":""}>Wir haben eine offene Frage.</option></select><label for="learning-note">Wenige Wörter, wenn ihr möchtet</label><textarea id="learning-note" data-learning="note" maxlength="140">${escape(answers.note||"")}</textarea>`:(step.questions||[]).map(q=>`<label for="learning-${q.key}">${escape(q.label)}</label><select id="learning-${q.key}" data-learning="${q.key}"><option value="">Bitte auswählen</option>${q.options.map(o=>`<option value="${o.id}" ${String(answers[q.key])===o.id?"selected":""}>${escape(o.label)}</option>`).join("")}</select>`).join("");
+ return `<section class="panel learning" data-learning-step="${step.id}"><p class="intro-label">Belege prüfen · ohne Punkte</p><h2>${escape(step.title)}</h2><p>${escape(step.text)}</p>${step.schema==="vehicles"?'<div class="evidence-schema" role="img" aria-label="Schema: Fabrik und Fahrzeug"><span aria-hidden="true">▥ → ▰</span><p>Schema zur Fahrzeugproduktion · kein dokumentarisches Foto</p></div>':step.schema==="cocoa"?`<div class="evidence-schema"><p>Vereinfachtes Schema mit vier Schritten · keine zusätzlichen Beweisfotos</p><ol class="cocoa-chain" aria-label="Vier Schritte vom Anbau zum Produkt">${step.chain.map((label,index)=>`<li>${cocoaSymbols(index)}<span>${escape(label)}</span></li>`).join("")}</ol></div>`:""}<div class="learning-photos">${(step.photos||[]).map((key,i)=>photo({...imageItem(key),anonymousId:String.fromCharCode(65+i)},{anonymous:step.anonymousPhotos,year:step.showYears})).join("")}</div>${step.map?map(step.map,"Karte: roter Punkt bei Lagos. Die Karte zeigt nicht die genaue Lage einzelner Stadtteile."):""}${step.cards?`<div class="context-cards">${step.cards.map(card=>`<article><h3>${escape(card.title)}</h3><p>${escape(card.text)}</p></article>`).join("")}</div>`:""}${c.learningChecked?`<div class="feedback neutral" role="status"><h3>Kurze Auflösung · eure Punkte bleiben gleich</h3><p>${escape(step.explanation)}</p></div>${sourceLink(step.source)}${optionalSpurs(lesson.extras)}<p>Wechselt jetzt, wenn möglich, die Bedienung im Team.</p><button type="button" class="primary" data-action="learning-next">Weiter ermitteln</button>`:`<div class="learning-fields">${fields}</div>${c.learningFeedback?`<p role="status">${escape(c.learningFeedback)}</p>`:""}<button type="button" class="primary" data-action="learning-check">Belege auswerten · ohne Punkte</button>`}${conceptHelp()}</section>`;
 }
 function futureIntro() {
-  return `<section class="panel"><p class="instruction">Vier geheimnisvolle Nachrichten sind eingetroffen.<br>Was steckt dahinter?</p><p>Untersucht die Spuren!</p><div class="clue-grid">${clues.map((c, i) => `<article class="clue-card">${photo(c)}<h2>Spur ${i + 1} · ${c.name}</h2><p>${c.text}</p></article>`).join("")}</div><div class="actions"><button type="button" class="primary" data-action="phase-next">Spuren zuordnen</button></div></section>`;
+ return `<section class="panel"><p class="instruction">Erfundene Nachrichten zu echten Orten und Fotos.</p><p>Die Fotos illustrieren die Nachrichten; sie beweisen nicht, dass die erfundene Situation dort geschehen ist.</p><div class="clue-grid">${clues.map(c=>`<article class="clue-card">${photo(c)}<h2>${escape(c.name)}</h2><p>${escape(c.text)}</p></article>`).join("")}</div><p>Zuzug und natürliches Bevölkerungswachstum sind verschiedene Ursachen. Die Stadtansicht beweist keinen Wachstumstrend.</p><div class="actions"><button type="button" class="primary" data-action="phase-next">Spuren zuordnen</button></div></section>`;
 }
 function futureQuestion() {
-  return `<section class="panel"><h2>Was möchtet ihr über Afrika noch herausfinden?</h2><p>Überlegt euch eine Frage. Dafür gibt es keine Punkte.</p><div class="question-ideas">${["Warum gibt es …?", "Wie können Menschen …?", "Was passiert, wenn …?", "Wie könnte man …?"].map((q) => `<button type="button" data-action="sentence" data-sentence="${escape(q)}">${q}</button>`).join("")}</div><label for="future-question">Eure Frage (freiwillig)</label><textarea id="future-question" maxlength="300" placeholder="Wörter oder Stichpunkte genügen.">${escape(cstate().question || "")}</textarea><p class="quiet">Ihr könnt die Frage auch nur auf Papier schreiben.</p><div class="actions"><button type="button" class="primary" data-action="finish">Ermittlung abschließen</button></div></section>`;
+ return `<section class="panel"><h2>Welche Zukunftsfrage habt ihr?</h2><p>Eine freiwillige Frage, ohne Punkte.</p><div class="question-ideas">${["Warum gibt es …?","Wer kann … nutzen?","Welche Folgen hat …?","Wie könnte man …?"].map(text=>`<button type="button" data-action="sentence" data-sentence="${escape(text)}">${escape(text)}</button>`).join("")}</div><label for="future-question">Eure Frage (freiwillig)</label><textarea id="future-question" maxlength="300">${escape(cstate().question||"")}</textarea><p>Die Frage kann auch nur auf Papier stehen.</p><button type="button" class="primary" data-action="finish">Ermittlung abschließen</button></section>`;
 }
 function summary() {
   const id = state.current;
@@ -261,55 +255,26 @@ function summary() {
       : id === 4
         ? `<h2>Ermittlung abgeschlossen!</h2><p>Ihr habt viele unterschiedliche Orte entdeckt.<br>Prüft eure Punkte und euren Ermittlungsbogen.</p><h3>Rechnet eure Punkte zusammen.</h3><p class="quiet">Nutzt euren Papierbogen. Ihr braucht keinen alten digitalen Spielstand.</p><div class="calculator">${[5, 5, 15, 5].map((max, i) => `<label>Akte ${i + 1} / ${max}<input type="number" inputmode="numeric" min="0" max="${max}" step="1" class="score-input" aria-label="Punkte Akte ${i + 1}"></label>`).join("")}</div><p id="calculator-total" class="calculator-total" aria-live="polite">Gesamt: — / 30</p><p>Bonus-Akte 005: extra aufschreiben. Maximal 5 Bonuspunkte.</p>`
         : id === 2
-          ? `<h2>Fotos zeigen nur einen Teil der Wirklichkeit.</h2><p>Ergänzt auf Papier: „Vier Fotos zeigen nur …“</p>`
+          ? `<h2>Fotos zeigen nur einen Teil der Wirklichkeit. Auch zwölf Bilder sind keine repräsentative Stichprobe.</h2><p>Ergänzt auf Papier: „Vier Fotos zeigen nur …“</p>`
           : id === 5
             ? `<h2>Neue Spuren gefunden!</h2><p>Im Geographieunterricht könnt ihr eure Fragen weiter untersuchen.</p><p class="points">${state.tasks.future.points} / 5 Bonuspunkte</p><p>Die Bonuspunkte zählen getrennt.</p>`
             : `<h2>Unser neues Thema ist AFRIKA!</h2>${map("reveal", "Weltkarte mit hervorgehobenem Afrika.")}`;
   return `<section class="panel case-summary">${intro}<div class="actions"><button type="button" class="primary" data-action="home">Zur Ermittlungszentrale</button></div></section>`;
 }
 function body() {
-  const id = state.current,
-    c = cstate();
-  if (c.done) return summary();
-  if (id === 1) return taskView("title");
-  if (id === 2)
-    return c.phase === 0
-      ? pictureSelection(2)
-      : c.phase === 1
-        ? paperSelection()
-        : c.phase === 2
-          ? compare()
-          : c.phase === 3
-            ? taskView("selection")
-            : summary();
-  if (id === 3)
-    return c.phase < 3
-      ? taskView(["atlas", "city", "cocoa"][c.phase])
-      : summary();
-  if (id === 4)
-    return c.phase === 0
-      ? pictureSelection(4)
-      : c.phase === 1
-        ? reflection()
-        : c.phase === 2
-          ? taskView("headline")
-          : summary();
-  if (id === 5)
-    return c.phase === 0
-      ? futureIntro()
-      : c.phase === 1
-        ? taskView("future")
-        : futureQuestion();
-  return "";
+ const id=state.current,c=cstate();
+ if(c.done)return summary();
+ if(id===1)return taskView("title");
+ if(id===2)return c.phase===0?pictureSelection(2):c.phase===1?paperSelection():c.phase===2?compare():c.phase===3?taskView("selection"):summary();
+ if(id===3){const flow=geographyFlow[c.phase];return flow?.task?taskView(flow.task):flow?.learning?learningView():summary();}
+ if(id===4)return c.phase===0?pictureSelection(4):c.phase===1?reflection():c.phase===2?taskView("headline"):summary();
+ if(id===5)return c.phase===0?futureIntro():c.phase===1?taskView("future"):futureQuestion();
+ return "";
 }
 function render({ focus = false, scroll = false } = {}) {
   main.innerHTML = state.current === null ? home() : heading() + body();
-  // Source titles and places must not disclose either anonymous photo mystery.
-  const anonymousTask = state.current === 1 ? "title"
-    : state.current === 3 ? ["atlas", "city", "cocoa"][cstate().phase] : null;
-  const sourcesVisible = state.current !== null &&
-    (!anonymousTask || state.tasks[anonymousTask].complete);
-  document.querySelector("#photo-sources").hidden = !sourcesVisible;
+  if(state.notice)main.insertAdjacentHTML("afterbegin",`<aside class="notice" role="status">${escape(state.notice)} <button type="button" data-action="dismiss-notice">Verstanden</button></aside>`);
+  document.querySelector("#photo-sources").hidden = false;
   persist();
   if (scroll) window.scrollTo({ top: 0, behavior: "instant" });
   if (focus) main.focus({ preventScroll: true });
@@ -318,130 +283,99 @@ function finish() {
   cstate().done = true;
   render({ focus: true, scroll: true });
 }
-main.addEventListener("click", (event) => {
-  const button = event.target.closest("button[data-action]");
-  if (!button || button.disabled) return;
-  const action = button.dataset.action;
-  if (action === "open") {
-    state.current = Number(button.dataset.case);
-    render({ focus: true, scroll: true });
-  } else if (action === "home") {
-    if (recordPending()) return;
-    state.current = null;
-    render({ focus: true, scroll: true });
-  } else if (action === "map") {
-    document.querySelector("#map-content").innerHTML = map(
-      button.dataset.map,
-      "Länderkarte mit markiertem Fundort.",
-    );
-    document.querySelector("#map-dialog").showModal();
-  } else if (action === "restart")
-    document.querySelector("#restart-dialog").showModal();
-  else if (action === "hint") {
-    const id = activeTaskId();
-    if (id) {
-      openHint(state.tasks[id]);
-      render();
-      main.querySelector(".hint-panel")?.scrollIntoView({ block: "nearest" });
-    }
-  } else if (action === "select" || action === "missing") {
-    const selected =
-      action === "select"
-        ? cstate().selected
-        : (state.tasks.selection.answers.missing ||= []);
-    const id = Number(button.dataset.photo),
-      index = selected.indexOf(id),
-      limit = action === "select" ? 4 : 2;
-    if (index >= 0) selected.splice(index, 1);
-    else if (selected.length < limit) selected.push(id);
-    const y = window.scrollY;
-    render();
-    window.scrollTo(0, y);
-    main
-      .querySelector(`[data-action="${action}"][data-photo="${id}"]`)
-      ?.focus({ preventScroll: true });
-  } else if (action === "phase-next") {
-    cstate().phase++;
-    cstate().paperAck = false;
-    render({ focus: true, scroll: true });
-  } else if (action === "result-next") {
-    const id = activeTaskId();
-    if (!id || !state.tasks[id].ack) return;
-    if (state.current === 1) {
-      cstate().done = true;
-      state.current = null;
-    } else if (state.current === 3) {
-      cstate().phase++;
-      if (cstate().phase === 3) cstate().done = true;
-    } else {
-      cstate().phase++;
-      if ([2, 4].includes(state.current)) cstate().done = true;
-    }
-    render({ focus: true, scroll: true });
-  } else if (action === "sentence") {
-    const input = document.querySelector("#future-question");
-    input.value = button.dataset.sentence;
-    cstate().question = input.value;
-    persist();
-    input.focus();
-  } else if (action === "finish") finish();
+let photoTrigger;
+const photoDialog=document.querySelector("#photo-dialog");
+photoDialog.addEventListener("close",()=>{if(photoTrigger?.isConnected)photoTrigger.focus();});
+document.querySelector("#photo-close").addEventListener("click",()=>photoDialog.close());
+main.addEventListener("click",event=>{
+ const button=event.target.closest("button[data-action]");if(!button||button.disabled)return;
+ captureDraft();const action=button.dataset.action;
+ if(action==="open"){state.current=Number(button.dataset.case);render({focus:true,scroll:true});}
+ else if(action==="home"){state.current=null;render({focus:true,scroll:true});}
+ else if(action==="dismiss-notice"){state.notice=null;render();}
+ else if(action==="map"){document.querySelector("#map-content").innerHTML=map(button.dataset.map,"Länderkarte mit markiertem Fundort.");document.querySelector("#map-dialog").showModal();}
+ else if(action==="zoom"){
+  const asset=Object.values(media.images).find(image=>image.creditId===button.dataset.media);if(!asset)return;photoTrigger=button;
+  document.querySelector("#photo-title").textContent=button.dataset.anonymous==="true"?"Beweisfoto":asset.description;
+  document.querySelector("#photo-content").innerHTML=`<img src="${escape(asset.path)}" width="${asset.width}" height="${asset.height}" alt="${escape(button.dataset.anonymous==="true"?"Vergrößertes Beweisfoto":asset.description)}"><p>Foto: ${escape(asset.author)} · ${escape(asset.license)} · verkleinert</p>`;photoDialog.showModal();
+ }
+ else if(action==="restart")document.querySelector("#restart-dialog").showModal();
+ else if(action==="hint"){const id=activeTaskId();if(id){openHint(state.tasks[id]);render();main.querySelector(".hint-panel")?.scrollIntoView({block:"nearest"});}}
+ else if(action==="select"){
+  const selected=cstate().selected,id=Number(button.dataset.photo),index=selected.indexOf(id);
+  if(index>=0)selected.splice(index,1);else if(selected.length<4)selected.push(id);
+  const y=scrollY;render();scrollTo(0,y);main.querySelector(`[data-action="select"][data-photo="${id}"]`)?.focus({preventScroll:true});
+ }
+ else if(action==="question-next"||action==="question-prev"){
+  const c=cstate(),t=state.tasks.selection,keys=["scope","diversity","work","education"];
+  if(action==="question-next"&&!t.answers[keys[c.questionStep]]){t.feedback="empty";render();return;}
+  c.questionStep+=action==="question-next"?1:-1;t.feedback="";render({scroll:true});
+ }
+ else if(action==="phase-next"){
+  const c=cstate();if([2,4].includes(state.current)&&c.phase===0&&c.selected.length!==4)return;
+  if([2,4].includes(state.current)&&c.phase===1&&!c.paperAck)return;
+  if([2,4].includes(state.current)&&c.phase===1)c.confirmedSelection=structuredClone(c.selected);
+  c.phase++;c.paperAck=false;render({focus:true,scroll:true});
+ }
+ else if(action==="resolution-check"||action==="resolution-confirm"){
+  const id=activeTaskId(),t=id&&state.tasks[id];if(!t)return;
+  if(action==="resolution-confirm")confirmResolution(t);else{
+   const answers=Object.fromEntries([...main.querySelectorAll("[data-correction]")].map(input=>[input.dataset.correction,input.value]));
+   if(attemptResolution(t,rubrics.tasks[id],answers)==="empty"){main.querySelector(".resolution")?.insertAdjacentHTML("beforeend",'<p role="status">Wählt bitte eine Aussage je offener Spur.</p>');return;}
+  }render({focus:true,scroll:true});
+ }
+ else if(action==="result-next"){
+  const id=activeTaskId(),t=id&&state.tasks[id];if(!t?.scored||!t.resolved||!t.ack)return;
+  if(state.current===1){cstate().done=true;state.current=null;}
+  else{cstate().phase++;if([2,4].includes(state.current))cstate().done=true;}
+  render({focus:true,scroll:true});
+ }
+ else if(action==="learning-check"){
+  const c=cstate(),step=currentLearning()?.steps[c.learningStep];if(!step||c.learningChecked)return;
+  for(const input of main.querySelectorAll("[data-learning]"))c.learningAnswers[input.dataset.learning]=input.value;
+  const required=step.reflection?["evidence"]:step.questions.map(q=>q.key);
+  if(required.some(key=>!c.learningAnswers[key])){c.learningFeedback="Wählt bitte eine Antwort. Es werden keine Punkte verändert.";render();return;}
+  c.learningChecked=true;c.learningFeedback="";render({focus:true,scroll:true});
+ }
+ else if(action==="learning-next"){
+  const c=cstate(),lesson=currentLearning();if(!lesson||!c.learningChecked)return;
+  if(c.learningStep+1<lesson.steps.length)c.learningStep++;else{c.phase++;c.learningStep=0;if(c.phase===geographyFlow.length)c.done=true;}
+  c.learningChecked=false;c.learningAnswers={};render({focus:true,scroll:true});
+ }
+ else if(action==="sentence"){const input=document.querySelector("#future-question");input.value=button.dataset.sentence;cstate().question=input.value;persist();input.focus();}
+ else if(action==="finish"){if(state.current===5&&cstate().phase===2&&state.tasks.future.resolved&&state.tasks.future.ack)finish();}
 });
-main.addEventListener("input", (event) => {
-  const el = event.target;
-  if (el.id === "future-question") {
-    cstate().question = el.value;
-    persist();
-    return;
-  }
-  if (el.matches(".score-input")) {
-    const inputs = [...main.querySelectorAll(".score-input")];
-    const valid = inputs.every((i) => i.value !== "" && i.checkValidity());
-    document.querySelector("#calculator-total").textContent = valid
-      ? `Gesamt: ${inputs.reduce((n, i) => n + Number(i.value), 0)} / 30`
-      : "Tragt in jedes Feld eine ganze Zahl im erlaubten Bereich ein.";
-    return;
-  }
-  const id = activeTaskId();
-  if (!id || state.tasks[id].complete || state.tasks[id].locked) return;
-  const a = state.tasks[id].answers;
-  if (el.name.startsWith("match-")) {
-    a.matches ||= ["", "", "", ""];
-    a.matches[Number(el.name.slice(-1))] = el.value;
-  } else if (el.name) a[el.name] = el.value;
-  persist();
+main.addEventListener("input",event=>{
+ const el=event.target;
+ if(el.dataset.learning){cstate().learningAnswers[el.dataset.learning]=el.value;persist();return;}
+ if(el.dataset.correction){const id=activeTaskId();if(id)state.tasks[id].resolutionAnswers[el.dataset.correction]=el.value;persist();return;}
+ if(el.id==="future-question"){cstate().question=el.value;persist();return;}
+ if(el.matches(".score-input")){
+  const inputs=[...main.querySelectorAll(".score-input")],valid=inputs.every(i=>i.value!==""&&i.checkValidity());
+  document.querySelector("#calculator-total").textContent=valid?`Gesamt: ${inputs.reduce((sum,i)=>sum+Number(i.value),0)} / 30`:"Tragt in jedes Feld eine ganze Zahl im erlaubten Bereich ein.";return;
+ }
+ captureDraft();persist();
 });
-main.addEventListener("change", (event) => {
-  const el = event.target;
-  if (el.id === "points-recorded") {
-    const id = activeTaskId();
-    if (!id) return;
-    state.tasks[id].ack = el.checked;
-    persist();
-    main.querySelector('[data-action="result-next"]').disabled = !el.checked;
-    main.querySelector('[data-action="home"]').disabled = !el.checked;
-  }
-  if (el.id === "paper-recorded") {
-    cstate().paperAck = el.checked;
-    persist();
-    main.querySelector('[data-action="phase-next"]').disabled = !el.checked;
-  }
+main.addEventListener("change",event=>{
+ const el=event.target;
+ if(el.id==="points-recorded"){
+  const id=activeTaskId();if(!id)return;const t=state.tasks[id];t.ack=el.checked;persist();main.querySelector('[data-action="result-next"]').disabled=!t.ack||!t.resolved;
+ }else if(el.id==="paper-recorded"){cstate().paperAck=el.checked;persist();main.querySelector('[data-action="phase-next"]').disabled=!el.checked;}
+ else{captureDraft();if(el.dataset.learning)cstate().learningAnswers[el.dataset.learning]=el.value;persist();}
 });
-main.addEventListener("submit", (event) => {
-  if (event.target.id !== "answer-form") return;
-  event.preventDefault();
-  const id = activeTaskId();
-  if (!id) return;
-  const task = state.tasks[id];
-  submitTask(task, rubrics.tasks[id], task.answers, rubrics.limits);
-  if (id === "title" && task.complete) state.revealed = true;
-  render();
-  if (task.complete) {
-    window.scrollTo(0, 0);
-    main.focus({ preventScroll: true });
-  } else main.querySelector(".feedback")?.focus();
+main.addEventListener("submit",event=>{
+ if(event.target.id!=="answer-form")return;event.preventDefault();captureDraft();
+ const id=activeTaskId();if(!id)return;const task=state.tasks[id];
+ if(id==="selection"&&task.hint<3&&cstate().questionStep!==4)return;
+ const original=task.answers.name;submitTask(task,rubrics.tasks[id],task.answers,rubrics.limits);
+ if(task.clarification)task.clarificationInput=original;
+ if(id==="title"&&task.scored)state.revealed=true;
+ render({focus:task.scored,scroll:task.scored});if(!task.scored)main.querySelector(".feedback")?.focus();
 });
+
 const dictionaryDialog = document.querySelector("#dictionary");
 document.querySelector("#dictionary-open").addEventListener("click", () => {
+  captureDraft();
   dictionaryDialog.showModal();
   document.querySelector("#dictionary-input").focus();
 });

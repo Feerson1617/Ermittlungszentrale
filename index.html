@@ -120,7 +120,7 @@
       </section>
     </main>
     <footer class="site-footer">
-      <a id="photo-sources" href="bildnachweise.html" target="_blank" rel="noopener" hidden>Bildquellen und Lizenzen</a>
+      <a id="photo-sources" href="bildnachweise.html" target="_blank" rel="noopener" hidden>Bildquellen und Lizenzen · mit Aufnahmeorten</a>
       <span>Gemeinsam ermitteln. Punkte auf Papier sichern.</span
       ><a href="materials/ermittlungsbogen.pdf" target="_blank" rel="noopener"
         >Ermittlungsbogen · PDF</a
@@ -168,10 +168,14 @@
       </div>
       <div id="map-content" class="big-map"></div>
     </dialog>
+    <dialog id="photo-dialog" aria-labelledby="photo-title">
+      <div class="dialog-header"><h2 id="photo-title">Beweisfoto</h2><button type="button" id="photo-close" class="outline">Schließen ×</button></div>
+      <div id="photo-content"></div>
+    </dialog>
     <dialog id="restart-dialog" aria-labelledby="restart-title">
       <h2 id="restart-title">Akte neu starten?</h2>
       <p>
-        Die Punkte dieser Akte werden zurückgesetzt.<br />Habt ihr sie auf
+        Antworten, Bildauswahl und Punkte dieser Akte werden zurückgesetzt. Andere Akten bleiben erhalten.<br />Habt ihr sie auf
         Papier notiert?
       </p>
       <div class="actions">

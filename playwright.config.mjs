@@ -41,6 +41,10 @@ export default defineConfig({
       },
     },
     {
+      name: "chromium-ipad-portrait",
+      use: { ...devices["iPad (gen 7)"], defaultBrowserType: "chromium", browserName: "chromium", launchOptions: {executablePath: process.env.CHROMIUM_PATH || "/usr/bin/chromium", args:["--no-sandbox"]}},
+    },
+    {
       name: "chromium-mobile",
       use: {
         ...devices["iPhone 13"],

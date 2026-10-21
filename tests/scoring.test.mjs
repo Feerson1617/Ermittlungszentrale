@@ -13,7 +13,7 @@ import {
 } from "../js/scoring.js";
 import { freshState, loadState, saveState, STORE } from "../js/session.js";
 const r = JSON.parse(
-  await readFile(new URL("../data/rubrics.json", import.meta.url)),
+  await readFile(new URL("../tests/fixtures/v1-rubrics.json", import.meta.url)),
 );
 const answers = {
   title: { name: "Afrika" },
@@ -140,7 +140,7 @@ for (const [id, rubric] of Object.entries(r.tasks)) {
       assert.equal(t.locked, true);
       assert.equal(t.attempts[level], 1);
       assert.equal(submitTask(t, rubric, answers[id]).status, "locked");
-      assert.equal(t.complete, false);
+      assert.equal(t.scored, false);
       assert.equal(t.points, 0);
       assert.equal(t.attempts[level], 1);
       openHint(t);
@@ -153,9 +153,9 @@ for (const [id, rubric] of Object.entries(r.tasks)) {
       for (let h = 0; h < level; h++) openHint(t);
       submitTask(t, rubric, answers[id]);
       assert.equal(t.points, r.limits[level]);
-      assert.equal(t.complete, true);
+      assert.equal(t.scored, true);
       assert.equal(openHint(t), false);
-      assert.equal(submitTask(t, rubric, wrong[id]).status, "complete");
+      assert.equal(submitTask(t, rubric, wrong[id]).status, "scored");
       assert.equal(t.points, r.limits[level]);
     });
   test(`${id}: dritte Hilfe eröffnet unbeschränktes, echtes Abschlussrätsel`, () => {
@@ -163,7 +163,7 @@ for (const [id, rubric] of Object.entries(r.tasks)) {
     for (let h = 0; h < 3; h++) {
       openHint(t);
       assert.equal(t.points, 0);
-      assert.equal(t.complete, false);
+      assert.equal(t.scored, false);
     }
     for (let i = 0; i < 7; i++) {
       submitTask(t, rubric, { fallback: "b" });
@@ -173,7 +173,7 @@ for (const [id, rubric] of Object.entries(r.tasks)) {
     assert.equal(t.attempts[3], 7);
     submitTask(t, rubric, { fallback: "a" });
     assert.equal(t.points, 1);
-    assert.equal(t.complete, true);
+    assert.equal(t.scored, true);
     assert.equal(t.ack, false);
   });
   test(`${id}: Abschlussauswahl ist vor Hinweis 3 unzulässig`, () => {
@@ -216,7 +216,7 @@ test("Unklare Bedeutung verbraucht keinen Versuch und zeigt keine Teilpunkte", (
     }).status,
     "unclear",
   );
-  assert.equal(t.complete, false);
+  assert.equal(t.scored, false);
   assert.equal(t.points, 0);
   assert.equal(t.attempts[0], 0);
   assert.deepEqual(t.criteria, []);
@@ -230,7 +230,7 @@ test("Ein erfülltes Teilkriterium bleibt erhalten", () => {
   });
   assert.equal(t.points, 2);
   assert.deepEqual(t.criteria, [2, 0, 0, 0]);
-  assert.equal(t.complete, true);
+  assert.equal(t.scored, true);
 });
 test("Jedes unabhängige Foto zählt, andere Fehler nehmen es nicht weg", () => {
   const t = createTask();
@@ -240,7 +240,7 @@ test("Jedes unabhängige Foto zählt, andere Fehler nehmen es nicht weg", () => 
     missing: [4, 1],
   });
   assert.equal(t.points, 1);
-  assert.equal(t.complete, true);
+  assert.equal(t.scored, true);
 });
 test("Teilpunkte und Hinweise werden kombiniert", () => {
   const t = createTask();

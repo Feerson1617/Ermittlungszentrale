@@ -2,7 +2,7 @@
 
 ## Dokumentarische Fotografien
 
-15 von 15 authentischen Fotografien sind lokal eingebunden. Recherche, Abgleich der Aufnahmeorte, Lizenzprüfung und Sichtprüfung: 20.10.2026. Keine generierten Beweisbilder; keine externen Bildabrufe beim Spielen.
+19 authentische Fotografien sind lokal eingebunden. Recherche, Abgleich der Aufnahmeorte, Lizenzprüfung und Sichtprüfung: 20.–21.10.2026. Keine generierten Beweisbilder; keine externen Bildabrufe beim Spielen.
 
 Die Ortsprüfung stützt sich auf die Autorbeschreibung, die Originalquellen und geografischen Kategorien sowie, soweit vorhanden, Koordinaten der Commons-Beschreibungsseite. Die jeweilige Genauigkeit und jede Motivabweichung stehen unten. Nicht belegte Straßen, Farmstandorte oder GPS-Koordinaten werden nicht ergänzt. Einzelbilder belegen weder gegenwärtige Zustände noch zeitliche Trends für ein ganzes Land.
 
@@ -10,9 +10,9 @@ Unter `docs/media/` liegen unveränderte Commons-API-Antworten mit Beschreibungs
 
 Alle lokalen Ableitungen behalten die jeweilige Bildlizenz. WebP-Konvertierung, Verkleinerung (maximal 1400 × 1400 Pixel) und Entfernung von EXIF; kein inhaltlicher Eingriff, keine generative Bearbeitung, kein gespeicherter Beschnitt. Die Oberfläche zeigt das vollständige Bild mit `object-fit: contain`. Eventuelle Bearbeitungen bereits auf Commons stehen im gesicherten Quellennachweis.
 
-Die sichtbare Kurzangabe nennt Urheber und Lizenz. Die lokale Seite [Bildnachweise](../bildnachweise.html) enthält Originaltitel, Quell- und Lizenzlinks, Ortsbeleg und Bearbeitung. Sie ist im Spiel bei den anonymen Rätseln erst nach der Lösung verlinkt. Akte 001 zeigt neutrale Bildnummern, Motive und Dateipfade; keine Ortsnamen oder Originaltitel. Akte 002 und 004 verwenden dieselben zehn Einträge mit identischen Nummern und Dateien. In Akte 003 folgen Atlas- und Kakaopunkt den dokumentierten Aufnahmekoordinaten; der Stadtpunkt markiert Lagos Island aus der Autorbeschreibung. Die Karten sind stark vereinfacht und keine Navigationskarten.
+Die sichtbare Kurzangabe nennt Urheber und Lizenz. Die lokale Seite [Bildnachweise](../bildnachweise.html) enthält Originaltitel, Quell- und Lizenzlinks, Ortsbeleg und Bearbeitung. Sie ist jederzeit bewusst aufrufbar; ihr Link weist auf Aufnahmeorte hin. Lizenzgerechte Attribution hat Vorrang vor absolutem Spoilerschutz. Akte 001 zeigt neutrale Bildnummern, Motive und Dateipfade; keine Ortsnamen oder Originaltitel. Akte 002 und 004 verwenden dieselben zwölf nummerierten Auswahleinträge mit identischen Nummern und Dateien. In Akte 003 folgen Atlas- und Kakaopunkt den dokumentierten Aufnahmekoordinaten; der Stadtpunkt markiert Lagos Island aus der Autorbeschreibung. Die Karten sind stark vereinfacht und keine Navigationskarten.
 
-Die Fotos laden erst in der geöffneten Akte, kompakte Auswahlen zusätzlich mit Lazy Loading. Zusammen: 2.84 MiB. Kein Vorladen der 15 Fotos auf dem Startbildschirm. Bildabnahme ist von der weiterhin offenen sprachlichen und echten Geräteabnahme getrennt.
+Die Fotos laden erst in der geöffneten Akte, kompakte Auswahlen zusätzlich mit Lazy Loading. Zusammen: 3.59 MiB. Kein Vorladen der Fotos auf dem Startbildschirm. Bildabnahme ist von der weiterhin offenen sprachlichen und echten Geräteabnahme getrennt.
 
 | Nachweis | Spielschlüssel | Motiv / belegter Ort | Urheber | Lizenz | Datei |
 |---|---|---|---|---|---|
@@ -31,6 +31,10 @@ Die Fotos laden erst in der geöffneten Akte, kompakte Auswahlen zusätzlich mit
 | F13 | people | Skyline von Nairobi, vom Stadtteil Upper Hill aus gesehen. Upper Hill, Nairobi, Kenia | Lmwangi | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [assets/images/13.webp](../assets/images/13.webp) |
 | F14 | economy | Gebäude und Anlage eines kakaoverarbeitenden Betriebs. Industriegebiet Tema, Ghana | Hiroo Yamagata | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [assets/images/14.webp](../assets/images/14.webp) |
 | F15 | solar | Spiegelfelder des solarthermischen Kraftwerks Noor I/II. Noor-Solarkomplex bei Ouarzazate, Marokko | Richard Allaway | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [assets/images/15.webp](../assets/images/15.webp) |
+| F16 | supply | Wassertank auf einem Turm Kajiado County, Kenia | Queen Asali | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [assets/images/water-supply.webp](../assets/images/water-supply.webp) |
+| F17 | clinic | Krankenhausgebäude in Butaro Butaro, Distrikt Burera, Ruanda | François Terrier | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [assets/images/medical-care.webp](../assets/images/medical-care.webp) |
+| A3-B1 | housing | Dichte Bebauung in Makoko aus der Luft Makoko, Lagos, Nigeria | Kateregga1 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [assets/images/lagos-housing.webp](../assets/images/lagos-housing.webp) |
+| A3-B2 | trade | Stoffhandel im Balogun-Markt Balogun-Markt, Lagos, Nigeria | Seattle Globalist | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [assets/images/lagos-trade.webp](../assets/images/lagos-trade.webp) |
 
 ### F01 · savanna
 
@@ -225,6 +229,58 @@ Die Fotos laden erst in der geöffneten Akte, kompakte Auswahlen zusätzlich mit
 - **Motivabweichung / Grenze:** Solarthermische Anlage mit Spiegeln statt Photovoltaik; ein großes Kraftwerk statt einer kleinen lokalen Anlage.
 - **Lokal:** assets/images/15.webp, 1400 × 652 Pixel, 117 KiB; SHA256 `26a61ed6de0fa407f9a34b1c4fea5a88f373aa3ce0c63e30d1a0b41d2052e5b3`.
 - **Quellennachweis:** [docs/media/solar.json](../docs/media/solar.json); SHA256 `f0c0ee0911621d4d01e0b1f51246a033d28bd3853b9d28a82698ce3f280d5186`.
+
+
+### F16 · supply
+
+- **Original:** [Water tank tower.jpg](https://commons.wikimedia.org/wiki/File:Water_tank_tower.jpg); [geprüfte Beschreibungsrevision 1234460969](https://commons.wikimedia.org/w/index.php?title=File%3AWater+tank+tower.jpg&oldid=1234460969).
+- **Aufnahmeort:** Kajiado County, Kenia.
+- **Aufnahmedatum laut Quelle:** 2026-06-19.
+- **Ortsbeleg:** Die Commons-Autorbeschreibung nennt einen Wassertankturm in Ongara Rongai, Kajiado County, Kenia; die Kategorien nennen Wasserversorgung in Kenia. Die Ortsangabe wird auf den belegten County begrenzt.
+- **Urheber / Lizenz:** [Queen Asali](https://commons.wikimedia.org/wiki/User:Queen_Asali); [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+- **Erforderliche Attribution der lokalen Fassung:** Queen Asali: Water tank tower.jpg, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), Quelle Wikimedia Commons; lokal verkleinert, in WebP umgewandelt, EXIF entfernt, kein Beschnitt.
+- **Motivabweichung / Grenze:** Wasserspeicher als Beispiel für Versorgung; kein Beleg für Wassermangel oder Zugang aller Haushalte.
+- **Lokal:** assets/images/water-supply.webp, 788 × 1400 Pixel, 211 KiB; SHA256 `a245c9c1713299695e70323d47aa37366fd90801dc308c81cf9cbc6a94157308`.
+- **Quellennachweis:** [docs/media/supply.json](../docs/media/supply.json); SHA256 `3012f72346cf8ead05fed6dffce35e20eee838f18d44fb56effa759b96d7b047`.
+
+
+### F17 · clinic
+
+- **Original:** [Butaro Hospital.jpg](https://commons.wikimedia.org/wiki/File:Butaro_Hospital.jpg); [geprüfte Beschreibungsrevision 1102199426](https://commons.wikimedia.org/w/index.php?title=File%3AButaro+Hospital.jpg&oldid=1102199426).
+- **Aufnahmeort:** Butaro, Distrikt Burera, Ruanda.
+- **Aufnahmedatum laut Quelle:** 2011-10-11.
+- **Ortsbeleg:** Commons-Beschreibung: New hospital in Butaro, Burera District, Rwanda. Flickr-Original und Kategorie nennen Butaro Hospital. Keine Herkunft oder Qualifikation von Personen aus dem Aussehen abgeleitet.
+- **Urheber / Lizenz:** [François Terrier](https://www.flickr.com/people/59728762@N03); [CC BY 2.0](https://creativecommons.org/licenses/by/2.0).
+- **Erforderliche Attribution der lokalen Fassung:** François Terrier: Butaro Hospital.jpg, CC BY 2.0 (https://creativecommons.org/licenses/by/2.0), Quelle Wikimedia Commons; lokal verkleinert, in WebP umgewandelt, EXIF entfernt, kein Beschnitt.
+- **Motivabweichung / Grenze:** Historische Außenaufnahme von 2011; kein Beleg für aktuelle Versorgungsqualität, allgemeine Zugänglichkeit oder finanzielle Unabhängigkeit.
+- **Lokal:** assets/images/medical-care.webp, 1400 × 933 Pixel, 234 KiB; SHA256 `f8d05e2d3cb57c154f36d18ece24ac731a1468fa75599ef29838f028d323a308`.
+- **Quellennachweis:** [docs/media/clinic.json](../docs/media/clinic.json); SHA256 `9a1c4d499639d3bf4a5b1c719076580a3d9c8196fe5e9533d88a1efef5c36eeb`.
+
+
+### A3-B1 · housing
+
+- **Original:** [Aerial view of Makoko Slum in Lagos Nigeria.png](https://commons.wikimedia.org/wiki/File:Aerial_view_of_Makoko_Slum_in_Lagos_Nigeria.png); [geprüfte Beschreibungsrevision 789358275](https://commons.wikimedia.org/w/index.php?title=File%3AAerial+view+of+Makoko+Slum+in+Lagos+Nigeria.png&oldid=789358275).
+- **Aufnahmeort:** Makoko, Lagos, Nigeria.
+- **Aufnahmedatum laut Quelle:** 2019-11-13.
+- **Ortsbeleg:** Die Autorbeschreibung nennt Makoko in Lagos; die geografischen Kategorien bestätigen Makoko und Luftaufnahme von Lagos.
+- **Urheber / Lizenz:** [Kateregga1](https://commons.wikimedia.org/wiki/User:Kateregga1); [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+- **Erforderliche Attribution der lokalen Fassung:** Kateregga1: Aerial view of Makoko Slum in Lagos Nigeria.png, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), Quelle Wikimedia Commons; lokal verkleinert, in WebP umgewandelt, EXIF entfernt, kein Beschnitt.
+- **Motivabweichung / Grenze:** Aufnahme 2019; Vergleich mit Lagos Island 2016 zeigt unterschiedliche Orte und Zeitpunkte, keinen zeitlichen Entwicklungsverlauf. Keine Einkommen oder Herkunft aus dem Bild ableiten. Die Aufnahme zeigt Dächer und Straßen; sie belegt weder Haushaltseinkommen noch einen bestimmten Versorgungsgrad.
+- **Lokal:** assets/images/lagos-housing.webp, 1400 × 729 Pixel, 214 KiB; SHA256 `689dd9a223179e21a969a59fa30fabe56c7641f3348b869af9df4dfaa88ae090`.
+- **Quellennachweis:** [docs/media/housing.json](../docs/media/housing.json); SHA256 `300257512a0c40ce6df2071567673b351ea441494edf724ec2f9095a83e54cca`.
+
+
+### A3-B2 · trade
+
+- **Original:** [2007 Balogun Market Lagos Nigeria 9395578408.jpg](https://commons.wikimedia.org/wiki/File:2007_Balogun_Market_Lagos_Nigeria_9395578408.jpg); [geprüfte Beschreibungsrevision 1201387318](https://commons.wikimedia.org/w/index.php?title=File%3A2007+Balogun+Market+Lagos+Nigeria+9395578408.jpg&oldid=1201387318).
+- **Aufnahmeort:** Balogun-Markt, Lagos, Nigeria.
+- **Aufnahmedatum laut Quelle:** 2007-07-13 11:06.
+- **Ortsbeleg:** Beschreibung des Flickr-Fotos: Ankara alley of Balogun Market, Lagos, Nigeria; Commons-Kategorie bestätigt Märkte in Lagos.
+- **Urheber / Lizenz:** [Seattle Globalist](https://www.flickr.com/people/51515265@N08); [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0).
+- **Erforderliche Attribution der lokalen Fassung:** Seattle Globalist: 2007 Balogun Market Lagos Nigeria 9395578408.jpg, CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0), Quelle Wikimedia Commons; lokal verkleinert, in WebP umgewandelt, EXIF entfernt, kein Beschnitt.
+- **Motivabweichung / Grenze:** Historische Aufnahme 2007. Dritte Alltagsperspektive und belegter Handelsort, keine statistische Mittelschicht oder Einkommensangabe. Das Original hat 963 × 640 Pixel und wurde nicht künstlich vergrößert.
+- **Lokal:** assets/images/lagos-trade.webp, 963 × 640 Pixel, 115 KiB; SHA256 `263f27561f68d49f079400382e8f979cae435216a7b0cb683a147bf88113dcc6`.
+- **Quellennachweis:** [docs/media/trade.json](../docs/media/trade.json); SHA256 `e6181325a25cbe0c24ba7d62822b02c219acff963ab688f79049615fb9ceb4e2`.
 
 ## Karten: Natural Earth
 

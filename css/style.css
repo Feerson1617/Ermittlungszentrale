@@ -1349,3 +1349,33 @@ fieldset:disabled {
     margin-top: 15px;
   }
 }
+
+/* Version 2: selection and enlargement are distinct controls. */
+.photo-option { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.photo-option .photo-choice { flex: 1; width: 100%; }
+.photo-zoom { min-height: 48px; width: 100%; margin-top: 5px; }
+.photo-year { display: block; font-weight: 500; }
+.learning-photos { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.learning-photos .photo img { max-height: 340px; }
+.learning-fields select { margin-bottom: 20px; }
+.learning-fields textarea { margin-bottom: 15px; }
+.context-cards { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.context-cards article, .criterion { border: 1px solid var(--line); padding: 16px; border-radius: 8px; margin-bottom: 14px; }
+.criterion-correct { border-left: 5px solid var(--teal); }
+.criterion-open { border-left: 5px solid var(--gold); }
+.resolution { margin: 24px 0; }
+.evidence-schema { padding: 15px; background: var(--teal-light); border-radius: 8px; }
+.evidence-schema > span { display: block; font-size: 3rem; text-align: center; }
+.optional-spurs, .concept-help { padding: 12px; border: 1px solid var(--line); border-radius: 8px; margin: 18px 0; }
+.optional-spurs summary, .concept-help summary { min-height: 48px; cursor: pointer; padding: 12px 0; font-weight: 650; }
+.optional-spurs article { margin-top: 20px; }
+.source-note a { display: inline-flex; min-height: 44px; align-items: center; }
+.question-progress { font-weight: 700; }
+#photo-dialog { width: min(1100px,96vw); max-height: 94dvh; overflow: auto; }
+#photo-content img { display: block; width: 100%; height: auto; max-height: 73dvh; object-fit: contain; }
+#photo-content p { margin-top: 15px; }
+@media(max-width:650px) { .learning-photos, .context-cards { grid-template-columns: 1fr; } }
+
+.cocoa-chain{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-left:24px}.cocoa-chain li{padding:8px;background:var(--paper,#fffdf6);border-radius:5px}@media(max-width:600px){.cocoa-chain{grid-template-columns:1fr}}
+
+.chain-symbol{width:48px;height:44px;display:block;margin-bottom:6px}

@@ -1,202 +1,195 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { chromium } from "@playwright/test";
-import { resolve } from "node:path";
-import { cases, photos } from "../data/cases.js";
-import { maps } from "../data/maps.js";
-import {
-  scopeAccepted,
-  scopeRejected,
-  diversityAccepted,
-  diversityRejected,
-} from "../js/scoring.js";
-const root = resolve(new URL("..", import.meta.url).pathname);
-const r = JSON.parse(
-  await readFile(resolve(root, "data/rubrics.json"), "utf8"),
-);
-const dictionary = JSON.parse(
-  await readFile(resolve(root, "data/dictionary.json"), "utf8"),
-);
-const media = JSON.parse(await readFile(resolve(root, "data/media.json"), "utf8"));
-const e = (s) =>
-  String(s).replace(
-    /[&<>"']/g,
-    (c) =>
-      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
-        c
-      ],
-  );
-const line = '<div class="write-line"></div>';
-const style = `*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#111;background:#e9e9e9;font-size:12pt;line-height:1.35}h1{font-size:21pt;line-height:1.15;margin:0 0 8mm}h2{font-size:14pt;margin:0 0 3mm}h3{font-size:12pt;margin:4mm 0 2mm}p{margin:2.5mm 0}section{margin:5mm 0 0;padding-top:3mm;border-top:1px solid #333}.sheet{background:white;width:190mm;height:277mm;margin:10mm auto;padding:0;overflow:hidden;page-break-after:always;position:relative}.sheet:last-child{page-break-after:auto}.sheet-footer{position:absolute;bottom:1mm;left:0;right:0;display:flex;justify-content:space-between;font-size:9pt}.write-line{height:9mm;border-bottom:1px solid #555;margin-bottom:2mm}.name-row{display:flex;gap:8mm;justify-content:space-between}.map{width:100%;height:80mm;margin:3mm 0 0}.map svg{width:100%;height:100%;display:block}.map path{fill:white;stroke:#222;stroke-width:.8}.map rect{fill:white}.points{text-align:right;font-weight:bold;margin-top:3mm}.numbers{font-size:19pt;letter-spacing:3mm;margin:3mm 0 4mm}.sub{font-size:10.5pt}.question{font-weight:normal}.score-table{border-collapse:collapse;width:100%;font-size:11pt}.score-table td,.score-table th{border-bottom:1px solid #777;padding:2mm;text-align:left}.totals{display:flex;gap:4mm;justify-content:space-between;flex-wrap:wrap;font-size:11pt}.totals span{min-width:20mm}.print-bar{max-width:190mm;margin:15px auto}a{color:#111}.print-bar p{font-size:11pt}@page{size:A4;margin:10mm}@media print{body{background:white}.sheet{margin:0;break-after:page}.sheet:last-child{break-after:auto}.print-bar{display:none}}`;
-const worksheet = `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Meine geheime Ermittlungsakte</title><style>${style}</style></head><body><aside class="print-bar"><a href="ermittlungsbogen.pdf">PDF herunterladen</a><p>DIN A4 · 100 % · beidseitig · lange Kante · keine Kopf- und Fußzeilen.</p></aside>
+import {readFile,writeFile,mkdir} from "node:fs/promises";
+import {fileURLToPath} from "node:url";
+import {resolve} from "node:path";
+import {chromium} from "@playwright/test";
+import {cases,photos,clues,caseTasks} from "../data/cases.js";
+import {maps} from "../data/maps.js";
+import {coreLearning,extraSpurs,evidenceSources} from "../data/learning.js";
+const root=fileURLToPath(new URL("..",import.meta.url));
+const read=path=>readFile(resolve(root,path),"utf8");
+const r=JSON.parse(await read("data/rubrics.json")),media=JSON.parse(await read("data/media.json")),dictionary=JSON.parse(await read("data/dictionary.json"));
+const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+const line='<div class="write-line"></div>';
+const sheetStyle=`*{box-sizing:border-box}body{margin:0;font:12pt/1.3 Arial,sans-serif;color:#111;background:#eee}h1{font-size:20pt;margin:0 0 4mm}h2{font-size:13pt;margin:0 0 2mm}p{margin:2mm 0}section{margin-top:4mm;padding-top:3mm;border-top:1px solid #444}.sheet{position:relative;width:190mm;height:277mm;margin:10mm auto;background:white;overflow:hidden;break-after:page}.sheet:last-child{break-after:auto}.sheet-footer{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;font-size:9pt}.name-row{display:flex;justify-content:space-between;font-size:11pt}.map{height:68mm;margin:2mm 0}.map svg{width:100%;height:100%;display:block}.map path{fill:white;stroke:#222;stroke-width:.8}.map rect{fill:white}.numbers{font-size:18pt;letter-spacing:3mm}.write-line{height:8mm;border-bottom:1px solid #666;margin-bottom:1mm}.points{text-align:right;font-weight:bold}.score-table{border-collapse:collapse;width:100%}.score-table th,.score-table td{padding:2mm;border-bottom:1px solid #777;text-align:left}.small{font-size:10.5pt}.totals{display:flex;gap:6mm;flex-wrap:wrap}.print-bar{max-width:190mm;margin:12px auto}@page{size:A4;margin:10mm}@media print{body{background:white}.sheet{margin:0}.print-bar{display:none}}`;
+const worksheet=`<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Meine geheime Ermittlungsakte</title><style>${sheetStyle}</style></head><body><aside class="print-bar"><a href="ermittlungsbogen.pdf">PDF herunterladen</a><p>Ein Blatt · zwei Seiten · DIN A4 · 100 % · beidseitig an langer Kante.</p></aside>
 <article class="sheet" aria-label="Vorderseite"><h1>Meine geheime Ermittlungsakte</h1><div class="name-row"><span>Name: ____________________</span><span>Team: ____________________</span></div>
-<section><h2>Akte 001 · Der verschwundene Titel</h2><p class="question">Welches neue Thema erwartet uns im Geographieunterricht?</p><p>Antwort: __________________________________________</p><p class="points">Punkte: ______ / 5</p><div class="map" role="img" aria-label="Unbeschriftete Weltkarte ohne Hervorhebung">${maps.world}</div><p>Nach der Lösung: Markiere Afrika rot.</p></section>
-<section><h2>Akte 002 · Die Bilder im Kopf</h2><p>Welche Bilder verbinden wir mit Afrika?</p><p>Unsere vier Bildnummern:</p><p class="numbers">___ ___ ___ ___</p><p>Was zeigen die vier Bilder der Redaktion nicht?</p>${line}${line}<p>Vier Fotos zeigen nur …</p>${line}<p class="points">Punkte: ______ / 5</p></section><div class="sheet-footer"><span>Gemeinsam ermitteln. Wörter und Stichpunkte genügen.</span><span>1 / 2</span></div></article>
-<article class="sheet" aria-label="Rückseite"><section><h2>Akte 003 · Ein Kontinent, viele Gesichter</h2><p>Wie unterschiedlich ist Afrika?</p><table class="score-table"><thead><tr><th>Fall</th><th>Land</th><th>Punkte</th></tr></thead><tbody><tr><td>A · Schnee</td><td>_______________________</td><td>____ / 5</td></tr><tr><td>B · Großstadt</td><td>_______________________</td><td>____ / 5</td></tr><tr><td>C · Zutat</td><td>_______________________</td><td>____ / 5</td></tr></tbody></table><p>Das hat mich überrascht:</p>${line}</section>
-<section><h2>Akte 004 · Der letzte Ermittlungsbericht</h2><p>Was hat sich an unseren Vorstellungen verändert?</p><p>Unsere neuen vier Bildnummern:</p><p class="numbers">___ ___ ___ ___</p><p>Am Anfang dachte ich …</p>${line}<p>Jetzt weiß ich …</p>${line}<p class="points">Punkte: ______ / 5</p></section>
-<section><h2>Akte 005 · freiwillig</h2><p>Eine Frage für die nächsten Geographiestunden:</p>${line}${line}<p class="points">Bonus: ______ / 5</p></section>
-<section><h2>Unsere Punkte</h2><div class="totals"><span>Akte 1: ____</span><span>Akte 2: ____</span><span>Akte 3: ____ / 15</span><span>Akte 4: ____</span></div><p><strong>Gesamt: ______ / 30</strong> &nbsp;&nbsp; Bonus-Akte 5: ______ / 5</p><p class="sub">Persönliche Bildauswahl, Gedanken und eigene Fragen geben keine Punkte.</p></section><div class="sheet-footer"><span>Bildnummern in Akte 002 und 004 sind gleich.</span><span>2 / 2</span></div></article></body></html>`;
-await mkdir(resolve(root, "materials"), { recursive: true });
-await mkdir(resolve(root, "docs"), { recursive: true });
-await writeFile(resolve(root, "materials/ermittlungsbogen.html"), worksheet);
-const coverage = Object.fromEntries(
-  ["ru", "uk", "pl", "tr", "ar", "ku", "ckb"].map((l) => [
-    l,
-    dictionary.filter((x) => x[l]).length,
-  ]),
-);
-const tasks = Object.entries(r.tasks)
-  .map(([key, t]) => {
-    const criteria = t.criteria
-      ? `\nTeilpunkte: ${t.criteria.map((c) => `${c.label}: ${c.points}`).join("; ")}. Gemeinsame Abgabe aller drei Teile. Jedes gewählte Foto außerhalb der Redaktion [${t.editorial.join(", ")}] zählt einen Punkt. Auswahl genau zwei verschiedene Fotos.\n`
-      : "";
-    return `## ${t.label}\n\nAkte ${t.case}; Aufgaben-ID: \`${key}\`; maximal ${t.max} ${t.case === 5 ? "Bonus" : ""}punkte.\n\n**Lösung:** ${t.solution}\n${criteria}\n**Hinweise (in dieser Reihenfolge):**\n\n${t.hints.map((s, i) => `${i + 1}. ${s}`).join("\n")}\n\n**Nach Hinweis 3:** ${t.fallback.prompt} ${t.fallback.options.map((s, i) => `${String.fromCharCode(65 + i)}: ${s}`).join(" / ")} Richtig: A. Erfolgreiche Abgabe: ein Punkt, vorher kein Punkt.\n\n**Sicherung:** ${t.paper}\n\n**Rückmeldung:** ${t.success}\n${t.aliases ? `\nAkzeptierte normalisierte Namensformen: ${t.aliases.map((a) => "`" + a + "`").join(", ")}. Dazu kurze Sätze wie „Das Land ist …“. Keine allgemeine Distanzkorrektur.\n` : ""}`;
-  })
-  .join("\n");
-const teacher = `# Erwartungshorizont · Die geheime Ermittlungszentrale
+<section><h2>Akte 001 · Der verschwundene Titel</h2><p>Gesuchtes Thema: __________________________________</p><p>Nach der Lösung: Markiert den gesuchten Kontinent rot.</p><div class="map" role="img" aria-label="Unbeschriftete Weltkarte ohne Hervorhebung">${maps.world}</div><p class="points">Punkte: ______ / 5</p></section>
+<section><h2>Akte 002 · Die Bilder im Kopf</h2><p>Unsere erste gemeinsame Auswahl: vier aus ${photos.length} Bildern</p><p class="numbers">___ ___ ___ ___</p><p>In der Auswahl der Redaktion fehlt … (Bildnummer oder Stichwort)</p>${line}<p class="small">Vier Fotos zeigen einige Orte. Sie stehen nicht für alle Lebensbedingungen.</p><p class="points">Punkte: ______ / 5</p></section><div class="sheet-footer"><span>Wörter und Stichpunkte genügen. Ergebnisse auf Papier sichern.</span><span>1 / 2</span></div></article>
+<article class="sheet" aria-label="Rückseite"><section><h2>Akte 003 · Ein Kontinent, viele Gesichter</h2><table class="score-table"><thead><tr><th>Fall</th><th>Land</th><th>Punkte</th></tr></thead><tbody><tr><td>A · Schnee</td><td>_____________________</td><td>____ / 5</td></tr><tr><td>B · Stadt</td><td>_____________________</td><td>____ / 5</td></tr><tr><td>C · Früchte</td><td>_____________________</td><td>____ / 5</td></tr></tbody></table><p>Eine wirtschaftliche Spur: Bild/Beleg ____ · __________________</p><p>Eine Spur zum Zusammenleben: Bild/Beleg ____ · _____________</p></section>
+<section><h2>Akte 004 · Der letzte Ermittlungsbericht</h2><p>Unsere zweite Auswahl:</p><p class="numbers">___ ___ ___ ___</p><p>Wählt einen Rückblick: gleich geblieben / neu oder ergänzt / dazu passt Beleg</p>${line}<p>Gewählte Überschrift:</p>${line}<p class="points">Punkte: ______ / 5</p></section>
+<section><h2>Akte 005 · freiwillig</h2><p>Unsere Zukunftsfrage (freiwillig):</p>${line}<p class="points">Bonus: ______ / 5</p></section>
+<section><h2>Unsere Punkte</h2><div class="totals"><span>Akte 1: ____</span><span>Akte 2: ____</span><span>Akte 3: ____ / 15</span><span>Akte 4: ____</span></div><p><strong>Gesamt: ______ / 30</strong> &nbsp; Bonus-Akte 5: ______ / 5</p><p class="small">Nicht gespielte Akten bleiben leer. Auswahlen, Rückblick und eigene Fragen werden nicht bewertet.</p></section><div class="sheet-footer"><span>Die Bildnummern in Akte 002 und 004 sind identisch.</span><span>2 / 2</span></div></article></body></html>`;
+if(/Afrika|Africa|Marokko|Nigeria|Ghana/i.test(worksheet))throw new Error("Lösung im neutralen Schülerbogen");
+const mediaTable=`| Nummer | Motiv | Belegter Ort | Einsatz / Nachweis |\n|---|---|---|---|\n${photos.map(p=>{const i=media.images[p.key];return `| ${p.id} | ${p.title} | ${i.location} | Akten 002/004; ${i.creditId}${[9,12].includes(p.id)?'; Bildung/Gesundheit':''}${p.id===11?'; Wasserversorgung, kein automatischer Mangel':''} |`;}).join('\n')}`;
+const selectedKeys=new Set(photos.map(p=>p.key));
+const additionalTable=`| Beleg-ID | Motiv | Belegter Ort / Datum | Einsatz und Grenze |\n|---|---|---|---|\n${Object.entries(media.images).filter(([key])=>!selectedKeys.has(key)).map(([key,i])=>`| ${i.creditId} | ${i.description} | ${i.location}; ${i.taken} | ${key==='housing'||key==='trade'?'Lagos-Ermittlung; keine Einkommenszuordnung':'Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg'} |`).join('\n')}`;
+const solutions=`| Wertung | Richtige Lösung / Menge | Maximal |\n|---|---|---|\n${Object.entries(r.tasks).map(([key,t])=>`| ${key} · Akte ${t.case} | ${t.solution} | ${t.max}${t.case===5?' Bonus':''} |`).join('\n')}`;
+const taskDetails=Object.entries(r.tasks).map(([key,t])=>`## ${t.label}
 
-Bearbeitbare Ausgangsfassung. Aufgaben, Hinweise, Lösungen und Namensvarianten werden aus \`data/rubrics.json\` erzeugt. Formulierungen zur Kurzantwortauswertung stammen aus \`js/scoring.js\`. Nach Inhaltsänderungen \`npm run materials\` ausführen.
+Aufgaben-ID: ${key}; Akte ${t.case}; höchstens ${t.max} ${t.case===5?'Bonus':'Haupt'}punkte.
 
-## Unterricht und Lernziele
+**Lösung:** ${t.solution}
 
-Geographie, Jahrgang 7, ETS Tönning/Friedrichstadt. Bezug laut Entwicklungsauftrag: „Afrika – Abhängigkeiten von Naturraum und Bevölkerungsentwicklung und seine wirtschaftlichen Potentiale“. Kein unabhängiger Abgleich mit einer schulischen Curriculumdatei: Diese wurde nicht mitgeliefert.
+${t.criteria?`**Kriterien:** ${t.criteria.map(c=>c.label+': '+c.points).join('; ')}. Vier Teilfragen schrittweise eingeben, anschließend genau eine Gesamtabgabe. Für Arbeit gelten alle passenden Bilder ${t.correctAnswers.work.join('/')}; für Lernen/Behandlung ${t.correctAnswers.education.join('/')}. Die Redaktion verwendet ${t.editorial.join(', ')}; Bilder außerhalb der Redaktion sind nicht allein deshalb sachlich passend.`:''}
 
-Fünf Schwerpunkte: Afrikabild in Deutschland; naturräumliche Abhängigkeiten; Bevölkerungswachstum als Chance und Risiko; wirtschaftlicher Aufschwung; nachhaltige Entwicklungschancen. Die Akten regen Fragen an und nehmen die folgenden Unterrichtsstunden nicht vorweg.
+**Hinweise in Reihenfolge:**
 
-Zweierteams; keine Zeitwertung, kein Audio. Akten sind unabhängig. Akte 001: etwa 10–12 Minuten. Akten 002 und 003: jeweils etwa 15–20 Minuten. Akte 004: 8–10 Minuten. Freiwillige Akte 005: 10–15 Minuten. Einzelne Stunden auswählen; nicht alle Akten in eine Unterrichtsstunde drängen.
+${t.hints.map((hint,i)=>`${i+1}. ${hint}`).join('\n')}
 
-Akte 001: Thema aus widersprüchlich wirkenden Raumbeispielen erschließen. Akte 002: persönliche Vorstellungen ausdrücken und begrenzte Medienauswahl erkennen. Akte 003: Orte räumlich verorten und Vielfalt erkennen. Akte 004: Vorstellungen überdenken, ohne eine bestimmte Meinung zu erzwingen. Akte 005: Fragen für die weitere Einheit entwickeln.
+**Vereinfachte Abschlussaufgabe:** ${t.fallback.prompt} ${t.fallback.options.map(o=>`${o.id.toUpperCase()}: ${o.label}`).join(' / ')}. Richtige ID: ${t.fallback.answer.toUpperCase()}. Erst richtige Abgabe: ein Punkt; kein Punkt allein fürs Hinweisöffnen.
 
-## Vor dem Einsatz: offene Abnahme
+**Papier:** ${t.paper}
 
-Alle 15 authentischen Beweisfotos sind lokal eingebunden; Aufnahmeorte und freie Lizenzen wurden einzeln anhand der gesicherten Quellen geprüft. Keine generierten Beweisbilder. Originalquellen, Attributionen und dokumentierte Motivabweichungen: \`docs/bildquellen.md\`, \`data/media.json\` und \`bildnachweise.html\`. Die Bildintegration ist abgeschlossen. Sprachabnahme und Safari-Test auf einem echten Schul-iPad stehen weiterhin aus; deshalb noch keine vollständige Unterrichtsfreigabe.
+${t.aliases?`**Explizite Namensvarianten:** ${t.aliases.join(', ')}. Weitere unbekannte Namen nur neutral klären, keine pauschale Distanzschwelle. Kontinent- und Länderbehauptungen getrennt behandeln.`:''}
+`).join('\n');
+const lessonDetails=Object.entries(coreLearning).map(([key,lesson])=>`### ${lesson.title}
 
-Wörterbuch: ${dictionary.length} deutsche Begriffe. Abdeckung: Russisch ${coverage.ru}, Ukrainisch ${coverage.uk}, Polnisch ${coverage.pl}, Türkisch ${coverage.tr}, Arabisch ${coverage.ar}, Kurmandschi ${coverage.ku}, Sorani ${coverage.ckb}. Alle sieben Sprachen wurden redaktionell auf Plausibilität geprüft; die vorhandenen kurdischen Einträge haben einzeln zugeordnete Quellenbelege. Keine muttersprachliche oder professionelle Freigabe behauptet. Verbleibende Fachwort- und Formulierungslücken bleiben ausdrücklich leer. Vor Einsatz alle sieben Sprachen muttersprachlich prüfen, einschließlich kurdischer Idiomatik und arabischer Fachbegriffe. Quellen, Prüfgrenzen und offene Begriffe: docs/woerterbuch-pruefung.md. Einzelwortformen sind keine vollständigen Satzübersetzungen.
+${lesson.steps.map(step=>`**${step.title}:** ${step.text} ${step.questions?.map(q=>q.label).join(' ')||''}\n\nAuflösung: ${step.explanation}`).join('\n\n')}
 
-Der Schülerbogen enthält gemäß Auftrag das Thema bereits in mehreren Aufgaben. Für die Überraschung in Akte 001 den Bogen erst nach der Lösung ausgeben oder die späteren Aufgaben zunächst abdecken. Nicht behaupten, der öffentlich einsehbare Quellcode oder diese Datei sei technisch geheim.
+Weitere Spuren: ${(lesson.extras||[]).map(key=>extraSpurs[key].title).join('; ')||'keine zusätzliche Pflichtstrecke'}.
+`).join('\n');
+const coverage=['ru','uk','pl','tr','ar','ku','ckb'].map(lang=>`${lang}: ${dictionary.filter(w=>w[lang]).length}/${dictionary.length}`).join('; ');
+const teacher=`# Erwartungshorizont · Die geheime Ermittlungszentrale 2.0
 
-## Punkte und Versuche
+Stand: 21.10.2026. Gemeinsame Datengrundlage: data/cases.js, data/rubrics.json, data/learning.js und data/media.json. Nach Änderungen: npm run materials. Die Aufgaben haben sieben Wertungen, keine zusätzlichen Punkteblöcke.
 
-Hinweisstufen 0 / 1 / 2 / 3 begrenzen die Punkte auf ${r.limits.join(" / ")}. Öffnen eines Hinweises senkt das Limit für diesen Fall dauerhaft. Pro früher Stufe genau eine eindeutig bewertbare Gesamtabgabe. Bei null Rohpunkten wird die Stufe gesperrt; nur der nächste Hinweis öffnet einen neuen Versuch. Nach Hinweis 3 gibt es unbegrenzt viele Versuche und eine einfache Auswahlaufgabe. Das Öffnen der Hinweise vergibt keine Punkte.
+## Unterrichtsrahmen und Grenzen
 
-Teilpunkte: Endpunkte = min(Rohpunkte, Hinweislimit). Positive Teilabgabe schließt die Aufgabe ab; richtige Teile gehen nicht durch falsche Teile verloren. Kein nachträgliches Nachprüfen einzelner Antworten. Nach jedem Ergebnis muss das Team die Papiernotiz bestätigen. Erst dann ist die Fortsetzung möglich. Akte 003 hat drei getrennte Fälle mit eigenen Limits und Ergebnisbestätigungen.
+Jahrgang 7, Zweierteams, Schul-iPads. Bezug aus dem bereitgestellten geprüften Auftrag: ETS-Curriculum „Afrika – Abhängigkeiten von Naturraum und Bevölkerungsentwicklung und seine wirtschaftlichen Potentiale“. Schwerpunkte: Afrikabild, naturräumliche Abhängigkeiten, Bevölkerungsentwicklung, wirtschaftliche Möglichkeiten, nachhaltige Entwicklungschancen. Das Spiel eröffnet die Einheit und deckt nicht den ganzen Unterrichtsgegenstand ab.
 
-Regulär: Akte 001 = 5; Akte 002 = 5; Akte 003 = 15; Akte 004 = 5; Gesamt = 30. Akte 005 = bis zu 5 Bonuspunkte, getrennt. Bonuszuordnung: vier richtig = fünf Rohpunkte; drei = drei; zwei = zwei; eins = eins; null = keine Punkte und nächster Hinweis. Die Frage am Ende ist unbewertet.
+Die Fachanforderungen Schleswig-Holstein 2015 und der Leitfaden 2016 sind im Auftrag benannt. Die schulischen/offiziellen Originaldateien wurden nicht zusätzlich mitgeliefert; der Abruf des offiziellen Fachportals ist vom Cloud-Proxy blockiert. Deshalb keine selbst überprüfte Aussage zur aktuellen Rechtsgeltung, keine erfundenen Kompetenznummern oder Seitenbezüge. Unterrichtsablauf, Zeitplan und „Weitere Spuren“ sind didaktische Vorschläge, keine amtlichen Vorgaben.
 
-## Sprachsensible Bewertung
+Leitlinie: Vorstellungen sichtbar machen → an räumlich verorteten Belegen prüfen/ergänzen → begründet reflektieren. Die erste Bildauswahl folgt bereits auf Akte 001; sie ist kein unbeeinflusster Vortest. Eine Teamantwort ist keine Individualdiagnose. Punkte sind Spielrückmeldung, keine individuelle Schulnote und kein objektiver Lernzuwachsnachweis. Eine geänderte Auswahl ist nicht automatisch besser.
 
-Unicode, Großschreibung, Satzzeichen und Leerraum werden normalisiert. Häufige geografische Schreibvarianten sind ausdrücklich freigegeben. Artikel und kurze Satzrahmen sind erlaubt. Es gibt keinen Abzug für Grammatik, Stichpunkte oder Satzfragmente. Unbekannte Schreibweisen werden nicht per Levenshtein in ein vermeintlich ähnliches Land umgewandelt.
+Natur und Umwelt, Wirtschaft und Zusammenleben sind Betrachtungsperspektiven. Erst die offene Frage nach Nutzen, Zugang/Teilhabe und Umweltfolgen bahnt Nachhaltigkeitsbewertung an. Landwirtschaft ist kein Gegenbegriff zu Modernität, Qualifikation oder Wohlstand. Einzelbilder zeigen weder Anteile noch allgemeine Trends.
 
-„Amerika“, „America“, „Südamerika“, „Nordamerika“, „Asien“, „Antarktis“ und „Südafrika“ lösen Akte 001 nicht. „Afrika und Amerika“ ist widersprüchlich und wird nicht als richtig gewertet. Verneinung wie „nicht Afrika“ wird erkannt.
+## Kernweg und Planung – Zeiten ungemessen
 
-Unklare Eingabe: keine Punkte und kein verbrauchter Versuch; kurze neutrale Bitte, dieselbe Aussage klarer zu schreiben. Es werden keine richtigen Teilantworten angezeigt und keine neue inhaltliche Lösungsfrage gestellt. Falls nötig prüft die Lehrkraft, ob das Team dieselbe Aussage nur verständlicher formuliert. Automatische lokale Regeln können die Bedeutung beliebiger freier Sätze nicht garantieren. Lange Erklärungen werden deshalb durch kurze oder geschlossene Teilaufgaben ersetzt.
+| Abschnitt | Planungsziel | Kern / mögliche Kürzung |
+|---|---|---|
+| Stunde 1 | 5 Minuten Organisation; 10 Akte 001; 20 Akte 002; 10 Sicherung/Puffer | Einzelüberlegung, dann Teamwahl; Bedienung wechseln |
+| Stunde 2 | 3 Minuten Wiedereinstieg; 26 Akte 003; 9 Akte 004; 7 gemeinsame Sicherung | Drei Länder; Industrie, Handel, Kakaokette, Stadtvergleich, Bildung/Gesundheit |
+| Freiwillig | Akte 005 oder weitere Stunde | Vier erfundene Nachrichten und offene Zukunftsfrage; Weitere Spuren |
+| Drei-Stunden-Alternative | 001/002; dann 003; dann 004 und Auswertung | Stundenwechsel jeweils zwischen Akten, keine notwendige Speicherung mitten in einer Akte |
 
-Leere oder unvollständige Abgaben verbrauchen keinen Versuch. Eindeutig falsche bekannte Antworten werden gewertet und sperren die frühe Stufe. Ohne Browser-Persistenz bleibt alles im Arbeitsspeicher spielbar. Papier sichert die Punkte über Gerätewechsel und Unterrichtsstunden.
+Papierarbeit ist mitgedacht. Keine Garantie, dass alle Teams 90 Minuten schaffen. Zuerst freiwillige Breite kürzen; Rückmeldung und Reflexion erhalten. Film, Digitales, Energie und Logistik bleiben freiwillige Vertiefungen. Nach jedem Länderfall die Bedienung im Team wechseln.
 
-### Akte 002: Kurzantworten
+## Papierausgabe und Lösungsschutz – M1
 
-Zwei Rohpunkte für einen Ausschnitt. Explizite akzeptierte Kurzformen nach Normalisierung: ${scopeAccepted.map((x) => "„" + x + "“").join(", ")}. Einfache Satzrahmen wie „Die vier Fotos zeigen …“ werden entfernt. Auch „einige Orte“, „wenige Plätze“ und „manche Stellen“ sind zulässig.
+Ein einziges beidseitiges A4-Blatt: beide Seiten sind themenneutral, ohne vorgedruckte Kontinent- oder Ländernamen. Es kann von Beginn an ausgegeben werden; kein zusätzlicher Startbogen erforderlich. Die Weltkarte ist unbeschriftet und ohne hervorgehobenen Kontinent. Erst nach der Lösung den gesuchten Kontinent rot markieren. Stichwörter und Bild-/Belegnummern genügen; keine zwölf Fotos auf Papier.
 
-Explizit falsch: ${scopeRejected.map((x) => "„" + x + "“").join(", ")}; ebenso „nicht einige“, „kein Teil“ beziehungsweise verneinte Teilbehauptungen, soweit die Regel sie eindeutig erkennt. Mischformen wie „einige und alle“ bleiben ungeklärt und geben keine automatischen Punkte.
+Alle Akten sind unabhängig startbar. Die Empfehlung lautet „Beginnt mit Akte 001“; es gibt keine Freischaltung. Wer andere Akten oder bewusst Bildquellen öffnet, kann das Thema erfahren. Lizenzangaben werden nicht entfernt; die Quellen sind jederzeit bewusst aufrufbar. Lehrerunterlagen sind nicht in der Schülernavigation, bleiben im öffentlichen Repository aber auffindbar.
 
-Ein Rohpunkt für Vielfalt. Akzeptiert: ${diversityAccepted.map((x) => "„" + x + "“").join(", ")}. Falsch: ${diversityRejected.map((x) => "„" + x + "“").join(", ")}. Im Spiel ist diese Teilfrage geschlossen (Ja/Nein), damit keine langen Erklärungen nötig sind.
+## Kompakte Lösungstabelle
 
-${tasks}
+${solutions}
 
-## Bildnummern und Redaktionsbeispiel
+## Punkte, Vollständigkeit und Auflösung – T2/D1
 
-${photos.map((p) => p.id + ". " + p.title + ". Belegter Aufnahmeort: " + (media.images[p.key]?.location || p.location + " (Foto noch nicht abgenommen)") + ".").join("\n")}
+Hinweislimit 5/3/2/1. Auf Stufen 0–2 genau eine reguläre Gesamtabgabe je Stufe; freiwillig vorgezogene Hinweise sind möglich. Bei null Rohpunkten frühe Stufe sperren, neuer Versuch erst nach nächstem Hinweis. Auf Stufe 3 unbegrenzt einfache Abschlussaufgabe, erst richtige Lösung ergibt einen Punkt.
 
-Die fiktive Redaktion wählt 1, 2, 5 und 10. Auch ihre städtische Marktaufnahme ersetzt keine Darstellung aller Lebensräume. Das Beispiel zeigt eine begrenzte Auswahl; es ist kein Beleg über alle deutschen Medien. Fehlende Motive für Teilaufgabe 3 sind folglich 3, 4, 6, 7, 8 und 9. Akte 004 nutzt dieselben zehn Datenobjekte und Nummern. Keine Veränderung einer persönlichen Auswahl wird verlangt oder bewertet.
+Leere/unvollständige Eingaben verbrauchen keinen Versuch. Mehrteilige Aufgaben erst gemeinsam bewerten, keine vorzeitigen Einzelpunkte. Bei positiven Rohpunkten: festgeschriebene Punkte = min(Rohpunkte, Hinweislimit). Danach keine Hinweise und keine Nachbepunktung.
 
-## Differenzierung und Grenzen
+Fachliche Vollständigkeit ist unabhängig vom Limit: fünf richtige Rohpunkte bei einem Hinweis ergeben drei Punkte und vollständigen Erfolg. Drei Rohpunkte am Drei-Punkte-Limit bleiben dagegen teilweise richtig. Vereinfachte Aufgabe: „Abschlussaufgabe gelöst: 1 Punkt“, keine Behauptung, alle ursprünglichen Kriterien seien erfüllt.
 
-Lernende können Antworten vor der gemeinsamen Abgabe ändern. Wörterbuch, Partnergespräch und Papier stehen jederzeit bereit. Hinweise sind freiwillig; keine Zeitpunkte. Ab Stufe 3 hilft eine binäre, fachlich sinnvolle Abschlussaufgabe. Bei Akte 001 zeigen zwei unbeschriftete Karten Kontinente A und B; A markiert Afrika. Der Name erscheint erst nach Lösung. Akte 003 nutzt Karte und markierten Standort als Beweismittel bereits vor bezahlten Hinweisen.
+Teilpunkte bei positiver Teilwertung: richtige/falsche Kriterien mit Beleg auflösen. Eine kurze unbewertete Korrektur je offenem Kernkriterium, gemeinsam prüfen. Bei weiterer falscher Auswahl Lösung erklären und bestätigen lassen, keine endlose Schleife. Rückkehr zur Zentrale ist möglich; offene Auflösung/Papierbestätigung bleiben sichtbar und gespeichert. Reguläres Fortsetzen erst nach Auflösung und Papierbestätigung. Das gilt auch für die Bonuszuordnung.
 
-Karten: Natural Earth 1:110 Millionen, Public Domain. Vereinfachte Küsten und Ländergrenzen, keine Navigationskarten. Westsahara wird als eigener Raum geführt; keine Aussage zur politischen Anerkennung. Schnee im Atlasgebirge gilt nicht als Wetterbeschreibung für ganz Marokko. Stadtzuzug ist nicht gleich natürliches Bevölkerungswachstum; die Bonusspur eröffnet beide Fragen, ohne eine einzige Ursache zu behaupten. Solarenergie ist eine Möglichkeit, keine pauschale Lösung für jeden Ort.
+Bonus-Rohpunkte: 0 richtige → 0; 1 → 1; 2 → 2; 3 → 3; 4 → 5. Danach Hinweislimit. Optionen bleiben unabhängig, keine automatische Eliminierung. Hauptsumme höchstens 30, Bonus getrennt höchstens 5. Nicht gespielte Akten nicht als gespielte Nullpunkte ausgeben.
 
-Diese Dokumente sind vom normalen Spiel aus nicht verlinkt. Im öffentlichen Repository bleiben sie zugänglich.
+## Sprache, Entwürfe und Namensklärung – T1/T3/T4
+
+Akte 002 verwendet geschlossene Antworten statt fehleranfälliger Satzinterpretation; kein Versprechen einer allgemeinen Sprach-KI. Historische Freitextfälle bleiben als Tests dokumentiert, darunter „nur wenige“, „ein paar Orte“, „nur ein paar Orte“ und „Die Fotos zeigen nur einen kleinen Teil“.
+
+Akte 001: „Afrika ist ein Kontinent“ und „Afrika ist kein Land, sondern ein Kontinent“ richtig. „Afrika ist ein Land“ fachlich falsch, frühe Versuchsregel greift. „Afrika Land?“ wird neutral geklärt. Amerika/America/Südafrika/Asien sind keine richtigen Kontinentlösungen. Eindeutige Aliasse wie Affrika, Africka, Afirka und Afrka bleiben zulässig.
+
+Bei nicht erkennbaren Namen bietet eine neutrale Namensliste mehrere Länder/Kontinente ohne Richtig-Markierung. Diese Anzeige nennt keine Lösung; erst die abschließende inhaltliche Entscheidung zählt einmal als reguläre Abgabe auf derselben Stufe. Eindeutig falsche Antworten werden dadurch nicht zu kostenlosen Korrekturversuchen. Negationen und fachlich falsche Behauptungen bleiben relevant.
+
+Hinweise 1/2 behalten Texte, Bilder und Zuordnungen. Fokussierte Eingaben werden vor dem Rendern gesichert. Nach Hinweis 3 liegen regulärer Entwurf und vereinfachte Antwort getrennt vor. Wörterbuch, Bildzoom und Begriffshilfen kosten keine Punkte.
+
+## Sieben Aufgaben im Einzelnen
+
+${taskDetails}
+
+## Verbindlicher unbewerteter Kern in Akte 003
+
+${lessonDetails}
+
+## Freiwillige weitere Spuren
+
+${Object.values(extraSpurs).map(x=>`### ${x.title}\n\n${x.text}`).join('\n\n')}
+
+## Bildnummern 1–12 – M2
+
+Beide Auswahlakten verwenden exakt dieselben Nummern, Motive, Beschriftungen und Dateien. Erste und zweite bestätigte Auswahl bleiben getrennt. Auch zwölf Bilder sind keine repräsentative Stichprobe des Kontinents. Die Redaktion [${r.tasks.selection.editorial.join(', ')}] ist ein erfundenes Modell mit begrenztem Themenfokus; kein empirischer Beleg eines allgemeinen deutschen Medienbildes und kein Beleg allgemeiner Armut.
+
+${mediaTable}
+
+## Zusätzliche Belegbilder – nicht Teil des Zwölferkatalogs
+
+${additionalTable}
+
+Lagos-Vergleich: Lagos Island 2016, Makoko 2019; weitere Alltagsperspektive Balogun-Markt 2007. Unterschiedliche Perspektiven und Jahre ausdrücklich beachten, kein Wachstumstrend und keine Einkommen aus Gebäuden/Personen ableiten. Wirtschaftliches Wachstum kann ungleich zugutekommen; die Fotos selbst belegen keinen Wachstumstrend. Die Makoko-Aufnahme zeigt dichte Bebauung aus der Luft, keinen daraus sicher feststellbaren Versorgungsgrad. Der ursprüngliche Commons-Titel bleibt nur im vollständigen Quellennachweis unverändert erhalten.
+
+Butaro: historische Krankenhaus-Außenaufnahme 2011, keine Behauptung aktueller Qualität oder universellen Zugangs. Wasserbild: Wassertank in Kajiado County, kein Beleg für Wassermangel. Landwirtschaft bleibt eine wirtschaftliche Tätigkeit; Industriebetriebe sind kein automatischer Wohlstands-/Arbeitsqualitätsbeleg.
+
+## Sachquellen und ihre tatsächliche Prüfung
+
+${Object.values(evidenceSources).map(x=>`**${x.title}:** ${x.url||x.local} (Abschnitt ${x.section}). ${x.status}`).join('\n\n')}
+
+Renault-/SIGA-/UNESCO-Aussagen sind im geprüften Projektauftrag benannte Beispiele; die direkten Originalabrufe sind technisch blockiert und nicht als selbst erfolgreich geprüft ausgegeben. Schemata sind ausdrücklich Schemata, keine erzeugten dokumentarischen Fotos. Allgemeine qualitative Kontextkarten ersetzen keine lokalen Einkommen-/Versorgungsstatistiken. Keine Rankings oder erfundenen Zahlen.
+
+Die ${Object.keys(media.images).length} echten Fotografien besitzen Commons-Quellenrevisionen, Ortsbelege, Urheber, freie Lizenzen und Prüfsummen in data/media.json und docs/media/. Die Originaldownloads der vier Ergänzungen wurden per SHA1 verifiziert; alle lokalen Ableitungen per SHA256. Bilder behalten ihre Einzellizenzen. Quellen: bildnachweise.html und docs/bildquellen.md. Das kleinere Original des Balogun-Fotos wurde nicht hochskaliert.
+
+Karten: Natural Earth 1:110 Millionen, Public Domain; vereinfachte Länderumrisse, keine Navigation. Westsahara als eigener Raum, keine politische Anerkennungsaussage. Beim Stadtvergleich ist der Punkt eine grobe Lage von Lagos, keine punktgenaue Verortung beider Stadtteile.
+
+## Wörterbuch und sprachliche Abnahme
+
+${dictionary.length} deutsche Einträge; ${coverage}. Sieben Sprachen: Russisch, Ukrainisch, Polnisch, Türkisch, Arabisch, Kurmandschi, Sorani. Kurmandschi lateinisch (kmr), Sorani arabisch (ckb/RTL), Arabisch RTL. Einzelwortformen sind keine Satzübersetzungen. Vorhanden, quellengestützt/redaktionell geprüft und menschlich sprachkundig geprüft bleiben getrennte Statusangaben. Keine menschliche Abnahme wurde erfunden. Fehlende Werte bleiben sichtbar statt erfunden; vollständige Belege und offene Wörter in docs/woerterbuch-pruefung.md.
+
+## Technik, Datenschutz und verbleibende Abnahme
+
+Kein Konto, keine Datenbank, keine Zeitwertung und kein Audio. Alle Akten funktionieren im Arbeitsspeicher ohne erlaubten Browser-Speicher. Optionale sessionStorage-Wiederherstellung kann Neuladen abfedern; bei gesperrtem Speicher verliert Neuladen die Sitzung. Schema 1 wird mit verständlicher Meldung verworfen, damit alte Wertungen nicht unbemerkt auf neue Aufgaben übertragen werden. Papier bleibt die Sicherung zwischen Geräten und Stunden.
+
+Kein garantierter vollständiger Offline-Neustart: noch nicht geladene Ressourcen benötigen den eigenen statischen Server. Die App überträgt keine Schülerantworten an externe Dienste; der Host kann Zugriffsprotokolle einschließlich IP-Adressen führen. Keine pauschale DSGVO-Freigabe behauptet. Schulische Datenschutzprüfung getrennt beurteilen.
+
+Offen ohne tatsächliche Durchführung: echtes Schul-iPad/Safari, reale Druckprobe, sprachkundige Prüfung, Lerngruppenerprobung/Lernwirkung und gemessene Bearbeitungszeit. Außerdem direkter Originalabgleich der blockierten Sachquellen und Live-Browserabnahme. Automatische Tests und ein erfolgreicher Pages-Build ersetzen diese Prüfungen nicht. Keine pauschale Unterrichtsfreigabe.
 `;
-await writeFile(resolve(root, "docs/erwartungshorizont.md"), teacher);
-// The Markdown is deliberately simple and printable; escape all content before structural formatting.
-function markdownHTML(text) {
-  const lines = text.split("\n");
-  let out = [],
-    list = false;
-  for (const line of lines) {
-    if (/^\d+\. /.test(line)) {
-      if (!list) {
-        out.push("<ul>");
-        list = true;
-      }
-      out.push("<li>" + inline(line.replace(/^\d+\. /, "")) + "</li>");
-      continue;
-    }
-    if (list) {
-      out.push("</ul>");
-      list = false;
-    }
-    const heading = line.match(/^(#{1,3}) (.*)/);
-    if (heading)
-      out.push(
-        `<h${heading[1].length}>${inline(heading[2])}</h${heading[1].length}>`,
-      );
-    else if (line) out.push("<p>" + inline(line) + "</p>");
+function inline(text){return esc(text).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');}
+function markdownHTML(text){
+ const out=[];let table=false,list=false;
+ const close=()=>{if(table){out.push('</tbody></table>');table=false;}if(list){out.push('</ol>');list=false;}};
+ for(const line of text.split('\n')){
+  if(line.startsWith('|')){
+   if(/^\|[-|: ]+\|$/.test(line))continue;
+   const cells=line.slice(1,-1).split('|').map(x=>x.trim());
+   if(!table){close();out.push('<table><thead><tr>'+cells.map(c=>'<th scope="col">'+inline(c)+'</th>').join('')+'</tr></thead><tbody>');table=true;}
+   else out.push('<tr>'+cells.map(c=>'<td>'+inline(c)+'</td>').join('')+'</tr>');
+   continue;
   }
-  if (list) out.push("</ul>");
-  return out.join("\n");
+  if(/^\d+\. /.test(line)){if(table)close();if(!list){out.push('<ol>');list=true;}out.push('<li>'+inline(line.replace(/^\d+\. /,''))+'</li>');continue;}
+  close();const heading=line.match(/^(#{1,3}) (.*)/);
+  if(heading)out.push(`<h${heading[1].length}>${inline(heading[2])}</h${heading[1].length}>`);
+  else if(line.trim())out.push('<p>'+inline(line)+'</p>');
+ }
+ close();return out.join('\n');
 }
-function inline(line) {
-  return e(line)
-    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    .replace(/`([^`]+)`/g, "<code>$1</code>");
-}
-const teacherHTML = `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Erwartungshorizont · Ermittlungszentrale</title><style>@page{size:A4;margin:18mm}body{font:11pt/1.5 Arial,sans-serif;color:#151515;max-width:180mm;margin:25px auto}h1{font-size:22pt;line-height:1.15}h2{font-size:16pt;margin-top:25px;break-after:avoid}h3{font-size:13pt;break-after:avoid}p{orphans:3;widows:3}code{font-size:10pt;overflow-wrap:anywhere}li{margin:4px 0}strong{font-weight:700}@media print{body{margin:0;max-width:none}}</style></head><body>${markdownHTML(teacher)}</body></html>`;
-await writeFile(
-  resolve(root, "materials/erwartungshorizont.html"),
-  teacherHTML,
-);
-const browser = await chromium.launch({
-  executablePath: process.env.CHROMIUM_PATH || "/usr/bin/chromium",
-  headless: true,
-  args: ["--no-sandbox"],
-});
-try {
-  const page = await browser.newPage();
-  for (const name of ["ermittlungsbogen", "erwartungshorizont"]) {
-    await page.emulateMedia({ media: "print" });
-    await page.setContent(
-      await readFile(resolve(root, `materials/${name}.html`), "utf8"),
-    );
-    if (name === "ermittlungsbogen") {
-      const overflow = await page
-        .locator(".sheet")
-        .evaluateAll((els) =>
-          els
-            .map((el) => ({
-              height: el.clientHeight,
-              scroll: el.scrollHeight,
-              last: el.lastElementChild.getBoundingClientRect().top,
-              content:
-                el.children[el.children.length - 2].getBoundingClientRect()
-                  .bottom,
-            }))
-            .filter((x) => x.scroll > x.height + 1 || x.content > x.last),
-        );
-      if (overflow.length)
-        throw new Error(
-          "Schülerbogen überschreitet die Seitengrenze: " +
-            JSON.stringify(overflow),
-        );
-    }
-    await page.pdf({
-      path: resolve(root, `materials/${name}.pdf`),
-      format: "A4",
-      printBackground: true,
-      preferCSSPageSize: true,
-      displayHeaderFooter: false,
-    });
-    console.log("Created", name + ".pdf");
+const cleanTeacher=teacher.split('\n').map(line=>line.trimEnd()).join('\n');
+const teacherHTML=`<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Erwartungshorizont · Ermittlungszentrale 2.0</title><style>@page{size:A4;margin:16mm 15mm 20mm}body{font:10.5pt/1.4 Arial,sans-serif;color:#111;max-width:180mm;margin:20px auto}h1{font-size:21pt;line-height:1.15}h2{font-size:15pt;margin-top:7mm;break-after:avoid}h3{font-size:12pt;break-after:avoid}p{orphans:3;widows:3;overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;font-size:9pt;margin:4mm 0;table-layout:fixed}thead{display:table-header-group}th,td{border:1px solid #aaa;text-align:left;padding:2mm;overflow-wrap:anywhere;vertical-align:top}tr{break-inside:avoid}li{margin:1.5mm 0}@media print{body{max-width:none;margin:0}}</style></head><body>${markdownHTML(cleanTeacher)}</body></html>`;
+await mkdir(resolve(root,'materials'),{recursive:true});await mkdir(resolve(root,'docs'),{recursive:true});
+await writeFile(resolve(root,'materials/ermittlungsbogen.html'),worksheet);
+await writeFile(resolve(root,'docs/erwartungshorizont.md'),cleanTeacher.trimEnd()+"\n");
+await writeFile(resolve(root,'materials/erwartungshorizont.html'),teacherHTML);
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
+try{
+ const page=await browser.newPage();await page.emulateMedia({media:'print'});
+ for(const name of ['ermittlungsbogen','erwartungshorizont']){
+  await page.setContent(name==='ermittlungsbogen'?worksheet:teacherHTML);
+  if(name==='ermittlungsbogen'){
+   const bad=await page.locator('.sheet').evaluateAll(els=>els.map(el=>({height:el.clientHeight,scroll:el.scrollHeight,footer:el.lastElementChild.getBoundingClientRect().top,content:el.children[el.children.length-2].getBoundingClientRect().bottom})).filter(x=>x.scroll>x.height+1||x.content>x.footer));
+   if(bad.length)throw new Error('Schülerbogen überschreitet die Seite: '+JSON.stringify(bad));
   }
-} finally {
-  await browser.close();
-}
+  await page.pdf({path:resolve(root,`materials/${name}.pdf`),format:'A4',printBackground:true,preferCSSPageSize:true,
+   displayHeaderFooter:name==='erwartungshorizont',headerTemplate:'<span></span>',footerTemplate:'<div style="font:9px Arial;width:100%;text-align:center">Erwartungshorizont · <span class="pageNumber"></span> / <span class="totalPages"></span></div>'});
+  console.log('Created',name+'.pdf');
+ }
+}finally{await browser.close();}

@@ -1,12 +1,15 @@
 import { readFile, stat } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { photos, clues } from "../data/cases.js";
+import { coreLearning, extraSpurs } from "../data/learning.js";
 import { dictionaryIntegrity } from "./dictionary-integrity.mjs";
 const root = new URL("../", import.meta.url);
 const media = JSON.parse(await readFile(new URL("data/media.json", root)));
 const required = [
   ...new Set([
     ...photos.map((p) => p.key),
+    ...Object.values(coreLearning).flatMap(x => x.steps.flatMap(step => step.photos || [])),
+    ...Object.values(extraSpurs).flatMap(x => x.photos || []),
     "cocoa",
     ...clues.map((c) => c.key),
   ]),
@@ -51,7 +54,7 @@ for (const key of required) {
     }
     if (content.length !== image.bytes || content.length > 500 * 1024 ||
       content.subarray(8, 12).toString() !== "WEBP" ||
-      Math.max(image.width, image.height) !== 1400) {
+      Math.max(image.width, image.height) > 1400 || Math.min(image.width, image.height) < 600) {
       console.log(`BILDFORMAT/-BUDGET UNGÜLTIG ${key}`);
       open++;
     }
@@ -76,7 +79,7 @@ for (const key of required) {
 }
 if (Object.keys(media.images).length !== required.length ||
   new Set(Object.values(media.images).map(i => i.path)).size !== required.length) {
-  console.log("OFFEN: 15 eindeutige lokale Fotodateien erforderlich");
+  console.log(`OFFEN: ${required.length} eindeutige lokale Fotodateien erforderlich`);
   open++;
 }
 const { dictionary, problems } = await dictionaryIntegrity(root);
@@ -105,6 +108,13 @@ if (!review.safari) {
   console.log("OFFEN: Test auf einem echten Schul-iPad in Safari");
   open++;
 }
+for (const [key,label] of Object.entries({
+  curriculumOriginals:"Originalabgleich von Curriculum/Fachanforderungen und aktueller Geltung",
+  primarySourceOriginals:"Direkter Originalabgleich der im Auftrag benannten Sachquellen",
+  printProof:"Reale beidseitige Druckprobe",
+  classroomTrial:"Lerngruppenerprobung, Bearbeitungszeit und Lernwirkung",
+  liveBrowser:"Browserabnahme der tatsächlich veröffentlichten Website",
+})) if (!review.v2?.[key]) { console.log(`OFFEN: ${label}`); open++; }
 if (media.status !== "complete") {
   console.log("OFFEN: Bildkatalog noch nicht als vollständig abgenommen");
   open++;

@@ -7,7 +7,7 @@ const root = new URL("../", import.meta.url);
 const { dictionary, evidence, problems } = await dictionaryIntegrity(root);
 test("Wörterbuch und Belegauszüge sind vollständig zugeordnet und unverändert", () => {
   assert.deepEqual(problems, []);
-  assert.equal(evidence.entries.length, 187);
+  assert.equal(evidence.entries.length, 197);
   assert.equal(evidence.nativeReview, false);
   for (const word of dictionary) {
     const e = evidence.entries.find(e => e.de === word.de);
@@ -36,7 +36,7 @@ for (const [lang] of languages) test(`Wörterbuch ${lang}: plausible Schrift und
 });
 test("Neue kurdische Übersetzungen sind an passende Varietät und Quelle gebunden", () => {
   let added = 0;
-  for (const e of evidence.entries) for (const lang of ["ku", "ckb"]) {
+  for (const e of evidence.entries.slice(0,187)) for (const lang of ["ku", "ckb"]) {
     const item = e.translations[lang];
     if (Object.hasOwn(item, "previous") && item.previous === null && item.translation) added++;
     if (!item.translation) {
@@ -72,4 +72,15 @@ test("Plausibilitätsprüfung wird getrennt von einer muttersprachlichen Abnahme
   for (const [lang] of languages) assert.equal(review.dictionaryEditorial.languages[lang], true);
   // A future real sign-off can change dictionary[lang]; editorial flags never do so.
   assert.equal(Object.keys(review.dictionary).length, 7);
+});
+
+test("Alle neuen Werte in sieben Sprachen haben sinnbezogene Einzelbelege", () => {
+ const additions=evidence.entries.filter(e=>e.introduced==='2.0');assert.equal(additions.length,10);
+ for(const e of additions)for(const [lang] of languages){
+  const item=e.translations[lang];assert.equal(item.translation,dictionary.find(w=>w.de===e.de)[lang]);
+  if(!item.translation){assert.equal(item.references.length,0);continue;}
+  assert.equal(item.status,'belegt-redaktionell');assert.ok(item.references.length);
+  for(const r of item.references){assert.ok(r.sense);assert.equal(digest(canonicalExcerpt(r.quote)),r.excerptSha256);}
+ }
+ for(const term of ['Vorstellung','Unterschied','vergleichen','Bildbeleg','Fabrik','Beruf','Verarbeitung','Handel','Bildung','Krankenhaus','Einkommen','Lebensbedingungen','gemeinsam'])assert.ok(lookup(dictionary,term,'pl').entry?.context||lookup(dictionary,term,'pl').translation,term);
 });

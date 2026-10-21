@@ -36,6 +36,13 @@ const aliases = {
   lehrer: "lehrkraft",
   lehrerin: "lehrkraft",
   lehrerinnen: "lehrkraft",
+  notiert: "notieren",
+  beeinflusst: "beeinflussen",
+  ermittlungsteam: "team",
+  bildbeleg: "beweis",
+  bildbelege: "beweis",
+  beleg: "beweis",
+  belege: "beweis",
 };
 export function lookup(entries, input, language) {
   const text = normalize(input);

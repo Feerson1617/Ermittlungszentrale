@@ -1,98 +1,107 @@
-# Die geheime Ermittlungszentrale
+# Die geheime Ermittlungszentrale 2.0
 
-Ein browserbasiertes Geographie-Detektivspiel für Klasse 7: fünf unabhängige Akten, kurze Texte, Zweierteams und Ergebnisse auf Papier. Reines HTML, CSS und JavaScript, ohne Build-Schritt für das Spiel.
+Geographie-Detektivspiel für Klasse 7: fünf unabhängig startbare Akten, Zweierteams, kurze Arbeitsschritte und Ergebnisse auf Papier. Statisches HTML/CSS/JavaScript; kein Build für das Spiel erforderlich.
 
-**Abnahmestatus:** Alle fünf Akten enthalten die 15 authentischen, lokal gespeicherten Fotografien mit belegten Aufnahmeorten und freien Lizenzen. Das Wörterbuch ist auf 176 Kurmandschi- und 177 Sorani-Werte erweitert; alle sieben Sprachen sind redaktionell plausibilisiert. Offen bleiben 21 kurdische Einträge, die muttersprachliche Abnahme aller sieben Sprachen und Safari auf einem echten Schul-iPad. Die gemeldete Störung auf der öffentlichen Vorschau ist mangels Live-Zugriff ebenfalls noch nicht abschließend diagnostiziert; die lokale Startkorrektur ist geprüft. Einzelheiten in [Abnahme](docs/abnahme.md), [Wörterbuchprüfung](docs/woerterbuch-pruefung.md), [Bildquellen](docs/bildquellen.md) und [Testbericht](docs/testbericht.md).
+Version 2.0 ergänzt den kurzen Lernweg um Industrie, Handel, eine Kakaokette, unterschiedliche Lebensbedingungen in derselben Stadt sowie Bildung/Gesundheit. Die sieben Wertungen bleiben bei **30 Hauptpunkten und fünf getrennten Bonuspunkten**. Film, Digitales, Energie und Logistik sind freiwillige „Weitere Spuren“. Die vollständige Umsetzung und Befundmatrix stehen in [Version 2.0](docs/v2-umsetzung.md).
 
-## Lokal starten
+**Abnahme:** lokal technisch geprüft; keine pauschale Unterrichtsfreigabe. Offen sind sprachkundige Prüfungen, echte iPad-Safari- und Druckprobe, Lerngruppenerprobung/Zeitmessung, direkte Originalabgleiche einzelner Sach-/Curriculumquellen sowie die öffentliche Live-Funktion. [Abnahmestatus](docs/abnahme.md), [Testbericht](docs/testbericht.md).
 
-Mit Node.js 24 (getestet; keine Laufzeitpakete nötig):
+## Start und Vorschau
+
+Im vollständigen Repository, mit Node.js 24:
 
 ```sh
 npm start
 ```
 
-Danach den laufenden Server auf Port 4173 im Browser öffnen, unter `/` oder `/Ermittlungszentrale/`. In einer Cloud-Umgebung ist dafür eine unterstützte Portweiterleitung nötig; eine Einzeldateivorschau reicht nicht. Alternativ `python3 -m http.server 4173` im Repository. `index.html` nicht als `file://` öffnen, weil ES-Module und lokale JSON-Daten einen HTTP-Server benötigen.
+Den laufenden HTTP-Server auf Port **4173** öffnen: `/` oder `/Ermittlungszentrale/`. Der Server hört auf `0.0.0.0`. In einer Cloud-Oberfläche muss eine unterstützte Portweiterleitung den ganzen Server bereitstellen. Eine Einzeldateivorschau oder `file://` kann Modulgraph und lokale JSON-Dateien nicht laden. Ladefehler zeigen eine verständliche Starthilfe statt einer dauerhaften Lademeldung.
 
-`npm run check:start -- <vollständige HTTP(S)-URL>` prüft eine bereits laufende Vorschau auf sichtbare Gestaltung, alle fünf bedienbaren Akten, alle 15 Bilder, Wörterbuch sowie Hinweise/Punkte. Der Befehl startet keinen Testserver. Befunde und Startwege: [Vorschauprüfung](docs/vorschau.md).
+Alternativ ein unabhängiger statischer Server:
 
-## GitHub Pages
+```sh
+python3 -m http.server 4175 --bind 127.0.0.1 --directory /workspace/Ermittlungszentrale
+```
 
-GitHub Pages benötigt nur `index.html` und die lokalen relativen Ressourcen. Es gibt keinen Build oder App-Server im Deployment; `.nojekyll` bleibt erhalten. Root und Projektpfad sind auch mit einem unabhängigen statischen HTTP-Server getestet.
+Für den Projektpfad stattdessen `/workspace` auf Port 4174 ausliefern und `/Ermittlungszentrale/` öffnen. Der Spielserver braucht keine npm-Abhängigkeiten. Einzelheiten und Grenzen: [Vorschauprüfung](docs/vorschau.md).
 
-**Tatsächliche Konfiguration laut GitHub-API am 20.10.2026:** Pages veröffentlicht automatisch `feature/detektivspiel-komplett` aus `/`, zuletzt Commit `84f5467`. Die frühere Annahme, Pages werde erst nach einem Merge aus `main` veröffentlicht, war falsch. Ein Push auf den Entwicklungsbranch kann deshalb ein Deployment auslösen. Am 21.10.2026 hat das Projektteam den Push der geprüften Startkorrektur einschließlich der automatischen Pages-Veröffentlichung ausdrücklich freigegeben. Die Pages-Einstellungen bleiben unverändert; PR #1 bleibt ein Draft und wird nicht gemergt. Die Live-Seite war aus dieser Cloud wegen einer Netzwerkfreigabe nicht abrufbar und gilt nicht als repariert. Einzelheiten und geprüfte Alternative: [Vorschauprüfung](docs/vorschau.md).
+Eine bereits laufende Vorschau vollständig prüfen, ohne einen Testserver zu starten:
 
-Unterricht erst nach den offenen Abnahmen freigeben. Alle Akten starten über denselben Link. Lösungen und Lehrermaterialien sind im öffentlichen Repository technisch einsehbar; es gibt keine behauptete Zugriffssperre.
+```sh
+npm ci
+npm run check:start -- http://127.0.0.1:4173/ http://127.0.0.1:4173/Ermittlungszentrale/
+```
 
-## Akten und Punkte
+Der Prüfer öffnet das gestaltete Menü, alle fünf Akten, Wörterbuch und Länder-/Lernweg; alle 19 lokalen Fotos müssen dekodieren. Er kontrolliert Konsolenfehler, Anfragen, MIME-Typen und Punkte. Benötigt Chromium, hier `/usr/bin/chromium`; bei Bedarf `CHROMIUM_PATH` setzen.
 
-| Akte | Inhalt | Maximal |
+## Akten und Bewertung
+
+| Akte | Inhalt | Höchstens |
 |---|---|---:|
-| 001 · Der verschwundene Titel | Kontinent aus Beweismaterial erschließen | 5 |
-| 002 · Die Bilder im Kopf | Persönliche Motive, Medienauswahl und Ausschnitte | 5 |
-| 003 · Ein Kontinent, viele Gesichter | Marokko, Nigeria und Ghana räumlich zuordnen | 15 |
-| 004 · Der letzte Ermittlungsbericht | Persönlicher Vergleich und passende Überschrift | 5 |
-| 005 · Die Spur in die Zukunft | Vier Spuren und Fragen für die weitere Einheit | 5 Bonus |
+| 001 | Kontinent aus vier Beweisfotos erschließen | 5 |
+| 002 | Vier aus zwölf Motiven; Medienauswahl in vier geschlossenen Schritten prüfen | 5 |
+| 003 | Marokko, Nigeria, Ghana; neun kurze unbewertete Belegschritte | 15 |
+| 004 | Unabhängige zweite Auswahl, Rückblick und präzise Quellenüberschrift | 5 |
+| 005 | Erfundene Nachrichten, reale Belegfotos und Zukunftsfragen | 5 Bonus |
 
-Regulär maximal 30 Punkte; Bonus getrennt. Hinweisstufen begrenzen auf 5/3/2/1. Ein eindeutig falscher Versuch pro früher Stufe; nach Hinweis 3 unbegrenzte Versuche mit einer einfachen Abschlussauswahl. Richtige Teilkriterien bleiben erhalten. Ein positiver Teilerfolg beendet die Aufgabe. Persönliche Vorstellungen, Bildauswahl, Reflexionen und eigene Fragen werden nicht bewertet.
+Hinweise begrenzen auf 5/3/2/1 Punkte. Frühe Stufen erlauben je eine Gesamtabgabe; bei null Rohpunkten erst nach dem nächsten Hinweis erneut versuchen. Nach Hinweis 3 ist die vereinfachte Aufgabe beliebig oft versuchbar; erst die richtige Antwort ergibt einen Punkt. Entwürfe bleiben durch Hinweise 1/2 erhalten; die vereinfachte Antwort bleibt getrennt.
 
-Sprachbewertung: explizite Schreibvarianten, Unicode-/Satzzeichen-Normalisierung, Verneinungsprüfung und vorsichtige Klärung unbekannter Formulierungen. Keine allgemeine Ähnlichkeitssuche für Ländernamen. „Amerika“ und „Südafrika“ werden nicht als „Afrika“ gewertet. Unklare Abgaben geben keine willkürlichen Punkte und verbrauchen keinen Versuch; das Team formuliert dieselbe Aussage verständlicher.
+Positive Rohpunkte schreiben die Wertung fest. Fachliche Vollständigkeit wird unabhängig vom Punktelimit festgestellt: drei richtige Rohpunkte am Drei-Punkte-Limit sind weiterhin nur teilweise richtig. Offene Kriterien werden anschließend unbewertet korrigiert oder erklärt und bestätigt; keine Nachbepunktung. Rückkehr zur Zentrale ist jederzeit möglich, die offene Auflösung bleibt erkennbar. Fortsetzen erfordert Auflösung und Papierbestätigung. Persönliche Auswahlen, Vermutungen, Rückblicke, Begriffshilfen, Zoom und Wörterbuch werden nicht bewertet.
 
-## Datenschutz und Betrieb
+Explizite Namensvarianten und aufgabenspezifische Negationsregeln ersetzen keine allgemeine Sprach-KI. Unklare Namen werden neutral geklärt, ohne vorzeitig einen Versuch zu verbrauchen. „Afrika ist ein Land“ ist falsch; „Afrika ist kein Land, sondern ein Kontinent“ ist richtig. Keine pauschale unscharfe Ähnlichkeitssuche für Ländernamen.
 
-Keine Konten, Cookies, Datenbank, Analytics, externen APIs, Audioausgabe oder externen Fonts. Antworten und Punkte werden lokal berechnet. Optionale `sessionStorage`-Sicherung im Tab; keine verpflichtende Speicherung, kein `localStorage`. Ohne Speicher funktioniert alles im Arbeitsspeicher. Papier sichert die Punkte über Gerätewechsel hinweg. Bei Nutzung von GitHub Pages gelten dessen übliche Hosting-Zugriffsprotokolle; es gibt keine zusätzliche Telemetrie im Spiel.
+## Bilder und Quellen
 
-Alle Ressourcen liegen lokal im Repository. Es gibt keine fremden Inhalte zur Laufzeit. Die Beweisfotos laden erst in der geöffneten Akte, kompakte Auswahlen zusätzlich bei Bedarf. Kein Service Worker, keine garantierte vollständige Offline-Neuladung nach Schließen des Browsers. Nicht geladene Akten benötigen auch während einer Sitzung den eigenen statischen Server; externe Dienste sind unnötig.
+**19 echte Fotografien:** die bisherigen 15 bleiben erhalten; ergänzt sind Wasserversorgung in Kenia, ein Krankenhaus in Ruanda und zwei weitere Lagos-Perspektiven. Die Auswahlbilder 1–12 in Akte 002/004 stammen aus derselben zentralen Liste. Zusätzliche Beleg-IDs sind keine Auswahlbildnummern; bestehende Dateinamen bleiben erhalten.
 
-Die [lokalen Bildnachweise](bildnachweise.html) nennen Urheber, Originalquelle, Lizenz samt Version, Ortsbeleg und Motivabweichungen für alle 15 Fotos. Im Spiel ist der Link bei anonymen Rätseln erst nach der Lösung sichtbar. Die vollständigen Commons-Quellennachweise liegen unter `docs/media/`; der Medienkatalog enthält Prüfsummen. `npm run media:credits` erzeugt die Nachweisseite und `docs/bildquellen.md` aus dem Katalog neu.
+Alle Fotografien liegen optimiert lokal als WebP vor. Orts-/Lizenzbelege, Urheber, Quellenrevisionen, Bearbeitungen, Grenzen und Prüfsummen stehen in [Bildquellen](docs/bildquellen.md), `data/media.json`, `docs/media/` und [Bildnachweisen](bildnachweise.html). Die bewusst aufrufbare Nachweisseite nennt Aufnahmeorte; im normalen Start/Akte 001 stehen keine geografischen Lösungsnamen. Eine technische Geheimhaltung des öffentlichen Quellcodes wird nicht behauptet.
 
-Zur erneuten Optimierung die in `data/media.json` angegebenen Originaldateien mit ihren ursprünglichen Wikimedia-Dateinamen in einem separaten Verzeichnis bereitstellen. `python3 scripts/prepare-media.py /pfad/zu/originalen` prüft SHA1/SHA256 und erzeugt die WebP-Dateien neu (Entwicklungswerkzeug: Pillow 12.3.0). Danach `npm run media:credits` ausführen. Das Skript lädt selbst nichts herunter.
+Neue Sachinformationen stützen sich auf den bereitgestellten geprüften Auftrag und dessen benannte Quellen. Direkte Originalabrufe einzelner Institutionen sind durch den Cloud-Proxy blockiert; das ist ausdrücklich dokumentiert. Eine schematische Darstellung wird als Schema bezeichnet und ersetzt keine echte Fotografie durch eine generierte Szene.
+
+```sh
+npm run media:credits
+python3 scripts/prepare-media.py /pfad/zu/originalen
+```
+
+Das Optimierungsskript benötigt Pillow und die mit ursprünglichem Dateinamen separat bereitgestellten Originale; es lädt nichts herunter. Quellenprüfsummen müssen stimmen. Das kleinere Balogun-Original wird nicht hochskaliert.
 
 ## Wörterbuch
 
-187 Begriffe. Sieben getrennte Zielsprachen: Russisch, Ukrainisch, Polnisch, Türkisch und Standardarabisch mit jeweils 187 Werten; Kurmandschi mit 176 und Sorani mit 177. Alle 353 vorhandenen kurdischen Werte sind einzeln mit Quellen verbunden; 248 wurden neu ergänzt. Versionierte Wörterbuch-/Wiktionary-Belege, CLDR-Ländernamen und Mozilla-UI-Angaben: [Prüfbericht](docs/woerterbuch-pruefung.md), maschinenlesbar `data/dictionary-evidence.json`. `npm run dictionary:report` erzeugt den Bericht neu.
+197 deutsche Begriffe, sieben getrennte Sprachen: Russisch 196, Ukrainisch 195, Polnisch 197, Türkisch 195, Arabisch 196, Kurmandschi 184, Sorani 184. Fehlende Werte bleiben ausdrücklich leer; kostenlose deutsche Bedeutungshilfen bleiben verfügbar. Arabisch und Sorani verwenden RTL, Kurmandschi lateinische Schrift. Bekannte Formen wie „notiert“, „beeinflusst“ und „Ermittlungsteam“ verweisen auf ihre Grundbegriffe; „Bildbeleg“ auf den vorhandenen Begriff „Beweis“.
 
-Arabisch und Sorani erscheinen mit RTL-Schreibrichtung; Kurmandschi bleibt getrennt in lateinischer Schrift. Bei mehrdeutigen Begriffen nennt das Spiel die Bedeutung, beispielsweise „Strom = Elektrizität“ oder „See = Binnengewässer“. Sichere bekannte Tippvarianten werden erkannt; unsichere Treffer werden nur vorgeschlagen. Die 11 Kurmandschi- und 10 Sorani-Lücken bleiben „Keine Übersetzung vorhanden“. Die quellengestützte redaktionelle Plausibilitätsprüfung ersetzt keine muttersprachliche Freigabe. Diese steht für alle sieben Sprachen aus.
+Alle kurdischen Werte und alle neuen nichtleeren V2-Werte haben einzelne Quellenbelege. Die fünf übrigen Sprachbestände wurden redaktionell plausibilisiert; vollständige Einzelbelege dieser Altbestände werden nicht behauptet. **Keine muttersprachliche Abnahme fand statt.** Quellen, Lücken, Wortbedeutungen und Grenzen: [Wörterbuchprüfung](docs/woerterbuch-pruefung.md), `data/dictionary-evidence.json`. `npm run dictionary:report` erzeugt den Bericht neu.
 
-## Unterrichtsmaterialien
+## Materialien und Unterricht
 
-- [Ermittlungsbogen HTML](materials/ermittlungsbogen.html) und [PDF](materials/ermittlungsbogen.pdf): genau zwei DIN-A4-Seiten, beidseitig an langer Kante, 100 %, schwarz-weiß-tauglich.
-- [Erwartungshorizont Markdown](docs/erwartungshorizont.md), [HTML](materials/erwartungshorizont.html) und [PDF](materials/erwartungshorizont.pdf): aus denselben Rubrikdaten generiert; nicht in der Schüleroberfläche verlinkt.
-- [Didaktische Umsetzung](docs/didaktisches-konzept.md).
+- [Schülerbogen PDF](materials/ermittlungsbogen.pdf) / [HTML](materials/ermittlungsbogen.html): genau zwei themenneutrale A4-Seiten, ab Beginn verwendbar; Weltkarte ohne Beschriftung oder Hervorhebung.
+- [Erwartungshorizont PDF](materials/erwartungshorizont.pdf), [HTML](materials/erwartungshorizont.html), [Markdown](docs/erwartungshorizont.md): elf Seiten mit Lösungen, Regeln, allen zwölf Bildnummern und Quellenstatus. Nicht aus der Schülernavigation verlinkt, im öffentlichen Projekt aber zugänglich.
+- [Didaktischer Lernweg](docs/didaktisches-konzept.md): 90 Minuten als ungemessenes Planungsziel sowie Drei-Stunden-Alternative.
 
-Der Bogen nennt das Thema schon in den späteren Aufgaben. Für die Überraschung in Akte 001 den Bogen erst nach der Lösung ausgeben oder spätere Bereiche zunächst abdecken. Eine DOCX-Fassung wurde nicht erstellt; die HTML-Fassung ist bearbeitbar.
+Schülerbogen mit 100 %, beidseitig an langer Kante drucken. Alle PDF-Seiten wurden digital gerendert; eine reale Druckprobe bleibt offen. Keine DOCX-Fassung; HTML bleibt bearbeitbar.
 
-## Entwicklung und Tests
+## Datenschutz und Speicherung
 
-Node.js 24 und npm 11 wurden verwendet. Nur Entwicklungswerkzeuge sind abhängig von npm-Paketen:
+Keine Konten, Cookies, Datenbank, Analytics, Audio oder externe Übersetzungs-/Bewertungsdienste. Die App sendet keine Antworten an externe Dienste. Der statische Host kann Zugriffsprotokolle einschließlich IP-Adressen führen; keine pauschale schulische Datenschutzfreigabe.
+
+`sessionStorage` ist optional. Ohne Speicher funktioniert das Spiel im Arbeitsspeicher; Neuladen verliert dann den Stand. Alte V1-Sitzungen werden mit verständlicher Meldung zurückgesetzt. Erste/zweite bestätigte Bildauswahl bleiben getrennt; Neustart setzt nur die gewählte Akte zurück. Papier sichert die Arbeit über Stunden/Geräte hinweg. Keine garantierte Offline-Neuladung: noch nicht geladene Ressourcen benötigen den eigenen Server. Keine Schülernamen im Spiel eingeben.
+
+## Entwicklung und Prüfungen
 
 ```sh
 npm ci
 npm test
 npm run test:e2e
+TEST_WEBKIT=1 npm run test:e2e
 npm run materials
 npm run test:pdf
 npm run audit:release
 ```
 
-Playwright nutzt hier `/usr/bin/chromium`. Für andere Systeme `CHROMIUM_PATH` auf eine installierte Chromium-Binärdatei setzen. Zwei Projekte prüfen iPad-Querformat (1024 × 768, Touch) und schmales iPhone-Format (390 × 664, Touch). Die Geräteemulation ist kein Nachweis eines echten Safari-Geräts. Optional bei verfügbarem WebKit: `TEST_WEBKIT=1 npm run test:e2e`. Dessen Browser vorher mit `npx playwright install webkit` installieren. Netzwerk und Browser-Bibliotheken müssen vorhanden sein.
+Playwright prüft Desktop, iPad quer/hoch und schmales Touch-Format; mit `TEST_WEBKIT=1` zusätzlich echtes WebKit unter Linux. Installation: `npx playwright install webkit`, erforderliche Systembibliotheken bereitstellen. Dies ersetzt keinen echten iPad-Safari-Test. PDF-Prüfung benötigt Python/pypdf; fertige Dateien sind enthalten.
 
-PDF-Generierung: `npm run materials` braucht Chromium und prüft den HTML-Seitenüberlauf vor der Ausgabe. Die PDF-Inhalts-/Formatprüfung nutzt Python mit `pypdf` (`python3 -m pip install pypdf` in einer Entwicklungsumgebung). Fertige PDFs liegen im Repository; zum Spielen ist keine Installation erforderlich.
+`audit:release` endet mit **2**, solange dokumentierte menschliche, Quellen- oder Live-Abnahmen offen sind. Das ist getrennt von den technischen Tests. Den tatsächlich ausgeführten Stand und die Befehle nennt der [Testbericht](docs/testbericht.md).
 
-`npm run audit:release` beendet sich absichtlich mit Code 2, solange die dokumentierten Bild-, Sprach- und Geräteabnahmen offen sind. Das ist keine technische Funktionsprüfung. Änderungen an Rubriken: Materialien neu generieren und die betroffenen Tests wiederholen.
+## GitHub Pages und Übergabe
 
-## Struktur
+GitHub Pages veröffentlicht laut API automatisch aus `feature/detektivspiel-komplett` und `/`; `.nojekyll` und relative Pfade bleiben erhalten. Der Nutzer hat für Version 2.0 ausdrücklich **Push, Aktualisierung von PR #1 und Deployment** beauftragt. Es gibt keinen neuen PR, keinen Merge und keine Änderung der Pages-/Umgebungsberechtigungen. Ein erfolgreicher Pages-Build ist keine Live-Funktionsabnahme. Die öffentliche URL ist aus dieser Cloud bisher am Proxy-CONNECT gesperrt; es wird keine reparierte Codex-Webvorschau behauptet.
 
-```text
-index.html           zentrale Schüleranwendung
-css/style.css        responsive Oberfläche und Touch-Ziele
-js/                  Navigation, Sitzung, Bewertung, Wörterbuch
- data/               Akten, Rubriken, Übersetzungen, lokale Kartendaten
-assets/              lokale Karten, Oberflächenzeichnung und 15 Beweisfotos
-materials/           druckbare HTML-/PDF-Dateien
- docs/               Erwartungshorizont, Quellen, Didaktik, Abnahmestatus
-scripts/             Entwicklungsserver, Material-/Kartengenerierung, Abnahmeprüfung
-tests/               Node-Tests und Playwright-Browserdurchläufe
-```
-
-Keine Schülernamen im Spiel eingeben; Namensfelder gibt es nur auf Papier. Entwicklungsbranch `feature/detektivspiel-komplett`, bestehender Draft-PR #1 gegen `main`. Kein Merge oder Deployment ohne gesonderten Auftrag.
+`index.html`, `css/`, `js/`, `data/`, `assets/` bilden die statische Anwendung. `materials/` enthält Druckdateien, `docs/` Quellen und Abnahme, `scripts/` Prüfwerkzeuge, `tests/` Node/Playwright, `sources/auftrag-v2.md` die unveränderte Aufgabenreferenz.

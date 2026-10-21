@@ -1,34 +1,45 @@
 # Wörterbuch: Quellen, Plausibilitätsprüfung und offene Abnahme
 
-Stand: 2026-10-20. 187 deutsche Suchbegriffe, sieben getrennte Sprachen. Neu belegt: **123 Kurmandschi- und 125 Sorani-Übersetzungen**. Alle 353 vorhandenen kurdischen Einträge haben einzeln zugeordnete Quellenbelege. Die fehlenden Werte bleiben ausdrücklich leer.
+Stand: 2026-10-21. 197 deutsche Suchbegriffe, sieben getrennte Sprachen. Neu belegt: **131 Kurmandschi- und 132 Sorani-Übersetzungen**. Alle 368 vorhandenen kurdischen Einträge haben einzeln zugeordnete Quellenbelege. Die fehlenden Werte bleiben ausdrücklich leer. Version 2.0 ergänzt zehn deutsche Begriffe. Neue nichtleere Werte in allen sieben Sprachen haben Einzelbelege; für die 187 Bestandswerte in fünf Sprachen bleibt es bei der redaktionellen Plausibilitätsprüfung. Die bestätigten Suchformen „notiert“, „beeinflusst“ und „Ermittlungsteam“ verweisen auf ihre Grundbegriffe. „Bildbeleg“ und „Beleg“ verweisen ausdrücklich auf den vorhandenen Begriff „Beweis“; hierfür wird keine neue kurdische Zusammensetzung erfunden.
 
 **Dies ist eine quellengestützte redaktionelle Plausibilitätsprüfung durch Codex. Keine muttersprachliche, professionelle oder schulische Sprachfreigabe wurde durchgeführt.** Auch eine bestandene Prüfsummen-/Schriftprüfung ersetzt keine sprachliche Abnahme.
 
-| Sprache | Vorhanden / 187 | Prüfung in diesem Durchlauf | Muttersprachliche Abnahme |
+| Sprache | Vorhanden / 197 | Prüfung in diesem Durchlauf | Muttersprachliche Abnahme |
 |---|---:|---|---|
-| Russisch | 187 | Alle 187 Bestandswerte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet | **offen** |
-| Ukrainisch | 187 | Alle 187 Bestandswerte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet | **offen** |
-| Polnisch | 187 | Alle 187 Bestandswerte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet | **offen** |
-| Türkisch | 187 | Alle 187 Bestandswerte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet | **offen** |
-| Arabisch | 187 | Alle 187 Bestandswerte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet | **offen** |
-| Kurdisch (Kurmandschi) | 176 | Einzelbelege, Bedeutung, Varietät und Schrift redaktionell geprüft | **offen** |
-| Kurdisch (Sorani) | 177 | Einzelbelege, Bedeutung, Varietät und Schrift redaktionell geprüft | **offen** |
+| Russisch | 196 | Die 187 Bestandswerte und die neuen Werte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet | **offen** |
+| Ukrainisch | 195 | Die 187 Bestandswerte und die neuen Werte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet | **offen** |
+| Polnisch | 197 | Die 187 Bestandswerte und die neuen Werte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet | **offen** |
+| Türkisch | 195 | Die 187 Bestandswerte und die neuen Werte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet | **offen** |
+| Arabisch | 196 | Die 187 Bestandswerte und die neuen Werte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet | **offen** |
+| Kurdisch (Kurmandschi) | 184 | Einzelbelege, Bedeutung, Varietät und Schrift redaktionell geprüft | **offen** |
+| Kurdisch (Sorani) | 184 | Einzelbelege, Bedeutung, Varietät und Schrift redaktionell geprüft | **offen** |
 
-## Verbleibende Lücken
+## Verbleibende Lücken in allen Sprachen
 
-- **Kurmandschi (11):** Regenwald, Redaktion, Stichpunkt, vergleichen wir, Düne, Savanne, Bevölkerungswachstum, Solaranlage, Golf von Guinea, nachhaltig, zuordnen.
-- **Sorani (10):** Regenwald, Redaktion, antippen, Stichpunkt, vergleichen wir, Bevölkerungswachstum, Solaranlage, Golf von Guinea, nachhaltig, zuordnen.
+- **Russisch (1):** Lebensbedingungen.
+- **Ukrainisch (2):** Verarbeitung, Lebensbedingungen.
+- **Polnisch (0):** keine leeren Werte.
+- **Türkisch (2):** Verarbeitung, Lebensbedingungen.
+- **Arabisch (1):** Lebensbedingungen.
+- **Kurdisch (Kurmandschi) (13):** Regenwald, Redaktion, Stichpunkt, vergleichen wir, Düne, Savanne, Bevölkerungswachstum, Solaranlage, Golf von Guinea, nachhaltig, zuordnen, Verarbeitung, Lebensbedingungen.
+- **Kurdisch (Sorani) (13):** Regenwald, Redaktion, antippen, Stichpunkt, vergleichen wir, Bevölkerungswachstum, Solaranlage, Golf von Guinea, nachhaltig, zuordnen, Verarbeitung, Lebensbedingungen, beeinflussen.
+
+## Besonders prüfbedürftige kurdische Lücken
+
+- **Kurmandschi (13):** Regenwald, Redaktion, Stichpunkt, vergleichen wir, Düne, Savanne, Bevölkerungswachstum, Solaranlage, Golf von Guinea, nachhaltig, zuordnen, Verarbeitung, Lebensbedingungen.
+- **Sorani (13):** Regenwald, Redaktion, antippen, Stichpunkt, vergleichen wir, Bevölkerungswachstum, Solaranlage, Golf von Guinea, nachhaltig, zuordnen, Verarbeitung, Lebensbedingungen, beeinflussen.
 
 In den geprüften Quellen fand sich für diese Einträge kein hinreichend passender Beleg in der benötigten Varietät und Spielbedeutung. Insbesondere wurde „nachhaltig“ nicht mit einem bloßen Wort für „dauerhaft“ gefüllt, „zuordnen“ nicht mit dem englischen *match* im Sinne eines Streichholzes und „Stichpunkt“ nicht mit „Passwort“. Für „vergleichen wir“ fehlt eine belegte vollständige Aufforderung; eine Einzelwortübersetzung ersetzt sie nicht. Es wurden keine neuen kurdischen Fachwörter zusammengesetzt, um die Statistik zu vervollständigen. Das Wörterbuch ist daher weiterhin nicht vollständig.
 
 ## Was überprüft wurde
 
-- Für alle sieben Sprachen wurden die 187 Einträge im Spielkontext gelesen und auf erkennbare Bedeutungsverwechslungen, Schriftmischung, leere/duplizierte Stichwörter und auffällige Wortformen geprüft. Beispiele: Land/Staat statt Boden, Karte statt Bankkarte, See/Binnengewässer statt Meer, Strom/Elektrizität statt Fluss, Fall/Ermittlungsfall statt Sturz, Bogen/Papier statt Waffe und anbauen/Pflanzen statt Gebäudeanbau.
+- Für alle sieben Sprachen wurden alle 197 Einträge im Spielkontext gelesen und auf erkennbare Bedeutungsverwechslungen, Schriftmischung, leere/duplizierte Stichwörter und auffällige Wortformen geprüft. Beispiele: Land/Staat statt Boden, Karte statt Bankkarte, See/Binnengewässer statt Meer, Strom/Elektrizität statt Fluss, Fall/Ermittlungsfall statt Sturz, Bogen/Papier statt Waffe und anbauen/Pflanzen statt Gebäudeanbau.
 - Kurmandschi (kmr; Datenfeld ku) und Sorani (ckb) wurden getrennt gehalten. Sorani steht in arabischer Schrift mit RTL; keine automatisierte Umschrift aus Kurmandschi wurde verwendet. Belegte Varianten wurden nicht pauschal „vereinheitlicht“.
 - Die polnische Angabe für **alle** wurde von *wszyscy* zu *wszyscy / wszystkie* erweitert. Die erste Form ist männlich-personal; bei Bildern/Orten und nicht-männlich-personalen Gruppen braucht man die zweite. Der zusätzliche Flexionsbeleg ist mit Wiktionary-Revisions-ID gesichert.
 - Russische und ukrainische Einträge sind in der vorgesehenen Bedeutung redaktionell plausibel. Aspekte, Kasus, Geschlecht und Flexion in ganzen Sätzen bleiben muttersprachlich zu prüfen; einzelne Wörter bilden keine Satzübersetzung.
 - Polnische Formen hängen von Genus und Personengruppe ab. Die ergänzte Bedeutungshilfe erklärt den Bild-/Ortskontext; weitere Satzflexion wird nicht als abgenommen behauptet.
 - Türkische Verben verwenden überwiegend Infinitive; kurze UI-Angaben können Nomen oder Adjektive sein. Eine idiomatische Prüfung für Lernende ist weiterhin nötig.
+- Neue Einträge verwenden die exakt belegte Wortform; kyrillische Betonungszeichen bleiben erhalten. „beeinflussen“ ist im Arabischen mit einer belegten Verbform angeführt; dies ist keine konjugierte Satzübersetzung.
 - Arabische Verben werden im vorhandenen Bestand häufig durch das übliche Verbalnomen (Maṣdar), etwa *قراءة* oder *كتابة*, wiedergegeben. Das ist keine vollständig konjugierte Handlungsanweisung. Kontextformen, Artikel, Genus und sprachliches Register bleiben offen.
 - Bei beiden kurdischen Varianten bleiben Idiomatik, regionale Schreibvarianten und besonders die Eignung fachlicher Begriffe für Klasse 7 muttersprachlich zu bestätigen. Community-Wörterbücher und Lokalisierungen sind Belege für tatsächliche Verwendung, keine professionelle Freigabe.
 
@@ -42,6 +53,7 @@ In den geprüften Quellen fand sich für diese Einträge kein hinreichend passen
 | cldr | [Unicode Common Locale Data Repository](https://github.com/unicode-org/cldr/tree/a70bfe93a2c74473baaedf01eea43b027e782979/common/main); Unicode, Inc. und CLDR-Beitragende | [Unicode License V3](dictionary-sources/Unicode-LICENSE.txt) | Git-Commit a70bfe93a2c74473baaedf01eea43b027e782979 |
 | wiktionary-mirror | [Ferheng – versionierter Wîkîferheng-/Kaikki-Auszug](https://github.com/Kurdish-Tech/kurdish-tech.github.io/tree/a872b1ca1731787912bd3684a7bdf5725587501a/public/data); Wîkîferheng-Beitragende; Extraktion Kaikki/Wiktextract; Bereitstellung Kurdish-Tech | [CC BY-SA 4.0 (gewählte Lizenzoption laut README; daneben GFDL)](https://creativecommons.org/licenses/by-sa/4.0/) | Git-Commit a872b1ca1731787912bd3684a7bdf5725587501a |
 | mozilla | [Firefox-Lokalisierung ku und ckb](https://github.com/mozilla-l10n/firefox-l10n/tree/07bcaded4459d17f74c2bcfba74400174a58ce42); Mozilla-Lokalisierungsteams für Kurmandschi und Sorani | [MPL-2.0](dictionary-sources/Mozilla-LICENSE.txt) | Git-Commit 07bcaded4459d17f74c2bcfba74400174a58ce42 |
+| de-wiktionary | [Deutschsprachiges Wiktionary](https://de.wiktionary.org/); Wiktionary-Beitragende; Versionsgeschichte je Einzelbeleg | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Seitenrevision je Einzelbeleg |
 
 Die Einzelauszüge behalten ihre jeweilige Quellenlizenz. Urheber-/Lizenzangaben und Bearbeitung sind Bestandteil der Nachweise. Die Quellendaten wurden nicht als ein vollständiges fremdes Wörterbuch in das Spiel kopiert. Die verschiedenen Quellen werden nicht pauschal unter eine gemeinsame Lizenz umetikettiert.
 
@@ -51,7 +63,7 @@ Beim Wîkîferheng-Material wurde der versionierte GitHub-/Kaikki-Auszug geprüf
 
 ## Nachweise und Bearbeitung
 
-Maschinenlesbare Einzelauszüge: [data/dictionary-evidence.json](../data/dictionary-evidence.json). Enthalten sind Originalausschnitt, Bedeutung, Sprachvarietät, Quellen-ID, konkrete Wiki-/Git-Revision und SHA256. Der Wörterbuchstand ist zusätzlich an seinen Datei-Hash gebunden: 1a2bb22eaf51101b963125658f00c6e9c7b36491ef66c40d82f38d093631ce06.
+Maschinenlesbare Einzelauszüge: [data/dictionary-evidence.json](../data/dictionary-evidence.json). Enthalten sind Originalausschnitt, Bedeutung, Sprachvarietät, Quellen-ID, konkrete Wiki-/Git-Revision und SHA256. Der Wörterbuchstand ist zusätzlich an seinen Datei-Hash gebunden: 6b0e1f3fc8f103786a963a787240e8406e6fbcbdf71246db84c5b948861431f8.
 
 Bearbeitung: Auswahl eines passenden bezeugten Wortes oder einer vorhandenen Umschreibung; Unicode NFC; bei Sorani arabisches ي/ك für den Zeichenvergleich durch ی/ک und ھ durch ه ersetzt; allgemeine Stichwörter kleingeschrieben. Die ursprüngliche Quellenform bleibt im Beleg erhalten. „Kakao“ in Kurmandschi ist aus dem belegten *kakaoyê* im Kontext „Kakaobohnen“ als Grundform abgeleitet und ausdrücklich so gekennzeichnet. Die soranischen Angaben bei „Ausschnitt“ und „Düne“ sind zitierte allgemeine Umschreibungen, keine behaupteten normierten Fachtermini. Ihr enger fachlicher Einsatz bleibt Teil der muttersprachlichen/fachlichen Abnahme.
 
@@ -164,7 +176,7 @@ Die vollständigen Quellenausschnitte und zusätzlichen Belege stehen in der JSO
 | Sprache | ziman | freedict, en-wiktionary, wiktionary-mirror | زمان | en-wiktionary, roj, wiktionary-mirror |
 | Wörterbuch | ferheng | freedict, en-wiktionary, wiktionary-mirror | فەرهەنگ | en-wiktionary, roj, wiktionary-mirror |
 | Übersetzung: Übertragung in eine andere Sprache. | werger | freedict, en-wiktionary, wiktionary-mirror | وەرگێڕان | roj |
-| Beweis: Etwas, das eine Annahme stützt. | belge | wiktionary-mirror | بەلگە | en-wiktionary |
+| Beweis: Etwas, das eine Annahme stützt; im Spiel auch ein Foto als Bildbeleg. Kein Nachweis für alle Menschen oder Orte. | belge | wiktionary-mirror | بەلگە | en-wiktionary |
 | Spur: Hinweis auf einen untersuchten Sachverhalt. | şop | freedict, wiktionary-mirror | شوێنەوار | roj |
 | Rätsel | metel | freedict, wiktionary-mirror | مەتەڵ | roj |
 | Fall: Ermittlungsfall; kein Sturz. Sorani bezeichnet hier die zugehörige Akte. | doz | freedict, wiktionary-mirror | دۆسیە | roj |
@@ -250,3 +262,13 @@ Die vollständigen Quellenausschnitte und zusätzlichen Belege stehen in der JSO
 | bestätigen: Eine Eingabe bestätigen. | pesendkirin | mozilla | چەسپاندن | wiktionary-mirror |
 | zuordnen: Passende Elemente verbinden; nicht ein Streichholz. | **offen** | **offen** | **offen** | **offen** |
 | rot | sor | freedict, en-wiktionary, wiktionary-mirror | سوور | en-wiktionary, roj, wiktionary-mirror |
+| Unterschied: Das, was bei zwei Dingen verschieden ist. | cudahî | freedict | جیاوازی | en-wiktionary |
+| Fabrik: Betrieb, in dem Waren hergestellt werden; keine historische Handelsniederlassung. | karxane | en-wiktionary | کارگە | en-wiktionary |
+| Beruf: Tätigkeit, die jemand als Arbeit ausübt. | pîşe | en-wiktionary | پیشە | roj |
+| Verarbeitung: Hier: Ein Rohstoff wird bearbeitet und zu einem Produkt; nicht das Verarbeiten eines Erlebnisses. | **offen** | **offen** | **offen** | **offen** |
+| Bildung: Lernen und Wissen erwerben, zum Beispiel in Schule oder Hochschule; nicht die Bildung eines Gebirges. | perwerde | en-wiktionary | پەروەردە | en-wiktionary |
+| Krankenhaus: Einrichtung, in der kranke Menschen medizinisch behandelt werden. | nexweşxane | en-wiktionary | نەخۆشخانە | en-wiktionary |
+| Einkommen: Geld, das eine Person oder ein Haushalt erhält. Einkommen lässt sich nicht allein an einem Foto ablesen. | deramet | en-wiktionary | داهات | roj |
+| Lebensbedingungen: Bedingungen des Alltags: etwa Wohnen, Einkommen, Wasser, Bildung und medizinische Versorgung. | **offen** | **offen** | **offen** | **offen** |
+| gemeinsam: Hier: zusammen als Team; nicht gemeinsam im Sinn von allgemein oder gemeinschaftlichem Eigentum. | vek re | freedict | پێکەوە | roj |
+| beeinflussen: Auf etwas wirken und es verändern können; einzelne Wörter sind keine übersetzte Satzanweisung. | bandor kirin | de-wiktionary | **offen** | **offen** |

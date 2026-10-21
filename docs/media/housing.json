@@ -1,0 +1,133 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "83928049": {
+        "pageid": 83928049,
+        "ns": 6,
+        "title": "File:Aerial view of Makoko Slum in Lagos Nigeria.png",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "size": 2497052,
+            "width": 1645,
+            "height": 856,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Aerial_view_of_Makoko_Slum_in_Lagos_Nigeria.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Makoko_Slum_in_Lagos_Nigeria.png",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=83928049",
+            "sha1": "6eb7201f21e26a0f0765884b9725246d79f38e01",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2019-11-13 18:49:16",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Aerial view of Makoko Slum in Lagos Nigeria",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Makoko|Self-published work|Aerial photographs of Lagos, Nigeria",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Aerial view of Makoko Slum in Lagos Nigeria",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2019-11-13",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Kateregga1\" title=\"User:Kateregga1\">Kateregga1</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 789358275,
+            "parentid": 782674032,
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "=={{int:filedesc}}==\n{{Information\n|description={{en|1=Aerial view of Makoko Slum in Lagos Nigeria}}\n|date=2019-11-13\n|source={{own}}\n|author=[[User:Kateregga1|Kateregga1]]\n|permission=\n|other versions=\n}}\n\n=={{int:license-header}}==\n{{self|cc-by-sa-4.0}}\n\n[[Category:Makoko]]\n[[Category:Aerial photographs of Lagos, Nigeria]]"
+              }
+            }
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:Aerial photographs of Lagos, Nigeria"
+          },
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-4.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Makoko"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "categories": 500
+  }
+}

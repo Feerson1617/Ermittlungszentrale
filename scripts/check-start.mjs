@@ -30,7 +30,7 @@ try {
       await assertCasesAndDictionary(page);
       assertCleanStart(events);
       result.success = true;
-      console.log(`BESTANDEN ${device}: ${url} – CSS, Motiv, fünf Akten, Hinweise/Punkte, Wörterbuch, 15 Fotos.`);
+      console.log(`BESTANDEN ${device}: ${url} – CSS, Motiv, fünf Akten, Hinweise/Punkte, Wörterbuch, 19 Fotos.`);
     } catch (error) {
       result.error = error.message;
       console.error(`FEHLER ${device}: ${url}\n${error.message}`);

@@ -11,7 +11,7 @@
   "safari": false,
   "note": "Erst nach tatsächlicher fachlicher beziehungsweise Geräteprüfung bestätigen. Keine automatische Behauptung einer menschlichen Abnahme.",
   "dictionaryEditorial": {
-    "date": "2026-10-20",
+    "date": "2026-10-21",
     "kind": "Quellengestützte redaktionelle Plausibilität, keine muttersprachliche Prüfung",
     "languages": {
       "ru": true,
@@ -23,6 +23,14 @@
       "ckb": true
     },
     "evidence": "data/dictionary-evidence.json",
-    "dictionarySha256": "1a2bb22eaf51101b963125658f00c6e9c7b36491ef66c40d82f38d093631ce06"
+    "dictionarySha256": "6b0e1f3fc8f103786a963a787240e8406e6fbcbdf71246db84c5b948861431f8"
+  },
+  "v2": {
+    "curriculumOriginals": false,
+    "primarySourceOriginals": false,
+    "printProof": false,
+    "classroomTrial": false,
+    "liveBrowser": false,
+    "note": "Offen mangels tatsächlicher Prüfung: Originale/aktuelle Geltung, direkte Sachquellen, realer Druck, Lerngruppe/Zeit/Lernwirkung sowie öffentliche Live-Funktion. Browseremulation und Pages-Build ersetzen keine Abnahme."
   }
 }

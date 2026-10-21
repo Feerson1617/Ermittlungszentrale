@@ -1048,7 +1048,7 @@
     "ar": "دليل",
     "ku": "belge",
     "ckb": "بەلگە",
-    "context": "Etwas, das eine Annahme stützt."
+    "context": "Etwas, das eine Annahme stützt; im Spiel auch ein Foto als Bildbeleg. Kein Nachweis für alle Menschen oder Orte."
   },
   {
     "de": "Spur",
@@ -1927,5 +1927,115 @@
     "ar": "أحمر",
     "ku": "sor",
     "ckb": "سوور"
+  },
+  {
+    "de": "Unterschied",
+    "ru": "разли́чие",
+    "uk": "різни́ця",
+    "pl": "różnica",
+    "tr": "fark",
+    "ar": "فَرْق",
+    "ku": "cudahî",
+    "ckb": "جیاوازی",
+    "context": "Das, was bei zwei Dingen verschieden ist."
+  },
+  {
+    "de": "Fabrik",
+    "ru": "фа́брика",
+    "uk": "фа́брика",
+    "pl": "fabryka",
+    "tr": "fabrika",
+    "ar": "مَصْنَع",
+    "ku": "karxane",
+    "ckb": "کارگە",
+    "context": "Betrieb, in dem Waren hergestellt werden; keine historische Handelsniederlassung."
+  },
+  {
+    "de": "Beruf",
+    "ru": "профе́ссия",
+    "uk": "профе́сія",
+    "pl": "zawód",
+    "tr": "meslek",
+    "ar": "مِهْنَة",
+    "ku": "pîşe",
+    "ckb": "پیشە",
+    "context": "Tätigkeit, die jemand als Arbeit ausübt."
+  },
+  {
+    "de": "Verarbeitung",
+    "ru": "обрабо́тка",
+    "uk": null,
+    "pl": "przetwarzanie",
+    "tr": null,
+    "ar": "مُعَالَجَة",
+    "ku": null,
+    "ckb": null,
+    "context": "Hier: Ein Rohstoff wird bearbeitet und zu einem Produkt; nicht das Verarbeiten eines Erlebnisses."
+  },
+  {
+    "de": "Bildung",
+    "ru": "образова́ние",
+    "uk": "осві́та",
+    "pl": "edukacja",
+    "tr": "eğitim",
+    "ar": "تَعْلِيم",
+    "ku": "perwerde",
+    "ckb": "پەروەردە",
+    "context": "Lernen und Wissen erwerben, zum Beispiel in Schule oder Hochschule; nicht die Bildung eines Gebirges."
+  },
+  {
+    "de": "Krankenhaus",
+    "ru": "больни́ца",
+    "uk": "ліка́рня",
+    "pl": "szpital",
+    "tr": "hastane",
+    "ar": "مُسْتَشْفًى",
+    "ku": "nexweşxane",
+    "ckb": "نەخۆشخانە",
+    "context": "Einrichtung, in der kranke Menschen medizinisch behandelt werden."
+  },
+  {
+    "de": "Einkommen",
+    "ru": "дохо́д",
+    "uk": "дохі́д",
+    "pl": "dochód",
+    "tr": "gelir",
+    "ar": "دَخْل",
+    "ku": "deramet",
+    "ckb": "داهات",
+    "context": "Geld, das eine Person oder ein Haushalt erhält. Einkommen lässt sich nicht allein an einem Foto ablesen."
+  },
+  {
+    "de": "Lebensbedingungen",
+    "ru": null,
+    "uk": null,
+    "pl": "warunki życia",
+    "tr": null,
+    "ar": null,
+    "ku": null,
+    "ckb": null,
+    "context": "Bedingungen des Alltags: etwa Wohnen, Einkommen, Wasser, Bildung und medizinische Versorgung."
+  },
+  {
+    "de": "gemeinsam",
+    "ru": "вме́сте",
+    "uk": "ра́зом",
+    "pl": "wspólnie",
+    "tr": "birlikte",
+    "ar": "مَعًا",
+    "ku": "vek re",
+    "ckb": "پێکەوە",
+    "context": "Hier: zusammen als Team; nicht gemeinsam im Sinn von allgemein oder gemeinschaftlichem Eigentum."
+  },
+  {
+    "de": "beeinflussen",
+    "ru": "влия́ть",
+    "uk": "вплива́ти",
+    "pl": "wpływać",
+    "tr": "etki altında bırakmak",
+    "ar": "أَثَّرَ",
+    "ku": "bandor kirin",
+    "ckb": null,
+    "context": "Auf etwas wirken und es verändern können; einzelne Wörter sind keine übersetzte Satzanweisung."
   }
 ]

@@ -1,0 +1,62 @@
+{
+  "savanna": {
+    "path": "assets/images/01.webp",
+    "sha256": "408f9a8027cd376df2ad5416ca4e0b2f801c4c7d07cde65847b4b8f1fc12a18f"
+  },
+  "desert": {
+    "path": "assets/images/02.webp",
+    "sha256": "b30f83c92efff90b0db0aed397a2b5f5e8b3bbc18e202dfe25cf3004251b841c"
+  },
+  "forest": {
+    "path": "assets/images/03.webp",
+    "sha256": "83ce56e5475503f3cdc0dece12f8471805129b227bdfcd9cc7b3f78ac0acca53"
+  },
+  "lagos": {
+    "path": "assets/images/04.webp",
+    "sha256": "b2cf739764f69498e8690bbe3860608e9e3d40569c6962c417bd57d3bd5894d2"
+  },
+  "farm": {
+    "path": "assets/images/05.webp",
+    "sha256": "0657d223c2ad2ba9e95a96125db63af8a5862580d84c860607937fb1ab9f24a5"
+  },
+  "atlas": {
+    "path": "assets/images/06.webp",
+    "sha256": "fe0bbc8a20173b45ee2482435156456705b0097326f1a186c494a2b102e41e6b"
+  },
+  "coast": {
+    "path": "assets/images/07.webp",
+    "sha256": "17c3e0fa46a37e8f6e7c2f392e37ba86535f111d6449ad7f2ab901fb6f08e6df"
+  },
+  "factory": {
+    "path": "assets/images/08.webp",
+    "sha256": "c4a74f3989c6eabc847881c002a508d28671fda09ac140cb8f935ee079043c35"
+  },
+  "school": {
+    "path": "assets/images/09.webp",
+    "sha256": "2db3edeee7ac84a95ebafdfb0a55c89a0c3c848a775f4b98172e7ae209b1d303"
+  },
+  "market": {
+    "path": "assets/images/10.webp",
+    "sha256": "79b0afb10529dcb61b91b0302bcce70db6aab696c188a42779fb50bc89a1725f"
+  },
+  "cocoa": {
+    "path": "assets/images/11.webp",
+    "sha256": "5e8d920ba4f8dc29bb76050a7ba1b0b55c1fcfe47427d527db4f0b8e8e063b98"
+  },
+  "water": {
+    "path": "assets/images/12.webp",
+    "sha256": "57ede0139462dbea161835bebec00d3eed93c6d785eded69ed5da82e3138e95c"
+  },
+  "people": {
+    "path": "assets/images/13.webp",
+    "sha256": "b4b257ad602370edc41915795a4f5f59ac4877458053568c2cf06de5bb3898cb"
+  },
+  "economy": {
+    "path": "assets/images/14.webp",
+    "sha256": "22c0e17ad3c0740e762e94697d16bf33fc2d3e65558bccdcaaaed01e37ae0c5e"
+  },
+  "solar": {
+    "path": "assets/images/15.webp",
+    "sha256": "26a61ed6de0fa407f9a34b1c4fea5a88f373aa3ce0c63e30d1a0b41d2052e5b3"
+  }
+}

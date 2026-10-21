@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import {selectionTask,answerSelection,resolvePartial,learning} from "./v2-helpers.mjs";
 const observed = new WeakMap();
 test.beforeEach(async ({ page }) => {
   const events = { errors: [], external: [] };
@@ -36,13 +37,7 @@ async function result(page, points) {
   await page.locator("#points-recorded").check();
   await page.locator('[data-action="result-next"]').click();
 }
-async function selectionTask(page) {
-  await choose(page, [1, 2, 3, 4]);
-  await page.getByRole("button", { name: "Auswahl ansehen" }).click();
-  await page.locator("#paper-recorded").check();
-  await page.getByRole("button", { name: "Zur Redaktion" }).click();
-  await page.getByRole("button", { name: "Die Überschrift prüfen" }).click();
-}
+
 async function noOverflow(page) {
   expect(
     await page.evaluate(
@@ -85,7 +80,7 @@ test("Akte 001: Lösung, Papierbestätigung und Themenauflösung", async ({
   await expect(
     page.getByRole("heading", { name: "Unser neues Thema ist AFRIKA!" }),
   ).toBeVisible();
-  await expect(page.locator('[data-action="home"]')).toBeDisabled();
+  await expect(page.locator('[data-action="home"]')).toBeEnabled();
   await result(page, 5);
   await expect(page.getByRole("heading", { name: /Willkommen/ })).toBeVisible();
 });
@@ -125,10 +120,7 @@ test("Akte 002: persönliche Auswahl unbewertet, volle gemeinsame Abgabe", async
   await boot(page);
   await open(page, 2);
   await selectionTask(page);
-  await page.locator("#scope-answer").fill("nur paar");
-  await page.getByLabel("Nein", { exact: true }).check();
-  await choose(page, [4, 6], "missing");
-  await expect(page.locator("#scope-answer")).toHaveValue("nur paar");
+  await answerSelection(page);
   await submit(page);
   await result(page, 5);
   await expect(
@@ -144,30 +136,20 @@ test("Akte 002: richtige Einzelkriterien bleiben erhalten", async ({
   await boot(page);
   await open(page, 2);
   await selectionTask(page);
-  await page.locator("#scope-answer").fill("wenige");
-  await page.getByLabel("Ja", { exact: true }).check();
-  await choose(page, [1, 2], "missing");
+  await answerSelection(page,{scope:"some",diversity:"same",work:"6",education:"3"});
   await submit(page);
+  await expect(page.locator(".result-stamp")).toContainText("Ein Teil stimmt");
+  await resolvePartial(page);
   await result(page, 2);
 });
 
-test("Unklare Antwort klärt neutral, ohne Versuch oder Teilpunkte zu verraten", async ({
-  page,
-}) => {
-  await boot(page);
-  await open(page, 2);
-  await selectionTask(page);
-  await page.locator("#scope-answer").fill("einige und alle");
-  await page.getByLabel("Nein", { exact: true }).check();
-  await choose(page, [4, 6], "missing");
-  await submit(page);
-  await expect(page.locator(".feedback")).toContainText("dieselbe Aussage");
-  await expect(page.locator(".result")).toHaveCount(0);
-  const s = await page.evaluate(() =>
-    JSON.parse(sessionStorage.getItem("ermittlungszentrale-session-v1")),
-  );
-  expect(s.tasks.selection.attempts[0]).toBe(0);
-  expect(s.tasks.selection.points).toBe(0);
+test("Unvollständige geschlossene Abgabe verbraucht keinen Versuch und verrät keine Teilpunkte",async({page})=>{
+ await boot(page);await open(page,2);await selectionTask(page);
+ await page.locator('[data-action="question-next"]').click();
+ await expect(page.getByRole('button',{name:'Antwort abgeben',exact:true})).toHaveCount(0);
+ await expect(page.locator('.result')).toHaveCount(0);
+ const s=await page.evaluate(()=>JSON.parse(sessionStorage.getItem('ermittlungszentrale-session-v2')));
+ expect(s.tasks.selection.attempts).toEqual([0,0,0,0]);expect(s.tasks.selection.points).toBe(0);
 });
 
 test("Akte 003: alle drei Orte liefern unabhängig bis zu 15 Punkte", async ({
@@ -180,6 +162,7 @@ test("Akte 003: alle drei Orte liefern unabhängig bis zu 15 Punkte", async ({
     await page.locator("#name-answer").fill(name);
     await submit(page);
     await result(page, 5);
+    await learning(page);
   }
   await expect(
     page.getByRole("heading", { name: "Ihr habt drei Orte entdeckt!" }),
@@ -197,11 +180,11 @@ test("Akte 004: ohne Akte 002 spielbar, Punkteübersicht nutzt Papier", async ({
   await choose(page, [3, 6, 8, 9]);
   await page.getByRole("button", { name: "Auswahl ansehen" }).click();
   await expect(page.locator("main")).toContainText(
-    "Eure Auswahl darf gleich bleiben",
+    "Gleich geblieben",
   );
   await page.locator("#paper-recorded").check();
-  await page.getByRole("button", { name: "Zum letzten Rätsel" }).click();
-  await page.getByLabel("B · Ein Ort in Afrika.", { exact: true }).check();
+  await page.getByRole("button", { name: "Die Überschrift prüfen" }).click();
+  await page.locator('input[name="headline"][value="c"]').check();
   await submit(page);
   await result(page, 5);
   await expect(
@@ -221,11 +204,11 @@ test("Akte 005: vier Spuren, Bonus getrennt, eigene Frage unbewertet", async ({
   await open(page, 5);
   await expect(page.locator(".clue-card")).toHaveCount(4);
   await page.getByRole("button", { name: "Spuren zuordnen" }).click();
-  for (let i = 0; i < 4; i++)
-    await page.locator(`#match-${i}`).selectOption(String(i));
+  for (const [key,value] of Object.entries({water:"nature",people:"population",economy:"economy",solar:"future"}))
+    await page.locator(`#match-${key}`).selectOption(value);
   await submit(page);
   await result(page, 5);
-  await page.getByRole("button", { name: "Wie können Menschen …?" }).click();
+  await page.getByRole("button", { name: "Wie könnte man …?" }).click();
   await page
     .locator("#future-question")
     .fill("Wie können Menschen Wasser sparen?");
@@ -370,7 +353,7 @@ for (const caseId of [2, 3, 4, 5])
       await choose(page, [1, 2, 3, 4]);
       await page.getByRole("button", { name: "Auswahl ansehen" }).click();
       await page.locator("#paper-recorded").check();
-      await page.getByRole("button", { name: "Zum letzten Rätsel" }).click();
+      await page.getByRole("button", { name: "Die Überschrift prüfen" }).click();
     }
     if (caseId === 5)
       await page.getByRole("button", { name: "Spuren zuordnen" }).click();
@@ -378,12 +361,13 @@ for (const caseId of [2, 3, 4, 5])
       await page.locator('[data-action="hint"]').click();
     await noOverflow(page);
     await expect(page.locator(".point-cap")).toContainText("1");
-    await page.locator('input[name="fallback"][value="b"]').check();
+    const answer={2:"b",3:"b",4:"b",5:"a"}[caseId], wrong=answer==="a"?"b":"a";
+    await page.locator(`input[name="fallback"][value="${wrong}"]`).check();
     await submit(page);
     await expect(
       page.getByRole("button", { name: "Antwort abgeben" }),
     ).toBeEnabled();
-    await page.locator('input[name="fallback"][value="a"]').check();
+    await page.locator(`input[name="fallback"][value="${answer}"]`).check();
     await submit(page);
     await result(page, 1);
   });

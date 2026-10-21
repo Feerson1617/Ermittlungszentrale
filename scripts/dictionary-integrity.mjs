@@ -20,7 +20,9 @@ export async function dictionaryIntegrity(root) {
   for (const word of dictionary) {
     const record = evidence.entries.find(e => e.de === word.de);
     if (!record) { problems.push(`Wörterbuchnachweis fehlt: ${word.de}`); continue; }
-    for (const lang of ["ku", "ckb"]) {
+    // All Kurdish values and all additionally sourced V2 values are bound to
+    // their exact evidence. Legacy values in five languages remain editorial.
+    for (const lang of new Set(["ku", "ckb", ...Object.keys(record.translations)])) {
       const item = record.translations[lang];
       if (item?.translation !== word[lang]) problems.push(`Wörterbuchnachweis veraltet: ${word.de}/${lang}`);
       if (!word[lang]) continue;

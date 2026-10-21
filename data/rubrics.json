@@ -1,65 +1,375 @@
 {
-  "limits": [5, 3, 2, 1],
+  "limits": [
+    5,
+    3,
+    2,
+    1
+  ],
   "tasks": {
     "title": {
-      "case": 1, "label": "Der verschwundene Titel", "kind": "continent", "max": 5,
+      "case": 1,
+      "label": "Der verschwundene Titel",
+      "kind": "continent",
+      "max": 5,
       "solution": "Afrika",
-      "aliases": ["afrika", "africa", "affrika", "africka", "afirka", "afrka", "afri ka"],
-      "wrong": ["amerika", "america", "sudamerika", "sud america", "nordamerika", "asien", "asia", "antarktis", "antarktika", "europa", "australien", "ozeanien", "sudafrika", "sud afrika", "south africa"],
-      "hints": ["Hier gibt es große Wüsten und Regenwälder.", "Der Äquator verläuft durch den Kontinent.", "Im Norden liegt das Mittelmeer."],
+      "aliases": [
+        "afrika",
+        "africa",
+        "affrika",
+        "africka",
+        "afirka",
+        "afrka",
+        "afri ka"
+      ],
+      "wrong": [
+        "amerika",
+        "america",
+        "sudamerika",
+        "sud america",
+        "nordamerika",
+        "asien",
+        "asia",
+        "antarktis",
+        "antarktika",
+        "europa",
+        "australien",
+        "ozeanien",
+        "sudafrika",
+        "sud afrika",
+        "south africa"
+      ],
+      "hints": [
+        "Hier gibt es große Wüsten und Regenwälder.",
+        "Der Äquator verläuft durch den Kontinent.",
+        "Im Norden liegt das Mittelmeer."
+      ],
       "success": "Unser neues Thema ist AFRIKA!",
       "paper": "Schreibt Afrika als Lösung auf. Tragt eure Punkte ein. Markiert Afrika auf der Weltkarte rot.",
-      "fallback": {"prompt": "Welche Karte passt zu den Hinweisen?", "options": ["Kontinent A", "Kontinent B"], "answer": "a"}
+      "fallback": {
+        "prompt": "Welche Karte passt zu den Hinweisen?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Kontinent A"
+          },
+          {
+            "id": "b",
+            "label": "Kontinent B"
+          }
+        ],
+        "answer": "a"
+      },
+      "schema": 2,
+      "neutralNames": [
+        "Europa",
+        "Asien",
+        "Afrika",
+        "Australien",
+        "Amerika",
+        "Antarktis"
+      ]
     },
     "selection": {
-      "case": 2, "label": "Die Auswahl der Redaktion", "kind": "selection", "max": 5,
-      "solution": "Nur einige Orte; nein; zwei Bilder außerhalb der Redaktionsauswahl.",
-      "editorial": [1, 2, 5, 10],
-      "criteria": [{"label": "Nur ein Ausschnitt", "points": 2}, {"label": "Nicht überall gleich", "points": 1}, {"label": "Erstes fehlendes Bild", "points": 1}, {"label": "Zweites fehlendes Bild", "points": 1}],
-      "hints": ["Die Redaktion zeigt nur vier Bilder.", "Denkt an die anderen Fotos.", "Ein Kontinent hat viele verschiedene Orte."],
+      "case": 2,
+      "label": "Die Auswahl der Redaktion",
+      "kind": "selection",
+      "max": 5,
+      "solution": "Einige Orte; nicht überall gleich; Industrie oder Markt (8/10); Universität oder Krankenhaus (9/12).",
+      "editorial": [
+        1,
+        2,
+        5,
+        11
+      ],
+      "criteria": [
+        {
+          "key": "scope",
+          "label": "Einige Orte",
+          "points": 2,
+          "explanation": "Vier Fotos zeigen einen Ausschnitt. Sie zeigen nicht alle Orte."
+        },
+        {
+          "key": "diversity",
+          "label": "Unterschiedliche Orte",
+          "points": 1,
+          "explanation": "Die Fotos zeigen verschiedene Natur- und Stadträume. Ein Ort steht nicht für den ganzen Kontinent."
+        },
+        {
+          "key": "work",
+          "label": "Fabrik oder Geschäfte",
+          "points": 1,
+          "explanation": "Bild 8 zeigt einen Industriebetrieb in Ghana; Bild 10 einen Markt in Accra. Beide fehlen in der Redaktion."
+        },
+        {
+          "key": "education",
+          "label": "Lernen oder medizinische Versorgung",
+          "points": 1,
+          "explanation": "Bild 9 zeigt eine Universität in Accra; Bild 12 ein Krankenhaus in Butaro. Beide fehlen in der Redaktion."
+        }
+      ],
+      "hints": [
+        "Die Redaktion zeigt nur vier von zwölf Bildern.",
+        "Sucht in den anderen Bildern einen Industriebetrieb oder Markt und einen Lern- oder Behandlungsort.",
+        "Vier Fotos zeigen einige Orte. Sie stehen nicht für alle Lebensbedingungen."
+      ],
       "success": "Fotos zeigen immer nur einen Teil der Wirklichkeit.",
-      "paper": "Tragt eure Punkte ein. Ergänzt auf Papier: Vier Fotos zeigen nur …",
-      "fallback": {"prompt": "Was können vier Fotos zeigen?", "options": ["Nur einen Teil.", "Alle Orte."], "answer": "a"}
+      "paper": "Tragt eure festgeschriebenen Punkte ein. Notiert bei Bedarf: In der Auswahl fehlt …",
+      "fallback": {
+        "prompt": "Was können vier Fotos zeigen?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Alle Orte."
+          },
+          {
+            "id": "b",
+            "label": "Nur einen Teil."
+          }
+        ],
+        "answer": "b"
+      },
+      "schema": 2,
+      "correctAnswers": {
+        "scope": [
+          "some"
+        ],
+        "diversity": [
+          "different"
+        ],
+        "work": [
+          8,
+          10
+        ],
+        "education": [
+          9,
+          12
+        ]
+      }
     },
     "atlas": {
-      "case": 3, "label": "Fall A · Schnee in Afrika?", "kind": "country", "max": 5,
-      "solution": "Marokko", "aliases": ["marokko", "maroko", "marr oko", "marocco", "morocco", "morroco", "marroko", "marocko", "m arokko", "marok o"],
-      "hints": ["Das Land liegt im Norden Afrikas.", "Es liegt am Atlantik und am Mittelmeer.", "Das Land beginnt mit M."],
+      "case": 3,
+      "label": "Fall A · Schnee in Afrika?",
+      "kind": "country",
+      "max": 5,
+      "solution": "Marokko",
+      "aliases": [
+        "marokko",
+        "maroko",
+        "marr oko",
+        "marocco",
+        "morocco",
+        "morroco",
+        "marroko",
+        "marocko",
+        "m arokko",
+        "marok o"
+      ],
+      "hints": [
+        "Das Land liegt im Norden Afrikas.",
+        "Es liegt am Atlantik und am Mittelmeer.",
+        "Das Land beginnt mit M."
+      ],
       "success": "Auch in Afrika gibt es Gebirge mit Schnee. Das Foto zeigt das Atlasgebirge in Marokko.",
       "paper": "Schreibt bei Fall A Marokko auf. Tragt eure Punkte ein.",
-      "fallback": {"prompt": "Welches Land liegt beim markierten Ort?", "options": ["Marokko", "Ghana"], "answer": "a"}
+      "fallback": {
+        "prompt": "Welches Land liegt beim markierten Ort?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Ghana"
+          },
+          {
+            "id": "b",
+            "label": "Marokko"
+          }
+        ],
+        "answer": "b"
+      },
+      "schema": 2,
+      "neutralNames": [
+        "Ghana",
+        "Kenia",
+        "Marokko",
+        "Nigeria",
+        "Namibia",
+        "Südafrika"
+      ]
     },
     "city": {
-      "case": 3, "label": "Fall B · Die unbekannte Großstadt", "kind": "country", "max": 5,
-      "solution": "Nigeria", "aliases": ["nigeria", "nigera", "nigieria", "nigerai", "nigiria", "nigeira"],
-      "hints": ["Das Land liegt in Westafrika.", "Es liegt am Golf von Guinea.", "Der Name beginnt mit N."],
-      "success": "Lagos ist eine große Stadt in Nigeria. Hier arbeiten Menschen zum Beispiel im Handel und in Büros.",
+      "case": 3,
+      "label": "Fall B · Die unbekannte Großstadt",
+      "kind": "country",
+      "max": 5,
+      "solution": "Nigeria",
+      "aliases": [
+        "nigeria",
+        "nigera",
+        "nigieria",
+        "nigerai",
+        "nigiria",
+        "nigeira"
+      ],
+      "hints": [
+        "Das Land liegt in Westafrika.",
+        "Es liegt am Golf von Guinea.",
+        "Der Name beginnt mit N."
+      ],
+      "success": "Der rote Punkt zeigt Lagos in Nigeria. Die Skyline zeigt einen Stadtraum; sie verrät keine Einkommen.",
       "paper": "Schreibt bei Fall B Nigeria auf. Tragt eure Punkte ein.",
-      "fallback": {"prompt": "Welches Land liegt beim markierten Ort?", "options": ["Nigeria", "Kenia"], "answer": "a"}
+      "fallback": {
+        "prompt": "Welches Land liegt beim markierten Ort?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Nigeria"
+          },
+          {
+            "id": "b",
+            "label": "Kenia"
+          }
+        ],
+        "answer": "a"
+      },
+      "schema": 2,
+      "neutralNames": [
+        "Ghana",
+        "Kenia",
+        "Marokko",
+        "Nigeria",
+        "Namibia",
+        "Südafrika"
+      ]
     },
     "cocoa": {
-      "case": 3, "label": "Fall C · Die geheime Zutat", "kind": "country", "max": 5,
-      "solution": "Ghana", "aliases": ["ghana", "gana", "ghanna", "ghna", "gahna", "ghnaa"],
-      "hints": ["Das Land liegt in Westafrika.", "Es liegt am Golf von Guinea.", "Der Name beginnt mit G."],
-      "success": "In Ghana wird Kakao angebaut. Kakao für Schokolade wird in viele Länder verkauft.",
+      "case": 3,
+      "label": "Fall C · Die geheime Zutat",
+      "kind": "country",
+      "max": 5,
+      "solution": "Ghana",
+      "aliases": [
+        "ghana",
+        "gana",
+        "ghanna",
+        "ghna",
+        "gahna",
+        "ghnaa"
+      ],
+      "hints": [
+        "Das Land liegt in Westafrika.",
+        "Es liegt am Golf von Guinea.",
+        "Der Name beginnt mit G."
+      ],
+      "success": "Der Foto- und Kartenbeleg führt nach Ghana. Auch in anderen Ländern wird Kakao angebaut.",
       "paper": "Schreibt bei Fall C Ghana auf. Tragt eure Punkte ein.",
-      "fallback": {"prompt": "Welches Land liegt beim markierten Ort?", "options": ["Ghana", "Nigeria"], "answer": "a"}
+      "fallback": {
+        "prompt": "Welches Land liegt beim markierten Ort?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Nigeria"
+          },
+          {
+            "id": "b",
+            "label": "Ghana"
+          }
+        ],
+        "answer": "b"
+      },
+      "schema": 2,
+      "neutralNames": [
+        "Ghana",
+        "Kenia",
+        "Marokko",
+        "Nigeria",
+        "Namibia",
+        "Südafrika"
+      ]
     },
     "headline": {
-      "case": 4, "label": "Der letzte Ermittlungsbericht", "kind": "headline", "max": 5,
-      "solution": "B – Ein Ort in Afrika.",
-      "hints": ["Ein Foto zeigt einen Ort.", "Menschen leben an vielen verschiedenen Orten.", "Sucht eine Überschrift ohne das Wort alle oder überall."],
-      "success": "Ein Foto zeigt einen Ort. Es zeigt nicht das Leben aller Menschen.",
-      "paper": "Tragt eure Punkte bei Akte 004 ein.",
-      "fallback": {"prompt": "Welche Überschrift passt zu einem Foto?", "options": ["Ein Ort in Afrika.", "Überall sieht es gleich aus."], "answer": "a"}
+      "case": 4,
+      "label": "Der letzte Ermittlungsbericht",
+      "kind": "headline",
+      "max": 5,
+      "solution": "Handel auf einem Markt in Accra.",
+      "hints": [
+        "Schaut auf das Foto und den belegten Ort.",
+        "Zu sehen sind Marktstände und Handel.",
+        "Die Quellenangabe nennt Accra; das Foto zeigt nur diesen Ort."
+      ],
+      "success": "Das Foto belegt Handel auf einem Markt in Accra. Es beschreibt nicht das Leben aller Menschen.",
+      "paper": "Notiert die gewählte Überschrift und eure Punkte bei Akte 004.",
+      "fallback": {
+        "prompt": "Welche Überschrift passt zu Foto und Ortsbeleg?",
+        "options": [
+          {
+            "id": "a",
+            "label": "So leben alle Menschen auf dem Kontinent."
+          },
+          {
+            "id": "b",
+            "label": "Handel auf einem Markt in Accra."
+          }
+        ],
+        "answer": "b"
+      },
+      "schema": 2,
+      "answer": "c",
+      "options": [
+        {
+          "id": "a",
+          "label": "Schnee im Atlasgebirge."
+        },
+        {
+          "id": "b",
+          "label": "So leben alle Menschen auf dem Kontinent."
+        },
+        {
+          "id": "c",
+          "label": "Handel auf einem Markt in Accra."
+        }
+      ]
     },
     "future": {
-      "case": 5, "label": "Die Spur in die Zukunft", "kind": "matching", "max": 5,
-      "solution": "Wasser → A; Menschen → B; Wirtschaft → C; Zukunft → D.",
-      "hints": ["Sucht Wörter, die zusammenpassen: Wasser und Natur.", "Menschen gehören zur Bevölkerung. Ein Betrieb gehört zur Wirtschaft.", "Prüft jede Spur für sich. Die Sonne kann Strom liefern."],
+      "case": 5,
+      "label": "Die Spur in die Zukunft",
+      "kind": "matching",
+      "max": 5,
+      "solution": "Wasser → Naturraum; Menschen → Bevölkerungsentwicklung; Verarbeitung → Wirtschaft; Stromversorgung → Zukunft abwägen.",
+      "hints": [
+        "Sucht den jeweils gefragten Schwerpunkt. Mehrere Themen können zusammenhängen.",
+        "Regen gehört zum Naturraum, Zuzug zur Stadt- und Bevölkerungsentwicklung, Verarbeitung zur Wirtschaft.",
+        "Die Stromspur fragt nach einer Abwägung: Wer hat Nutzen, wer Zugang, welche Folgen entstehen?"
+      ],
       "success": "Ihr habt neue Spuren gefunden. Im Geographieunterricht könnt ihr diese Fragen weiter untersuchen.",
       "paper": "Tragt die Bonuspunkte getrennt ein.",
-      "fallback": {"prompt": "Eine Ernte braucht Wasser. Welche Frage passt?", "options": ["Wie beeinflusst die Natur das Leben?", "Was verändert sich, wenn die Bevölkerung wächst?"], "answer": "a"}
+      "fallback": {
+        "prompt": "Eine Ernte braucht Wasser. Welche Frage passt?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Wie beeinflusst die Natur das Leben?"
+          },
+          {
+            "id": "b",
+            "label": "Was verändert sich, wenn die Bevölkerung wächst?"
+          }
+        ],
+        "answer": "a"
+      },
+      "schema": 2,
+      "matchingAnswers": {
+        "water": "nature",
+        "people": "population",
+        "economy": "economy",
+        "solar": "future"
+      },
+      "explanations": {
+        "water": "Die Nachricht fragt nach Wasserbedarf und Regen. Das abgeerntete Feld beweist keine Missernte.",
+        "people": "Zuzug kann eine Stadt vergrößern. Natürliches Bevölkerungswachstum bedeutet mehr Geburten als Sterbefälle; das ist eine andere Ursache.",
+        "economy": "Verarbeitung gehört zur Wirtschaft. Ein Betrieb garantiert keine Gewinne oder guten Arbeitsbedingungen.",
+        "solar": "Bei Energie geht es um Nutzen, Zugang und Umweltfolgen. Spiegel-Solarthermie ist nicht automatisch nachhaltig."
+      }
     }
-  }
+  },
+  "version": 2
 }

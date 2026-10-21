@@ -66,7 +66,7 @@ test("Lokale Quellen- und Statusseite ist erreichbar und behauptet keine Sprachf
   await expect(page.locator("h1")).toContainText("Quellen und Prüfstand");
   await expect(page.locator("body")).toContainText("noch nicht muttersprachlich abgenommen");
   await expect(page.locator("tbody tr")).toHaveCount(7);
-  await expect(page.locator("tbody")).toContainText("176 / 187");
-  await expect(page.locator("tbody")).toContainText("177 / 187");
+  await expect(page.locator("tbody")).toContainText("184 / 197");
+  await expect(page.locator("tbody")).toContainText("184 / 197");
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
 });

@@ -1,6 +1,6 @@
 {
   "status": "complete",
-  "notice": "15 authentische Fotografien mit geprüften Orts- und Lizenznachweisen; die allgemeine Unterrichtsabnahme bleibt separat offen.",
+  "notice": "19 authentische Fotografien mit getrennten Auswahlbildnummern und Belegkennungen; Geräte-, Sprach- und Unterrichtsabnahme separat.",
   "images": {
     "savanna": {
       "creditId": "F01",
@@ -29,7 +29,9 @@
       "retrieved": "2026-10-20",
       "taken": "2018-12-10",
       "deviation": "",
-      "authorUrl": "https://commons.wikimedia.org/w/index.php?title=User:Michelle_Juma&action=edit&redlink=1"
+      "authorUrl": "https://commons.wikimedia.org/w/index.php?title=User:Michelle_Juma&action=edit&redlink=1",
+      "id": "savanna",
+      "selectionNumber": 1
     },
     "desert": {
       "creditId": "F02",
@@ -62,7 +64,9 @@
       "coordinates": [
         -24.751763,
         15.292119
-      ]
+      ],
+      "id": "desert",
+      "selectionNumber": 2
     },
     "forest": {
       "creditId": "F03",
@@ -91,7 +95,9 @@
       "retrieved": "2026-10-20",
       "taken": "2015-08-22 09:53",
       "deviation": "Luftaufnahme des Kronendachs statt Aufnahme vom Waldboden.",
-      "authorUrl": "https://www.flickr.com/people/67163702@N07"
+      "authorUrl": "https://www.flickr.com/people/67163702@N07",
+      "id": "forest",
+      "selectionNumber": 3
     },
     "lagos": {
       "creditId": "F04",
@@ -120,7 +126,9 @@
       "retrieved": "2026-10-20",
       "taken": "2016-05-27 01:33:44",
       "deviation": "Bestandsbebauung und Hochhäuser von 2016 statt einer aktuellen Aufnahme von Eko Atlantic.",
-      "authorUrl": "https://commons.wikimedia.org/wiki/User:Jamie_Tubers"
+      "authorUrl": "https://commons.wikimedia.org/wiki/User:Jamie_Tubers",
+      "id": "lagos",
+      "selectionNumber": 4
     },
     "farm": {
       "creditId": "F05",
@@ -148,7 +156,9 @@
       "evidenceSha256": "ef0959e967cb86a1c2e537bef15e84ed8cbcd751dc13bb7776b73670804bdc67",
       "retrieved": "2026-10-20",
       "taken": "2010-05-27",
-      "deviation": ""
+      "deviation": "",
+      "id": "farm",
+      "selectionNumber": 5
     },
     "atlas": {
       "creditId": "F06",
@@ -181,7 +191,9 @@
       "coordinates": [
         31.32204,
         -7.376697
-      ]
+      ],
+      "id": "atlas",
+      "selectionNumber": 6
     },
     "coast": {
       "creditId": "F07",
@@ -210,7 +222,9 @@
       "retrieved": "2026-10-20",
       "taken": "2006-12",
       "deviation": "Strandlandschaft statt Stadt-und-Meer-Ansicht.",
-      "authorUrl": "https://commons.wikimedia.org/w/index.php?title=User:Bakersville&action=edit&redlink=1"
+      "authorUrl": "https://commons.wikimedia.org/w/index.php?title=User:Bakersville&action=edit&redlink=1",
+      "id": "coast",
+      "selectionNumber": 7
     },
     "factory": {
       "creditId": "F08",
@@ -243,7 +257,9 @@
       "coordinates": [
         5.666156,
         -0.061758
-      ]
+      ],
+      "id": "factory",
+      "selectionNumber": 8
     },
     "school": {
       "creditId": "F09",
@@ -272,7 +288,9 @@
       "retrieved": "2026-10-20",
       "taken": "2010-01-31 07:16:02",
       "deviation": "",
-      "authorUrl": "https://commons.wikimedia.org/w/index.php?title=User:Rjruiziii&action=edit&redlink=1"
+      "authorUrl": "https://commons.wikimedia.org/w/index.php?title=User:Rjruiziii&action=edit&redlink=1",
+      "id": "school",
+      "selectionNumber": 9
     },
     "market": {
       "creditId": "F10",
@@ -301,7 +319,9 @@
       "retrieved": "2026-10-20",
       "taken": "2019-03-12 15:17:01",
       "deviation": "",
-      "authorUrl": "https://commons.wikimedia.org/wiki/User:Amuzujoe"
+      "authorUrl": "https://commons.wikimedia.org/wiki/User:Amuzujoe",
+      "id": "market",
+      "selectionNumber": 10
     },
     "cocoa": {
       "creditId": "F11",
@@ -334,7 +354,9 @@
       "coordinates": [
         6.599547,
         -0.881836
-      ]
+      ],
+      "id": "cocoa",
+      "selectionNumber": null
     },
     "water": {
       "creditId": "F12",
@@ -367,7 +389,9 @@
       "coordinates": [
         13.95419,
         1.65624
-      ]
+      ],
+      "id": "water",
+      "selectionNumber": null
     },
     "people": {
       "creditId": "F13",
@@ -400,7 +424,9 @@
       "coordinates": [
         -1.2965,
         36.817778
-      ]
+      ],
+      "id": "people",
+      "selectionNumber": null
     },
     "economy": {
       "creditId": "F14",
@@ -429,7 +455,9 @@
       "retrieved": "2026-10-20",
       "taken": "2007-05-13",
       "deviation": "Außenansicht statt Einblick in den Verarbeitungsprozess.",
-      "authorUrl": "https://www.flickr.com/people/hiyori13/"
+      "authorUrl": "https://www.flickr.com/people/hiyori13/",
+      "id": "economy",
+      "selectionNumber": null
     },
     "solar": {
       "creditId": "F15",
@@ -462,7 +490,137 @@
       "coordinates": [
         31.029002,
         -6.856492
-      ]
+      ],
+      "id": "solar",
+      "selectionNumber": null
+    },
+    "supply": {
+      "creditId": "F16",
+      "path": "assets/images/water-supply.webp",
+      "description": "Wassertank auf einem Turm",
+      "location": "Kajiado County, Kenia",
+      "locationEvidence": "Die Commons-Autorbeschreibung nennt einen Wassertankturm in Ongara Rongai, Kajiado County, Kenia; die Kategorien nennen Wasserversorgung in Kenia. Die Ortsangabe wird auf den belegten County begrenzt.",
+      "author": "Queen Asali",
+      "sourceTitle": "Water tank tower.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Water_tank_tower.jpg",
+      "sourceRevision": 1234460969,
+      "sourceRevisionUrl": "https://commons.wikimedia.org/w/index.php?title=File%3AWater+tank+tower.jpg&oldid=1234460969",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "attribution": "Queen Asali: Water tank tower.jpg, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), Quelle Wikimedia Commons; lokal verkleinert, in WebP umgewandelt, EXIF entfernt, kein Beschnitt.",
+      "taken": "2026-06-19",
+      "deviation": "Wasserspeicher als Beispiel für Versorgung; kein Beleg für Wassermangel oder Zugang aller Haushalte.",
+      "width": 788,
+      "height": 1400,
+      "bytes": 216084,
+      "sha256": "a245c9c1713299695e70323d47aa37366fd90801dc308c81cf9cbc6a94157308",
+      "originalSha1": "d96064248223b6a50ab911cdd94e6e7d74a771d8",
+      "originalSha256": "09d627edaec89a963b2d46a3f5e0ffeeab9a5b03bbec0910c87e50c3689c7b1a",
+      "originalFilename": "Water tank tower.jpg",
+      "evidence": "docs/media/supply.json",
+      "evidenceSha256": "3012f72346cf8ead05fed6dffce35e20eee838f18d44fb56effa759b96d7b047",
+      "selectionNumber": 11,
+      "authorUrl": "https://commons.wikimedia.org/wiki/User:Queen_Asali",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/5/52/Water_tank_tower.jpg",
+      "retrieved": "2026-10-21",
+      "modification": "Auf längstens 1400 Pixel verkleinert (kleinere Originale nicht hochskaliert), nach WebP konvertiert; EXIF entfernt. Kein Beschnitt und keine inhaltliche Veränderung.",
+      "id": "supply"
+    },
+    "clinic": {
+      "creditId": "F17",
+      "path": "assets/images/medical-care.webp",
+      "description": "Krankenhausgebäude in Butaro",
+      "location": "Butaro, Distrikt Burera, Ruanda",
+      "locationEvidence": "Commons-Beschreibung: New hospital in Butaro, Burera District, Rwanda. Flickr-Original und Kategorie nennen Butaro Hospital. Keine Herkunft oder Qualifikation von Personen aus dem Aussehen abgeleitet.",
+      "author": "François Terrier",
+      "sourceTitle": "Butaro Hospital.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Butaro_Hospital.jpg",
+      "sourceRevision": 1102199426,
+      "sourceRevisionUrl": "https://commons.wikimedia.org/w/index.php?title=File%3AButaro+Hospital.jpg&oldid=1102199426",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "attribution": "François Terrier: Butaro Hospital.jpg, CC BY 2.0 (https://creativecommons.org/licenses/by/2.0), Quelle Wikimedia Commons; lokal verkleinert, in WebP umgewandelt, EXIF entfernt, kein Beschnitt.",
+      "taken": "2011-10-11",
+      "deviation": "Historische Außenaufnahme von 2011; kein Beleg für aktuelle Versorgungsqualität, allgemeine Zugänglichkeit oder finanzielle Unabhängigkeit.",
+      "width": 1400,
+      "height": 933,
+      "bytes": 239922,
+      "sha256": "f8d05e2d3cb57c154f36d18ece24ac731a1468fa75599ef29838f028d323a308",
+      "originalSha1": "486b79819f004d7a03af7dd162f9bc21a7219331",
+      "originalSha256": "69ddd37a24047e17868c0e7c5e157fd2a11f55873600929bd4ffd8e2b9dc4f6c",
+      "originalFilename": "Butaro Hospital.jpg",
+      "evidence": "docs/media/clinic.json",
+      "evidenceSha256": "9a1c4d499639d3bf4a5b1c719076580a3d9c8196fe5e9533d88a1efef5c36eeb",
+      "selectionNumber": 12,
+      "authorUrl": "https://www.flickr.com/people/59728762@N03",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Butaro_Hospital.jpg",
+      "retrieved": "2026-10-21",
+      "modification": "Auf längstens 1400 Pixel verkleinert (kleinere Originale nicht hochskaliert), nach WebP konvertiert; EXIF entfernt. Kein Beschnitt und keine inhaltliche Veränderung.",
+      "id": "clinic"
+    },
+    "housing": {
+      "creditId": "A3-B1",
+      "path": "assets/images/lagos-housing.webp",
+      "description": "Dichte Bebauung in Makoko aus der Luft",
+      "location": "Makoko, Lagos, Nigeria",
+      "locationEvidence": "Die Autorbeschreibung nennt Makoko in Lagos; die geografischen Kategorien bestätigen Makoko und Luftaufnahme von Lagos.",
+      "author": "Kateregga1",
+      "sourceTitle": "Aerial view of Makoko Slum in Lagos Nigeria.png",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Makoko_Slum_in_Lagos_Nigeria.png",
+      "sourceRevision": 789358275,
+      "sourceRevisionUrl": "https://commons.wikimedia.org/w/index.php?title=File%3AAerial+view+of+Makoko+Slum+in+Lagos+Nigeria.png&oldid=789358275",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "attribution": "Kateregga1: Aerial view of Makoko Slum in Lagos Nigeria.png, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), Quelle Wikimedia Commons; lokal verkleinert, in WebP umgewandelt, EXIF entfernt, kein Beschnitt.",
+      "taken": "2019-11-13",
+      "deviation": "Aufnahme 2019; Vergleich mit Lagos Island 2016 zeigt unterschiedliche Orte und Zeitpunkte, keinen zeitlichen Entwicklungsverlauf. Keine Einkommen oder Herkunft aus dem Bild ableiten. Die Aufnahme zeigt Dächer und Straßen; sie belegt weder Haushaltseinkommen noch einen bestimmten Versorgungsgrad.",
+      "width": 1400,
+      "height": 729,
+      "bytes": 219084,
+      "sha256": "689dd9a223179e21a969a59fa30fabe56c7641f3348b869af9df4dfaa88ae090",
+      "originalSha1": "6eb7201f21e26a0f0765884b9725246d79f38e01",
+      "originalSha256": "fb54983572af2e2b8aa4291b84a97b4c7847e3ddebf55461151a6abb81d0fb60",
+      "originalFilename": "Aerial view of Makoko Slum in Lagos Nigeria.png",
+      "evidence": "docs/media/housing.json",
+      "evidenceSha256": "300257512a0c40ce6df2071567673b351ea441494edf724ec2f9095a83e54cca",
+      "selectionNumber": null,
+      "authorUrl": "https://commons.wikimedia.org/wiki/User:Kateregga1",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Aerial_view_of_Makoko_Slum_in_Lagos_Nigeria.png",
+      "retrieved": "2026-10-21",
+      "modification": "Auf längstens 1400 Pixel verkleinert (kleinere Originale nicht hochskaliert), nach WebP konvertiert; EXIF entfernt. Kein Beschnitt und keine inhaltliche Veränderung.",
+      "id": "housing"
+    },
+    "trade": {
+      "creditId": "A3-B2",
+      "path": "assets/images/lagos-trade.webp",
+      "description": "Stoffhandel im Balogun-Markt",
+      "location": "Balogun-Markt, Lagos, Nigeria",
+      "locationEvidence": "Beschreibung des Flickr-Fotos: Ankara alley of Balogun Market, Lagos, Nigeria; Commons-Kategorie bestätigt Märkte in Lagos.",
+      "author": "Seattle Globalist",
+      "sourceTitle": "2007 Balogun Market Lagos Nigeria 9395578408.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:2007_Balogun_Market_Lagos_Nigeria_9395578408.jpg",
+      "sourceRevision": 1201387318,
+      "sourceRevisionUrl": "https://commons.wikimedia.org/w/index.php?title=File%3A2007+Balogun+Market+Lagos+Nigeria+9395578408.jpg&oldid=1201387318",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "attribution": "Seattle Globalist: 2007 Balogun Market Lagos Nigeria 9395578408.jpg, CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0), Quelle Wikimedia Commons; lokal verkleinert, in WebP umgewandelt, EXIF entfernt, kein Beschnitt.",
+      "taken": "2007-07-13 11:06",
+      "deviation": "Historische Aufnahme 2007. Dritte Alltagsperspektive und belegter Handelsort, keine statistische Mittelschicht oder Einkommensangabe. Das Original hat 963 × 640 Pixel und wurde nicht künstlich vergrößert.",
+      "width": 963,
+      "height": 640,
+      "bytes": 117752,
+      "sha256": "263f27561f68d49f079400382e8f979cae435216a7b0cb683a147bf88113dcc6",
+      "originalSha1": "6d01885428ea223800d37516e805af170cff34c2",
+      "originalSha256": "6904ac94c1fc9b21ca6e1c487c12fdd14281a3aa6d77e25b35e007c1252de424",
+      "originalFilename": "2007 Balogun Market Lagos Nigeria 9395578408.jpg",
+      "evidence": "docs/media/trade.json",
+      "evidenceSha256": "e6181325a25cbe0c24ba7d62822b02c219acff963ab688f79049615fb9ceb4e2",
+      "selectionNumber": null,
+      "authorUrl": "https://www.flickr.com/people/51515265@N08",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/f/fe/2007_Balogun_Market_Lagos_Nigeria_9395578408.jpg",
+      "retrieved": "2026-10-21",
+      "modification": "Auf längstens 1400 Pixel verkleinert (kleinere Originale nicht hochskaliert), nach WebP konvertiert; EXIF entfernt. Kein Beschnitt und keine inhaltliche Veränderung.",
+      "id": "trade"
     }
   }
 }

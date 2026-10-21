@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "reviewType": "Quellengestützte redaktionelle Plausibilitätsprüfung durch Codex; keine muttersprachliche Prüfung",
   "nativeReview": false,
-  "dictionarySha256": "1a2bb22eaf51101b963125658f00c6e9c7b36491ef66c40d82f38d093631ce06",
+  "dictionarySha256": "6b0e1f3fc8f103786a963a787240e8406e6fbcbdf71246db84c5b948861431f8",
   "normalization": [
     "Unicode NFC",
     "Arabisches ي → kurdisches ی und ك → ک bei Sorani-Belegen",
@@ -70,6 +70,14 @@
       "license": "MPL-2.0",
       "licenseFile": "docs/dictionary-sources/Mozilla-LICENSE.txt",
       "scope": "Tatsächlich verwendete UI-Beschriftungen für Weiter und Bestätigen."
+    },
+    "de-wiktionary": {
+      "title": "Deutschsprachiges Wiktionary",
+      "author": "Wiktionary-Beitragende; Versionsgeschichte je Einzelbeleg",
+      "url": "https://de.wiktionary.org/",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "scope": "Explizite kmr-Kennzeichnung und türkische Übersetzung für beeinflussen in zitierter Seitenrevision; keine automatische Übernahme aller Synonyme."
     }
   },
   "entries": [
@@ -8341,7 +8349,7 @@
     },
     {
       "de": "Beweis",
-      "context": "Etwas, das eine Annahme stützt.",
+      "context": "Etwas, das eine Annahme stützt; im Spiel auch ein Foto als Bildbeleg. Kein Nachweis für alle Menschen oder Orte.",
       "plausibility": {
         "ru": "redaktionell plausibel; muttersprachliche Prüfung offen",
         "uk": "redaktionell plausibel; muttersprachliche Prüfung offen",
@@ -14722,6 +14730,1265 @@
               "excerptSha256": "e45d2a3ca644630d84ea146eca1eabec8cdcaae6c4a131fe2cad46b50a7197c9"
             }
           ],
+          "previous": null
+        }
+      }
+    },
+    {
+      "de": "Unterschied",
+      "context": "Das, was bei zwei Dingen verschieden ist.",
+      "introduced": "2.0",
+      "plausibility": {
+        "ru": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "uk": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "pl": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "tr": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "ar": "redaktionell plausibel; muttersprachliche Prüfung offen"
+      },
+      "translations": {
+        "ru": {
+          "translation": "разли́чие",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=difference&oldid=93689431",
+              "title": "difference",
+              "revision": 93689431,
+              "sense": "quality of being different",
+              "dialect": "ru",
+              "quote": "* Russian: {{t+|ru|разли́чие|n}}, {{t+|ru|отли́чие|n}}, {{t+|ru|ра́зница|f}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "8bfededd975fded64c640d4a5c8e433ff0ae07fa5d847689f6e44e1522b8916f"
+            }
+          ],
+          "previous": null
+        },
+        "uk": {
+          "translation": "різни́ця",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=difference&oldid=93689431",
+              "title": "difference",
+              "revision": 93689431,
+              "sense": "quality of being different",
+              "dialect": "uk",
+              "quote": "* Ukrainian: {{t+|uk|різни́ця|f}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "84decfb14e668a556bc808ead494d32b9d338eec3da61e4580f35bc7ffe28492"
+            }
+          ],
+          "previous": null
+        },
+        "pl": {
+          "translation": "różnica",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=difference&oldid=93689431",
+              "title": "difference",
+              "revision": 93689431,
+              "sense": "quality of being different",
+              "dialect": "pl",
+              "quote": "* Polish: {{t+|pl|różnica|f}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "0e5205b78ce2e683cd6a89460f83c3ac3b263a8e8a5d50e1ba2eaa7b0a95b22e"
+            }
+          ],
+          "previous": null
+        },
+        "tr": {
+          "translation": "fark",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=difference&oldid=93689431",
+              "title": "difference",
+              "revision": 93689431,
+              "sense": "quality of being different",
+              "dialect": "tr",
+              "quote": "* Turkish: {{t+|tr|fark}}, {{t+|tr|ayrım}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "e9b4ed788e8735edb7c8eac0f63578b1c0247f21c77d83b1c741f4da5b03ddbf"
+            }
+          ],
+          "previous": null
+        },
+        "ar": {
+          "translation": "فَرْق",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=difference&oldid=93689431",
+              "title": "difference",
+              "revision": 93689431,
+              "sense": "quality of being different",
+              "dialect": "ar",
+              "quote": "* Arabic: {{t|ar|فَرْق|m}}, {{t|ar|اِخْتِلَاف|m}}, {{t|ar|تَفَاوُت|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "ec816c32690395f39b8166a50648ead42167c3f1a9fd0147ce0f809bdd761173"
+            }
+          ],
+          "previous": null
+        },
+        "ku": {
+          "translation": "cudahî",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "freedict",
+              "url": "https://github.com/freedict/fd-dictionaries/blob/5bdceeac8d0dba3298c1bebe734f60d54dad30f7/deu-kur/deu-kur.tei",
+              "locator": "Unterschied",
+              "dialect": "ku",
+              "sense": "Das, was bei zwei Dingen verschieden ist.",
+              "quote": "<entry xmlns=\"http://www.tei-c.org/ns/1.0\">\n        <form>\n          <orth>Unterschied</orth>\n        </form>\n        <sense>\n          <cit type=\"trans\">\n            <quote>cudahî</quote>\n          </cit>\n        </sense>\n      </entry>",
+              "excerptSha256": "887beab4dd2253595c297e7a21bb901ca8e0b8eae6b734d16e67a9824f24101d"
+            }
+          ],
+          "previous": null
+        },
+        "ckb": {
+          "translation": "جیاوازی",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=difference&oldid=93689431",
+              "title": "difference",
+              "revision": 93689431,
+              "sense": "quality of being different",
+              "dialect": "ckb",
+              "quote": "*: Central Kurdish: {{t|ckb|جیاوازی}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "8eaf84d7bfd4fbbd3984c0e4269593b9f18345f740bc21c638d9df79b55d7c6c"
+            }
+          ],
+          "previous": null
+        }
+      }
+    },
+    {
+      "de": "Fabrik",
+      "context": "Betrieb, in dem Waren hergestellt werden; keine historische Handelsniederlassung.",
+      "introduced": "2.0",
+      "plausibility": {
+        "ru": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "uk": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "pl": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "tr": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "ar": "redaktionell plausibel; muttersprachliche Prüfung offen"
+      },
+      "translations": {
+        "ru": {
+          "translation": "фа́брика",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=factory&oldid=93693389",
+              "title": "factory",
+              "revision": 93693389,
+              "sense": "manufacturing place",
+              "dialect": "ru",
+              "quote": "* Russian: {{t+|ru|фа́брика|f}}, {{t+|ru|заво́д|m}}, {{t+|ru|комбина́т|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "9358db0cb5bc08af7c3f5faca2f0280550fbf8209d1a36268e9f744698589b3b"
+            }
+          ],
+          "previous": null
+        },
+        "uk": {
+          "translation": "фа́брика",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=factory&oldid=93693389",
+              "title": "factory",
+              "revision": 93693389,
+              "sense": "manufacturing place",
+              "dialect": "uk",
+              "quote": "* Ukrainian: {{t+|uk|фа́брика|f}}, {{t+|uk|заво́д|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "67e6ea1634f49a9a8b10c0f138a67dc4b7e55c8da0bb43784bea0f4c816ad08b"
+            }
+          ],
+          "previous": null
+        },
+        "pl": {
+          "translation": "fabryka",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=factory&oldid=93693389",
+              "title": "factory",
+              "revision": 93693389,
+              "sense": "manufacturing place",
+              "dialect": "pl",
+              "quote": "* Polish: {{t+|pl|fabryka|f}}, {{t+|pl|zakład|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "fab1f97ca0ddf02d6616935f60c51a1325fbb091600b51189537fa1307ac5bb8"
+            }
+          ],
+          "previous": null
+        },
+        "tr": {
+          "translation": "fabrika",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=factory&oldid=93693389",
+              "title": "factory",
+              "revision": 93693389,
+              "sense": "manufacturing place",
+              "dialect": "tr",
+              "quote": "* Turkish: {{t+|tr|fabrika}}, {{t+|tr|tesis}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "e72f83cfd809a1f090c46e1c24feabae054e5fa2c97f0f7d4036b0b7f75f0c31"
+            }
+          ],
+          "previous": null
+        },
+        "ar": {
+          "translation": "مَصْنَع",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=factory&oldid=93693389",
+              "title": "factory",
+              "revision": 93693389,
+              "sense": "manufacturing place",
+              "dialect": "ar",
+              "quote": "* Arabic: {{t|ar|مَصْنَع|m}}, {{t|ar|مَعْمَل|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "57d3e85fc7c572a4a3cb802f8aed21124c883bdb47d00a47912e738f80a92b6a"
+            }
+          ],
+          "previous": null
+        },
+        "ku": {
+          "translation": "karxane",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=factory&oldid=93693389",
+              "title": "factory",
+              "revision": 93693389,
+              "sense": "manufacturing place",
+              "dialect": "ku",
+              "quote": "*: Northern Kurdish: {{t+|kmr|karxane}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "d31032a211b9e42c67cee2897aba855fcd46491eb3272effc536846481188c55"
+            }
+          ],
+          "previous": null
+        },
+        "ckb": {
+          "translation": "کارگە",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=factory&oldid=93693389",
+              "title": "factory",
+              "revision": 93693389,
+              "sense": "manufacturing place",
+              "dialect": "ckb",
+              "quote": "*: Central Kurdish: {{t|ckb|کارگە}}, {{t|ckb|کارخانە}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "1f9f0d39c919dd11d62fca14d01eda70641a4437cb08588348f93b77799a1d17"
+            }
+          ],
+          "previous": null
+        }
+      }
+    },
+    {
+      "de": "Beruf",
+      "context": "Tätigkeit, die jemand als Arbeit ausübt.",
+      "introduced": "2.0",
+      "plausibility": {
+        "ru": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "uk": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "pl": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "tr": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "ar": "redaktionell plausibel; muttersprachliche Prüfung offen"
+      },
+      "translations": {
+        "ru": {
+          "translation": "профе́ссия",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=profession&oldid=93716530",
+              "title": "profession",
+              "revision": 93716530,
+              "sense": "occupation",
+              "dialect": "ru",
+              "quote": "* Russian: {{t+|ru|профе́ссия|f}}, {{t+|ru|заня́тие|n}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "fd9b70c46e15c8850cce3a26901c7eb187f7a02637d68370f8c7384af697120d"
+            }
+          ],
+          "previous": null
+        },
+        "uk": {
+          "translation": "профе́сія",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=profession&oldid=93716530",
+              "title": "profession",
+              "revision": 93716530,
+              "sense": "occupation",
+              "dialect": "uk",
+              "quote": "* Ukrainian: {{t+|uk|профе́сія|f}}, {{t+|uk|фах|m}}, {{t|uk|заня́ття|n}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "855b653a04fa229eb06be9cdeb4b02bfa96fc76d84d8d5bf7e43b1403ad73da9"
+            }
+          ],
+          "previous": null
+        },
+        "pl": {
+          "translation": "zawód",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=profession&oldid=93716530",
+              "title": "profession",
+              "revision": 93716530,
+              "sense": "occupation",
+              "dialect": "pl",
+              "quote": "* Polish: {{t+|pl|zawód|m}}, {{t+|pl|fach|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "367d47c78c710b086aba786bd5d9dd5922d745520af17e0f1826badc44c9e2a3"
+            }
+          ],
+          "previous": null
+        },
+        "tr": {
+          "translation": "meslek",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=profession&oldid=93716530",
+              "title": "profession",
+              "revision": 93716530,
+              "sense": "occupation",
+              "dialect": "tr",
+              "quote": "* Turkish: {{t+|tr|meslek}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "93cbb02b4eb7490979f2d0db3ec60b0fb440a4d0c8e830bd0e21c51875de12da"
+            }
+          ],
+          "previous": null
+        },
+        "ar": {
+          "translation": "مِهْنَة",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=profession&oldid=93716530",
+              "title": "profession",
+              "revision": 93716530,
+              "sense": "occupation",
+              "dialect": "ar",
+              "quote": "* Arabic: {{t|ar|مِهْنَة|f}}, {{t+|ar|وَظِيفَة|f}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "d75457acb56a6519c8057641985db2524566536d999e353f718316fe10db46dc"
+            }
+          ],
+          "previous": null
+        },
+        "ku": {
+          "translation": "pîşe",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=profession&oldid=93716530",
+              "title": "profession",
+              "revision": 93716530,
+              "sense": "occupation",
+              "dialect": "ku",
+              "quote": "*: Northern Kurdish: {{t+|kmr|pîşe}}, {{t+|kmr|meslek}}, {{t+|kmr|mihne}}, {{t+|kmr|hokar}}, {{t+|kmr|kariyer}}, {{t+|kmr|profesyon}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "c89407214ab951f759670b8f55de08433292e23080ab3ea77d67c5b5dd88238a"
+            }
+          ],
+          "previous": null
+        },
+        "ckb": {
+          "translation": "پیشە",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "roj",
+              "url": "https://github.com/0xdolan/roj_dictionary/blob/9b79a0b14784aab04a10141605c2e23de7e948dd/roj_dictionary.mdx",
+              "locator": "profession",
+              "dialect": "ckb",
+              "sense": "Tätigkeit, die jemand als Arbeit ausübt.",
+              "quote": "پيشە",
+              "adaptation": "Belegte Wortform ausgewählt; arabisches ي/ك für Sorani nach dokumentierter Normalisierung ersetzt.",
+              "excerptSha256": "1197f79c3ef993bc2cc8daf63feb289d237d8bf8ba827927a86588a41dab2205"
+            }
+          ],
+          "previous": null
+        }
+      }
+    },
+    {
+      "de": "Verarbeitung",
+      "context": "Hier: Ein Rohstoff wird bearbeitet und zu einem Produkt; nicht das Verarbeiten eines Erlebnisses.",
+      "introduced": "2.0",
+      "plausibility": {
+        "ru": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "uk": "offen: kein ausreichend passender Quellenbeleg; muttersprachliche Prüfung offen",
+        "pl": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "tr": "offen: kein ausreichend passender Quellenbeleg; muttersprachliche Prüfung offen",
+        "ar": "redaktionell plausibel; muttersprachliche Prüfung offen"
+      },
+      "translations": {
+        "ru": {
+          "translation": "обрабо́тка",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=processing&oldid=93425310",
+              "title": "processing",
+              "revision": 93425310,
+              "sense": "action of the verb to process",
+              "dialect": "ru",
+              "quote": "* Russian: {{t+|ru|обрабо́тка|f}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "4e33181158d458fb64b2b3dc518e1343632e0625b615f4d592248ef890ddfb5b"
+            }
+          ],
+          "previous": null
+        },
+        "uk": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
+          "previous": null
+        },
+        "pl": {
+          "translation": "przetwarzanie",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=processing&oldid=93425310",
+              "title": "processing",
+              "revision": 93425310,
+              "sense": "action of the verb to process",
+              "dialect": "pl",
+              "quote": "* Polish: {{t+|pl|przetwarzanie|n}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "49ce91437ce09fd9ae80b8a3069ff87cba51dd14e0591c7f46b5469d2c7a6109"
+            }
+          ],
+          "previous": null
+        },
+        "tr": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
+          "previous": null
+        },
+        "ar": {
+          "translation": "مُعَالَجَة",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=processing&oldid=93425310",
+              "title": "processing",
+              "revision": 93425310,
+              "sense": "action of the verb to process",
+              "dialect": "ar",
+              "quote": "* Arabic: {{t|ar|مُعَالَجَة|f}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "a326f37b535510d22cff36794810a858438a6a7b939c5bec7327270b00668b19"
+            }
+          ],
+          "previous": null
+        },
+        "ku": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
+          "previous": null
+        },
+        "ckb": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
+          "previous": null
+        }
+      }
+    },
+    {
+      "de": "Bildung",
+      "context": "Lernen und Wissen erwerben, zum Beispiel in Schule oder Hochschule; nicht die Bildung eines Gebirges.",
+      "introduced": "2.0",
+      "plausibility": {
+        "ru": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "uk": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "pl": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "tr": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "ar": "redaktionell plausibel; muttersprachliche Prüfung offen"
+      },
+      "translations": {
+        "ru": {
+          "translation": "образова́ние",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=education&oldid=92708063",
+              "title": "education",
+              "revision": 92708063,
+              "sense": "process or art of imparting knowledge, skill and judgment",
+              "dialect": "ru",
+              "quote": "* Russian: {{t+|ru|образова́ние|n}}, {{t+|ru|обуче́ние|n}}, {{t+|ru|воспита́ние|n}}, {{t+|ru|просвеще́ние|n}}, {{t|ru|выхование|m|tr=vyxovanije}}, {{t+|ru|освета|m|tr=osveta}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "0c11cd0e40faf6dbea1fc6e4ab54fe854b4eecd35e37f2597de91423e08f55a4"
+            }
+          ],
+          "previous": null
+        },
+        "uk": {
+          "translation": "осві́та",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=education&oldid=92708063",
+              "title": "education",
+              "revision": 92708063,
+              "sense": "process or art of imparting knowledge, skill and judgment",
+              "dialect": "uk",
+              "quote": "* Ukrainian: {{t+|uk|осві́та|f}}, {{t+|uk|вихова́ння|n}}, {{t|uk|едукація|m|tr=edukacija}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "147b93a967dfb899f0eb6bb5cc92d0742e01e616d76c4ea21bf72a9b95683af2"
+            }
+          ],
+          "previous": null
+        },
+        "pl": {
+          "translation": "edukacja",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=education&oldid=92708063",
+              "title": "education",
+              "revision": 92708063,
+              "sense": "process or art of imparting knowledge, skill and judgment",
+              "dialect": "pl",
+              "quote": "* Polish: {{t+|pl|edukacja|f}}, {{t+|pl|oświata|f}}, {{t+|pl|kształcenie|n}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "1daa7950376d0e08ec2c7a76740a025de0958c2de855a45b3f4dac7c061d4607"
+            }
+          ],
+          "previous": null
+        },
+        "tr": {
+          "translation": "eğitim",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=education&oldid=92708063",
+              "title": "education",
+              "revision": 92708063,
+              "sense": "process or art of imparting knowledge, skill and judgment",
+              "dialect": "tr",
+              "quote": "* Turkish: {{t+|tr|eğitim}}, {{t+|tr|talim}}, {{t+|tr|tahsil}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "1b8e20b69a6858c1d341f199d55a0915b3cbd2b402d0815a0cc44961de457b98"
+            }
+          ],
+          "previous": null
+        },
+        "ar": {
+          "translation": "تَعْلِيم",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=education&oldid=92708063",
+              "title": "education",
+              "revision": 92708063,
+              "sense": "process or art of imparting knowledge, skill and judgment",
+              "dialect": "ar",
+              "quote": "* Arabic: {{t+|ar|تَعْلِيم|m}}, {{t+|ar|تَرْبِيَة|f}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "a285cc9efda39a2849392660ca40c1a48cffa850768f0f064d29e095ac2de76f"
+            }
+          ],
+          "previous": null
+        },
+        "ku": {
+          "translation": "perwerde",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=education&oldid=92708063",
+              "title": "education",
+              "revision": 92708063,
+              "sense": "process or art of imparting knowledge, skill and judgment",
+              "dialect": "ku",
+              "quote": "*: Northern Kurdish: {{t+|kmr|perwerde|f}}, {{t+|kmr|talîm}}, {{t+|kmr|zanyarî}}, {{t+|kmr|terbiye}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "d03ab7387d2cda694b753bd9064f781806129be7a2e1d390aec9c778ab23599e"
+            }
+          ],
+          "previous": null
+        },
+        "ckb": {
+          "translation": "پەروەردە",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=education&oldid=92708063",
+              "title": "education",
+              "revision": 92708063,
+              "sense": "process or art of imparting knowledge, skill and judgment",
+              "dialect": "ckb",
+              "quote": "*: Central Kurdish: {{t|ckb|پەروەردە|f}}, {{t+|ckb|زانیاری}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "826593604ffe5759e6eeb7e5eee64377ca76d79cc922c7984bbde77ca89e7e45"
+            }
+          ],
+          "previous": null
+        }
+      }
+    },
+    {
+      "de": "Krankenhaus",
+      "context": "Einrichtung, in der kranke Menschen medizinisch behandelt werden.",
+      "introduced": "2.0",
+      "plausibility": {
+        "ru": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "uk": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "pl": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "tr": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "ar": "redaktionell plausibel; muttersprachliche Prüfung offen"
+      },
+      "translations": {
+        "ru": {
+          "translation": "больни́ца",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=hospital&oldid=93528587",
+              "title": "hospital",
+              "revision": 93528587,
+              "sense": "large medical facility",
+              "dialect": "ru",
+              "quote": "* Russian: {{tt+|ru|больни́ца|f}}, {{tt+|ru|го́спиталь|m}} {{qualifier|usually a military hospital}}, {{tt+|ru|кли́ника|f}}, {{tt+|ru|лече́бница|f}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "086c49f92019020588f8a8540e2d2e3b9ca60aadba8da42ddb223eb5ea8696a8"
+            }
+          ],
+          "previous": null
+        },
+        "uk": {
+          "translation": "ліка́рня",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=hospital&oldid=93528587",
+              "title": "hospital",
+              "revision": 93528587,
+              "sense": "large medical facility",
+              "dialect": "uk",
+              "quote": "* Ukrainian: {{tt+|uk|ліка́рня|f}}, {{tt|uk|шпита́ль|m}}, {{tt|uk|го́спіталь|m}}, {{tt|uk|болни́ця|f}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "885da263eaf184d504271159ac157bd90ccb10b3eef77d27412b14aa12872c50"
+            }
+          ],
+          "previous": null
+        },
+        "pl": {
+          "translation": "szpital",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=hospital&oldid=93528587",
+              "title": "hospital",
+              "revision": 93528587,
+              "sense": "large medical facility",
+              "dialect": "pl",
+              "quote": "* Polish: {{tt+|pl|szpital|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "a739ba01722ca43b2393d0f39312bb54b370bd0153462f81b2e026504ccd52fd"
+            }
+          ],
+          "previous": null
+        },
+        "tr": {
+          "translation": "hastane",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=hospital&oldid=93528587",
+              "title": "hospital",
+              "revision": 93528587,
+              "sense": "large medical facility",
+              "dialect": "tr",
+              "quote": "* Turkish: {{tt+|tr|hastane}}, {{tt|tr|emlerge}}, {{tt+|tr|sayrılarevi}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "4b794d4f719da2fddd3402b89d07fb79a22368e90aeb1925ccea4b7a68c45874"
+            }
+          ],
+          "previous": null
+        },
+        "ar": {
+          "translation": "مُسْتَشْفًى",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=hospital&oldid=93528587",
+              "title": "hospital",
+              "revision": 93528587,
+              "sense": "large medical facility",
+              "dialect": "ar",
+              "quote": "* Arabic: {{tt+|ar|مُسْتَشْفًى|m}}, {{tt|ar|مَارِسْتَان|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "0cbffada0223db0ebcddd37ac6fa2550389c1d6e97ff404035f7c67625993703"
+            }
+          ],
+          "previous": null
+        },
+        "ku": {
+          "translation": "nexweşxane",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=hospital&oldid=93528587",
+              "title": "hospital",
+              "revision": 93528587,
+              "sense": "large medical facility",
+              "dialect": "ku",
+              "quote": "*: Northern Kurdish: {{tt+|kmr|nexweşxane}}, {{tt+|kmr|xestexane}}, {{tt+|kmr|bîmaristan}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "918c337144b7a24fadf7bb19736e4091fd13757d5429b5b2074d3603d935d31b"
+            }
+          ],
+          "previous": null
+        },
+        "ckb": {
+          "translation": "نەخۆشخانە",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=hospital&oldid=93528587",
+              "title": "hospital",
+              "revision": 93528587,
+              "sense": "large medical facility",
+              "dialect": "ckb",
+              "quote": "*: Central Kurdish: {{tt|ckb|نەخۆشخانە}}, {{tt|ckb|خەستەخانە}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "991d03fbe4e89e32ae814757d31d15b5536d02254006b5be0c031f75db3d4be5"
+            }
+          ],
+          "previous": null
+        }
+      }
+    },
+    {
+      "de": "Einkommen",
+      "context": "Geld, das eine Person oder ein Haushalt erhält. Einkommen lässt sich nicht allein an einem Foto ablesen.",
+      "introduced": "2.0",
+      "plausibility": {
+        "ru": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "uk": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "pl": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "tr": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "ar": "redaktionell plausibel; muttersprachliche Prüfung offen"
+      },
+      "translations": {
+        "ru": {
+          "translation": "дохо́д",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=income&oldid=93701456",
+              "title": "income",
+              "revision": 93701456,
+              "sense": "money one earns by working or by capitalising on the work of others",
+              "dialect": "ru",
+              "quote": "* Russian: {{t+|ru|дохо́д|m}}, {{t+|ru|прихо́д|m}}, {{t+|ru|при́быль|f}}, {{t+|ru|за́работок|m}}, {{t+|ru|поступле́ния}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "68dc20e1cf5ab0ce97845e3da32c621b396d4ec6d6eefeb57ee2183a09d52385"
+            }
+          ],
+          "previous": null
+        },
+        "uk": {
+          "translation": "дохі́д",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=income&oldid=93701456",
+              "title": "income",
+              "revision": 93701456,
+              "sense": "money one earns by working or by capitalising on the work of others",
+              "dialect": "uk",
+              "quote": "* Ukrainian: {{t+|uk|прибу́ток|m}}, {{t+|uk|дохі́д|m}}, {{t+|uk|дохо́д|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "1a268ee3e9356e8c92a906d005c7d24625ff62dff94ab30dd3f38ccc02d224d3"
+            }
+          ],
+          "previous": null
+        },
+        "pl": {
+          "translation": "dochód",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=income&oldid=93701456",
+              "title": "income",
+              "revision": 93701456,
+              "sense": "money one earns by working or by capitalising on the work of others",
+              "dialect": "pl",
+              "quote": "* Polish: {{t+|pl|dochód|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "2592b280b0cb70150ec190c795ce2c609d97e5c18e2ae7fb2591481cf250bf09"
+            }
+          ],
+          "previous": null
+        },
+        "tr": {
+          "translation": "gelir",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=income&oldid=93701456",
+              "title": "income",
+              "revision": 93701456,
+              "sense": "money one earns by working or by capitalising on the work of others",
+              "dialect": "tr",
+              "quote": "* Turkish: {{t+|tr|gelir}}, {{t+|tr|hasılat}}, {{t+|tr|irat}}, {{t+|tr|varidat}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "9ea7be269e8095e1fefdc485afcff36549b102a3859c75ce6f9112a8bffe3604"
+            }
+          ],
+          "previous": null
+        },
+        "ar": {
+          "translation": "دَخْل",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=income&oldid=93701456",
+              "title": "income",
+              "revision": 93701456,
+              "sense": "money one earns by working or by capitalising on the work of others",
+              "dialect": "ar",
+              "quote": "* Arabic: {{t+|ar|دَخْل|m}}, {{t|ar|إِيرَاد|m}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "cbbe22dbb2f1c5c4d502ec403fecf0ed74c46a1af1060af8d03e86e12550bcfd"
+            }
+          ],
+          "previous": null
+        },
+        "ku": {
+          "translation": "deramet",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=income&oldid=93701456",
+              "title": "income",
+              "revision": 93701456,
+              "sense": "money one earns by working or by capitalising on the work of others",
+              "dialect": "ku",
+              "quote": "*: Northern Kurdish: {{t+|kmr|deramet}}, {{t+|kmr|dahat}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "6889392af67349b828586497c00d4f63eb69893e099c691424c176d843a3be9b"
+            }
+          ],
+          "previous": null
+        },
+        "ckb": {
+          "translation": "داهات",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "roj",
+              "url": "https://github.com/0xdolan/roj_dictionary/blob/9b79a0b14784aab04a10141605c2e23de7e948dd/roj_dictionary.mdx",
+              "locator": "income",
+              "dialect": "ckb",
+              "sense": "Geld, das eine Person oder ein Haushalt erhält. Einkommen lässt sich nicht allein an einem Foto ablesen.",
+              "quote": "دەسکەوت، داهات",
+              "adaptation": "Belegte Wortform ausgewählt; arabisches ي/ك für Sorani nach dokumentierter Normalisierung ersetzt.",
+              "excerptSha256": "7249940625ba058c845f74aba11bb47382ed2a36f3565273ef17fb5cd597eb8c"
+            }
+          ],
+          "previous": null
+        }
+      }
+    },
+    {
+      "de": "Lebensbedingungen",
+      "context": "Bedingungen des Alltags: etwa Wohnen, Einkommen, Wasser, Bildung und medizinische Versorgung.",
+      "introduced": "2.0",
+      "plausibility": {
+        "ru": "offen: kein ausreichend passender Quellenbeleg; muttersprachliche Prüfung offen",
+        "uk": "offen: kein ausreichend passender Quellenbeleg; muttersprachliche Prüfung offen",
+        "pl": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "tr": "offen: kein ausreichend passender Quellenbeleg; muttersprachliche Prüfung offen",
+        "ar": "offen: kein ausreichend passender Quellenbeleg; muttersprachliche Prüfung offen"
+      },
+      "translations": {
+        "ru": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
+          "previous": null
+        },
+        "uk": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
+          "previous": null
+        },
+        "pl": {
+          "translation": "warunki życia",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=living%20conditions&oldid=77818321",
+              "title": "living conditions",
+              "revision": 77818321,
+              "sense": "living conditions",
+              "dialect": "pl",
+              "quote": "* Polish: {{t|pl|[[warunki]] [[życie|życia]]|m-p}}, {{t|pl|[[warunki]] [[bytowy|bytowe]]|m-p}}",
+              "adaptation": "Wikilinks aufgelöst: [[warunki]] [[życie|życia]] → warunki życia; keine neue Zusammensetzung.",
+              "excerptSha256": "9248dc2dc8c58ac604230f582238464267d78b4244e714fc3ceb7815c3214d75"
+            }
+          ],
+          "previous": null
+        },
+        "tr": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
+          "previous": null
+        },
+        "ar": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
+          "previous": null
+        },
+        "ku": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
+          "previous": null
+        },
+        "ckb": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
+          "previous": null
+        }
+      }
+    },
+    {
+      "de": "gemeinsam",
+      "context": "Hier: zusammen als Team; nicht gemeinsam im Sinn von allgemein oder gemeinschaftlichem Eigentum.",
+      "introduced": "2.0",
+      "plausibility": {
+        "ru": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "uk": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "pl": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "tr": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "ar": "redaktionell plausibel; muttersprachliche Prüfung offen"
+      },
+      "translations": {
+        "ru": {
+          "translation": "вме́сте",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=together&oldid=93429698",
+              "title": "together",
+              "revision": 93429698,
+              "sense": "at the same time, in the same place",
+              "dialect": "ru",
+              "quote": "* Russian: {{t+|ru|вме́сте}}, {{t+|ru|сообща́}}, {{t+|ru|совме́стно}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "3759ba8796c7092bc0f820d2b84c4c5cad38d0c8ca1d3f15e0612751769a88ee"
+            }
+          ],
+          "previous": null
+        },
+        "uk": {
+          "translation": "ра́зом",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=together&oldid=93429698",
+              "title": "together",
+              "revision": 93429698,
+              "sense": "at the same time, in the same place",
+              "dialect": "uk",
+              "quote": "* Ukrainian: {{t+|uk|ра́зом}}, {{t+|uk|спі́льно}}, {{t|uk|заодно́}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "3587d22e4155ec347e0f35397fba441a959db543d06afb69938421f60acd10f0"
+            }
+          ],
+          "previous": null
+        },
+        "pl": {
+          "translation": "wspólnie",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=together&oldid=93429698",
+              "title": "together",
+              "revision": 93429698,
+              "sense": "at the same time, in the same place",
+              "dialect": "pl",
+              "quote": "* Polish: {{t+|pl|razem}}, {{t+|pl|wespół}}, {{t+|pl|wspólnie}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "8e464f847be89ebedfb915290617464833be0fd3dfe559c425e57c559509a28c"
+            }
+          ],
+          "previous": null
+        },
+        "tr": {
+          "translation": "birlikte",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=together&oldid=93429698",
+              "title": "together",
+              "revision": 93429698,
+              "sense": "at the same time, in the same place",
+              "dialect": "tr",
+              "quote": "* Turkish: {{t+|tr|birlikte}}, {{t+|tr|beraber}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "e360dbb5151cc61b20998a78abab7f7b6e60b1af3aaa5b0b05164311c4939daa"
+            }
+          ],
+          "previous": null
+        },
+        "ar": {
+          "translation": "مَعًا",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=together&oldid=93429698",
+              "title": "together",
+              "revision": 93429698,
+              "sense": "at the same time, in the same place",
+              "dialect": "ar",
+              "quote": "* Arabic: {{t|ar|مَعًا}}, {{t|ar|سَوِيًّا}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "ee6d28bafdd03c25473f1e40a761836ebfb6ad556955cb4eecab8e8e87a0988c"
+            }
+          ],
+          "previous": null
+        },
+        "ku": {
+          "translation": "vek re",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "freedict",
+              "url": "https://github.com/freedict/fd-dictionaries/blob/5bdceeac8d0dba3298c1bebe734f60d54dad30f7/deu-kur/deu-kur.tei",
+              "locator": "gemeinsam",
+              "dialect": "ku",
+              "sense": "Hier: zusammen als Team; nicht gemeinsam im Sinn von allgemein oder gemeinschaftlichem Eigentum.",
+              "quote": "<entry xmlns=\"http://www.tei-c.org/ns/1.0\">\n        <form>\n          <orth>gemeinsam</orth>\n        </form>\n        <sense>\n          <cit type=\"trans\">\n            <quote>vek re</quote>\n          </cit>\n        </sense>\n      </entry>",
+              "excerptSha256": "41277dded3addf342077dce73b738fc7b00a6a0c7b70630a9c74584b94c9a1a3"
+            }
+          ],
+          "previous": null
+        },
+        "ckb": {
+          "translation": "پێکەوە",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "roj",
+              "url": "https://github.com/0xdolan/roj_dictionary/blob/9b79a0b14784aab04a10141605c2e23de7e948dd/roj_dictionary.mdx",
+              "locator": "together",
+              "dialect": "ckb",
+              "sense": "Hier: zusammen als Team; nicht gemeinsam im Sinn von allgemein oder gemeinschaftlichem Eigentum.",
+              "quote": "پێکەوە، بەتێکڕايی، بەکۆمەڵ، لەهەمان کاتدا",
+              "adaptation": "Belegte Wortform ausgewählt; arabisches ي/ك für Sorani nach dokumentierter Normalisierung ersetzt.",
+              "excerptSha256": "6b71dbe3a8552a6b6bebb937e540fcfc5f37c5c06c79882d838e9f184cf24673"
+            }
+          ],
+          "previous": null
+        }
+      }
+    },
+    {
+      "de": "beeinflussen",
+      "context": "Auf etwas wirken und es verändern können; einzelne Wörter sind keine übersetzte Satzanweisung.",
+      "introduced": "2.0",
+      "plausibility": {
+        "ru": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "uk": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "pl": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "tr": "redaktionell plausibel; muttersprachliche Prüfung offen",
+        "ar": "redaktionell plausibel; muttersprachliche Prüfung offen"
+      },
+      "translations": {
+        "ru": {
+          "translation": "влия́ть",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=influence&oldid=93643035",
+              "title": "influence",
+              "revision": 93643035,
+              "sense": "transitive: to exert an influence upon",
+              "dialect": "ru",
+              "quote": "* Russian: {{t+|ru|влия́ть|impf}}, {{t+|ru|повлия́ть|pf}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "6cfd4ee25fc281adc7dac44d84357b8b81d3311fe6cda055cab668ee7e011227"
+            }
+          ],
+          "previous": null
+        },
+        "uk": {
+          "translation": "вплива́ти",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=influence&oldid=93643035",
+              "title": "influence",
+              "revision": 93643035,
+              "sense": "transitive: to exert an influence upon",
+              "dialect": "uk",
+              "quote": "* Ukrainian: {{t|uk|вплива́ти|impf}}, {{t|uk|впли́нути|pf}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "5e396ebc2491566cb11283e713d178db3ab1e2ea77b2b5cb588b927320f037b5"
+            }
+          ],
+          "previous": null
+        },
+        "pl": {
+          "translation": "wpływać",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=influence&oldid=93643035",
+              "title": "influence",
+              "revision": 93643035,
+              "sense": "transitive: to exert an influence upon",
+              "dialect": "pl",
+              "quote": "* Polish: {{t+|pl|wpływać|impf}}, {{t+|pl|wpłynąć|pf}}, {{t+|pl|oddziaływać}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "2d735f3b9e83c2b9c8642ab85c879092ef3dd163e724bef9f285a42a3b9c8066"
+            }
+          ],
+          "previous": null
+        },
+        "tr": {
+          "translation": "etki altında bırakmak",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "de-wiktionary",
+              "url": "https://de.wiktionary.org/w/index.php?title=beeinflussen&oldid=10521351",
+              "title": "beeinflussen",
+              "revision": 10521351,
+              "sense": "Auf etwas wirken und es verändern können; einzelne Wörter sind keine übersetzte Satzanweisung.",
+              "dialect": "tr",
+              "quote": "*{{tr}}: {{Ü|tr|etki altında bırakmak}}",
+              "excerptSha256": "775daf8f255c4c4508e9f5f263613b13efe9249aadecb16fd007f71dddf3df7e"
+            }
+          ],
+          "previous": null
+        },
+        "ar": {
+          "translation": "أَثَّرَ",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "en-wiktionary",
+              "url": "https://en.wiktionary.org/w/index.php?title=influence&oldid=93643035",
+              "title": "influence",
+              "revision": 93643035,
+              "sense": "transitive: to exert an influence upon",
+              "dialect": "ar",
+              "quote": "* Arabic: {{t+|ar|أَثَّرَ}}",
+              "adaptation": "Unveränderte belegte Wortform; Unicode NFC.",
+              "excerptSha256": "58db809640c7e38cfd312ee37a2e1e331cd36479df5d00e03045b30e5cd3def7"
+            }
+          ],
+          "previous": null
+        },
+        "ku": {
+          "translation": "bandor kirin",
+          "status": "belegt-redaktionell",
+          "references": [
+            {
+              "source": "de-wiktionary",
+              "url": "https://de.wiktionary.org/w/index.php?title=beeinflussen&oldid=10521351",
+              "title": "beeinflussen",
+              "revision": 10521351,
+              "sense": "Auf etwas wirken und es verändern können; einzelne Wörter sind keine übersetzte Satzanweisung.",
+              "dialect": "ku",
+              "quote": "**{{kmr}}: {{Ü|kmr|bandor kirin}}, {{Ü|kmr|bandor lê kirin}}",
+              "excerptSha256": "1f2b7acc18e31fbb3bded92c0636a39afb968df21071caeb55312697fc64c337"
+            }
+          ],
+          "previous": null
+        },
+        "ckb": {
+          "translation": null,
+          "status": "offen-kein-passender-Beleg",
+          "references": [],
           "previous": null
         }
       }

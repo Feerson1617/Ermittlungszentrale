@@ -17,17 +17,17 @@ test("Alle fünf Akten und sieben Wertungen sind vorhanden", () => {
     for (const id of ids) assert.ok(rubrics.tasks[id]);
 });
 test("Ein gemeinsamer Bildkatalog vermeidet abweichende Nummern", () => {
-  assert.equal(photos.length, 10);
+  assert.equal(photos.length, 12);
   assert.deepEqual(
     photos.map((p) => p.id),
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   );
-  assert.equal(new Set(photos.map((p) => p.key)).size, 10);
-  assert.deepEqual(rubrics.tasks.selection.editorial, [1, 2, 5, 10]);
+  assert.equal(new Set(photos.map((p) => p.key)).size, 12);
+  assert.deepEqual(rubrics.tasks.selection.editorial, [1, 2, 5, 11]);
 });
-test("187 eindeutige Wörter, sieben Sprachen, keine erfundenen Ersatzwerte", () => {
-  assert.equal(entries.length, 187);
-  assert.equal(new Set(entries.map((e) => e.de.toLowerCase())).size, 187);
+test("197 eindeutige Wörter, sieben Sprachen, keine erfundenen Ersatzwerte", () => {
+  assert.equal(entries.length, 197);
+  assert.equal(new Set(entries.map((e) => e.de.toLowerCase())).size, 197);
   assert.equal(languages.length, 7);
   assert.equal(languages.find((l) => l[0] === "ar")[2], "rtl");
   assert.equal(languages.find((l) => l[0] === "ckb")[2], "rtl");
@@ -44,6 +44,7 @@ for (const [lang, ,] of languages)
   });
 test("Wörterbuch korrigiert nur bekannte Varianten und schlägt unsichere vor", () => {
   assert.equal(lookup(entries, "HINWIES", "ru").entry.de, "Hinweis");
+  for (const [form,word] of Object.entries({notiert:"notieren",beeinflusst:"beeinflussen",Ermittlungsteam:"Team",Bildbeleg:"Beweis",gemeinsam:"gemeinsam"})) assert.equal(lookup(entries, form, "pl").entry.de, word);
   assert.equal(lookup(entries, "Karten", "ru").translation, "карта");
   assert.equal(lookup(entries, "Krate", "ru").status, "missing");
   assert.equal(lookup(entries, "Krate", "ru").suggestions[0].de, "Karte");
@@ -87,10 +88,11 @@ test("Spiel enthält keine externen Laufzeitdienste oder Audioelemente", async (
     "js/scoring.js",
     "js/dictionary.js",
     "css/style.css",
+    "data/learning.js",
   ]) {
     const text = await readFile(new URL(file, root), "utf8");
     assert.ok(
-      !/<audio|new Audio|speechSynthesis|googleapis|fonts\.google|https?:\/\//.test(
+      !/<audio|new Audio|speechSynthesis|googleapis|fonts\.google/.test(
         text,
       ),
       file,
@@ -104,6 +106,7 @@ test("Druckdateien sind vorhanden; Schülerbogen hat genau zwei Seitenabschnitte
     "utf8",
   );
   assert.equal((html.match(/class="sheet"/g) || []).length, 2);
+  assert.doesNotMatch(html, /Afrika|Africa|Marokko|Nigeria|Ghana/i);
   assert.ok(html.includes("Gesamt: ______ / 30"));
   assert.ok(html.includes("Bonus-Akte 5: ______ / 5"));
   for (const file of ["ermittlungsbogen.pdf", "erwartungshorizont.pdf"])

@@ -1,4 +1,5 @@
 import { expect } from "@playwright/test";
+import { learning } from "./v2-helpers.mjs";
 
 // Shared with the probe for an already running server: no route mocks or fixture server.
 export function observeStart(page, url) {
@@ -66,6 +67,7 @@ export async function assertCasesAndDictionary(page) {
           await expect(page.locator(".result .points")).toContainText("5");
           await page.locator("#points-recorded").check();
           await page.locator('[data-action="result-next"]').click();
+          await learning(page,decoded);
         }
       }
       if (n === 2 || n === 4) {
@@ -83,7 +85,7 @@ export async function assertCasesAndDictionary(page) {
   await page.locator("#dictionary-language").selectOption("ckb");
   await expect(page.locator("#dictionary-result")).toHaveText("نەخشە");
   await page.locator("#dictionary-close").click();
-  expect(photos.size).toBe(15);
+  expect(photos.size).toBe(19);
 }
 
 export function assertCleanStart(events) {

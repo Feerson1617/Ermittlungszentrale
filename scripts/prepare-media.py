@@ -20,7 +20,7 @@ for key, entry in catalog['images'].items():
     content = source.read_bytes()
     assert hashlib.sha1(content).hexdigest() == entry['originalSha1'], f'Originalrevision stimmt nicht: {key}'
     assert hashlib.sha256(content).hexdigest() == entry['originalSha256'], f'Original-SHA256 stimmt nicht: {key}'
-    assert re.fullmatch(r'assets/images/\d{2}\.webp', entry['path'])
+    assert re.fullmatch(r'assets/images/[a-z\d-]+\.webp', entry['path'])
     image = ImageOps.exif_transpose(Image.open(source)).convert('RGB')
     image.thumbnail((1400, 1400), Image.Resampling.LANCZOS)
     target = root / entry['path']

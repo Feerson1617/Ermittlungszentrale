@@ -1,32 +1,35 @@
-# Abnahme und bekannte Einschränkungen
+# Abnahme der Version 2.0
 
-## Fachliche Unterrichtsfreigabe noch offen
+Stand: 21.10.2026. Grundlage ist der unveränderte [geprüfte Auftrag](../sources/auftrag-v2.md). Der Nutzer hat anschließend ausdrücklich „Version 2.0 umsetzen, aber auch Push, PR und Deployment“ beauftragt. Das gilt für den bestehenden Entwicklungsbranch und PR #1; kein neuer PR, kein Merge, keine Änderung von Pages-/Umgebungsberechtigungen.
 
-- Alle 15 echten Fotografien sind integriert und anhand ihrer Commons-Beschreibungsseiten auf Motiv, Aufnahmeort, Urheber und freie Lizenz geprüft. Quellenrevisionen, Attributionen, Prüfsummen und Motivabweichungen: `bildquellen.md`, `data/media.json`, `docs/media/` und `bildnachweise.html`. Die Bildintegration ist abgeschlossen; eine Erprobung mit der Lerngruppe bleibt sinnvoll.
-- Wörterbuch: 187 deutsche Begriffe, je 187 Übersetzungen für Russisch, Ukrainisch, Polnisch, Türkisch und Arabisch; jetzt **176 für Kurmandschi und 177 für Sorani**. 248 der ursprünglich 269 fehlenden Werte wurden mit überprüfbaren Belegen ergänzt. Alle sieben Sprachfassungen wurden redaktionell auf Plausibilität geprüft; alle vorhandenen kurdischen Werte haben Einzelnachweise. **Keine muttersprachliche oder professionelle Freigabe** fand statt. Offen bleiben 11 Kurmandschi- und 10 Sorani-Werte, für die in den geprüften Quellen kein passender Beleg gefunden wurde. Die vollständigen Lücken, Quellen, Bedeutungshilfen und Grenzen stehen in [Wörterbuchprüfung](woerterbuch-pruefung.md) und `data/dictionary-evidence.json`. Unsichere Fachwörter wurden nicht erfunden.
-- Safari auf einem echten Schul-iPad wurde noch nicht geprüft. Playwright-WebKit 26.0 steht inzwischen für automatisierte Tests zur Verfügung. Weder Chromium mit iPad-Geräteparametern noch WebKit unter Linux ersetzen den echten Safari-Gerätetest.
-- Ein öffentlicher Quellcode schützt Lösungen nicht technisch. Der Erwartungshorizont ist nur aus der Schülernavigation ausgeblendet.
+## Technisch und redaktionell umgesetzt
 
-`npm run audit:release` meldet diese Punkte mit Exit-Code 2. Das ist ein bewusst offener Abnahmestatus, kein übergangener Testfehler. Die technischen Funktionstests müssen separat erfolgreich sein.
+- Fünf unabhängig startbare Akten, sieben Wertungen, 30 Hauptpunkte und fünf getrennte Bonuspunkte. Kurzer Kernweg mit neun unbewerteten Belegschritten; Vertiefungen freiwillig.
+- Befunde T1–T4, D1/D2, M1/M2 bearbeitet: geschlossene Gesamtabgabe; Teilpunkte unabhängig von Vollständigkeit; begrenzte unbezahlte Auflösung; Entwurfserhalt; aufgabenspezifische Negation und neutrale Namensklärung; unterschiedliche feste Antwortpositionen und stabile Zuordnungs-IDs; ganzer Schülerbogen neutral; nummerierte Lehrertabelle 1–12.
+- 19 authentische lokale Fotos, darunter alle 15 Bestandsdateien unverändert. Vier Ergänzungen mit geprüften Commons-Revisionen, Orts-/Lizenzbelegen, Urhebern und Prüfsummen. [Bildquellen](bildquellen.md). Alle zwölf Auswahlmotive sind in Akte 002/004 identisch. Schemata sind ausdrücklich als solche gekennzeichnet.
+- Wörterbuch: 197 deutsche Begriffe; ru 196, uk 195, pl 197, tr 195, ar 196, ku 184, ckb 184. Zehn neue Begriffe, bekannte Wortformen und Bildbeleg-Alias. Alle vorhandenen kurdischen sowie alle neuen nichtleeren V2-Werte haben Einzelbelege. Fünf andere Altbestände sind redaktionell plausibilisiert; keine vollständige Einzelbelegung dieser Altbestände behauptet. [Prüfbericht mit allen Lücken](woerterbuch-pruefung.md).
+- Schülerbogen genau zwei A4-Seiten; Erwartungshorizont elf A4-Seiten mit Nummerierung. Sämtliche 13 Seiten digital gerendert und visuell geprüft. PDF-Format-/Inhaltsprüfung und Überlaufprüfung bestanden. Keine reale Druckprobe behauptet.
+- Starthilfe, CSP-Hash, HTTP-MIME-Typen und relative Pfade bleiben erhalten. Desktop, Tablet quer/hoch und schmale Ansicht werden automatisiert geprüft. [Tatsächliche technische Ergebnisse](testbericht.md), [Vorschaugrenzen](vorschau.md).
 
-`data/review.json` trennt die datierte redaktionelle Prüfung (`dictionaryEditorial`, an den Datei-Hash gebunden) von den sieben weiterhin unbestätigten muttersprachlichen Abnahmen (`dictionary`). Eine redaktionelle oder automatisierte Prüfung setzt diese Abnahmen nicht auf wahr. Der Safari-Eintrag bleibt ebenfalls offen; den echten Schul-iPad-Test übernimmt das Projektteam anschließend selbst.
+## Offene Abnahmen – keine pauschale Unterrichtsfreigabe
 
-## Gemeldeter Ausfall der veröffentlichten Seite
+`npm run audit:release` meldet **19 offene Kategorien**, Exit-Code 2. Sie enthalten:
 
-Der Start der bereits laufenden Anwendung ist unter Root und Projektpfad auf Desktop/iPad geprüft; CSS-/Modul-/JSON-Fehler haben jetzt eine verständliche Starthilfe statt einer dauerhaften Lademeldung. Der gemeldete Ausfall auf der tatsächlichen GitHub-Pages-Adresse bleibt **nicht abschließend diagnostiziert**: der Cloud-Proxy blockiert den Abruf, und es steht kein bedienbarer Codex-Vorschauendpunkt zur Verfügung. Diese Live-Abnahme wird vom dateibasierten Release-Audit nicht erfasst. Das Projektteam hat den Push der geprüften Startkorrektur einschließlich der automatischen Pages-Veröffentlichung am 21.10.2026 ausdrücklich freigegeben. Die fehlende Live-Abnahme bleibt davon unabhängig offen. Nachweise, unabhängige statische Alternative und Konflikt zum Deployment-Verbot: [Vorschauprüfung](vorschau.md).
+| Bereich | Offen / tatsächliche Grenze |
+|---|---|
+| Wörterbuchlücken | ru 1, uk 2, tr 2, ar 1, ku 13, ckb 13; insgesamt 32 leere Werte. Keine erfundenen Wörter zum Schließen der Statistik. Polnisch ohne leere Werte. |
+| Sprachkundige Abnahme | Alle sieben Sprachen. Quellen- und Schriftprüfung bestätigen keine muttersprachliche Idiomatik, Flexion oder Eignung für die Lerngruppe. |
+| Echtes Schul-iPad / Safari | Vom Projektteam anschließend vorgesehen. WebKit unter Linux und Geräteemulation ersetzen dieses Gerät nicht. |
+| Curriculum-Originale | Offizielle/schulische Originaldateien nicht zusätzlich mitgeliefert, Fachportal am Proxy blockiert. Keine selbst geprüfte aktuelle Rechtsgeltung oder erfundene Kompetenznummern. |
+| Sachquellen-Originale | Renault/SIGA/UNESCO-Beispiele aus dem bereitgestellten geprüften Auftrag; direkter Originalabgleich teilweise technisch blockiert. Quellenstatus in `data/learning.js`, Lehrerunterlagen und Umsetzungsmatrix. |
+| Reale Druckprobe | Beide Seiten auf dem tatsächlichen Drucker prüfen; digitale Sichtung allein genügt nicht. |
+| Lerngruppe | Zeiten, Verständlichkeit, Bedienwechsel, Lernwirkung und die Tragfähigkeit des 90-Minuten-Ziels ungemessen. Drei-Stunden-Alternative ist vorbereitet. |
+| Öffentliche Live-Funktion | HTTPS-Abruf von `feerson1617.github.io` scheitert aus dieser Cloud beim Proxy-CONNECT mit 403. Keine Live-Konsole/MIME-Befunde oder reparierte Codex-Vorschau behauptet. Erfolgreicher Pages-Build ist davon getrennt. |
 
-## Geprüfte Technik
+`data/review.json` hält redaktionelle Wörterbuchprüfung (mit Datei-Hash), sieben sprachkundige Abnahmen, echten Safari-Test und V2-Abnahmen getrennt. Kein menschlicher Prüfstatus wird durch technische Tests auf wahr gesetzt. Das Release-Audit erfasst jetzt auch Druck, Unterricht, Originalquellen und Live-Browserprüfung.
 
-Siehe `testbericht.md` für tatsächlich ausgeführte Befehle und Ergebnisse. Keine Anmeldung; keine externe Antwortbewertung, Übersetzung oder Schrift. `sessionStorage` ist optional und nur für die laufende Tabsitzung. Ohne Browser-Persistenz bleibt das Spiel funktionsfähig; ein Neuladen verliert dann die laufende Ermittlung. Papier ist die verlässliche Sicherung über Stunden und Geräte hinweg.
+## Geräte- und Unterrichtsprüfung durch das Projektteam
 
-## Noch nötige Geräteprüfung
+Auf dem Schul-iPad: Menü quer/hoch öffnen, alle Akten bedienen, zwölf Fotos scrollen/vergrößern, Bildschirmtastatur ein-/ausblenden, Arabisch/Sorani lesen, Dialoge mit Fokus-Rückgabe schließen, Hinweise und Teilauflösung nach Navigation/Neuladen prüfen. PDF im tatsächlichen Safari öffnen und beidseitig drucken. Speicher testweise sperren. Zeiten und Partnerwechsel mit Lerngruppe erproben. Erst nach tatsächlicher Durchführung zugehörige Statusfelder bestätigen.
 
-Auf dem tatsächlichen Schul-iPad in Safari: Zentrale in Querformat öffnen; alle Akten antippen; Tastatur ein-/ausblenden; lange Auswahlansichten scrollen; Wörterbuch in Arabisch/Sorani prüfen; Wörterbuch und Neustartdialog schließen; falsche Antwort und Hinweisstufen testen; Bogen als PDF öffnen und drucken. Browserdatenspeicherung testweise einschränken. Erst nach tatsächlichem Test `data/review.json` für Safari bestätigen.
-
-## Netzwerkfreigaben für die Entwicklung
-
-Die aktive Policy erlaubt `commons.wikimedia.org`, `upload.wikimedia.org`, `cdn.playwright.dev` und `playwright.download.prss.microsoft.com`. Commons-API, Originaldownloads und WebKit-Installation wurden in diesem Durchlauf tatsächlich erreicht. Zeitweilige Wikimedia-Rate-Limits wurden beachtet. Der von der API angebotene Thumbnail-Host ist nicht freigegeben; verwendet wurden Originaldownloads mit lokaler Optimierung. Zur Laufzeit benötigt das Spiel ausschließlich seine eigenen statischen Dateien.
-
-## GitHub-Übergabe
-
-Der bestehende offene Draft-PR [#1](https://github.com/Feerson1617/Ermittlungszentrale/pull/1) verwendet `feature/detektivspiel-komplett` gegen `main`. Die Wörterbuchergänzung liegt auf diesem Entwicklungsbranch. Die geprüfte Startkorrektur und ihre Statusdokumentation werden mit ausdrücklicher Freigabe vom 21.10.2026 direkt auf denselben Branch übertragen; die damit verbundene automatische Pages-Veröffentlichung ist ebenfalls freigegeben. Kein zweiter PR und kein Merge. Beschreibung: `docs/pull-request.md`.
+Der öffentliche Quellcode schützt Lösungen nicht technisch. Andere Akten und bewusst geöffnete Bildnachweise können den Kontinent verraten. Lehrerunterlagen sind aus der Schülernavigation ausgeblendet, im Repository auffindbar. Der Host kann Zugriffsprotokolle führen; keine zusätzliche Antworttelemetrie und keine pauschale schulische Datenschutzfreigabe.

@@ -99,6 +99,25 @@ export function evaluateName(value, rubric) {
     );
   });
   if (positive && (wrong || uncertainty.test(text))) return result("unclear");
+  if (positive && rubric.kind === "continent") {
+    if (/\bland\s*\?/i.test(String(value))) return result("unclear");
+    const deniesCountry = /\bkein(?:e[nmrs]?)? land\b/.test(text);
+    const deniesContinent = /\b(?:kein(?:e[nmrs]?)?|nicht (?:ein )?) kontinent\b/.test(text);
+    if (deniesContinent) return result("wrong");
+    if (deniesCountry && /\bkontinent\b/.test(text) && !/\bnicht afrika\b/.test(text))
+      return result("correct", 5);
+    if (/\b(?:ist|sei|war) (?:ein(?:e[nmrs]?)? )?land\b/.test(text) && !deniesCountry)
+      return result("wrong");
+    if (/\bland\b/.test(text)) return result("unclear");
+  }
+  if (positive && rubric.kind === "country") {
+    if (/\b(?:ist|sei|war) (?:ein )?kontinent\b/.test(text)) return result("wrong");
+    if (/\bkein land\b/.test(text)) return result("wrong");
+    // Explicit country-specific phrasing; continent negation is not a negated
+    // country name. Unknown additional claims still use neutral clarification.
+    if (rubric.aliases.some(alias => text === `${normalize(alias)} ist kein kontinent sondern ein land`))
+      return result("correct", 5);
+  }
   if (positive && negatives.test(text)) return result("wrong");
   if (positive) {
     // Accept a short name, a bullet, or a simple sentence. Additional unknown claims are not silently ignored.
@@ -188,6 +207,11 @@ const someAnswers = new Set([
   "einige orte",
   "nur einige orte",
   "nur wenige orte",
+  "nur wenige",
+  "ein paar orte",
+  "nur ein paar orte",
+  "nur einen kleinen teil",
+  "nur ein kleinen teil",
   "wenige orte",
   "nur manche orte",
   "nur vier orte",
@@ -276,6 +300,16 @@ export function evaluate(rubric, answers) {
   }
   if (rubric.kind === "continent" || rubric.kind === "country")
     return evaluateName(answers.name, rubric);
+  if (rubric.kind === "selection" && rubric.schema === 2) {
+    const keys = ["scope", "diversity", "work", "education"];
+    if (keys.some(key => answers[key] === undefined || answers[key] === "")) return result("empty");
+    if (!["some", "all"].includes(answers.scope) || !["different", "same"].includes(answers.diversity) ||
+      [answers.work, answers.education].some(id => !Number.isInteger(Number(id)) || Number(id) < 1 || Number(id) > 12))
+      return result("empty");
+    const criteria = keys.map((key, i) => rubric.correctAnswers[key].map(String).includes(String(answers[key])) ? rubric.criteria[i].points : 0);
+    const raw = criteria.reduce((sum, n) => sum + n, 0);
+    return result(raw ? "correct" : "wrong", raw, criteria);
+  }
   if (rubric.kind === "selection") {
     const scope = evaluateScope(answers.scope);
     const diversity = evaluateDiversity(answers.diversity);
@@ -299,7 +333,16 @@ export function evaluate(rubric, answers) {
   }
   if (rubric.kind === "headline") {
     if (!answers.headline) return result("empty");
-    return answers.headline === "b" ? result("correct", 5) : result("wrong");
+    return answers.headline === (rubric.answer || "b") ? result("correct", 5) : result("wrong");
+  }
+  if (rubric.kind === "matching" && rubric.schema === 2) {
+    const keys = correctionKeys(rubric);
+    if (!answers.matches || Array.isArray(answers.matches) || keys.some(key => !answers.matches[key])) return result("empty");
+    const valid = new Set(Object.values(rubric.matchingAnswers));
+    if (keys.some(key => !valid.has(answers.matches[key]))) return result("empty");
+    const criteria = keys.map(key => Number(answers.matches[key] === rubric.matchingAnswers[key]));
+    const count = criteria.reduce((sum, n) => sum + n, 0), raw = count === 4 ? 5 : count;
+    return result(raw ? "correct" : "wrong", raw, criteria);
   }
   if (rubric.kind === "matching") {
     if (
@@ -308,57 +351,61 @@ export function evaluate(rubric, answers) {
       answers.matches.some((v) => v === "" || v === undefined)
     )
       return result("empty");
-    const count = answers.matches.reduce(
-      (n, v, i) => n + Number(String(v) === String(i)),
-      0,
-    );
+    const expected = rubric.matchingAnswers ? Object.values(rubric.matchingAnswers) : ["0", "1", "2", "3"];
+    if (answers.matches.some(value => !expected.includes(String(value)))) return result("empty");
+    const count = answers.matches.reduce((n, value, i) => n + Number(String(value) === expected[i]), 0);
     const raw = count === 4 ? 5 : count;
     return result(
       raw ? "correct" : "wrong",
       raw,
-      answers.matches.map((v, i) => Number(String(v) === String(i))),
+      answers.matches.map((v, i) => Number(String(v) === expected[i])),
     );
   }
   throw new Error(`Unknown rubric: ${rubric.kind}`);
 }
 export function createTask() {
   return {
-    hint: 0,
-    locked: false,
-    complete: false,
-    points: 0,
-    raw: 0,
-    ack: false,
-    attempts: [0, 0, 0, 0],
-    answers: {},
-    feedback: "",
-    criteria: [],
+    hint: 0, locked: false, scored: false, fullCorrect: false, resolved: false,
+    usedFallback: false, points: 0, raw: 0, ack: false,
+    attempts: [0, 0, 0, 0], answers: {}, regularDraft: {}, fallbackDraft: {},
+    submittedAnswers: {}, feedback: "", criteria: [], clarification: false,
+    resolutionTried: false, resolutionAnswers: {},
   };
 }
 export function openHint(task) {
-  if (task.complete || task.hint >= 3) return false;
+  if (task.scored || task.hint >= 3) return false;
   task.hint++;
   task.locked = false;
   task.feedback = "";
-  task.answers = {};
+  task.clarification = false;
+  if (task.hint === 3) {
+    task.regularDraft = structuredClone(task.answers);
+    task.answers = structuredClone(task.fallbackDraft);
+  }
   return true;
 }
 export function submitTask(task, rubric, answers, limits = [5, 3, 2, 1]) {
-  if (task.complete) return { status: "complete", raw: task.raw };
+  if (task.scored) return { status: "scored", raw: task.raw };
   if (task.locked) return { status: "locked", raw: 0 };
-  if (answers.fallback !== undefined && task.hint !== 3)
-    return { status: "invalid", raw: 0 };
+  if ((answers.fallback !== undefined) !== (task.hint === 3)) return { status: "invalid", raw: 0 };
   const evaluation = evaluate(rubric, answers);
   task.answers = structuredClone(answers);
+  if (task.hint === 3) task.fallbackDraft = structuredClone(answers);
   if (["empty", "unclear"].includes(evaluation.status)) {
     task.feedback = evaluation.status;
+    task.clarification = evaluation.status === "unclear";
     return evaluation;
   }
+  task.clarification = false;
   task.attempts[task.hint]++;
   task.raw = evaluation.raw;
   task.criteria = evaluation.criteria;
   if (evaluation.raw > 0) {
-    task.complete = true;
+    task.scored = true;
+    task.usedFallback = task.hint === 3;
+    task.fullCorrect = !task.usedFallback && evaluation.raw === rubric.max;
+    task.resolved = task.fullCorrect || task.usedFallback;
+    task.submittedAnswers = structuredClone(answers);
     task.points = Math.min(evaluation.raw, limits[task.hint]);
     task.feedback = "correct";
   } else {
@@ -366,4 +413,24 @@ export function submitTask(task, rubric, answers, limits = [5, 3, 2, 1]) {
     task.feedback = "wrong";
   }
   return evaluation;
+}
+export function correctionKeys(rubric) {
+  return rubric.kind === "selection" ? ["scope", "diversity", "work", "education"] : ["water", "people", "economy", "solar"];
+}
+export function attemptResolution(task, rubric, answers) {
+  if (!task.scored || task.resolved || task.resolutionTried) return "unavailable";
+  const keys = correctionKeys(rubric);
+  const wrong = keys.filter((key, i) => !task.criteria[i]);
+  if (wrong.some(key => answers[key] === undefined || answers[key] === "")) return "empty";
+  task.resolutionTried = true;
+  task.resolutionAnswers = structuredClone(answers);
+  task.resolved = wrong.every(key => rubric.kind === "selection"
+    ? rubric.correctAnswers[key].map(String).includes(String(answers[key]))
+    : rubric.matchingAnswers[key] === answers[key]);
+  return task.resolved ? "resolved" : "explain";
+}
+export function confirmResolution(task) {
+  if (!task.scored || !task.resolutionTried) return false;
+  task.resolved = true;
+  return true;
 }

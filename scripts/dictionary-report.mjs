@@ -12,15 +12,19 @@ const added = lang => evidence.entries.filter(e => e.translations[lang].previous
 const missing = lang => dictionary.filter(e => !e[lang]).map(e => e.de);
 const report = `# Wörterbuch: Quellen, Plausibilitätsprüfung und offene Abnahme
 
-Stand: ${evidence.date}. 187 deutsche Suchbegriffe, sieben getrennte Sprachen. Neu belegt: **${added("ku")} Kurmandschi- und ${added("ckb")} Sorani-Übersetzungen**. Alle ${count("ku") + count("ckb")} vorhandenen kurdischen Einträge haben einzeln zugeordnete Quellenbelege. Die fehlenden Werte bleiben ausdrücklich leer.
+Stand: ${evidence.date}. ${dictionary.length} deutsche Suchbegriffe, sieben getrennte Sprachen. Neu belegt: **${added("ku")} Kurmandschi- und ${added("ckb")} Sorani-Übersetzungen**. Alle ${count("ku") + count("ckb")} vorhandenen kurdischen Einträge haben einzeln zugeordnete Quellenbelege. Die fehlenden Werte bleiben ausdrücklich leer. Version 2.0 ergänzt zehn deutsche Begriffe. Neue nichtleere Werte in allen sieben Sprachen haben Einzelbelege; für die 187 Bestandswerte in fünf Sprachen bleibt es bei der redaktionellen Plausibilitätsprüfung. Die bestätigten Suchformen „notiert“, „beeinflusst“ und „Ermittlungsteam“ verweisen auf ihre Grundbegriffe. „Bildbeleg“ und „Beleg“ verweisen ausdrücklich auf den vorhandenen Begriff „Beweis“; hierfür wird keine neue kurdische Zusammensetzung erfunden.
 
 **Dies ist eine quellengestützte redaktionelle Plausibilitätsprüfung durch Codex. Keine muttersprachliche, professionelle oder schulische Sprachfreigabe wurde durchgeführt.** Auch eine bestandene Prüfsummen-/Schriftprüfung ersetzt keine sprachliche Abnahme.
 
-| Sprache | Vorhanden / 187 | Prüfung in diesem Durchlauf | Muttersprachliche Abnahme |
+| Sprache | Vorhanden / ${dictionary.length} | Prüfung in diesem Durchlauf | Muttersprachliche Abnahme |
 |---|---:|---|---|
-${languages.map(([code,name]) => `| ${name} | ${count(code)} | ${["ku","ckb"].includes(code) ? "Einzelbelege, Bedeutung, Varietät und Schrift redaktionell geprüft" : "Alle 187 Bestandswerte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet"} | **offen** |`).join("\n")}
+${languages.map(([code,name]) => `| ${name} | ${count(code)} | ${["ku","ckb"].includes(code) ? "Einzelbelege, Bedeutung, Varietät und Schrift redaktionell geprüft" : "Die 187 Bestandswerte und die neuen Werte auf Bedeutung, Wortform und Schrift plausibilisiert; kein vollständiger Wörterbuch-Einzelnachweis behauptet"} | **offen** |`).join("\n")}
 
-## Verbleibende Lücken
+## Verbleibende Lücken in allen Sprachen
+
+${languages.map(([code,name]) => `- **${name} (${missing(code).length}):** ${missing(code).join(", ") || "keine leeren Werte"}.`).join("\n")}
+
+## Besonders prüfbedürftige kurdische Lücken
 
 - **Kurmandschi (${missing("ku").length}):** ${missing("ku").join(", ")}.
 - **Sorani (${missing("ckb").length}):** ${missing("ckb").join(", ")}.
@@ -29,12 +33,13 @@ In den geprüften Quellen fand sich für diese Einträge kein hinreichend passen
 
 ## Was überprüft wurde
 
-- Für alle sieben Sprachen wurden die 187 Einträge im Spielkontext gelesen und auf erkennbare Bedeutungsverwechslungen, Schriftmischung, leere/duplizierte Stichwörter und auffällige Wortformen geprüft. Beispiele: Land/Staat statt Boden, Karte statt Bankkarte, See/Binnengewässer statt Meer, Strom/Elektrizität statt Fluss, Fall/Ermittlungsfall statt Sturz, Bogen/Papier statt Waffe und anbauen/Pflanzen statt Gebäudeanbau.
+- Für alle sieben Sprachen wurden alle ${dictionary.length} Einträge im Spielkontext gelesen und auf erkennbare Bedeutungsverwechslungen, Schriftmischung, leere/duplizierte Stichwörter und auffällige Wortformen geprüft. Beispiele: Land/Staat statt Boden, Karte statt Bankkarte, See/Binnengewässer statt Meer, Strom/Elektrizität statt Fluss, Fall/Ermittlungsfall statt Sturz, Bogen/Papier statt Waffe und anbauen/Pflanzen statt Gebäudeanbau.
 - Kurmandschi (kmr; Datenfeld ku) und Sorani (ckb) wurden getrennt gehalten. Sorani steht in arabischer Schrift mit RTL; keine automatisierte Umschrift aus Kurmandschi wurde verwendet. Belegte Varianten wurden nicht pauschal „vereinheitlicht“.
 - Die polnische Angabe für **alle** wurde von *wszyscy* zu *wszyscy / wszystkie* erweitert. Die erste Form ist männlich-personal; bei Bildern/Orten und nicht-männlich-personalen Gruppen braucht man die zweite. Der zusätzliche Flexionsbeleg ist mit Wiktionary-Revisions-ID gesichert.
 - Russische und ukrainische Einträge sind in der vorgesehenen Bedeutung redaktionell plausibel. Aspekte, Kasus, Geschlecht und Flexion in ganzen Sätzen bleiben muttersprachlich zu prüfen; einzelne Wörter bilden keine Satzübersetzung.
 - Polnische Formen hängen von Genus und Personengruppe ab. Die ergänzte Bedeutungshilfe erklärt den Bild-/Ortskontext; weitere Satzflexion wird nicht als abgenommen behauptet.
 - Türkische Verben verwenden überwiegend Infinitive; kurze UI-Angaben können Nomen oder Adjektive sein. Eine idiomatische Prüfung für Lernende ist weiterhin nötig.
+- Neue Einträge verwenden die exakt belegte Wortform; kyrillische Betonungszeichen bleiben erhalten. „beeinflussen“ ist im Arabischen mit einer belegten Verbform angeführt; dies ist keine konjugierte Satzübersetzung.
 - Arabische Verben werden im vorhandenen Bestand häufig durch das übliche Verbalnomen (Maṣdar), etwa *قراءة* oder *كتابة*, wiedergegeben. Das ist keine vollständig konjugierte Handlungsanweisung. Kontextformen, Artikel, Genus und sprachliches Register bleiben offen.
 - Bei beiden kurdischen Varianten bleiben Idiomatik, regionale Schreibvarianten und besonders die Eignung fachlicher Begriffe für Klasse 7 muttersprachlich zu bestätigen. Community-Wörterbücher und Lokalisierungen sind Belege für tatsächliche Verwendung, keine professionelle Freigabe.
 
@@ -78,7 +83,7 @@ const html = `<!doctype html><html lang="de"><head><meta charset="utf-8">
 <p><a href="index.html">Zur Ermittlungszentrale</a> · <a href="docs/woerterbuch-pruefung.md">Vollständiger Prüfbericht und Einzelliste</a></p>
 <section class="panel"><h2>Abdeckung</h2><p>${added("ku")+added("ckb")} Übersetzungen wurden mit Belegen ergänzt. Für unsichere Begriffe wird keine Übersetzung erfunden.</p>
 <table class="summary-table"><thead><tr><th>Sprache</th><th>Begriffe</th><th>Muttersprachliche Abnahme</th></tr></thead><tbody>
-${languages.map(([code,name]) => `<tr><td>${escape(name)}</td><td>${count(code)} / 187</td><td>offen</td></tr>`).join("")}
+${languages.map(([code,name]) => `<tr><td>${escape(name)}</td><td>${count(code)} / ${dictionary.length}</td><td>offen</td></tr>`).join("")}
 </tbody></table></section>
 <section class="panel"><h2>Offene Begriffe</h2><p><strong>Kurmandschi:</strong> ${escape(missing("ku").join(", "))}.</p><p><strong>Sorani:</strong> ${escape(missing("ckb").join(", "))}.</p>
 <p>Für diese Begriffe fehlen passende Belege in der benötigten Bedeutung. Besonders Fachbegriffe und ganze Formulierungen benötigen weitere Prüfung.</p></section>
@@ -89,4 +94,4 @@ ${Object.values(evidence.sources).map(s=>`<li><a href="${escape(s.url)}" rel="no
 </ul><p>Die Einzelauszüge behalten ihre Quellenlizenz. Bei Community-Wörterbüchern wurden mehrdeutige Belege nach Bedeutung ausgewählt; sie ersetzen keine professionelle Prüfung.</p><p>Die Wîkîferheng-Belege stammen aus dem verlinkten versionierten Auszug; ein eigener Direktabruf der Ursprungsseiten wird nicht behauptet.</p>
 <p><a href="data/dictionary-evidence.json">Gesicherte Einzelbelege mit Revisionen und Prüfsummen</a></p></section></main></body></html>\n`;
 await writeFile(new URL("woerterbuch.html", root), html);
-console.log(`Wörterbuchbericht: Kurmandschi ${count("ku")}/187, Sorani ${count("ckb")}/187; muttersprachliche Abnahme offen.`);
+console.log(`Wörterbuchbericht: Kurmandschi ${count("ku")}/${dictionary.length}, Sorani ${count("ckb")}/${dictionary.length}; muttersprachliche Abnahme offen.`);
