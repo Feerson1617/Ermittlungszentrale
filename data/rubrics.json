@@ -74,11 +74,11 @@
       "label": "Die Auswahl der Redaktion",
       "kind": "selection",
       "max": 5,
-      "solution": "Einige Orte; nicht überall gleich; Industrie oder Markt (8/10); Universität oder Krankenhaus (9/12).",
+      "solution": "Einige Orte; nicht überall gleich; Bergbau oder Markt (8/10); Schule oder Gesundheitsstation (9/12).",
       "editorial": [
-        1,
         2,
         5,
+        7,
         11
       ],
       "criteria": [
@@ -92,24 +92,24 @@
           "key": "diversity",
           "label": "Unterschiedliche Orte",
           "points": 1,
-          "explanation": "Die Fotos zeigen verschiedene Natur- und Stadträume. Ein Ort steht nicht für den ganzen Kontinent."
+          "explanation": "Die vier Fotos sind eine Auswahl. Sie belegen nicht, dass alle Orte gleich aussehen."
         },
         {
           "key": "work",
-          "label": "Fabrik oder Geschäfte",
+          "label": "Bergbau oder Handel",
           "points": 1,
-          "explanation": "Bild 8 zeigt einen Industriebetrieb in Ghana; Bild 10 einen Markt in Accra. Beide fehlen in der Redaktion."
+          "explanation": "Bild 8 zeigt einen Tagebau in Südafrika, Bild 10 einen Markt in Accra. Beide fehlen in der Redaktion."
         },
         {
           "key": "education",
           "label": "Lernen oder medizinische Versorgung",
           "points": 1,
-          "explanation": "Bild 9 zeigt eine Universität in Accra; Bild 12 ein Krankenhaus in Butaro. Beide fehlen in der Redaktion."
+          "explanation": "Bild 9 zeigt einen Klassenraum, Bild 12 eine Gesundheitsstation. Beide fehlen in der Redaktion. Auch eine einfache Schule ist ein Ort zum Lernen."
         }
       ],
       "hints": [
         "Die Redaktion zeigt nur vier von zwölf Bildern.",
-        "Sucht in den anderen Bildern einen Industriebetrieb oder Markt und einen Lern- oder Behandlungsort.",
+        "Sucht in den anderen Bildern Bergbau oder Handel und einen Ort zum Lernen oder für medizinische Versorgung.",
         "Vier Fotos zeigen einige Orte. Sie stehen nicht für alle Lebensbedingungen."
       ],
       "success": "Fotos zeigen immer nur einen Teil der Wirklichkeit.",

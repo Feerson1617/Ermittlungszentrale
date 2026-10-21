@@ -1,0 +1,962 @@
+[
+  {
+    "url": "http://127.0.0.1:4175/",
+    "device": "desktop",
+    "success": true,
+    "errors": [],
+    "failures": [],
+    "external": [],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:4175/",
+        "status": 200,
+        "type": "text/html",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/css/style.css",
+        "status": 200,
+        "type": "text/css",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/js/app.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/cases.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/icons/detective.svg",
+        "status": 200,
+        "type": "image/svg+xml",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/js/scoring.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/js/session.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/js/dictionary.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/learning.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/maps.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/media.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/dictionary.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/rubrics.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/icons/detective.svg",
+        "status": 200,
+        "type": "image/svg+xml",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/06.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/02.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/04.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/03.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/01.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/v21-mine.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/05.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/v21-rural.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/v21-classroom.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/v21-carry.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/10.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/v21-healthpost.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/15.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/07.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/lagos-trade.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/08.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/lagos-housing.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/11.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/14.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/09.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/medical-care.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/water-supply.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/12.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/13.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      }
+    ],
+    "documentCsp": "default-src 'self'; script-src 'self' 'sha256-nwCe7qTBt6SMuysfazfgtH/lZbnvli1GwiS4nlGPC+U='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'",
+    "address": "http://127.0.0.1:4175/"
+  },
+  {
+    "url": "http://127.0.0.1:4175/",
+    "device": "ipad",
+    "success": true,
+    "errors": [],
+    "failures": [],
+    "external": [],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:4175/",
+        "status": 200,
+        "type": "text/html",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/css/style.css",
+        "status": 200,
+        "type": "text/css",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/js/app.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/cases.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/js/session.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/js/scoring.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/learning.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/maps.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/js/dictionary.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/icons/detective.svg",
+        "status": 200,
+        "type": "image/svg+xml",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/rubrics.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/dictionary.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/data/media.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/icons/detective.svg",
+        "status": 200,
+        "type": "image/svg+xml",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/03.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/06.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/04.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/02.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/01.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/v21-rural.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/v21-mine.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/v21-classroom.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/05.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/10.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/v21-carry.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/v21-healthpost.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/15.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/07.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/lagos-trade.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/08.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/lagos-housing.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/11.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/14.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/09.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/medical-care.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/water-supply.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/12.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/images/13.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      }
+    ],
+    "documentCsp": "default-src 'self'; script-src 'self' 'sha256-nwCe7qTBt6SMuysfazfgtH/lZbnvli1GwiS4nlGPC+U='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'",
+    "address": "http://127.0.0.1:4175/"
+  },
+  {
+    "url": "http://127.0.0.1:4174/Ermittlungszentrale/",
+    "device": "desktop",
+    "success": true,
+    "errors": [],
+    "failures": [],
+    "external": [],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/",
+        "status": 200,
+        "type": "text/html",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/css/style.css",
+        "status": 200,
+        "type": "text/css",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/js/app.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/icons/detective.svg",
+        "status": 200,
+        "type": "image/svg+xml",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/cases.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/js/scoring.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/js/session.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/js/dictionary.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/learning.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/maps.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/rubrics.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/media.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/dictionary.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/icons/detective.svg",
+        "status": 200,
+        "type": "image/svg+xml",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/03.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/06.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/04.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/02.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/01.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/05.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/v21-rural.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/v21-mine.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/v21-classroom.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/10.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/v21-carry.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/v21-healthpost.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/07.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/15.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/08.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/lagos-trade.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/lagos-housing.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/11.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/14.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/medical-care.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/09.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/water-supply.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/13.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/12.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      }
+    ],
+    "documentCsp": "default-src 'self'; script-src 'self' 'sha256-nwCe7qTBt6SMuysfazfgtH/lZbnvli1GwiS4nlGPC+U='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'",
+    "address": "http://127.0.0.1:4174/Ermittlungszentrale/"
+  },
+  {
+    "url": "http://127.0.0.1:4174/Ermittlungszentrale/",
+    "device": "ipad",
+    "success": true,
+    "errors": [],
+    "failures": [],
+    "external": [],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/",
+        "status": 200,
+        "type": "text/html",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/css/style.css",
+        "status": 200,
+        "type": "text/css",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/js/app.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/cases.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/js/scoring.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/js/dictionary.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/learning.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/js/session.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/maps.js",
+        "status": 200,
+        "type": "text/javascript",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/icons/detective.svg",
+        "status": 200,
+        "type": "image/svg+xml",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/media.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/dictionary.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/data/rubrics.json",
+        "status": 200,
+        "type": "application/json",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/icons/detective.svg",
+        "status": 200,
+        "type": "image/svg+xml",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/06.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/03.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/04.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/02.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/05.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/01.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/v21-mine.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/v21-rural.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/10.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/v21-classroom.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/v21-carry.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/v21-healthpost.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/15.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/07.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/lagos-trade.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/08.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/lagos-housing.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/11.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/14.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/09.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/medical-care.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/water-supply.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/12.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      },
+      {
+        "url": "http://127.0.0.1:4174/Ermittlungszentrale/assets/images/13.webp",
+        "status": 200,
+        "type": "image/webp",
+        "csp": null
+      }
+    ],
+    "documentCsp": "default-src 'self'; script-src 'self' 'sha256-nwCe7qTBt6SMuysfazfgtH/lZbnvli1GwiS4nlGPC+U='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'",
+    "address": "http://127.0.0.1:4174/Ermittlungszentrale/"
+  }
+]

@@ -2,7 +2,7 @@ import {readFile,writeFile,mkdir} from "node:fs/promises";
 import {fileURLToPath} from "node:url";
 import {resolve} from "node:path";
 import {chromium} from "@playwright/test";
-import {cases,photos,clues,caseTasks} from "../data/cases.js";
+import {cases,photos,clues,caseTasks,editorialClaims} from "../data/cases.js";
 import {maps} from "../data/maps.js";
 import {coreLearning,extraSpurs,evidenceSources} from "../data/learning.js";
 const root=fileURLToPath(new URL("..",import.meta.url));
@@ -20,9 +20,9 @@ const worksheet=`<!doctype html><html lang="de"><head><meta charset="utf-8"><tit
 <section><h2>Akte 005 · freiwillig</h2><p>Unsere Zukunftsfrage (freiwillig):</p>${line}<p class="points">Bonus: ______ / 5</p></section>
 <section><h2>Unsere Punkte</h2><div class="totals"><span>Akte 1: ____</span><span>Akte 2: ____</span><span>Akte 3: ____ / 15</span><span>Akte 4: ____</span></div><p><strong>Gesamt: ______ / 30</strong> &nbsp; Bonus-Akte 5: ______ / 5</p><p class="small">Nicht gespielte Akten bleiben leer. Auswahlen, Rückblick und eigene Fragen werden nicht bewertet.</p></section><div class="sheet-footer"><span>Die Bildnummern in Akte 002 und 004 sind identisch.</span><span>2 / 2</span></div></article></body></html>`;
 if(/Afrika|Africa|Marokko|Nigeria|Ghana/i.test(worksheet))throw new Error("Lösung im neutralen Schülerbogen");
-const mediaTable=`| Nummer | Motiv | Belegter Ort | Einsatz / Nachweis |\n|---|---|---|---|\n${photos.map(p=>{const i=media.images[p.key];return `| ${p.id} | ${p.title} | ${i.location} | Akten 002/004; ${i.creditId}${[9,12].includes(p.id)?'; Bildung/Gesundheit':''}${p.id===11?'; Wasserversorgung, kein automatischer Mangel':''} |`;}).join('\n')}`;
+const mediaTable=`| Nummer | Motiv | Belegter Ort | Einsatz / Nachweis |\n|---|---|---|---|\n${photos.map(p=>{const i=media.images[p.key];return `| ${p.id} | ${p.title} | ${i.location} | Akten 002/004; [${i.creditId}](../bildnachweise.html#${i.creditId}); ${i.author}; ${i.license}${[9,12].includes(p.id)?'; Bildung/Gesundheit':''}${p.id===11?'; Wassertransport, Qualität unbekannt':''} |`;}).join('\n')}`;
 const selectedKeys=new Set(photos.map(p=>p.key));
-const additionalTable=`| Beleg-ID | Motiv | Belegter Ort / Datum | Einsatz und Grenze |\n|---|---|---|---|\n${Object.entries(media.images).filter(([key])=>!selectedKeys.has(key)).map(([key,i])=>`| ${i.creditId} | ${i.description} | ${i.location}; ${i.taken} | ${key==='housing'||key==='trade'?'Lagos-Ermittlung; keine Einkommenszuordnung':'Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg'} |`).join('\n')}`;
+const additionalTable=`| Beleg-ID | Motiv | Belegter Ort / Datum | Einsatz und Grenze |\n|---|---|---|---|\n${Object.entries(media.images).filter(([key])=>!selectedKeys.has(key)).map(([key,i])=>`| ${i.creditId} | ${i.description} | ${i.location}; ${i.taken} | ${({housing:'Lagos-Vergleich; kein Einkommen ableitbar',trade:'Handel in Lagos; keine Einkommensgruppe',school:'Bildung: Universität; kein allgemeiner Zugang belegt',clinic:'Butaro-Krankenhaus; keine Versorgungsdichte belegt',supply:'Wasserspeicherung; Qualität unbekannt',factory:'Industrie und Betriebsbedarf; keine Wohlstandsgarantie',coast:'Weitere Spuren: Küste auf Unguja; kein Gesamtbild'})[key]||'Länderfall / Zukunftsspur; kein Häufigkeits- oder Trendbeleg'} |`).join('\n')}`;
 const solutions=`| Wertung | Richtige Lösung / Menge | Maximal |\n|---|---|---|\n${Object.entries(r.tasks).map(([key,t])=>`| ${key} · Akte ${t.case} | ${t.solution} | ${t.max}${t.case===5?' Bonus':''} |`).join('\n')}`;
 const taskDetails=Object.entries(r.tasks).map(([key,t])=>`## ${t.label}
 
@@ -44,12 +44,12 @@ ${t.aliases?`**Explizite Namensvarianten:** ${t.aliases.join(', ')}. Weitere unb
 `).join('\n');
 const lessonDetails=Object.entries(coreLearning).map(([key,lesson])=>`### ${lesson.title}
 
-${lesson.steps.map(step=>`**${step.title}:** ${step.text} ${step.questions?.map(q=>q.label).join(' ')||''}\n\nAuflösung: ${step.explanation}`).join('\n\n')}
+${lesson.steps.map(step=>`**${step.title}:** ${step.text} ${step.questions?.map(q=>q.label).join(' ')||''}\n\nAuflösung: ${step.explanation}${step.checks?`\n\nNeue Beweise gefunden! ${step.checks.map(check=>`Die erfundene Redaktion behauptete: ${check.claims.map(id=>'„'+editorialClaims.find(c=>c.id===id).text+'“').join(' / ')} Prüfung: ${check.finding}`).join('\n\n')}`:''}`).join('\n\n')}
 
 Weitere Spuren: ${(lesson.extras||[]).map(key=>extraSpurs[key].title).join('; ')||'keine zusätzliche Pflichtstrecke'}.
 `).join('\n');
 const coverage=['ru','uk','pl','tr','ar','ku','ckb'].map(lang=>`${lang}: ${dictionary.filter(w=>w[lang]).length}/${dictionary.length}`).join('; ');
-const teacher=`# Erwartungshorizont · Die geheime Ermittlungszentrale 2.0
+const teacher=`# Erwartungshorizont · Die geheime Ermittlungszentrale 2.1
 
 Stand: 21.10.2026. Gemeinsame Datengrundlage: data/cases.js, data/rubrics.json, data/learning.js und data/media.json. Nach Änderungen: npm run materials. Die Aufgaben haben sieben Wertungen, keine zusätzlichen Punkteblöcke.
 
@@ -68,11 +68,11 @@ Natur und Umwelt, Wirtschaft und Zusammenleben sind Betrachtungsperspektiven. Er
 | Abschnitt | Planungsziel | Kern / mögliche Kürzung |
 |---|---|---|
 | Stunde 1 | 5 Minuten Organisation; 10 Akte 001; 20 Akte 002; 10 Sicherung/Puffer | Einzelüberlegung, dann Teamwahl; Bedienung wechseln |
-| Stunde 2 | 3 Minuten Wiedereinstieg; 26 Akte 003; 9 Akte 004; 7 gemeinsame Sicherung | Drei Länder; Industrie, Handel, Kakaokette, Stadtvergleich, Bildung/Gesundheit |
+| Stunde 2 | 3 Minuten Wiedereinstieg; 26 Akte 003; 9 Akte 004; 7 gemeinsame Sicherung | Drei Länder; Bergbau/Anbau/Industrie/Handel, Kakaokette, Stadtvergleich, Bildung/Gesundheit und Wasser |
 | Freiwillig | Akte 005 oder weitere Stunde | Vier erfundene Nachrichten und offene Zukunftsfrage; Weitere Spuren |
 | Drei-Stunden-Alternative | 001/002; dann 003; dann 004 und Auswertung | Stundenwechsel jeweils zwischen Akten, keine notwendige Speicherung mitten in einer Akte |
 
-Papierarbeit ist mitgedacht. Keine Garantie, dass alle Teams 90 Minuten schaffen. Zuerst freiwillige Breite kürzen; Rückmeldung und Reflexion erhalten. Film, Digitales, Energie und Logistik bleiben freiwillige Vertiefungen. Nach jedem Länderfall die Bedienung im Team wechseln.
+Papierarbeit ist mitgedacht. Keine Garantie, dass alle Teams 90 Minuten schaffen. Der Kern hat jetzt zehn kurze unbewertete Belegschritte; vier davon greifen die Redaktionsbehauptungen auf. Die neue Wasseransicht erhöht den Umfang leicht. Zuerst freiwillige Breite kürzen; Rückmeldung und Reflexion erhalten. Film, Digitales, Energie, Logistik und Küste bleiben freiwillige Vertiefungen. Nach jedem Länderfall die Bedienung im Team wechseln.
 
 ## Papierausgabe und Lösungsschutz – M1
 
@@ -124,13 +124,31 @@ Beide Auswahlakten verwenden exakt dieselben Nummern, Motive, Beschriftungen und
 
 ${mediaTable}
 
+## Erfundene Redaktion und Lernfolge
+
+Zuerst offen: „Welche vier Bilder passen für euch besonders zu Afrika?“ Kurze Einzelüberlegung, dann gemeinsame Viererauswahl. Diese persönliche Auswahl ist unbewertet. Erst nach ihrer Bestätigung und Papiernotiz zeigt Akte 002 die erfundene Redaktion: Wüste, Landwirtschaft, Lehmhäuser und Wassertransport. Keine globale Medienanalyse behauptet; kein Beschämen der ursprünglichen Vorstellungen.
+
+Die erfundene Redaktion behauptet ausdrücklich pauschal – keine Tatsachen:
+
+${editorialClaims.map((c,i)=>`${i+1}. „${c.text}“`).join('\n')}
+
+Eine kurze mündliche Frage genügt: Welche Aussage ist besonders pauschal? Akte 002 prüft danach nur Grenzen der Viererwahl und fehlende Themen. Die eigentliche Differenzierung folgt in Akte 003 an örtlich belegten Beispielen. Zulässige Gegenbelege zur bewerteten Auswahlaufgabe: Arbeit 8 (Bergbau) oder 10 (Markt/Handel); Lern-/Behandlungsort 9 (Schulraum) oder 12 (Gesundheitsstation). Die Frage lautet ausdrücklich Bergbau oder Handel; eine moderne Skyline allein erfüllt sie nicht. Das sind Beispiele, keine Aussagen über Häufigkeiten oder allgemeine Versorgungsqualität.
+
+Vier kurze, unbewertete Rückbezüge in Akte 003: verschiedene Arbeiten; Wohnen/Geld; Bildung/medizinische Einrichtungen; Wassertransport/Speicherung. „Keine Schulbildung“ und „nur Landwirtschaft“ widersprechen den konkreten Gegenbeispielen. Aussagen über verbreitete Armut, Krankenhausdichte oder Wasserqualität sind mit diesen Fotos nicht entschieden. Eine medizinische Station und ein Krankenhaus erlauben keine Schlussfolgerung, ob andernorts Einrichtungen fehlen. Dafür braucht es zusätzliche geeignete Daten.
+
+Akte 004 verwendet denselben Zwölferkatalog. Fragen: Was hat sich verändert oder ergänzt? Was ist gleich geblieben? Dazu passt Beleg … Eine unveränderte Auswahl ist zulässig. Reflexion, erster/zweiter Fotoentscheid und Rückbezüge erhalten keine Punkte. Ein Stichwort, Bildverweis oder kurzer mündlicher Satz genügt.
+
 ## Zusätzliche Belegbilder – nicht Teil des Zwölferkatalogs
 
 ${additionalTable}
 
 Lagos-Vergleich: Lagos Island 2016, Makoko 2019; weitere Alltagsperspektive Balogun-Markt 2007. Unterschiedliche Perspektiven und Jahre ausdrücklich beachten, kein Wachstumstrend und keine Einkommen aus Gebäuden/Personen ableiten. Wirtschaftliches Wachstum kann ungleich zugutekommen; die Fotos selbst belegen keinen Wachstumstrend. Die Makoko-Aufnahme zeigt dichte Bebauung aus der Luft, keinen daraus sicher feststellbaren Versorgungsgrad. Der ursprüngliche Commons-Titel bleibt nur im vollständigen Quellennachweis unverändert erhalten.
 
-Butaro: historische Krankenhaus-Außenaufnahme 2011, keine Behauptung aktueller Qualität oder universellen Zugangs. Wasserbild: Wassertank in Kajiado County, kein Beleg für Wassermangel. Landwirtschaft bleibt eine wirtschaftliche Tätigkeit; Industriebetriebe sind kein automatischer Wohlstands-/Arbeitsqualitätsbeleg.
+Neue Auswahlfotos: 7 zeigt Lehmhäuser mit Strohdächern im Raum Tamale (Ghana); sichtbare Stromleitungen verbieten die Beschriftung „ohne Strom“. Bauweise belegt keine Armut. 8 zeigt den Palabora-Tagebau bei Phalaborwa (Südafrika), ohne unbelegte Aussagen zu Arbeitsbedingungen. 9 zeigt einen leeren Klassenraum in Nigeria; Stadt und Schule sind nicht genauer belegt. Einfache Möbel bedeuten nicht fehlende Bildung. 11 zeigt Wassertransport in Uganda; Ort, Wegstrecke und Wasserqualität sind nicht genauer belegt. Ein Kanister beweist weder Armut noch Mangel.
+
+12 zeigt die Gesundheitsstation Dankh Sene im Gesundheitsdistrikt Diourbel (Senegal), am Gebäudeschild nachvollziehbar. Gewählte Alternative: dokumentarische Außenansicht statt Behandlungsraum. Die Innenausstattung und Behandlungsqualität sind nicht sichtbar; das Motiv wird deshalb neutral „Gesundheitsstation“ genannt. Keine Patientinnen, Patienten oder leidenden Kinder werden gezeigt. Urheberangabe Nathaly Herrel / President’s Malaria Initiative; Public Domain als US-Regierungswerk (PD-USGov-HHS), abgesichert durch Dateiseite, Flickr-Lizenzprüfung und lokal gesicherte Lizenzvorlage docs/media/healthlicense.json. Freiwillige Quellen-/Urheberangabe bleibt erhalten.
+
+Die bisherigen Fotos von Küste, Industrie, Universität, Wassertank und Krankenhaus sind unverändert erhalten und weiter erreichbar. Butaro: historische Krankenhaus-Außenaufnahme 2011, keine Behauptung aktueller Qualität oder universellen Zugangs. Tank in Kajiado County: kein Beleg für Wassermangel oder Reichtum. Landwirtschaft bleibt eine wirtschaftliche Tätigkeit; Industriebetriebe sind kein automatischer Wohlstands-/Arbeitsqualitätsbeleg.
 
 ## Sachquellen und ihre tatsächliche Prüfung
 
@@ -138,7 +156,7 @@ ${Object.values(evidenceSources).map(x=>`**${x.title}:** ${x.url||x.local} (Absc
 
 Renault-/SIGA-/UNESCO-Aussagen sind im geprüften Projektauftrag benannte Beispiele; die direkten Originalabrufe sind technisch blockiert und nicht als selbst erfolgreich geprüft ausgegeben. Schemata sind ausdrücklich Schemata, keine erzeugten dokumentarischen Fotos. Allgemeine qualitative Kontextkarten ersetzen keine lokalen Einkommen-/Versorgungsstatistiken. Keine Rankings oder erfundenen Zahlen.
 
-Die ${Object.keys(media.images).length} echten Fotografien besitzen Commons-Quellenrevisionen, Ortsbelege, Urheber, freie Lizenzen und Prüfsummen in data/media.json und docs/media/. Die Originaldownloads der vier Ergänzungen wurden per SHA1 verifiziert; alle lokalen Ableitungen per SHA256. Bilder behalten ihre Einzellizenzen. Quellen: bildnachweise.html und docs/bildquellen.md. Das kleinere Original des Balogun-Fotos wurde nicht hochskaliert.
+Die ${Object.keys(media.images).length} echten Fotografien besitzen Commons-Quellenrevisionen, Ortsbelege in dokumentierter Genauigkeit, Urheber, freie Lizenzen und Prüfsummen in data/media.json und docs/media/. Die fünf Ergänzungen dieser Version wurden anhand ihrer Originaldownloads per SHA1 verifiziert; alle lokalen Ableitungen per SHA256. Die 19 vorherigen Fotos bleiben bytegleich. Bilder behalten ihre Einzellizenzen. Vollständige Einzelquellen mit Titel, Original-/Lizenzlink und Grenzen: bildnachweise.html und docs/bildquellen.md. Das kleinere Original des Balogun-Fotos wurde nicht hochskaliert.
 
 Karten: Natural Earth 1:110 Millionen, Public Domain; vereinfachte Länderumrisse, keine Navigation. Westsahara als eigener Raum, keine politische Anerkennungsaussage. Beim Stadtvergleich ist der Punkt eine grobe Lage von Lagos, keine punktgenaue Verortung beider Stadtteile.
 
@@ -148,13 +166,13 @@ ${dictionary.length} deutsche Einträge; ${coverage}. Sieben Sprachen: Russisch,
 
 ## Technik, Datenschutz und verbleibende Abnahme
 
-Kein Konto, keine Datenbank, keine Zeitwertung und kein Audio. Alle Akten funktionieren im Arbeitsspeicher ohne erlaubten Browser-Speicher. Optionale sessionStorage-Wiederherstellung kann Neuladen abfedern; bei gesperrtem Speicher verliert Neuladen die Sitzung. Schema 1 wird mit verständlicher Meldung verworfen, damit alte Wertungen nicht unbemerkt auf neue Aufgaben übertragen werden. Papier bleibt die Sicherung zwischen Geräten und Stunden.
+Kein Konto, keine Datenbank, keine Zeitwertung und kein Audio. Alle Akten funktionieren im Arbeitsspeicher ohne erlaubten Browser-Speicher. Optionale sessionStorage-Wiederherstellung kann Neuladen abfedern; bei gesperrtem Speicher verliert Neuladen die Sitzung. Schema 1 und Sitzungen aus Version 2.0 werden mit verständlicher Meldung zurückgesetzt, damit alte Bildnummern nicht unbemerkt andere Motive bedeuten. Innerhalb von 2.1 bleiben Entwürfe, Punkte und getrennte Auswahlen erhalten. Für einen 2.1-Durchlauf einen neuen Bogen verwenden; alte Papierauswahlen beziehen sich auf den alten Katalog und bleiben als alter Stand erhalten. Papier bleibt die Sicherung zwischen Geräten und Stunden.
 
 Kein garantierter vollständiger Offline-Neustart: noch nicht geladene Ressourcen benötigen den eigenen statischen Server. Die App überträgt keine Schülerantworten an externe Dienste; der Host kann Zugriffsprotokolle einschließlich IP-Adressen führen. Keine pauschale DSGVO-Freigabe behauptet. Schulische Datenschutzprüfung getrennt beurteilen.
 
 Offen ohne tatsächliche Durchführung: echtes Schul-iPad/Safari, reale Druckprobe, sprachkundige Prüfung, Lerngruppenerprobung/Lernwirkung und gemessene Bearbeitungszeit. Außerdem direkter Originalabgleich der blockierten Sachquellen und Live-Browserabnahme. Automatische Tests und ein erfolgreicher Pages-Build ersetzen diese Prüfungen nicht. Keine pauschale Unterrichtsfreigabe.
 `;
-function inline(text){return esc(text).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');}
+function inline(text){return esc(text).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\[([^\]]+)\]\((\.\.\/bildnachweise\.html#F\d+)\)/g,'<a href="$2">$1</a>');}
 function markdownHTML(text){
  const out=[];let table=false,list=false;
  const close=()=>{if(table){out.push('</tbody></table>');table=false;}if(list){out.push('</ol>');list=false;}};
@@ -174,7 +192,7 @@ function markdownHTML(text){
  close();return out.join('\n');
 }
 const cleanTeacher=teacher.split('\n').map(line=>line.trimEnd()).join('\n');
-const teacherHTML=`<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Erwartungshorizont · Ermittlungszentrale 2.0</title><style>@page{size:A4;margin:16mm 15mm 20mm}body{font:10.5pt/1.4 Arial,sans-serif;color:#111;max-width:180mm;margin:20px auto}h1{font-size:21pt;line-height:1.15}h2{font-size:15pt;margin-top:7mm;break-after:avoid}h3{font-size:12pt;break-after:avoid}p{orphans:3;widows:3;overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;font-size:9pt;margin:4mm 0;table-layout:fixed}thead{display:table-header-group}th,td{border:1px solid #aaa;text-align:left;padding:2mm;overflow-wrap:anywhere;vertical-align:top}tr{break-inside:avoid}li{margin:1.5mm 0}@media print{body{max-width:none;margin:0}}</style></head><body>${markdownHTML(cleanTeacher)}</body></html>`;
+const teacherHTML=`<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Erwartungshorizont · Ermittlungszentrale 2.1</title><style>@page{size:A4;margin:16mm 15mm 20mm}body{font:10.5pt/1.4 Arial,sans-serif;color:#111;max-width:180mm;margin:20px auto}h1{font-size:21pt;line-height:1.15}h2{font-size:15pt;margin-top:7mm;break-after:avoid}h3{font-size:12pt;break-after:avoid}p{orphans:3;widows:3;overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;font-size:9pt;margin:4mm 0;table-layout:fixed}thead{display:table-header-group}th,td{border:1px solid #aaa;text-align:left;padding:2mm;overflow-wrap:anywhere;vertical-align:top}tr{break-inside:avoid}li{margin:1.5mm 0}@media print{body{max-width:none;margin:0}}</style></head><body>${markdownHTML(cleanTeacher)}</body></html>`;
 await mkdir(resolve(root,'materials'),{recursive:true});await mkdir(resolve(root,'docs'),{recursive:true});
 await writeFile(resolve(root,'materials/ermittlungsbogen.html'),worksheet);
 await writeFile(resolve(root,'docs/erwartungshorizont.md'),cleanTeacher.trimEnd()+"\n");

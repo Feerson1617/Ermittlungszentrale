@@ -1,0 +1,5 @@
+
+> die-geheime-ermittlungszentrale@2.1.0 dictionary:report
+> node scripts/dictionary-report.mjs
+
+Wörterbuchbericht: Kurmandschi 184/197, Sorani 184/197; muttersprachliche Abnahme offen.

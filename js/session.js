@@ -4,7 +4,7 @@ export const STORE = "ermittlungszentrale-session-v2";
 export const LEGACY_STORE = "ermittlungszentrale-session-v1";
 export function freshState() {
   return {
-    version: 2, current: null, revealed: false, notice: null,
+    version: 2, contentVersion: "2.1", current: null, revealed: false, notice: null,
     cases: Object.fromEntries([1, 2, 3, 4, 5].map(id => [id, {
       phase: 0, selected: [], confirmedSelection: [], done: false,
       questionStep: 0, learningStep: 0, learningAnswers: {}, learningChecked: false,
@@ -29,6 +29,10 @@ export function loadState(storage) {
     }
     const s = JSON.parse(raw), base = freshState();
     if (!s || s.version !== 2 || ![null, 1, 2, 3, 4, 5].includes(s.current)) return base;
+    if (s.contentVersion !== base.contentVersion) {
+      base.notice = "Die Bildauswahl wurde für Version 2.1 geändert. Die alte digitale Sitzung wurde zurückgesetzt, damit alte Nummern nicht für andere Fotos stehen. Nutzt für den neuen Durchlauf einen neuen Bogen; eure früheren Papiernotizen bleiben als alter Stand erhalten.";
+      return base;
+    }
     for (const key of Object.keys(base.tasks)) {
       const t = s.tasks?.[key];
       if (!object(t) || !Number.isInteger(t.hint) || t.hint < 0 || t.hint > 3 ||

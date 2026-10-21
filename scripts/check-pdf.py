@@ -29,4 +29,9 @@ for n in range(1,13):
     assert re.search(rf'(?m)^{n}\s',catalog), f'Auswahlbild {n} fehlt in der PDF-Tabelle'
 for term in ['Kajiado','Butaro','Versorgung','Maximal','Abschlussaufgabe','Keine menschliche Abnahme wurde erfunden']:
     assert term in text,term
+normalized=re.sub(r'\s+',' ',text)
+for term in ['Ermittlungszentrale 2.1','Lehmhäuser mit Strohdächern','Bergbau','Schule mit einfacher Ausstattung','Wasser holen und transportieren','Gesundheitsstation','Phalaborwa','Dankh Sene','keine Tatsachen']:
+    assert term in normalized,term
+assert re.search(r'PD-\s*USGov-HHS',text), 'Lizenzgrundlage fehlt'
+assert text.count('Neue Beweise gefunden!')==4, 'Vier Beleg-Rückbezüge fehlen im Lehrertext'
 print(f'PDF geprüft: Schülerbogen 2 × DIN A4, Erwartungshorizont {len(teacher.pages)} Seiten, alle Aufgaben und Punktfelder vorhanden.')

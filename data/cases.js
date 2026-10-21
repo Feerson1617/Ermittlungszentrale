@@ -85,27 +85,9 @@ export const photos = [
     location: "Atlasgebirge, Marokko",
     motif: "Schnee auf hohen Bergen",
   },
-  {
-    id: 7,
-    key: "coast",
-    title: "Küste",
-    location: "Sansibar, Tansania",
-    motif: "Sandstrand, Palmen und Meer",
-  },
-  {
-    id: 8,
-    key: "factory",
-    title: "Produktion",
-    location: "Ghana",
-    motif: "Ein Industriebetrieb mit Produktionssilo",
-  },
-  {
-    id: 9,
-    key: "school",
-    title: "Universität",
-    location: "Accra, Ghana",
-    motif: "Ein Ort zum Lernen und Studieren",
-  },
+  {id:7,key:"rural",title:"Lehmhäuser mit Strohdächern",location:"Ghana",motif:"Wohnhäuser aus Lehm mit Strohdächern"},
+  {id:8,key:"mine",title:"Bergbau",location:"Phalaborwa, Südafrika",motif:"Ein Tagebau mit stufenförmigen Hängen"},
+  {id:9,key:"classroom",title:"Schule mit einfacher Ausstattung",location:"Nigeria",motif:"Ein Klassenraum mit einfachen Möbeln"},
   {
     id: 10,
     key: "market",
@@ -113,8 +95,17 @@ export const photos = [
     location: "Accra, Ghana",
     motif: "Menschen auf einem Markt",
   },
-  { id: 11, key: "supply", title: "Wasserversorgung", location: "Kajiado County, Kenia", motif: "Ein Wassertank auf einem Turm" },
-  { id: 12, key: "clinic", title: "Krankenhaus", location: "Butaro, Ruanda", motif: "Gebäude eines Krankenhauses" },
+  { id:11,key:"carry",title:"Wasser holen und transportieren",location:"Uganda",motif:"Wasser wird in einem Kanister getragen" },
+  { id:12,key:"healthpost",title:"Gesundheitsstation",location:"Dankh Sene, Senegal",motif:"Eine kleine medizinische Einrichtung" },
+];
+// Fictional editorial claims are deliberately distinct from factual photo titles.
+export const editorialClaims = [
+ {id:"income",text:"In Afrika leben alle Menschen in Armut."},
+ {id:"homes",text:"Dort wohnen alle Menschen in einfachen Hütten."},
+ {id:"work",text:"In Afrika arbeiten Menschen nur in der Landwirtschaft."},
+ {id:"education",text:"In Afrika gibt es keine Schulbildung."},
+ {id:"health",text:"Krankenhäuser gibt es dort kaum."},
+ {id:"water",text:"Überall fehlt sauberes Wasser."},
 ];
 export const clues = [
   {key:"water", name:"Wasser und Regen", text:"Eine Gruppe plant den Anbau. Sie fragt: Wie viel Wasser brauchen die Pflanzen, und wann regnet es?", motif:"Ein abgeerntetes Hirsefeld in der Trockenzeit", location:"Sahelzone, Niger", questionId:"nature"},

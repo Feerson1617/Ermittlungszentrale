@@ -1,0 +1,25 @@
+savanna: 1400 × 933, 448184 bytes
+desert: 1400 × 836, 143098 bytes
+forest: 1400 × 933, 349820 bytes
+lagos: 1400 × 726, 89500 bytes
+farm: 1400 × 1050, 359532 bytes
+atlas: 1400 × 1050, 317108 bytes
+coast: 1400 × 1050, 140904 bytes
+factory: 1400 × 874, 76300 bytes
+school: 1400 × 1050, 144530 bytes
+market: 1400 × 933, 113618 bytes
+cocoa: 1400 × 1400, 251028 bytes
+water: 1050 × 1400, 190498 bytes
+people: 1400 × 1050, 105418 bytes
+economy: 1400 × 1050, 125976 bytes
+solar: 1400 × 652, 119626 bytes
+supply: 788 × 1400, 216084 bytes
+clinic: 1400 × 933, 239922 bytes
+housing: 1400 × 729, 219084 bytes
+trade: 963 × 640, 117752 bytes
+rural: 1400 × 786, 285648 bytes
+mine: 1400 × 935, 236626 bytes
+classroom: 1400 × 1046, 214308 bytes
+carry: 1299 × 1400, 259740 bytes
+healthpost: 1400 × 930, 223728 bytes
+24/24 Ableitungen bytegleich reproduziert; alle Originale SHA1/SHA256-geprüft, 19 Bestandsfotos unverändert.
