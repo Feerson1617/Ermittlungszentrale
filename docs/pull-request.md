@@ -1,20 +1,28 @@
-Version 2.0 korrigiert fachlich falsche Namensbewertungen, verlorene Antwortentwürfe und den verfrühten Abschluss bei Teilpunkten. Beispielsweise sind drei Rohpunkte bei einem Hinweis weiterhin ein Teilerfolg; offene Kriterien werden jetzt unbewertet geklärt, die drei Punkte bleiben fest. „Afrika ist ein Land“ ist falsch, die richtige Kontinent-Negation wird erkannt. Neutrale Namensklärung und unterschiedliche feste Abschlusspositionen erhalten die einfache Bedienung.
+Die in `main` noch fehlende Version 2.1 wird vollständig übernommen. Darauf korrigiert Version 2.2 die im Abschlussauftrag beschriebenen didaktischen, sprachlichen und Bedienprobleme: konkrete Antworten erklären, kurze Arbeitsaufträge, zuverlässiger Wörterbuch-Fokus und ein Schülerbogen ohne vorweggenommene Erkenntnis. Fünf Akten, alle Fotos und die Bewertung bleiben erhalten.
 
-Die fünf unabhängigen Akten behalten sieben Wertungen mit 30 Haupt- und fünf getrennten Bonuspunkten. Akte 002 nutzt vier geschlossene Teilfragen und eine Gesamtabgabe. Akte 003 ergänzt die drei Länderfälle um neun kurze unbewertete Belegschritte: Industrie in Marokko, Handel und verschiedene Lebensbedingungen in Lagos, Kakao vom Anbau zum Produkt, Bildung/Gesundheit und Rückbezug. Zusätzliche Film-, Digital-, Energie- und Logistikspuren bleiben freiwillig. Persönliche Auswahlen und Reflexionen werden nicht bewertet.
+## Aus Version 2.1 gegenüber main nachgeführt
 
-- Gemeinsamer Zwölferkatalog in Akte 002/004; erste/zweite bestätigte Auswahl getrennt. Alle 15 bisherigen Fotos bleiben bytegleich, vier authentische örtlich/lizenzrechtlich belegte Ergänzungen. Insgesamt 19 lokale WebP-Dateien, 3.59 MiB; kein externer Bildabruf. Bildquellen/Revisionen, Rechte, Bearbeitungen und Grenzen vollständig dokumentiert.
-- Schema mit sichtbaren Kakaobohnen und vier Schritten, keine generierten geografischen Beweisfotos. Skyline und Wohnbilder belegen keine Einkommen oder Wachstumstrends. Zukunftsnachrichten sind ausdrücklich erfunden. Direkter Originalabgleich einzelner institutioneller Sachquellen bleibt mangels Zugriff offen und ist entsprechend gekennzeichnet.
-- Wörterbuch mit 197 deutschen Begriffen und zehn Ergänzungen; Kurmandschi und Sorani jeweils 184 belegte Werte. Alle neuen nichtleeren Werte in sieben Sprachen besitzen Einzelbelege; keine erfundenen Begriffe. Bekannte Flexionsformen/Aliasse und kostenlose deutsche Hilfen ergänzen den Zugang. Sprachkundige Abnahme bleibt offen.
-- Ein beidseitiger Schülerbogen mit genau zwei themenneutralen A4-Seiten. Erwartungshorizont elf Seiten, explizite Nummerntabelle 1–12, Extra-Belege und vollständige Wertungs-/Auflösungsregeln. Alle 13 PDF-Seiten gerendert und visuell geprüft.
-- Getrennter Fotozoom mit Fokus-Rückgabe, sichere Rücksetzung alter V1-Sitzungen, optionale Speicherung. Startüberwachung, CSP-Hash, MIME-Typen, relative Pfade und Pages-Kompatibilität bleiben erhalten.
+- Basis ist `main` bei `3a6274f` (bewusst gemergter PR #1). Die dort fehlenden Commits `e422525` und `b219afb` wurden als `cf3b644` und `87c13c0` übernommen. Der Dateibaum entsprach danach exakt dem bisherigen vollständigen 2.1-Branch.
+- Fünf neue Auswahlmotive 7/8/9/11/12: Lehmhäuser, Bergbau, Klassenraum, Wassertransport und Gesundheitsstation. Alle 19 vorherigen Fotos erhalten; zusammen 24 lokale authentische Fotos mit Lizenz-/Ortsbelegen.
+- Gemeinsamer Zwölferkatalog für Akte 002/004, erfundene Redaktion 2/5/7/11, sechs klar getrennte Behauptungen und vier unbewertete Rückbezüge in Akte 003. Zehn Lernschritte und kompatible Sitzungsverwaltung.
 
-Validierung der Implementierung `c213e9f`:
+## Neu in Version 2.2
 
-- **238 Node-Prüfungen und 250 Browserfälle bestanden**, darunter 50 tatsächliche WebKit-Läufe. Desktop, iPad quer/hoch und schmale Touch-Ansicht; keine übersprungenen Tests.
-- Nach Serverneustart Root/Projektpfad jeweils Desktop/iPad vollständig bedient. Weitere vier erfolgreiche Durchläufe über unabhängige statische Python-Server. Menü, CSS, Detektivmotiv, alle Akten, 19 dekodierte Fotos, Wörterbuch und Punkte geprüft.
-- PDF-, Quellen-/Hash-, Medienreproduktions- und Kartenprüfung bestanden. Protokolle/Screenshots: `docs/qa/v2/`; Befundmatrix: `docs/v2-umsetzung.md`; technische Ergebnisse: `docs/testbericht.md`.
-- Release-Audit endet bewusst mit **2 / 19 offenen Kategorien**: 32 leere Wörterbuchwerte, sieben Sprachabnahmen, echtes Schul-iPad/Safari, Originalabgleiche, reale Druckprobe, Lerngruppenerprobung und öffentliche Live-Funktion. Kein durchgeführter Muttersprachler- oder Gerätetest behauptet.
+- **H1:** Lagos Island 2016 und Makoko 2019 anhand erneut abgerufener Originalrevisionen gesichert. Zusätzliche örtliche Wasser-/Sanitärinformationen konnten nicht verifiziert werden. Deshalb die ausdrücklich erlaubte Alternative umgesetzt: Lernziel auf sichtbare Bebauung und Blickrichtungen verengen; keine generischen Versorgungsbehauptungen.
+- **M1:** einfache Arbeitsaufträge, kurze Kernsätze, längere Aussagegrenzen unter „Mehr erfahren“. Deutsche Worthilfen auch im Wörterbuch; keine neuen ungeprüften Übersetzungen.
+- **M2:** jede fachliche Antwortoption erhält eine konkrete Erklärung. Keine Punkte oder neuen Versuchsgrenzen; Vermutungen und Rückblick ohne Richtig-falsch-Urteil.
+- **M3:** Wörterbuch-Auslöser merken und nach Schließen/Escape fokussieren. Escape funktioniert auch bei gefülltem Suchfeld; Entwürfe/Punkte bleiben erhalten.
+- **N1–N4:** präziser Klassenraumtitel, drei sichtbare Satzanfänge mit freier Alternative, getrennte Punktefelder und verständliche Browser-Starthilfe ohne CSP-Lockerung.
+- **Zusätzlich:** offene Sicherung „Vier Fotos zeigen …“ statt vorgegebener Lösung auf dem Schülerbogen. Gemeinsame Materialdaten aktualisiert: zwei neutrale Schülerseiten und 13 Lehrerseiten, alle digital gerendert und gesichtet.
 
-Der direkte öffentliche Abruf ist hier beim Cloud-Proxy-CONNECT gesperrt; erfolgreiche lokale Tests oder ein Pages-Build sind keine Live-Funktionsabnahme. Der richtige HTTP-Start und eine geprüfte statische Alternative sind in `docs/vorschau.md` dokumentiert.
+## Tatsächlich geprüfter Stand
 
-Der Nutzer hat „Version 2.0 umsetzen, aber auch Push, PR und Deployment“ ausdrücklich beauftragt. Dieser bestehende PR #1 bleibt ein Draft auf `feature/detektivspiel-komplett` gegen `main`; kein neuer PR, kein Merge und keine Änderung der Pages-/Umgebungsberechtigungen. Die bestehende automatische Pages-Veröffentlichung des Entwicklungsbranches wird verwendet. Keine pauschale Unterrichtsfreigabe.
+- 303 Node-Tests und 290 Browserprüfungen bestanden: Desktop, iPad quer/hoch, schmales Touch-Format und tatsächlich ausgeführtes Linux-WebKit.
+- Acht vollständige Browserdurchläufe auf neu gestartetem Node-Spielserver und unabhängigen statischen Servern bestanden, Root/Projektpfad, alle 24 Fotos dekodiert.
+- Alle zehn Lernschritte mit richtigen/falschen Antworten, Wörterbuch-Tastatur/Fokus, Navigation/Neuladen, identische zwölf Auswahlbilder, 30+5 und 5/3/2/1 geprüft.
+- PDF-Generierung, Format-/Inhaltsprüfung, Sichtung aller 15 Seiten, Bild-/Quellen-/Kartenintegrität und `git diff --check` bestanden.
+- Release-Audit erwartungsgemäß Exit 2 mit 20 offenen Kategorien: die bisherigen 19 plus explizit erfasster Schulnetztest. Echtes Schul-iPad, Schulnetz, sprachkundige Kontrolle, realer Druck und Lerngruppe/Zeitmessung bleiben offen; kein solcher Prüfstatus erfunden.
+
+[Befundmatrix](https://github.com/Feerson1617/Ermittlungszentrale/blob/fix/ermittlungszentrale-2-2-abnahme/docs/v22-umsetzung.md) · [Prüfbericht und Screenshots](https://github.com/Feerson1617/Ermittlungszentrale/blob/fix/ermittlungszentrale-2-2-abnahme/docs/testbericht.md) · [Lagos-Quellen](https://github.com/Feerson1617/Ermittlungszentrale/blob/fix/ermittlungszentrale-2-2-abnahme/docs/lagos-quellen-v22.md) · [Abnahme](https://github.com/Feerson1617/Ermittlungszentrale/blob/fix/ermittlungszentrale-2-2-abnahme/docs/abnahme.md).
+
+Dieser PR bleibt **Draft und offen**. Kein Merge, kein Push auf `feature/detektivspiel-komplett`, keine Pages-Einstellungen geändert und keine Veröffentlichung von 2.2 auf Pages. Der Nutzer entscheidet über die Übernahme.

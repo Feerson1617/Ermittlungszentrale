@@ -85,27 +85,9 @@ export const photos = [
     location: "Atlasgebirge, Marokko",
     motif: "Schnee auf hohen Bergen",
   },
-  {
-    id: 7,
-    key: "coast",
-    title: "Küste",
-    location: "Sansibar, Tansania",
-    motif: "Sandstrand, Palmen und Meer",
-  },
-  {
-    id: 8,
-    key: "factory",
-    title: "Produktion",
-    location: "Ghana",
-    motif: "Ein Industriebetrieb mit Produktionssilo",
-  },
-  {
-    id: 9,
-    key: "school",
-    title: "Universität",
-    location: "Accra, Ghana",
-    motif: "Ein Ort zum Lernen und Studieren",
-  },
+  {id:7,key:"rural",title:"Lehmhäuser mit Strohdächern",location:"Ghana",motif:"Wohnhäuser aus Lehm mit Strohdächern"},
+  {id:8,key:"mine",title:"Bergbau",location:"Phalaborwa, Südafrika",motif:"Ein Tagebau mit stufenförmigen Hängen"},
+  {id:9,key:"classroom",title:"Klassenraum mit Holztischen und Stühlen",location:"Nigeria",motif:"Ein Klassenraum mit einfachen Möbeln"},
   {
     id: 10,
     key: "market",
@@ -113,21 +95,30 @@ export const photos = [
     location: "Accra, Ghana",
     motif: "Menschen auf einem Markt",
   },
-  { id: 11, key: "supply", title: "Wasserversorgung", location: "Kajiado County, Kenia", motif: "Ein Wassertank auf einem Turm" },
-  { id: 12, key: "clinic", title: "Krankenhaus", location: "Butaro, Ruanda", motif: "Gebäude eines Krankenhauses" },
+  { id:11,key:"carry",title:"Wasser holen und transportieren",location:"Uganda",motif:"Wasser wird in einem Kanister getragen" },
+  { id:12,key:"healthpost",title:"Gesundheitsstation",location:"Dankh Sene, Senegal",motif:"Eine kleine medizinische Einrichtung" },
+];
+// Fictional editorial claims are deliberately distinct from factual photo titles.
+export const editorialClaims = [
+ {id:"income",text:"In Afrika leben alle Menschen in Armut."},
+ {id:"homes",text:"Dort wohnen alle Menschen in einfachen Hütten."},
+ {id:"work",text:"In Afrika arbeiten Menschen nur in der Landwirtschaft."},
+ {id:"education",text:"In Afrika gibt es keine Schulbildung."},
+ {id:"health",text:"Krankenhäuser gibt es dort kaum."},
+ {id:"water",text:"Überall fehlt sauberes Wasser."},
 ];
 export const clues = [
   {key:"water", name:"Wasser und Regen", text:"Eine Gruppe plant den Anbau. Sie fragt: Wie viel Wasser brauchen die Pflanzen, und wann regnet es?", motif:"Ein abgeerntetes Hirsefeld in der Trockenzeit", location:"Sahelzone, Niger", questionId:"nature"},
-  {key:"people", name:"Mehr Menschen in der Stadt", text:"Eine Stadt plant neue Wohnungen und Schulen für zuziehende Menschen. Welche Chancen und welcher zusätzliche Bedarf entstehen?", motif:"Hochhäuser einer Großstadt", location:"Nairobi, Kenia", questionId:"population"},
+  {key:"people", name:"Mehr Menschen in der Stadt", text:"Eine Stadt plant neue Wohnungen und Schulen für zuziehende Menschen. Was wird dadurch möglich? Was brauchen die Menschen?", motif:"Hochhäuser einer Großstadt", location:"Nairobi, Kenia", questionId:"population"},
   {key:"economy", name:"Kakao verarbeiten", text:"Ein Betrieb prüft, welche Produkte er aus Kakaobohnen herstellen und verkaufen kann. Was braucht er dafür?", motif:"Ein Betrieb für Kakaoverarbeitung", location:"Ghana", questionId:"economy"},
-  {key:"solar", name:"Stromversorgung abwägen", text:"Ein Ort sucht eine Stromversorgung. Wer kann sie nutzen, wer bezahlt sie, und welche Folgen hat sie für Menschen und Natur?", motif:"Ein Solarkraftwerk mit Spiegeln", location:"Marokko", questionId:"future"},
+  {key:"solar", name:"Strom für einen Ort", text:"Ein Ort braucht Strom. Wer kann sie nutzen, wer bezahlt sie, und welche Folgen hat sie für Menschen und Natur?", motif:"Ein Solarkraftwerk mit Spiegeln", location:"Marokko", questionId:"future"},
 ];
 // Presentation order deliberately differs from the clues. Use stable IDs, never index equality.
 export const futureQuestions = [
-  {id:"economy", text:"Welche Verarbeitung und welcher Handel sind möglich?"},
-  {id:"future", text:"Wie lassen sich Nutzen, Teilhabe und Umweltfolgen abwägen?"},
+  {id:"economy", text:"Was kann der Betrieb herstellen und verkaufen?"},
+  {id:"future", text:"Wer hat etwas davon, wer kann es nutzen, und was bedeutet es für die Umwelt?"},
   {id:"nature", text:"Wie beeinflussen Regen und Wasser den Anbau?"},
-  {id:"population", text:"Welche Chancen und welcher Bedarf entstehen, wenn eine Stadt wächst?"},
+  {id:"population", text:"Was wird möglich und was wird gebraucht, wenn eine Stadt wächst?"},
 ];
 export const caseTasks = {
   1: ["title"],

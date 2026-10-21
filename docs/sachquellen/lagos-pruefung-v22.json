@@ -1,0 +1,26 @@
+[
+  {
+    "key": "lagos",
+    "title": "File:Lagos Island City Scape.jpg",
+    "revision": 733816235,
+    "status": "original revision re-fetched and matched",
+    "sha256": "197ab5006b26b3bf52b216b4c48ab979f4e7ce487d6301de8f338bee45dc6a7c"
+  },
+  {
+    "key": "housing",
+    "title": "File:Aerial view of Makoko Slum in Lagos Nigeria.png",
+    "revision": 789358275,
+    "status": "original revision re-fetched and matched",
+    "sha256": "aa4d443328f9f52a7490a2de926ecc88255fd29f2104725774dbcea9239e31a4"
+  },
+  {
+    "url": "https://unhabitat.org/",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "note": "Kein Inhalt abgerufen, keine Sachbehauptung daraus abgeleitet"
+  },
+  {
+    "url": "https://www.worldbank.org/",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "note": "Kein Inhalt abgerufen, keine Sachbehauptung daraus abgeleitet"
+  }
+]

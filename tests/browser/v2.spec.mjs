@@ -36,7 +36,7 @@ test('T2/D1 Teilpunkte am Limit: Auflösung bleibt nach Navigation und Reload of
 test('Akte 003: drei Länder und alle verpflichtenden Beleg-Ermittlungen',async({page})=>{
  await boot(page);await open(page,3);const seen=[];
  const counts=await solveCountries(page,async p=>{await decoded(p);const step=p.locator('[data-learning-step]');if(await step.count())seen.push(await step.getAttribute('data-learning-step'));});
- expect(counts).toEqual([1,5,3]);expect(seen).toContain('city-context');expect(seen).toContain('education-health');expect(seen).toContain('reflection');
+ expect(counts).toEqual([1,5,4]);expect(seen).toContain('city-context');expect(seen).toContain('education-health');expect(seen).toContain('reflection');
  await expect(page.locator('.summary-table tbody tr')).toHaveCount(3);await expect(page.locator('.summary-table')).toContainText('Marokko');
 });
 test('Fotozoom ist kostenlos, separat anwählbar und stellt Fokus wieder her',async({page})=>{
@@ -88,6 +88,6 @@ test('Kakaokette ist vor der Zuordnung als vierstufiges Schema sichtbar',async({
  await page.locator('#name-answer').fill('Nigeria');await submit(page);await result(page,5);await learning(page);
  await page.locator('#name-answer').fill('Ghana');await submit(page);await result(page,5);
  await expect(page.locator('.cocoa-chain li')).toHaveCount(4);
- await expect(page.locator('.cocoa-chain')).toContainText('Bohnen aufbereiten und verarbeiten');
+ await expect(page.locator('.cocoa-chain')).toContainText('Bohnen trocknen und weiterverarbeiten');
  await expect(page.locator('.learning [role="status"]')).toHaveCount(0);
 });

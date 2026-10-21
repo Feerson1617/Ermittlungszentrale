@@ -43,6 +43,8 @@ for (const [file, mode, message] of [
     await expect(page.locator("#startup-detail")).toContainText(message);
     await expect(page.locator(".boot-message")).toHaveCount(0);
     await expect(page.locator("#dictionary-open")).toBeDisabled();
+    await expect(page.getByRole("alert")).toContainText("Öffnet das Spiel direkt in Safari oder einem normalen Browser.");
+    await expect(page.getByRole("alert")).toContainText("Eine eingebettete Vorschau kann wichtige Spieldateien blockieren.");
     await page.unroute(pattern);
     await page.getByRole("link", { name: "Seite erneut laden" }).click();
     await expect(page.locator(".case-card")).toHaveCount(5);
@@ -61,6 +63,7 @@ for (const file of ["css/style.css", "js/app.js", "data/media.json"]) test(`Hän
   await expect(page.getByRole("alert")).toContainText("Der Start dauert zu lange");
   await expect(page.locator(".boot-message")).toHaveCount(0);
   await expect(page.locator("#dictionary-open")).toBeDisabled();
+  await expect(page.locator("#startup-status")).toContainText("Öffnet das Spiel direkt in Safari oder einem normalen Browser.");
 });
 
 test("Eine übergeordnete Skriptsperre lässt die statische Starthilfe sichtbar", async ({ page }) => {

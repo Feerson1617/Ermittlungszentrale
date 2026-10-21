@@ -1,8 +1,10 @@
-# Die geheime Ermittlungszentrale 2.0
+# Die geheime Ermittlungszentrale 2.2
 
 Geographie-Detektivspiel für Klasse 7: fünf unabhängig startbare Akten, Zweierteams, kurze Arbeitsschritte und Ergebnisse auf Papier. Statisches HTML/CSS/JavaScript; kein Build für das Spiel erforderlich.
 
-Version 2.0 ergänzt den kurzen Lernweg um Industrie, Handel, eine Kakaokette, unterschiedliche Lebensbedingungen in derselben Stadt sowie Bildung/Gesundheit. Die sieben Wertungen bleiben bei **30 Hauptpunkten und fünf getrennten Bonuspunkten**. Film, Digitales, Energie und Logistik sind freiwillige „Weitere Spuren“. Die vollständige Umsetzung und Befundmatrix stehen in [Version 2.0](docs/v2-umsetzung.md).
+Version 2.2 übernimmt den vollständigen Stand von 2.1 und korrigiert gezielt Sprache, Rückmeldungen, Wörterbuch-Fokus und Materialien. Der Lagos-Vergleich beschränkt sich auf verifizierte Bildorte/-jahre und sichtbare Gebäude/Blickrichtungen. Lange Grenzen stehen unter „Mehr erfahren“. Jede fachliche Auswahl im unbewerteten Lernweg erhält eine passende Erklärung; persönliche Vermutungen bleiben frei. **Alle 24 Fotos, fünf Akten, 30+5 Punkte und 5/3/2/1 bleiben erhalten.** [Befundmatrix](docs/v22-umsetzung.md).
+
+**Neuer PR-Branch:** `fix/ermittlungszentrale-2-2-abnahme`, auf Grundlage von `main` mit den dort fehlenden 2.1-Änderungen. [Draft-PR #2](https://github.com/Feerson1617/Ermittlungszentrale/pull/2) ist erstellt und bleibt offen. Kein Merge, kein Push auf den bisherigen Pages-Quellbranch und keine Änderung der Pages-Einstellungen.
 
 **Abnahme:** lokal technisch geprüft; keine pauschale Unterrichtsfreigabe. Offen sind sprachkundige Prüfungen, echte iPad-Safari- und Druckprobe, Lerngruppenerprobung/Zeitmessung, direkte Originalabgleiche einzelner Sach-/Curriculumquellen sowie die öffentliche Live-Funktion. [Abnahmestatus](docs/abnahme.md), [Testbericht](docs/testbericht.md).
 
@@ -31,7 +33,7 @@ npm ci
 npm run check:start -- http://127.0.0.1:4173/ http://127.0.0.1:4173/Ermittlungszentrale/
 ```
 
-Der Prüfer öffnet das gestaltete Menü, alle fünf Akten, Wörterbuch und Länder-/Lernweg; alle 19 lokalen Fotos müssen dekodieren. Er kontrolliert Konsolenfehler, Anfragen, MIME-Typen und Punkte. Benötigt Chromium, hier `/usr/bin/chromium`; bei Bedarf `CHROMIUM_PATH` setzen.
+Der Prüfer öffnet das gestaltete Menü, alle fünf Akten, Wörterbuch und Länder-/Lernweg; alle 24 lokalen Fotos müssen dekodieren. Er kontrolliert Konsolenfehler, Anfragen, MIME-Typen und Punkte. Benötigt Chromium, hier `/usr/bin/chromium`; bei Bedarf `CHROMIUM_PATH` setzen.
 
 ## Akten und Bewertung
 
@@ -39,7 +41,7 @@ Der Prüfer öffnet das gestaltete Menü, alle fünf Akten, Wörterbuch und Län
 |---|---|---:|
 | 001 | Kontinent aus vier Beweisfotos erschließen | 5 |
 | 002 | Vier aus zwölf Motiven; Medienauswahl in vier geschlossenen Schritten prüfen | 5 |
-| 003 | Marokko, Nigeria, Ghana; neun kurze unbewertete Belegschritte | 15 |
+| 003 | Marokko, Nigeria, Ghana; zehn kurze unbewertete Belegschritte | 15 |
 | 004 | Unabhängige zweite Auswahl, Rückblick und präzise Quellenüberschrift | 5 |
 | 005 | Erfundene Nachrichten, reale Belegfotos und Zukunftsfragen | 5 Bonus |
 
@@ -51,7 +53,7 @@ Explizite Namensvarianten und aufgabenspezifische Negationsregeln ersetzen keine
 
 ## Bilder und Quellen
 
-**19 echte Fotografien:** die bisherigen 15 bleiben erhalten; ergänzt sind Wasserversorgung in Kenia, ein Krankenhaus in Ruanda und zwei weitere Lagos-Perspektiven. Die Auswahlbilder 1–12 in Akte 002/004 stammen aus derselben zentralen Liste. Zusätzliche Beleg-IDs sind keine Auswahlbildnummern; bestehende Dateinamen bleiben erhalten.
+**24 echte Fotografien:** die bisherigen 19 bleiben bytegleich; fünf neue Commons-Fotos ergänzen den Weg. Vier neue Fotos stehen unter CC BY-SA 4.0, die senegalesische Gesundheitsstation ist als amtliches US-Regierungswerk gemeinfrei (PD-USGov-HHS, Vorlage lokal gesichert). Alle zwölf Auswahlbilder in Akte 002/004 stammen aus derselben zentralen Liste. Universität, Krankenhaus, Wassertank und Industriefoto sind zusätzliche Belege; die Küste bleibt als freiwillige Spur erreichbar. Quellen geben die belegte Ortsgenauigkeit an: Bei Klassenraum und Wassertransport ist nur das Land nachgewiesen.
 
 Alle Fotografien liegen optimiert lokal als WebP vor. Orts-/Lizenzbelege, Urheber, Quellenrevisionen, Bearbeitungen, Grenzen und Prüfsummen stehen in [Bildquellen](docs/bildquellen.md), `data/media.json`, `docs/media/` und [Bildnachweisen](bildnachweise.html). Die bewusst aufrufbare Nachweisseite nennt Aufnahmeorte; im normalen Start/Akte 001 stehen keine geografischen Lösungsnamen. Eine technische Geheimhaltung des öffentlichen Quellcodes wird nicht behauptet.
 
@@ -73,7 +75,7 @@ Alle kurdischen Werte und alle neuen nichtleeren V2-Werte haben einzelne Quellen
 ## Materialien und Unterricht
 
 - [Schülerbogen PDF](materials/ermittlungsbogen.pdf) / [HTML](materials/ermittlungsbogen.html): genau zwei themenneutrale A4-Seiten, ab Beginn verwendbar; Weltkarte ohne Beschriftung oder Hervorhebung.
-- [Erwartungshorizont PDF](materials/erwartungshorizont.pdf), [HTML](materials/erwartungshorizont.html), [Markdown](docs/erwartungshorizont.md): elf Seiten mit Lösungen, Regeln, allen zwölf Bildnummern und Quellenstatus. Nicht aus der Schülernavigation verlinkt, im öffentlichen Projekt aber zugänglich.
+- [Erwartungshorizont PDF](materials/erwartungshorizont.pdf), [HTML](materials/erwartungshorizont.html), [Markdown](docs/erwartungshorizont.md): 13 Seiten mit Lösungen, Regeln, allen zwölf Bildnummern und Quellenstatus. Nicht aus der Schülernavigation verlinkt, im öffentlichen Projekt aber zugänglich.
 - [Didaktischer Lernweg](docs/didaktisches-konzept.md): 90 Minuten als ungemessenes Planungsziel sowie Drei-Stunden-Alternative.
 
 Schülerbogen mit 100 %, beidseitig an langer Kante drucken. Alle PDF-Seiten wurden digital gerendert; eine reale Druckprobe bleibt offen. Keine DOCX-Fassung; HTML bleibt bearbeitbar.
@@ -82,7 +84,7 @@ Schülerbogen mit 100 %, beidseitig an langer Kante drucken. Alle PDF-Seiten wur
 
 Keine Konten, Cookies, Datenbank, Analytics, Audio oder externe Übersetzungs-/Bewertungsdienste. Die App sendet keine Antworten an externe Dienste. Der statische Host kann Zugriffsprotokolle einschließlich IP-Adressen führen; keine pauschale schulische Datenschutzfreigabe.
 
-`sessionStorage` ist optional. Ohne Speicher funktioniert das Spiel im Arbeitsspeicher; Neuladen verliert dann den Stand. Alte V1-Sitzungen werden mit verständlicher Meldung zurückgesetzt. Erste/zweite bestätigte Bildauswahl bleiben getrennt; Neustart setzt nur die gewählte Akte zurück. Papier sichert die Arbeit über Stunden/Geräte hinweg. Keine garantierte Offline-Neuladung: noch nicht geladene Ressourcen benötigen den eigenen Server. Keine Schülernamen im Spiel eingeben.
+`sessionStorage` ist optional. Ohne Speicher funktioniert das Spiel im Arbeitsspeicher; Neuladen verliert dann den Stand. Alte V1- und 2.0-Sitzungen werden mit verständlicher Meldung zurückgesetzt, damit die geänderten Bildnummern keine falschen Erinnerungen übernehmen. Sitzungen aus 2.1 bleiben mit 2.2 kompatibel; alte Papiernotizen gehören zum alten Bildkatalog. Erste/zweite bestätigte Bildauswahl bleiben getrennt; Neustart setzt nur die gewählte Akte zurück. Papier sichert die Arbeit über Stunden/Geräte hinweg. Keine garantierte Offline-Neuladung: noch nicht geladene Ressourcen benötigen den eigenen Server. Keine Schülernamen im Spiel eingeben.
 
 ## Entwicklung und Prüfungen
 
@@ -102,6 +104,6 @@ Playwright prüft Desktop, iPad quer/hoch und schmales Touch-Format; mit `TEST_W
 
 ## GitHub Pages und Übergabe
 
-GitHub Pages veröffentlicht laut API automatisch aus `feature/detektivspiel-komplett` und `/`; `.nojekyll` und relative Pfade bleiben erhalten. Der Nutzer hat für Version 2.0 ausdrücklich **Push, Aktualisierung von PR #1 und Deployment** beauftragt. Es gibt keinen neuen PR, keinen Merge und keine Änderung der Pages-/Umgebungsberechtigungen. Ein erfolgreicher Pages-Build ist keine Live-Funktionsabnahme. Die öffentliche URL ist aus dieser Cloud bisher am Proxy-CONNECT gesperrt; es wird keine reparierte Codex-Webvorschau behauptet.
+GitHub Pages bezieht weiterhin `feature/detektivspiel-komplett` und `/`. Dieser Quellbranch wird für 2.2 nicht verändert. Der neue Branch `fix/ermittlungszentrale-2-2-abnahme` wird nach Prüfung mit einem neuen Draft-PR gegen `main` veröffentlicht; die Freigabe dazu steht im [Auftrag 2.2](sources/auftrag-v2.2.md). Kein Merge oder Deployment durch diese Entwicklungsrunde. Der Nutzer entscheidet selbst über die Übernahme. `.nojekyll` und relative Pfade bleiben erhalten.
 
-`index.html`, `css/`, `js/`, `data/`, `assets/` bilden die statische Anwendung. `materials/` enthält Druckdateien, `docs/` Quellen und Abnahme, `scripts/` Prüfwerkzeuge, `tests/` Node/Playwright, `sources/auftrag-v2.md` die unveränderte Aufgabenreferenz.
+`index.html`, `css/`, `js/`, `data/`, `assets/` bilden die statische Anwendung. `materials/` enthält Druckdateien, `docs/` Quellen und Abnahme, `scripts/` Prüfwerkzeuge, `tests/` Node/Playwright, `sources/auftrag-v2.2.md` die unveränderte aktuelle Aufgabenreferenz; die Vorgänger bleiben erhalten.

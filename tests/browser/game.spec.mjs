@@ -125,7 +125,7 @@ test("Akte 002: persönliche Auswahl unbewertet, volle gemeinsame Abgabe", async
   await result(page, 5);
   await expect(
     page.getByRole("heading", {
-      name: "Fotos zeigen nur einen Teil der Wirklichkeit.",
+      name: "Ein Foto zeigt einen Ort. Es zeigt nicht, wie alle Menschen leben.",
     }),
   ).toBeVisible();
 });
@@ -180,7 +180,7 @@ test("Akte 004: ohne Akte 002 spielbar, Punkteübersicht nutzt Papier", async ({
   await choose(page, [3, 6, 8, 9]);
   await page.getByRole("button", { name: "Auswahl ansehen" }).click();
   await expect(page.locator("main")).toContainText(
-    "Gleich geblieben",
+    "Was ist gleich geblieben?",
   );
   await page.locator("#paper-recorded").check();
   await page.getByRole("button", { name: "Die Überschrift prüfen" }).click();

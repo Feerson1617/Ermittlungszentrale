@@ -1,0 +1,36 @@
+
+Running 8 tests using 2 workers
+
+(node:164803) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:164802) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:164802) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:164803) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium-desktop] › tests/browser/v22.spec.mjs:13:41 › 2.2 alle zehn Lernschritte: konkrete Rückmeldung correct, keine neuen Punkte (5.4s)
+  ✓  2 [chromium-desktop] › tests/browser/v22.spec.mjs:13:41 › 2.2 alle zehn Lernschritte: konkrete Rückmeldung explain, keine neuen Punkte (5.6s)
+  ✓  3 [chromium-desktop] › tests/browser/v22.spec.mjs:46:1 › 2.2 Wörterbuch: Schließen und Escape geben Fokus zurück, Antwort und Punkte bleiben (1.5s)
+  ✓  4 [chromium-desktop] › tests/browser/v22.spec.mjs:58:1 › 2.2 Klassenraumtitel und sichtbare Satzanfänge, freie Reflexion bleibt möglich (1.3s)
+(node:165136) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:165143) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:165136) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:165143) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+  ✓  5 [webkit-ipad] › tests/browser/v22.spec.mjs:13:41 › 2.2 alle zehn Lernschritte: konkrete Rückmeldung correct, keine neuen Punkte (17.2s)
+  ✓  6 [webkit-ipad] › tests/browser/v22.spec.mjs:13:41 › 2.2 alle zehn Lernschritte: konkrete Rückmeldung explain, keine neuen Punkte (17.8s)
+  ✓  7 [webkit-ipad] › tests/browser/v22.spec.mjs:46:1 › 2.2 Wörterbuch: Schließen und Escape geben Fokus zurück, Antwort und Punkte bleiben (5.9s)
+  ✓  8 [webkit-ipad] › tests/browser/v22.spec.mjs:58:1 › 2.2 Klassenraumtitel und sichtbare Satzanfänge, freie Reflexion bleibt möglich (5.7s)
+
+  8 passed (33.4s)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

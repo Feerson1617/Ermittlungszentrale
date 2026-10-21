@@ -4,74 +4,98 @@ export const evidenceSources = {
   renault: {title:"Renault Group: Werk Tanger",url:"https://www.renaultgroup.com/en/magazine/our-group-news/tangier-factory-the-industrial-and-logistics-hub-where-everything-comes-together/",status:"Im geprüften Projektauftrag benannte Primärquelle; direkter Abruf am 21.10.2026 vom Proxy blockiert. Originalabgleich offen.",local:"sources/auftrag-v2.md",section:"7.1"},
   cpc: {title:"SIGA: Cocoa Processing Company",url:"https://siga.gov.gh/entity/cocoa-processing-company/",status:"Im geprüften Projektauftrag benannte Primärquelle; direkter Abruf am 21.10.2026 vom Proxy blockiert. Ergänzend örtlicher Commons-Beleg des Betriebs in Tema.",local:"sources/auftrag-v2.md",section:"7.4"},
   film: {title:"UNESCO Courier: Nollywood",url:"https://courier.unesco.org/en/articles/nollywoods-streaming-romance",status:"Im Projektauftrag benannte datierte Darstellung; nicht als Beleg einer ausschließlich in Lagos ansässigen Filmwirtschaft verwendet. Direkter Originalabgleich offen.",local:"sources/auftrag-v2.md",section:"7.2"},
-  housing: {title:"Kontext: Wohnen und Versorgung",local:"sources/auftrag-v2.md",section:"7.3",status:"Qualitative didaktische Kontextinformation aus dem bereitgestellten geprüften Auftrag. Keine erfundenen Haushalte, Einkommen oder lokalen Versorgungsquoten."},
+  housing: {title:"Geprüfte Bildquellen: Lagos Island und Makoko",local:"docs/lagos-quellen-v22.md",section:"Bildbeobachtung",status:"Commons-Originalrevisionen am 21.10.2026 erneut abgerufen und abgeglichen. Orte und Aufnahmejahre gesichert; keine geprüften örtlichen Wasser-/Sanitärdaten. Lernziel ausdrücklich auf sichtbare Bebauung und Bildperspektive verengt."},
   curriculum: {title:"Bereitgestellter geprüfter Unterrichtsauftrag",local:"sources/auftrag-v2.md",section:"2",status:"Curriculumbezug aus dem Auftrag; offizielle Originaldateien nicht zusätzlich mitgeliefert. Fachportal-Abruf vom Proxy blockiert; keine aktuelle Rechtsgeltung behauptet."},
 };
 export const geographyFlow = [
   {task:"atlas"}, {learning:"atlas"}, {task:"city"}, {learning:"city"},
   {task:"cocoa"}, {learning:"cocoa"}, {learning:"education"}, {learning:"reflection"},
 ];
-const option = (id,label) => ({id,label});
+const option = (id,label,why="") => ({id,label,why});
+const question = (key,label,options,answer,evidence) => ({key,label,options,answer,evidence});
 export const coreLearning = {
- atlas: {
-  title:"Naturraum und Arbeitsplatz", extras:["solar","logistics"],
-  steps:[{
-   id:"atlas-evidence", title:"Zwei unterschiedliche Spuren", photos:["atlas"], schema:"vehicles", source:"renault",
-   text:"Das Atlasfoto zeigt Schnee im Gebirge. In einem Werk bei Tanger werden Fahrzeuge hergestellt: Das ist Industrie.",
+ atlas:{title:"Landschaft und Arbeit",extras:["solar","logistics","coast"],steps:[{
+  id:"atlas-evidence",title:"Zwei unterschiedliche Spuren",photos:["atlas"],schema:"vehicles",source:"renault",
+  text:"Das Foto zeigt Schnee im Atlasgebirge. Bei Tanger werden Autos gebaut. Solche Betriebe gehören zur Industrie.",
+  questions:[
+   question("nature","Welche Spur zeigt eine Landschaft?",[option("cars","Autos bauen","Autos in einer Fabrik gebaut werden"),option("snow","Schnee im Gebirge")],"snow","Das Foto zeigt Schnee im Gebirge."),
+   question("work","Welche Spur zeigt einen Arbeitsplatz?",[option("cars","Autos bauen"),option("snow","Schnee im Gebirge","Schnee eine Landschaft zeigt, keine Arbeit")],"cars","Das Beispiel aus Tanger zeigt Arbeit in einer Fabrik."),
+  ],explanation:"In Marokko gibt es Schnee im Gebirge und Arbeit in Fabriken.",
+  more:"Schnee hängt von Ort und Jahreszeit ab. Das Foto bedeutet nicht, dass es überall und immer schneit. Auch eine Fabrik bedeutet nicht, dass alle Menschen viel Geld haben. Sie kann in einer trockenen Landschaft liegen.",
+ }]},
+ city:{title:"Arbeit und Leben in einer Stadt",extras:["film","digital"],steps:[
+  {id:"city-trade",title:"Verschiedene Arbeiten",photos:["trade","mine","farm","factory"],
+   text:"Auf dem Markt in Lagos werden Stoffe verkauft. Die anderen Fotos zeigen Bergbau, Anbau und eine Fabrik.",
+   questions:[question("job","Welche Arbeit seht ihr auf dem Stofffoto?",[option("health","Menschen behandeln","hier Stoffe zum Verkauf gezeigt werden, keine Behandlung"),option("trade","Stoffe verkaufen"),option("cars","Autos herstellen","das Foto Stoffe und einen Verkaufsstand zeigt, keine Autofabrik")],"trade","Das Foto aus Lagos zeigt Stoffhandel: Menschen verkaufen Stoffe.")],
+   explanation:"Menschen bauen an, bauen Rohstoffe ab, stellen Dinge her oder verkaufen sie.",
+   more:"Bergbau, Landwirtschaft, Industrie und Handel sind verschiedene Wirtschaftsbereiche. Keiner bedeutet allein „rückständig“ oder „wohlhabend“. Die Beispiele sagen nicht, wie viele Menschen in diesen Berufen arbeiten.",
+   checks:[{claims:["work"],finding:"„Nur Landwirtschaft“ ist falsch. Wir haben auch Bergbau, Fabriken und Handel gefunden."}]},
+  {id:"city-observe",title:"Zwei Bilder – eine Stadt?",photos:["lagos","housing"],anonymousPhotos:true,showYears:true,
+   text:"Schaut genau hin. Was sieht auf den Fotos verschieden aus?",
+   questions:[question("visible","Was könnt ihr auf den Bildern erkennen?",[option("income","Wie viel Geld jede Familie bekommt","das Geld der Familien auf keinem Foto zu sehen ist"),option("perspective","Die Gebäude und die Blickrichtung"),option("origin","Die Herkunft aller Menschen","das Foto nicht sagt, woher die Menschen kommen")],"perspective","Bild A zeigt hohe Gebäude. Bild B zeigt viele Dächer von oben.")],
+   explanation:"Gebäude und Blickrichtung unterscheiden sich. Das Geld der Menschen kennen wir nicht.",
+   more:"Die Bilder zeigen unterschiedliche Ausschnitte. Aus Häusern oder Kleidung lassen sich Einkommen und Herkunft einzelner Menschen nicht ablesen.",
+  },
+  {id:"city-hypothesis",title:"Eure Vermutung",photos:["lagos","housing"],anonymousPhotos:true,showYears:true,
+   text:"Könnten beide Orte in derselben Stadt liegen? Eure Vermutung wird nicht bewertet.",
+   questions:[{key:"sameCity",label:"Was vermutet ihr?",options:[option("yes","Ja"),option("no","Nein"),option("unknown","Das wissen wir noch nicht")],any:true}],
+   explanation:"Beide Fotos stammen aus Lagos: Lagos Island von 2016 und Makoko von 2019.",
+   more:"Das sind zwei verschiedene Orte und Aufnahmejahre. Ihr könnt daran nicht erkennen, wie schnell Lagos wächst. Eure Vermutung bleibt eine persönliche Vermutung, ohne Punkte.",
+  },
+  {id:"city-context",title:"Gebäude und Blickrichtung",photos:[],map:"city",source:"housing",
+   text:"Die Quellen nennen diese Orte und Jahre. Vergleicht die Gebäude und den Blick der Kamera.",
+   cards:[{title:"Lagos Island · 2016",text:"Foto A: hohe Gebäude, schräg von der Seite gesehen."},{title:"Makoko · 2019",text:"Foto B: viele dicht stehende Dächer, von oben gesehen."}],
+   questions:[question("conditions","Welche Beobachtung passt zu den Fotos?",[option("same","Alle Gebäude sehen gleich aus.","auf Foto A hohe Gebäude und auf Foto B viele Dächer zu sehen sind"),option("different","Gebäude und Blickrichtung unterscheiden sich."),option("income","Wir kennen das Geld aller Menschen auf den Fotos.","die Quellen keine Geldbeträge der Familien nennen")],"different","Die Fotos zeigen unterschiedliche Gebäude aus verschiedenen Blickrichtungen.")],
+   explanation:"Die Fotos zeigen zwei Orte in Lagos. Sie zeigen nicht, wie alle Menschen dort leben.",
+   more:"Die Bildquellen nennen Lagos Island (2016) und Makoko (2019). Das sind keine Messungen von Wasser, Toiletten, Schulen oder Einkommen. Dazu fehlen hier geprüfte örtliche Daten. Das Lernziel bleibt deshalb der Vergleich der sichtbaren Bebauung und Bildperspektiven.",
+   checks:[{claims:["income","homes"],finding:"Die Gebäude sehen verschieden aus. Ob Menschen arm sind, ist damit nicht geklärt."}]},
+  {id:"city-everyday",title:"Weitere Orte und Wohnformen",photos:["trade","rural"],
+   text:"Hier seht ihr den Markt in Lagos und Lehmhäuser in Ghana. Das sind verschiedene Orte.",
+   questions:[question("limit","Was zeigen diese wenigen Bilder?",[option("sample","Einige Orte, Häuser und Arbeiten"),option("all","Wie alle Menschen leben und wie viel Geld sie haben","zwei Fotos nur einzelne Orte zeigen und kein Geld der Menschen nennen")],"sample","Wir sehen einen Markt und Lehmhäuser. Ein Strohdach allein bedeutet nicht Armut.")],
+   explanation:"Die Fotos zeigen einzelne Orte. Ein Strohdach allein bedeutet nicht Armut.",
+   more:"Ein Dorf ist nicht automatisch arm. Ein Markt zeigt keine bestimmte Einkommensgruppe. Die Bilder teilen Menschen nicht in zwei einheitliche Gruppen „arm“ und „reich“ ein.",
+  },
+ ]},
+ cocoa:{title:"Vom Anbau zum Produkt",extras:["productionNeeds"],steps:[{
+  id:"cocoa-chain",title:"Anbauen, herstellen und verkaufen",photos:["cocoa","economy"],schema:"cocoa",source:"cpc",
+  chain:["Anbauen und ernten","Bohnen trocknen und weiterverarbeiten","Produkte herstellen","Handeln und verkaufen"],
+  text:"In Ghana wächst Kakao. In Tema stellt ein Betrieb Kakaoprodukte her. Das Schema zeigt die Schritte. Ein Schema ist eine vereinfachte Zeichnung.",
+  questions:[
+   question("trade","Verkaufen: welcher Schritt?",[option("1","1","Schritt 1 den Anbau zeigt"),option("2","2","Schritt 2 das Bearbeiten der Bohnen zeigt"),option("3","3","Schritt 3 das Herstellen zeigt"),option("4","4")],"4","Schritt 4 zeigt Handeln und Verkaufen."),
+   question("harvest","Kakaofrüchte anbauen und ernten: welcher Schritt?",[option("1","1"),option("2","2","Schritt 2 schon die geernteten Bohnen zeigt"),option("3","3","Schritt 3 das Herstellen von Produkten zeigt"),option("4","4","Schritt 4 das Verkaufen zeigt")],"1","Schritt 1 zeigt Anbau und Ernte."),
+   question("manufacture","Produkte herstellen: welcher Schritt?",[option("1","1","Schritt 1 den Anbau zeigt"),option("2","2","Schritt 2 das Vorbereiten der Bohnen zeigt"),option("3","3"),option("4","4","Schritt 4 das Verkaufen zeigt")],"3","Schritt 3 zeigt das Herstellen von Produkten."),
+   question("prepare","Bohnen trocknen und weiterverarbeiten: welcher Schritt?",[option("1","1","Schritt 1 den Anbau zeigt"),option("2","2"),option("3","3","Schritt 3 schon das Herstellen von Produkten zeigt"),option("4","4","Schritt 4 das Verkaufen zeigt")],"2","Schritt 2 zeigt das Bearbeiten der Bohnen nach der Ernte."),
+  ],explanation:"1 Anbauen → 2 Bohnen bearbeiten → 3 Produkte herstellen → 4 verkaufen.",
+  more:"Verarbeiten heißt: aus einem Rohstoff etwas anderes machen. Das Schema vereinfacht die Schritte. Das Betriebsfoto zeigt nur Gebäude, keinen Arbeitsablauf. Nicht die ganze Ernte wird in Ghana verarbeitet. Mehr Herstellung bedeutet nicht automatisch mehr Geld oder gute Arbeitsbedingungen für alle.",
+ }]},
+ education:{title:"Schule, Behandlung und Wasser",steps:[
+  {id:"education-health",title:"Lernen und Menschen behandeln",photos:["classroom","school","healthpost","clinic"],
+   text:"Vergleicht Klassenraum und Universität. Vergleicht dann Gesundheitsstation und Krankenhaus. Eine Gesundheitsstation ist ein Ort für medizinische Hilfe.",
    questions:[
-    {key:"nature",label:"Welche Spur zeigt einen Naturraum?",options:[option("cars","Fahrzeugproduktion"),option("snow","Schnee im Gebirge")],answer:"snow"},
-    {key:"work",label:"Welche Spur zeigt einen Arbeitsplatz?",options:[option("cars","Fahrzeugproduktion"),option("snow","Schnee im Gebirge")],answer:"cars"},
-   ],
-   explanation:"Marokko hat unterschiedliche Landschaften und Arbeitsplätze. Der Schnee widerspricht „überall ganzjährig heiß“. Schnee ist örtlich und jahreszeitlich begrenzt; eine Fabrik sagt nichts über die Lage in einer trockenen Landschaft oder über den Wohlstand aller Menschen.",
-  }],
- },
- city: {
-  title:"Arbeit und Leben in einer Stadt",extras:["film","digital"],
-  steps:[
-   {id:"city-trade",title:"Eine Arbeit in Lagos",photos:["trade"],text:"Der Quellenbeleg nennt den Balogun-Markt in Lagos. Auf dem Foto von 2007 werden Stoffe gehandelt.",questions:[{key:"job",label:"Welche Tätigkeit ist hier belegt?",options:[option("health","Menschen behandeln"),option("trade","Stoffe verkaufen"),option("cars","Autos herstellen")],answer:"trade"}],explanation:"Handel ist ein Bereich der Wirtschaft. Das Foto belegt diesen Markt – keine Einkommen oder Arbeitsbedingungen aller Menschen in Lagos."},
-   {id:"city-observe",title:"Zwei Bilder – eine Stadt?",photos:["lagos","housing"],anonymousPhotos:true,showYears:true,text:"Schaut genau hin. Was ist auf den beiden Fotos sichtbar verschieden?",questions:[{key:"visible",label:"Welche Beobachtung könnt ihr am Bild prüfen?",options:[option("income","Das Einkommen jeder Familie"),option("perspective","Bebauung und Blickrichtung der Aufnahme"),option("origin","Die Staatsangehörigkeit aller Menschen")],answer:"perspective"}],explanation:"Bild A zeigt hohe Gebäude von der Seite; Bild B viele Dächer von oben. Auch die Aufnahmeperspektive beeinflusst den Eindruck. Einkommen und Herkunft kann man daraus nicht ablesen."},
-   {id:"city-hypothesis",title:"Eure Vermutung",photos:["lagos","housing"],anonymousPhotos:true,showYears:true,text:"Könnten beide Orte in derselben Stadt liegen? Es gibt keine Punkte für eure Vermutung.",questions:[{key:"sameCity",label:"Was vermutet ihr?",options:[option("yes","Ja"),option("no","Nein"),option("unknown","Das wissen wir noch nicht")],any:true}],explanation:"Die Quellen lösen es auf: Beide Fotos stammen aus Lagos – Bild A von Lagos Island (2016), Bild B aus Makoko (2019). Verschiedene Jahre und Orte belegen keinen zeitlichen Wachstumstrend."},
-   {id:"city-context",title:"Orte und Lebensbedingungen",photos:[],map:"city",source:"housing",text:"Die Quellen verorten Lagos Island und Makoko in Lagos. Lest die zwei kurzen Kontextkarten.",cards:[
-    {title:"Wohnen",text:"Wohnraum ist unterschiedlich. Finanzielle Möglichkeiten beeinflussen, wo und wie Menschen wohnen können; die Fotos zeigen keine Haushaltseinkommen."},
-    {title:"Versorgung",text:"Zugang zu Wasser, Schulen und medizinischer Versorgung hängt auch von Infrastruktur und öffentlichen Angeboten ab. Geld ist ein Faktor, aber nicht die einzige Ursache."},
-   ],questions:[{key:"conditions",label:"Welche Aussage passt zu den Belegen und Kontextkarten?",options:[option("same","In derselben Stadt leben alle gleich."),option("different","In derselben Stadt können Menschen unterschiedlich leben."),option("income","Wir kennen die Einkommen der Menschen auf den Fotos.")],answer:"different"}],explanation:"Menschen können in derselben Stadt sehr unterschiedlich leben. Aus Gebäuden folgen weder Einkommen noch eine Erklärung durch Fleiß; Infrastruktur und öffentliche Versorgung prägen die Möglichkeiten mit."},
-   {id:"city-everyday",title:"Noch ein Blick auf den Alltag",photos:["trade"],text:"Der Balogun-Markt ist ein weiterer Blick auf Lagos (Aufnahme 2007). Es gibt mehr als zwei einheitliche Gruppen „arm“ und „reich“.",questions:[{key:"limit",label:"Was können diese wenigen Bilder zeigen?",options:[option("sample","Einige konkrete Orte und Tätigkeiten"),option("all","Alle Lebensbedingungen und ihre Häufigkeit")],answer:"sample"}],explanation:"Die Aufnahmen zeigen einzelne Stadträume und Tätigkeiten. Die Marktaufnahme belegt keine statistische Mittelschicht; Einzelbilder zeigen keine Einkommensverteilung."},
-  ],
- },
- cocoa: {
-  title:"Vom Anbau zum Produkt",extras:["productionNeeds"],
-  steps:[{
-   id:"cocoa-chain",title:"Anbauen, verarbeiten und handeln",photos:["cocoa","economy"],schema:"cocoa",source:"cpc",
-   chain:["Anbau und Ernte", "Bohnen aufbereiten und verarbeiten", "Produkte herstellen", "Handeln und verkaufen"],
-   text:"In Ghana gibt es neben Kakaoanbau auch Verarbeitung und Produktherstellung, etwa die Cocoa Processing Company in Tema. Die Betriebsfassade zeigt keinen Produktionsablauf; dafür dient das vereinfachte Schema.",
-   questions:[
-    {key:"trade",label:"Handeln und verkaufen: welcher Schritt?",options:[option("1","1"),option("2","2"),option("3","3"),option("4","4")],answer:"4"},
-    {key:"harvest",label:"Kakaofrüchte anbauen und ernten: welcher Schritt?",options:[option("1","1"),option("2","2"),option("3","3"),option("4","4")],answer:"1"},
-    {key:"manufacture",label:"Produkte herstellen: welcher Schritt?",options:[option("1","1"),option("2","2"),option("3","3"),option("4","4")],answer:"3"},
-    {key:"prepare",label:"Bohnen aufbereiten und verarbeiten: welcher Schritt?",options:[option("1","1"),option("2","2"),option("3","3"),option("4","4")],answer:"2"},
-   ],explanation:"1 Anbau/Ernte → 2 Bohnen aufbereiten/verarbeiten → 3 Produkte herstellen → 4 handeln/verkaufen. Das Schema vereinfacht. Nicht die gesamte Ernte wird vor Ort verarbeitet; Verarbeitung garantiert weder Gewinne noch gute Arbeitsbedingungen.",
-  }],
- },
- education: {
-  title:"Bildung und Gesundheit",steps:[{
-   id:"education-health",title:"Was zeigen diese Beispiele?",photos:["school","clinic"],
-   text:"Die Fotos belegen eine Universität in Accra und ein Krankenhaus in Butaro. Was wissen wir dadurch – und was noch nicht?",
-   questions:[{key:"evidence",label:"Welche Aussage ist durch diese Beispiele gedeckt?",options:[option("all","Alle haben überall den gleichen Zugang."),option("places","An diesen Orten gibt es Lernmöglichkeiten und medizinische Versorgung."),option("independent","Internationale Zusammenarbeit spielt nirgends eine Rolle.")],answer:"places"}],
-   explanation:"Die Einrichtungen sind örtlich belegt. Zugang, Qualität und Finanzierung sind damit nicht für alle Menschen geklärt. Eine örtlich getragene Einrichtung kann zugleich international unterstützt sein.",
-  }],
- },
- reflection: {
-  title:"Zurück zu eurer ersten Auswahl",steps:[{
-   id:"reflection",title:"Welche Spur ergänzt eure Auswahl?",photos:[],reflection:true,
-   text:"Wählt einen Bild- oder Belegverweis. Notiert dazu wenige Wörter oder sprecht einen Partnersatz; auch „Das wussten wir schon“ oder eine offene Frage ist möglich.",
-   explanation:"Eure Vorstellungen werden nicht nach richtig oder falsch bewertet. Belege können eine Vorstellung ergänzen, bestätigen oder eine neue Frage öffnen.",
-  }],
- },
+    question("education","Was zeigen Klassenraum und Universität?",[option("none","Es gibt keine Schulbildung.","der Klassenraum und die Universität Orte zum Lernen sind"),option("places","Es gibt unterschiedliche Orte zum Lernen."),option("all","Alle können überall gleich gut lernen.","die Bilder nicht zeigen, wer die Lernorte nutzen kann")],"places","Klassenraum und Universität zeigen zwei Orte zum Lernen."),
+    question("health","Was zeigen Station und Krankenhaus?",[option("count","Wie viele Krankenhäuser in jedem Land fehlen.","zwei Fotos keine Anzahl für ganze Länder zeigen"),option("care","An den gezeigten Orten können Menschen behandelt werden."),option("equal","Alle Menschen können sie gleich gut erreichen.","die Fotos keine Wege aller Menschen zeigen")],"care","Die Fotos zeigen eine Gesundheitsstation und ein Krankenhaus."),
+   ],explanation:"Die Fotos zeigen Lernorte und Orte für Behandlung. Wie viele es gibt, zeigen sie nicht.",
+   more:"Die Fotos allein zeigen weder Lernqualität noch Ausstattung aller Räume. Nicht alle Menschen haben die gleichen Möglichkeiten, die Einrichtungen zu nutzen. Über Finanzierung, Zusammenarbeit und Erreichbarkeit sagen die Fotos wenig.",
+   checks:[{claims:["education"],finding:"Auch der Klassenraum ist ein Lernort. „Keine Schulbildung“ stimmt also nicht."},{claims:["health"],finding:"Ob anderswo Krankenhäuser fehlen, ist damit nicht geklärt. Dafür brauchen wir weitere Angaben."}]},
+  {id:"water-access",title:"Wasser tragen und speichern",photos:["carry","supply"],
+   text:"Ein Foto zeigt Wassertragen in Uganda. Das andere zeigt einen Wassertank in Kenia. Ein Tank ist ein großer Behälter.",
+   questions:[question("water","Was zeigen die Fotos?",[option("dirty","Das Wasser ist überall schmutzig.","man auf diesen Fotos die Wasserqualität nicht erkennen kann"),option("ways","Wasser wird getragen und gespeichert."),option("rich","Alle Menschen mit einem Tank sind reich.","ein Tank nicht zeigt, wie viel Geld Menschen haben")],"ways","Die Bilder zeigen Wassertragen und einen Speicher für Wasser.")],
+   explanation:"Wasser wird getragen und gespeichert. Ob es trinkbar ist, zeigen die Fotos nicht.",
+   more:"Wassertragen braucht Arbeit. Wie weit der Weg ist und ob das Wasser trinkbar ist, zeigen diese Fotos nicht. Ein Kanister bedeutet nicht automatisch Armut. Ein Tank bedeutet nicht Reichtum. Wasserqualität muss eigens geprüft werden.",
+   checks:[{claims:["water"],finding:"„Überall fehlt sauberes Wasser“ lässt sich mit diesen Fotos nicht sagen."}]},
+ ]},
+ reflection:{title:"Zurück zu eurer ersten Auswahl",steps:[{
+  id:"reflection",title:"Welches Bild passt zu eurem Rückblick?",photos:[],reflection:true,
+  text:"Wählt eine Bildnummer oder einen Satz. Ihr könnt kurz sprechen oder wenige Wörter notieren. Auch „Das wussten wir schon“ ist möglich.",
+  explanation:"Eure Meinung bekommt keine Punkte. Sie darf gleich bleiben oder sich ändern.",
+  more:"Ein Bild kann eure Vorstellung ergänzen, bestätigen oder eine neue Frage öffnen. Ihr müsst eure Meinung nicht ändern.",
+ }]},
 };
 export const extraSpurs = {
- solar:{title:"Energie: Spiegel statt Solarzellen",photos:["solar"],text:"Die Noor-Anlage nutzt Spiegel für Solarthermie. Wer profitiert, wer hat Zugang, und welche Umweltfolgen sind zu prüfen? Solarenergie ist kein automatisches Nachhaltigkeitssiegel."},
- logistics:{title:"Logistik: Wege zum Betrieb",text:"Wie kommen Materialien zu einer Fabrik und Produkte zu Kundinnen und Kunden? Betrachtet Transportwege als weitere Frage; eine Fabrik allein belegt noch keinen allgemeinen Wohlstand."},
- film:{title:"Filmwirtschaft in Nigeria",source:"film",text:"Nigeria hat eine Filmwirtschaft, oft Nollywood genannt. Welche Tätigkeiten stecken hinter einem Film? Das ist eine landesweite Perspektive, keine Behauptung, alle Produktionen lägen in Lagos."},
- digital:{title:"Digitale Dienstleistungen",text:"Welche Arbeit ist nötig, damit zum Beispiel ein digitales Bezahlsystem funktioniert? Sammelt Fragen zu Kenntnissen, Technik und Zugang – keine zusätzlichen Punkte."},
- productionNeeds:{title:"Was braucht ein Betrieb?",photos:["factory"],text:"Was braucht ein Betrieb für die Herstellung: Energie, Kenntnisse, Maschinen oder Transport? Das sind Untersuchungsfragen; mehr Produktion bedeutet nicht automatisch mehr Wohlstand für alle."},
+ solar:{title:"Energie: Spiegel statt Solarzellen",photos:["solar"],text:"Die Noor-Anlage nutzt Spiegel für Solarthermie. Wer hat Nutzen, wer kann sie nutzen, und welche Folgen hat sie für die Umwelt? Solarenergie ist kein automatisches Gütesiegel."},
+ logistics:{title:"Wege zum Betrieb",text:"Wie kommen Materialien zur Fabrik und Produkte zu Kundinnen und Kunden? Eine Fabrik allein belegt keinen Wohlstand für alle."},
+ coast:{title:"Ein weiterer Naturraum: Sansibar",photos:["coast"],text:"Diese Küste liegt auf Unguja in Tansania. Sie ist ein weiterer Ort auf dem Kontinent; kein Bild steht für alle Landschaften oder Lebensbedingungen."},
+ film:{title:"Filmwirtschaft in Nigeria",source:"film",text:"Nigeria hat eine Filmwirtschaft, oft Nollywood genannt. Welche Arbeiten stecken hinter einem Film? Die Produktionen liegen nicht alle in Lagos."},
+ digital:{title:"Digitale Dienstleistungen",text:"Welche Arbeit ist nötig, damit zum Beispiel digitales Bezahlen funktioniert? Sammelt Fragen zu Wissen, Technik und Zugang – ohne zusätzliche Punkte."},
+ productionNeeds:{title:"Was braucht ein Betrieb?",photos:["factory"],text:"Was braucht ein Betrieb: Energie, Wissen, Maschinen oder Transport? Mehr Produktion bedeutet nicht automatisch mehr Geld für alle."},
 };

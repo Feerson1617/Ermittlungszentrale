@@ -1,0 +1,192 @@
+{
+  "savanna": {
+    "path": "assets/images/01.webp",
+    "sha256": "408f9a8027cd376df2ad5416ca4e0b2f801c4c7d07cde65847b4b8f1fc12a18f",
+    "sourceTitle": "Zebras and wildebeest Maasai Mara.jpg",
+    "location": "Maasai Mara, Narok County, Kenia",
+    "author": "Michelle Juma",
+    "license": "CC BY-SA 4.0",
+    "sourceRevision": 1047727220,
+    "evidenceSha256": "3ef1513e475defcfe43b94b8684af4204ec66418aea11f5f1dbba780049368b2"
+  },
+  "desert": {
+    "path": "assets/images/02.webp",
+    "sha256": "b30f83c92efff90b0db0aed397a2b5f5e8b3bbc18e202dfe25cf3004251b841c",
+    "sourceTitle": "Sossusvlei Dune Rippled cropped.jpg",
+    "location": "Zwischen Deadvlei und Sossusvlei, Namib-Naukluft-Nationalpark, Namibia",
+    "author": "Daniel Kraft",
+    "license": "CC BY-SA 3.0",
+    "sourceRevision": 912746299,
+    "evidenceSha256": "0c3c2b9c6f98ab44089559cef8acc8282b0030c7f0e0e1398863ad45a966dc15"
+  },
+  "forest": {
+    "path": "assets/images/03.webp",
+    "sha256": "83ce56e5475503f3cdc0dece12f8471805129b227bdfcd9cc7b3f78ac0acca53",
+    "sourceTitle": "Rainforest - Ituri (20874628148).jpg",
+    "location": "Ituri-Regenwald, Demokratische Republik Kongo, Kongobecken",
+    "author": "MONUSCO / Abel Kavanagh",
+    "license": "CC BY-SA 2.0",
+    "sourceRevision": 1083190379,
+    "evidenceSha256": "9a6bcbedaab7f735e9c8911b9b32c659db3a776b06ed438db25ad665b5c173e7"
+  },
+  "lagos": {
+    "path": "assets/images/04.webp",
+    "sha256": "b2cf739764f69498e8690bbe3860608e9e3d40569c6962c417bd57d3bd5894d2",
+    "sourceTitle": "Lagos Island City Scape.jpg",
+    "location": "Blick vom City Hall, Lagos Island, Lagos, Nigeria",
+    "author": "Jamie Tubers",
+    "license": "CC BY-SA 4.0",
+    "sourceRevision": 733816235,
+    "evidenceSha256": "550d3f25d98e086dd82193f6a16a151cfb334252906dea0e5f895cf7e6134056"
+  },
+  "farm": {
+    "path": "assets/images/05.webp",
+    "sha256": "0657d223c2ad2ba9e95a96125db63af8a5862580d84c860607937fb1ab9f24a5",
+    "sourceTitle": "Darsfield farm Ghana 2010 - 001.jpg",
+    "location": "Darsfield-Demonstrationsfarm, Ghana",
+    "author": "Trees For The Future (TFTF)",
+    "license": "CC BY 2.0",
+    "sourceRevision": 1175969846,
+    "evidenceSha256": "ef0959e967cb86a1c2e537bef15e84ed8cbcd751dc13bb7776b73670804bdc67"
+  },
+  "atlas": {
+    "path": "assets/images/06.webp",
+    "sha256": "fe0bbc8a20173b45ee2482435156456705b0097326f1a186c494a2b102e41e6b",
+    "sourceTitle": "Extreme Environment - Snow in the Atlas Mountains, Morocco (17182710966).jpg",
+    "location": "Hoher Atlas, Marokko",
+    "author": "Richard Allaway",
+    "license": "CC BY 2.0",
+    "sourceRevision": 1156000388,
+    "evidenceSha256": "78bbbbc21330c93400d5737c86dc76d24c4ca67802734a0da4ef2631c8bb7f7c"
+  },
+  "coast": {
+    "path": "assets/images/07.webp",
+    "sha256": "17c3e0fa46a37e8f6e7c2f392e37ba86535f111d6449ad7f2ab901fb6f08e6df",
+    "sourceTitle": "Zanzibar east coast pristine beach.JPG",
+    "location": "Ostküste von Unguja (Sansibar), Tansania",
+    "author": "Bakersville",
+    "license": "CC BY-SA 4.0",
+    "sourceRevision": 1066493704,
+    "evidenceSha256": "66193bfce1b307a4318523e4e2e090fc21a1de5ddc228db1855b9e7c7a1a6eb8"
+  },
+  "factory": {
+    "path": "assets/images/08.webp",
+    "sha256": "c4a74f3989c6eabc847881c002a508d28671fda09ac140cb8f935ee079043c35",
+    "sourceTitle": "Ghacem Manufacturing Plant.jpg",
+    "location": "Ghacem-Anlage im Großraum Accra/Tema, Ghana",
+    "author": "Gideon Fiadowu Norkplim",
+    "license": "CC BY 4.0",
+    "sourceRevision": 1272778096,
+    "evidenceSha256": "0e57c44fab45c86f31864fca96c18312f3875539fe5a66534f57b27f491433de"
+  },
+  "school": {
+    "path": "assets/images/09.webp",
+    "sha256": "2db3edeee7ac84a95ebafdfb0a55c89a0c3c848a775f4b98172e7ae209b1d303",
+    "sourceTitle": "Balme Library of University of Ghana, Accra, Ghana.jpg",
+    "location": "Legon, Accra, Ghana",
+    "author": "Rjruiziii",
+    "license": "CC BY-SA 3.0",
+    "sourceRevision": 1157012421,
+    "evidenceSha256": "407e5efea060d8be367d2a73dd36b052bdd7dc0fdaea30d458e869a8da8df310"
+  },
+  "market": {
+    "path": "assets/images/10.webp",
+    "sha256": "79b0afb10529dcb61b91b0302bcce70db6aab696c188a42779fb50bc89a1725f",
+    "sourceTitle": "MAKOLA.jpg",
+    "location": "Makola-Markt, Accra Central, Ghana",
+    "author": "Amuzujoe",
+    "license": "CC BY-SA 4.0",
+    "sourceRevision": 1166103234,
+    "evidenceSha256": "a123e1166e2c4f4a86e50a61aaae007af5ccd8a8a71b5a9d6869aa29a2254884"
+  },
+  "cocoa": {
+    "path": "assets/images/11.webp",
+    "sha256": "5e8d920ba4f8dc29bb76050a7ba1b0b55c1fcfe47427d527db4f0b8e8e063b98",
+    "sourceTitle": "Cocoa 002.jpg",
+    "location": "Ostghana (6.599547 N, 0.881836 W), Ghana",
+    "author": "Otuo-Akyampong Boakye",
+    "license": "CC BY-SA 4.0",
+    "sourceRevision": 1040313399,
+    "evidenceSha256": "664f57d4c9bc21213edabf299dc515148cc45336bf920fa921d61756400980c5"
+  },
+  "water": {
+    "path": "assets/images/12.webp",
+    "sha256": "57ede0139462dbea161835bebec00d3eed93c6d785eded69ed5da82e3138e95c",
+    "sourceTitle": "Un champs de mil pendant la saison sèche.jpg",
+    "location": "Sahelzone, westlicher Niger (13.95419 N, 1.65624 E)",
+    "author": "Tawaye",
+    "license": "CC BY-SA 4.0",
+    "sourceRevision": 1079124895,
+    "evidenceSha256": "5eb2c870b22479a836dba1f05113386947bb53c6c5c94ad0bba0d43da1a2f311"
+  },
+  "people": {
+    "path": "assets/images/13.webp",
+    "sha256": "b4b257ad602370edc41915795a4f5f59ac4877458053568c2cf06de5bb3898cb",
+    "sourceTitle": "Nairobi skyline P1000019.jpg",
+    "location": "Upper Hill, Nairobi, Kenia",
+    "author": "Lmwangi",
+    "license": "CC BY-SA 3.0",
+    "sourceRevision": 1251738834,
+    "evidenceSha256": "7337a719cf0003175d699533745c12bb72fbc70c0e64d413073f0a82964e3262"
+  },
+  "economy": {
+    "path": "assets/images/14.webp",
+    "sha256": "22c0e17ad3c0740e762e94697d16bf33fc2d3e65558bccdcaaaed01e37ae0c5e",
+    "sourceTitle": "Cocoa Processing Company Building (Cocoa Silo).jpg",
+    "location": "Industriegebiet Tema, Ghana",
+    "author": "Hiroo Yamagata",
+    "license": "CC BY-SA 2.0",
+    "sourceRevision": 1129090532,
+    "evidenceSha256": "fe04dbc24ad0c1c7cd5a448f1f60d7a8731cf49ba1f13f144b54231c22642841"
+  },
+  "solar": {
+    "path": "assets/images/15.webp",
+    "sha256": "26a61ed6de0fa407f9a34b1c4fea5a88f373aa3ce0c63e30d1a0b41d2052e5b3",
+    "sourceTitle": "Noor 1 and 2 - Ouarzazate Solar Power Station (48962353822).jpg",
+    "location": "Noor-Solarkomplex bei Ouarzazate, Marokko",
+    "author": "Richard Allaway",
+    "license": "CC BY 2.0",
+    "sourceRevision": 1188553756,
+    "evidenceSha256": "f0c0ee0911621d4d01e0b1f51246a033d28bd3853b9d28a82698ce3f280d5186"
+  },
+  "supply": {
+    "path": "assets/images/water-supply.webp",
+    "sha256": "a245c9c1713299695e70323d47aa37366fd90801dc308c81cf9cbc6a94157308",
+    "sourceTitle": "Water tank tower.jpg",
+    "location": "Kajiado County, Kenia",
+    "author": "Queen Asali",
+    "license": "CC BY-SA 4.0",
+    "sourceRevision": 1234460969,
+    "evidenceSha256": "3012f72346cf8ead05fed6dffce35e20eee838f18d44fb56effa759b96d7b047"
+  },
+  "clinic": {
+    "path": "assets/images/medical-care.webp",
+    "sha256": "f8d05e2d3cb57c154f36d18ece24ac731a1468fa75599ef29838f028d323a308",
+    "sourceTitle": "Butaro Hospital.jpg",
+    "location": "Butaro, Distrikt Burera, Ruanda",
+    "author": "François Terrier",
+    "license": "CC BY 2.0",
+    "sourceRevision": 1102199426,
+    "evidenceSha256": "9a1c4d499639d3bf4a5b1c719076580a3d9c8196fe5e9533d88a1efef5c36eeb"
+  },
+  "housing": {
+    "path": "assets/images/lagos-housing.webp",
+    "sha256": "689dd9a223179e21a969a59fa30fabe56c7641f3348b869af9df4dfaa88ae090",
+    "sourceTitle": "Aerial view of Makoko Slum in Lagos Nigeria.png",
+    "location": "Makoko, Lagos, Nigeria",
+    "author": "Kateregga1",
+    "license": "CC BY-SA 4.0",
+    "sourceRevision": 789358275,
+    "evidenceSha256": "300257512a0c40ce6df2071567673b351ea441494edf724ec2f9095a83e54cca"
+  },
+  "trade": {
+    "path": "assets/images/lagos-trade.webp",
+    "sha256": "263f27561f68d49f079400382e8f979cae435216a7b0cb683a147bf88113dcc6",
+    "sourceTitle": "2007 Balogun Market Lagos Nigeria 9395578408.jpg",
+    "location": "Balogun-Markt, Lagos, Nigeria",
+    "author": "Seattle Globalist",
+    "license": "CC BY-SA 2.0",
+    "sourceRevision": 1201387318,
+    "evidenceSha256": "e6181325a25cbe0c24ba7d62822b02c219acff963ab688f79049615fb9ceb4e2"
+  }
+}
