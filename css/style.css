@@ -1381,3 +1381,6 @@ fieldset:disabled {
 .chain-symbol{width:48px;height:44px;display:block;margin-bottom:6px}
 
 .editorial-claims,.new-evidence{border:2px solid var(--ink,#173d3d);border-radius:8px;padding:16px;margin:20px 0;background:#f0eee6}.editorial-claims li{margin:10px 0}.new-evidence blockquote{margin:8px 0;padding-left:12px;border-left:3px solid #af8850}.new-evidence>div+div{border-top:1px solid #b4b6ab;margin-top:16px;padding-top:8px}
+
+.more-info { margin: 16px 0; padding: 0 14px; border: 1px solid var(--line); border-radius: 8px; }
+.more-info summary { min-height: 48px; padding: 12px 0; cursor: pointer; font-weight: 650; }

@@ -1,0 +1,22 @@
+// German meanings only; no new, unverified translations.
+export const wordHelp = [
+ ["vergleichen","Schaut auf zwei Dinge: Was ist gleich? Was ist anders?"],
+ ["Beleg / belegen","Ein Beleg hilft, eine Aussage zu prüfen, zum Beispiel ein Foto mit bekanntem Ort. Belegen heißt: mit einem solchen Beispiel zeigen."],
+ ["Blickrichtung","Von wo schaut die Kamera: von oben oder von der Seite?"],
+ ["Redaktion","Menschen, die Beiträge auswählen und bearbeiten."],
+ ["pauschal / Klischee","Eine Aussage tut so, als wäre es überall gleich. Unterschiede fehlen dann."],
+ ["Lebensbedingungen","Wie Menschen leben: zum Beispiel wie sie wohnen, lernen und Wasser bekommen."],
+ ["Versorgung","Menschen bekommen, was sie brauchen, zum Beispiel Wasser oder Hilfe bei Krankheit."],
+ ["Infrastruktur","Zum Beispiel Straßen, Wasserleitungen und Stromleitungen. Sie helfen im Alltag."],
+ ["wirtschaftliche Tätigkeit","Eine Arbeit, zum Beispiel anbauen, Dinge herstellen oder verkaufen."],
+ ["Bergbau","Menschen holen Rohstoffe wie Erze aus dem Boden."],
+ ["Industrie","Betriebe stellen mit Maschinen Dinge her."],
+ ["Handel","Menschen kaufen und verkaufen Dinge."],
+ ["ernten","Reife Früchte oder andere Pflanzenteile einsammeln."],
+ ["aufbereiten / verarbeiten","Material vorbereiten oder daraus etwas anderes machen. Kakaobohnen werden zum Beispiel getrocknet und weiterbearbeitet."],
+ ["Bohnen","Hier: Samen in der Kakaofrucht. Daraus können Kakaoprodukte entstehen."],
+ ["Gesundheitsstation","Ein Ort für medizinische Hilfe, zum Beispiel bei Krankheit."],
+ ["Ausschnitt","Ein Teil eines Ganzen."],
+ ["zuordnen","Passende Dinge zusammenbringen."],
+ ["Hinweis","Eine Hilfe beim Rätsel. Nur Lösungshinweise senken die möglichen Punkte."],
+];

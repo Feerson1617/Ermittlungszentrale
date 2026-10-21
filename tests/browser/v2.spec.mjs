@@ -88,6 +88,6 @@ test('Kakaokette ist vor der Zuordnung als vierstufiges Schema sichtbar',async({
  await page.locator('#name-answer').fill('Nigeria');await submit(page);await result(page,5);await learning(page);
  await page.locator('#name-answer').fill('Ghana');await submit(page);await result(page,5);
  await expect(page.locator('.cocoa-chain li')).toHaveCount(4);
- await expect(page.locator('.cocoa-chain')).toContainText('Bohnen aufbereiten und verarbeiten');
+ await expect(page.locator('.cocoa-chain')).toContainText('Bohnen trocknen und weiterverarbeiten');
  await expect(page.locator('.learning [role="status"]')).toHaveCount(0);
 });

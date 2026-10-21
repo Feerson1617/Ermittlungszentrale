@@ -115,6 +115,7 @@ for (const [key,label] of Object.entries({
   classroomTrial:"Lerngruppenerprobung, Bearbeitungszeit und Lernwirkung",
   liveBrowser:"Browserabnahme der tatsächlich veröffentlichten Website",
 })) if (!review.v2?.[key]) { console.log(`OFFEN: ${label}`); open++; }
+if (!review.v22?.schoolNetwork) { console.log("OFFEN: Prüfung im tatsächlichen Schulnetz"); open++; }
 if (media.status !== "complete") {
   console.log("OFFEN: Bildkatalog noch nicht als vollständig abgenommen");
   open++;

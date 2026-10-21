@@ -125,7 +125,7 @@ test("Akte 002: persönliche Auswahl unbewertet, volle gemeinsame Abgabe", async
   await result(page, 5);
   await expect(
     page.getByRole("heading", {
-      name: "Fotos zeigen nur einen Teil der Wirklichkeit.",
+      name: "Ein Foto zeigt einen Ort. Es zeigt nicht, wie alle Menschen leben.",
     }),
   ).toBeVisible();
 });

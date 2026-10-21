@@ -2,6 +2,8 @@
 
 ## Dokumentarische Fotografien
 
+Version 2.2 präzisiert nur die Auswahlbeschriftung von Bild 9: „Klassenraum mit Holztischen und Stühlen“. Das Foto, seine Ortsangabe und seine Lizenz bleiben unverändert. Weitere Quellenprüfung zum engeren Lagos-Lernziel: [Lagos](lagos-quellen-v22.md).
+
 24 authentische Fotografien sind lokal eingebunden. Recherche, Abgleich der Aufnahmeorte, Lizenzprüfung und Sichtprüfung: 20.–21.10.2026. Keine generierten Beweisbilder; keine externen Bildabrufe beim Spielen.
 
 Die Ortsprüfung stützt sich auf die Autorbeschreibung, die Originalquellen und geografischen Kategorien sowie, soweit vorhanden, Koordinaten der Commons-Beschreibungsseite. Die jeweilige Genauigkeit und jede Motivabweichung stehen unten. Nicht belegte Straßen, Farmstandorte oder GPS-Koordinaten werden nicht ergänzt. Einzelbilder belegen weder gegenwärtige Zustände noch zeitliche Trends für ein ganzes Land.

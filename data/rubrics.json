@@ -86,13 +86,13 @@
           "key": "scope",
           "label": "Einige Orte",
           "points": 2,
-          "explanation": "Vier Fotos zeigen einen Ausschnitt. Sie zeigen nicht alle Orte."
+          "explanation": "Vier Fotos zeigen einige Orte. Sie zeigen nicht alle Orte."
         },
         {
           "key": "diversity",
           "label": "Unterschiedliche Orte",
           "points": 1,
-          "explanation": "Die vier Fotos sind eine Auswahl. Sie belegen nicht, dass alle Orte gleich aussehen."
+          "explanation": "Die vier Fotos zeigen nicht, dass es überall gleich aussieht."
         },
         {
           "key": "work",
@@ -102,15 +102,15 @@
         },
         {
           "key": "education",
-          "label": "Lernen oder medizinische Versorgung",
+          "label": "Lernen oder Hilfe bei Krankheit",
           "points": 1,
-          "explanation": "Bild 9 zeigt einen Klassenraum, Bild 12 eine Gesundheitsstation. Beide fehlen in der Redaktion. Auch eine einfache Schule ist ein Ort zum Lernen."
+          "explanation": "Bild 9 zeigt einen Klassenraum mit Holztischen und Stühlen. Bild 12 zeigt eine Gesundheitsstation. Beide fehlen in der Auswahl."
         }
       ],
       "hints": [
         "Die Redaktion zeigt nur vier von zwölf Bildern.",
-        "Sucht in den anderen Bildern Bergbau oder Handel und einen Ort zum Lernen oder für medizinische Versorgung.",
-        "Vier Fotos zeigen einige Orte. Sie stehen nicht für alle Lebensbedingungen."
+        "Sucht Bergbau oder Handel. Sucht auch einen Ort zum Lernen oder für Hilfe bei Krankheit.",
+        "Vier Fotos zeigen einige Orte. Sie zeigen nicht, wie alle Menschen leben."
       ],
       "success": "Fotos zeigen immer nur einen Teil der Wirklichkeit.",
       "paper": "Tragt eure festgeschriebenen Punkte ein. Notiert bei Bedarf: In der Auswahl fehlt …",
@@ -292,7 +292,7 @@
       "max": 5,
       "solution": "Handel auf einem Markt in Accra.",
       "hints": [
-        "Schaut auf das Foto und den belegten Ort.",
+        "Schaut auf das Foto und den bekannten Ort.",
         "Zu sehen sind Marktstände und Handel.",
         "Die Quellenangabe nennt Accra; das Foto zeigt nur diesen Ort."
       ],

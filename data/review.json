@@ -32,5 +32,9 @@
     "classroomTrial": false,
     "liveBrowser": false,
     "note": "Offen mangels tatsächlicher Prüfung: Originale/aktuelle Geltung, direkte Sachquellen, realer Druck, Lerngruppe/Zeit/Lernwirkung sowie öffentliche Live-Funktion. Browseremulation und Pages-Build ersetzen keine Abnahme."
+  },
+  "v22": {
+    "schoolNetwork": false,
+    "note": "Schulnetz erst nach tatsächlicher Prüfung bestätigen. Lokale HTTP-Tests und Browseremulation ersetzen dies nicht."
   }
 }

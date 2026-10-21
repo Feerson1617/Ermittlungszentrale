@@ -3,6 +3,7 @@ import {fileURLToPath} from "node:url";
 import {resolve} from "node:path";
 import {chromium} from "@playwright/test";
 import {cases,photos,clues,caseTasks,editorialClaims} from "../data/cases.js";
+import {wordHelp} from "../data/word-help.js";
 import {maps} from "../data/maps.js";
 import {coreLearning,extraSpurs,evidenceSources} from "../data/learning.js";
 const root=fileURLToPath(new URL("..",import.meta.url));
@@ -10,15 +11,15 @@ const read=path=>readFile(resolve(root,path),"utf8");
 const r=JSON.parse(await read("data/rubrics.json")),media=JSON.parse(await read("data/media.json")),dictionary=JSON.parse(await read("data/dictionary.json"));
 const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 const line='<div class="write-line"></div>';
-const sheetStyle=`*{box-sizing:border-box}body{margin:0;font:12pt/1.3 Arial,sans-serif;color:#111;background:#eee}h1{font-size:20pt;margin:0 0 4mm}h2{font-size:13pt;margin:0 0 2mm}p{margin:2mm 0}section{margin-top:4mm;padding-top:3mm;border-top:1px solid #444}.sheet{position:relative;width:190mm;height:277mm;margin:10mm auto;background:white;overflow:hidden;break-after:page}.sheet:last-child{break-after:auto}.sheet-footer{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;font-size:9pt}.name-row{display:flex;justify-content:space-between;font-size:11pt}.map{height:68mm;margin:2mm 0}.map svg{width:100%;height:100%;display:block}.map path{fill:white;stroke:#222;stroke-width:.8}.map rect{fill:white}.numbers{font-size:18pt;letter-spacing:3mm}.write-line{height:8mm;border-bottom:1px solid #666;margin-bottom:1mm}.points{text-align:right;font-weight:bold}.score-table{border-collapse:collapse;width:100%}.score-table th,.score-table td{padding:2mm;border-bottom:1px solid #777;text-align:left}.small{font-size:10.5pt}.totals{display:flex;gap:6mm;flex-wrap:wrap}.print-bar{max-width:190mm;margin:12px auto}@page{size:A4;margin:10mm}@media print{body{background:white}.sheet{margin:0}.print-bar{display:none}}`;
+const sheetStyle=`*{box-sizing:border-box}body{margin:0;font:12pt/1.3 Arial,sans-serif;color:#111;background:#eee}h1{font-size:20pt;margin:0 0 4mm}h2{font-size:13pt;margin:0 0 2mm}p{margin:2mm 0}section{margin-top:4mm;padding-top:3mm;border-top:1px solid #444}.sheet{position:relative;width:190mm;height:277mm;margin:10mm auto;background:white;overflow:hidden;break-after:page}.sheet:last-child{break-after:auto}.sheet-footer{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;font-size:9pt}.name-row{display:flex;justify-content:space-between;font-size:11pt}.map{height:68mm;margin:2mm 0}.map svg{width:100%;height:100%;display:block}.map path{fill:white;stroke:#222;stroke-width:.8}.map rect{fill:white}.numbers{font-size:18pt;letter-spacing:3mm}.write-line{height:8mm;border-bottom:1px solid #666;margin-bottom:1mm}.points{text-align:right;font-weight:bold}.score-table{border-collapse:collapse;width:100%}.score-table th,.score-table td{padding:2mm;border-bottom:1px solid #777;text-align:left}.small{font-size:10.5pt}.totals{border-collapse:collapse;width:100%;table-layout:fixed}.totals th,.totals td{padding:2mm 3mm;border:1px solid #777;text-align:left;font-size:10.5pt}.print-bar{max-width:190mm;margin:12px auto}@page{size:A4;margin:10mm}@media print{body{background:white}.sheet{margin:0}.print-bar{display:none}}`;
 const worksheet=`<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Meine geheime Ermittlungsakte</title><style>${sheetStyle}</style></head><body><aside class="print-bar"><a href="ermittlungsbogen.pdf">PDF herunterladen</a><p>Ein Blatt · zwei Seiten · DIN A4 · 100 % · beidseitig an langer Kante.</p></aside>
 <article class="sheet" aria-label="Vorderseite"><h1>Meine geheime Ermittlungsakte</h1><div class="name-row"><span>Name: ____________________</span><span>Team: ____________________</span></div>
 <section><h2>Akte 001 · Der verschwundene Titel</h2><p>Gesuchtes Thema: __________________________________</p><p>Nach der Lösung: Markiert den gesuchten Kontinent rot.</p><div class="map" role="img" aria-label="Unbeschriftete Weltkarte ohne Hervorhebung">${maps.world}</div><p class="points">Punkte: ______ / 5</p></section>
-<section><h2>Akte 002 · Die Bilder im Kopf</h2><p>Unsere erste gemeinsame Auswahl: vier aus ${photos.length} Bildern</p><p class="numbers">___ ___ ___ ___</p><p>In der Auswahl der Redaktion fehlt … (Bildnummer oder Stichwort)</p>${line}<p class="small">Vier Fotos zeigen einige Orte. Sie stehen nicht für alle Lebensbedingungen.</p><p class="points">Punkte: ______ / 5</p></section><div class="sheet-footer"><span>Wörter und Stichpunkte genügen. Ergebnisse auf Papier sichern.</span><span>1 / 2</span></div></article>
-<article class="sheet" aria-label="Rückseite"><section><h2>Akte 003 · Ein Kontinent, viele Gesichter</h2><table class="score-table"><thead><tr><th>Fall</th><th>Land</th><th>Punkte</th></tr></thead><tbody><tr><td>A · Schnee</td><td>_____________________</td><td>____ / 5</td></tr><tr><td>B · Stadt</td><td>_____________________</td><td>____ / 5</td></tr><tr><td>C · Früchte</td><td>_____________________</td><td>____ / 5</td></tr></tbody></table><p>Eine wirtschaftliche Spur: Bild/Beleg ____ · __________________</p><p>Eine Spur zum Zusammenleben: Bild/Beleg ____ · _____________</p></section>
-<section><h2>Akte 004 · Der letzte Ermittlungsbericht</h2><p>Unsere zweite Auswahl:</p><p class="numbers">___ ___ ___ ___</p><p>Wählt einen Rückblick: gleich geblieben / neu oder ergänzt / dazu passt Beleg</p>${line}<p>Gewählte Überschrift:</p>${line}<p class="points">Punkte: ______ / 5</p></section>
+<section><h2>Akte 002 · Die Bilder im Kopf</h2><p>Unsere erste gemeinsame Auswahl: vier aus ${photos.length} Bildern</p><p class="numbers">___ ___ ___ ___</p><p>In der Auswahl der Redaktion fehlt … (Bildnummer oder Stichwort)</p>${line}<p class="small">Erst nach der Aufgabe ergänzen:</p><p>Vier Fotos zeigen … ______________________________</p><p class="points">Punkte: ______ / 5</p></section><div class="sheet-footer"><span>Wörter und Stichpunkte genügen. Ergebnisse auf Papier sichern.</span><span>1 / 2</span></div></article>
+<article class="sheet" aria-label="Rückseite"><section><h2>Akte 003 · Ein Kontinent, viele Gesichter</h2><table class="score-table"><thead><tr><th>Fall</th><th>Land</th><th>Punkte</th></tr></thead><tbody><tr><td>A · Schnee</td><td>_____________________</td><td>____ / 5</td></tr><tr><td>B · Stadt</td><td>_____________________</td><td>____ / 5</td></tr><tr><td>C · Früchte</td><td>_____________________</td><td>____ / 5</td></tr></tbody></table><p>Eine Spur zur Arbeit: Bild ____ · __________________</p><p>Eine Spur zum Zusammenleben: Bild ____ · _____________</p></section>
+<section><h2>Akte 004 · Der letzte Ermittlungsbericht</h2><p>Unsere zweite Auswahl:</p><p class="numbers">___ ___ ___ ___</p><p>Gleich geblieben ist … / Neu ist für uns … / Dazu passt Bild …</p>${line}<p>Gewählte Überschrift:</p>${line}<p class="points">Punkte: ______ / 5</p></section>
 <section><h2>Akte 005 · freiwillig</h2><p>Unsere Zukunftsfrage (freiwillig):</p>${line}<p class="points">Bonus: ______ / 5</p></section>
-<section><h2>Unsere Punkte</h2><div class="totals"><span>Akte 1: ____</span><span>Akte 2: ____</span><span>Akte 3: ____ / 15</span><span>Akte 4: ____</span></div><p><strong>Gesamt: ______ / 30</strong> &nbsp; Bonus-Akte 5: ______ / 5</p><p class="small">Nicht gespielte Akten bleiben leer. Auswahlen, Rückblick und eigene Fragen werden nicht bewertet.</p></section><div class="sheet-footer"><span>Die Bildnummern in Akte 002 und 004 sind identisch.</span><span>2 / 2</span></div></article></body></html>`;
+<section><h2>Unsere Punkte</h2><table class="totals" aria-label="Punkte der vier Hauptakten"><thead><tr>${[1,2,3,4].map(n=>`<th>Akte ${String(n).padStart(3,"0")}</th>`).join("")}</tr></thead><tbody><tr>${[5,5,15,5].map(max=>`<td>____ / ${max}</td>`).join("")}</tr></tbody></table><p><strong>Gesamt: ______ / 30</strong> &nbsp; Bonus-Akte 5: ______ / 5</p><p class="small">Nicht gespielte Akten bleiben leer. Auswahlen, Rückblick und eigene Fragen werden nicht bewertet.</p></section><div class="sheet-footer"><span>Die Bildnummern in Akte 002 und 004 sind identisch.</span><span>2 / 2</span></div></article></body></html>`;
 if(/Afrika|Africa|Marokko|Nigeria|Ghana/i.test(worksheet))throw new Error("Lösung im neutralen Schülerbogen");
 const mediaTable=`| Nummer | Motiv | Belegter Ort | Einsatz / Nachweis |\n|---|---|---|---|\n${photos.map(p=>{const i=media.images[p.key];return `| ${p.id} | ${p.title} | ${i.location} | Akten 002/004; [${i.creditId}](../bildnachweise.html#${i.creditId}); ${i.author}; ${i.license}${[9,12].includes(p.id)?'; Bildung/Gesundheit':''}${p.id===11?'; Wassertransport, Qualität unbekannt':''} |`;}).join('\n')}`;
 const selectedKeys=new Set(photos.map(p=>p.key));
@@ -26,9 +27,7 @@ const additionalTable=`| Beleg-ID | Motiv | Belegter Ort / Datum | Einsatz und G
 const solutions=`| Wertung | Richtige Lösung / Menge | Maximal |\n|---|---|---|\n${Object.entries(r.tasks).map(([key,t])=>`| ${key} · Akte ${t.case} | ${t.solution} | ${t.max}${t.case===5?' Bonus':''} |`).join('\n')}`;
 const taskDetails=Object.entries(r.tasks).map(([key,t])=>`## ${t.label}
 
-Aufgaben-ID: ${key}; Akte ${t.case}; höchstens ${t.max} ${t.case===5?'Bonus':'Haupt'}punkte.
-
-**Lösung:** ${t.solution}
+**Lösung:** ${t.solution} (Akte ${t.case}; höchstens ${t.max} ${t.case===5?'Bonus':'Haupt'}punkte; ID ${key}).
 
 ${t.criteria?`**Kriterien:** ${t.criteria.map(c=>c.label+': '+c.points).join('; ')}. Vier Teilfragen schrittweise eingeben, anschließend genau eine Gesamtabgabe. Für Arbeit gelten alle passenden Bilder ${t.correctAnswers.work.join('/')}; für Lernen/Behandlung ${t.correctAnswers.education.join('/')}. Die Redaktion verwendet ${t.editorial.join(', ')}; Bilder außerhalb der Redaktion sind nicht allein deshalb sachlich passend.`:''}
 
@@ -36,20 +35,24 @@ ${t.criteria?`**Kriterien:** ${t.criteria.map(c=>c.label+': '+c.points).join('; 
 
 ${t.hints.map((hint,i)=>`${i+1}. ${hint}`).join('\n')}
 
-**Vereinfachte Abschlussaufgabe:** ${t.fallback.prompt} ${t.fallback.options.map(o=>`${o.id.toUpperCase()}: ${o.label}`).join(' / ')}. Richtige ID: ${t.fallback.answer.toUpperCase()}. Erst richtige Abgabe: ein Punkt; kein Punkt allein fürs Hinweisöffnen.
+**Vereinfachte Abschlussaufgabe:** ${t.fallback.prompt} ${t.fallback.options.map(o=>`${o.id.toUpperCase()}: ${o.label}`).join(' / ')}. Richtige ID: ${t.fallback.answer.toUpperCase()}.
 
 **Papier:** ${t.paper}
 
-${t.aliases?`**Explizite Namensvarianten:** ${t.aliases.join(', ')}. Weitere unbekannte Namen nur neutral klären, keine pauschale Distanzschwelle. Kontinent- und Länderbehauptungen getrennt behandeln.`:''}
+
 `).join('\n');
 const lessonDetails=Object.entries(coreLearning).map(([key,lesson])=>`### ${lesson.title}
 
-${lesson.steps.map(step=>`**${step.title}:** ${step.text} ${step.questions?.map(q=>q.label).join(' ')||''}\n\nAuflösung: ${step.explanation}${step.checks?`\n\nNeue Beweise gefunden! ${step.checks.map(check=>`Die erfundene Redaktion behauptete: ${check.claims.map(id=>'„'+editorialClaims.find(c=>c.id===id).text+'“').join(' / ')} Prüfung: ${check.finding}`).join('\n\n')}`:''}`).join('\n\n')}
+${lesson.steps.map(step=>`**${step.title}:** ${step.text}${step.cards?` ${step.cards.map(c=>`${c.title}: ${c.text}`).join(' ')}`:''}
+
+${step.questions?.map(q=>q.any?`Persönliche Vermutung: ${q.label} Keine Richtig-falsch-Wertung.`:`${q.label} Richtig: „${q.options.find(o=>o.id===q.answer).label}“. ${q.evidence}`).join(' ')||'Persönlicher Rückblick, keine Richtig-falsch-Wertung.'}
+
+${step.questions?.find(q=>!q.any)?`Fehlerbeispiel: ${(()=>{const q=step.questions.find(q=>!q.any),o=q.options.find(o=>o.id!==q.answer);return `Ihr habt „${o.label}“ gewählt. Das passt nicht, weil ${o.why}. ${q.evidence}`;})()}\n\n`:''}Kernsatz: ${step.explanation}${step.more?`\n\nMehr erfahren: ${step.more}`:''}${step.checks?`\n\nNeue Beweise gefunden! ${step.checks.map(check=>`Die erfundene Redaktion behauptete: ${check.claims.map(id=>'„'+editorialClaims.find(c=>c.id===id).text+'“').join(' / ')} Prüfung: ${check.finding}`).join('\n\n')}`:''}`).join('\n\n')}
 
 Weitere Spuren: ${(lesson.extras||[]).map(key=>extraSpurs[key].title).join('; ')||'keine zusätzliche Pflichtstrecke'}.
 `).join('\n');
 const coverage=['ru','uk','pl','tr','ar','ku','ckb'].map(lang=>`${lang}: ${dictionary.filter(w=>w[lang]).length}/${dictionary.length}`).join('; ');
-const teacher=`# Erwartungshorizont · Die geheime Ermittlungszentrale 2.1
+const teacher=`# Erwartungshorizont · Die geheime Ermittlungszentrale 2.2
 
 Stand: 21.10.2026. Gemeinsame Datengrundlage: data/cases.js, data/rubrics.json, data/learning.js und data/media.json. Nach Änderungen: npm run materials. Die Aufgaben haben sieben Wertungen, keine zusätzlichen Punkteblöcke.
 
@@ -110,6 +113,16 @@ Hinweise 1/2 behalten Texte, Bilder und Zuordnungen. Fokussierte Eingaben werden
 
 ${taskDetails}
 
+## Sprachhilfe und unbewertete Rückmeldungen in 2.2
+
+Kurze Kernsätze, längere Grenzen unter „Mehr erfahren“. Zu jeder fachlichen Auswahl: richtige Antwort bestätigen oder die gewählte falsche Antwort mit konkretem Grund erklären; danach sagen, was Bild/Schema/Quelle zeigt. Keine Punkte und keine neuen Versuchsgrenzen. Die folgenden Fehlerbeispiele stammen aus den gemeinsamen Daten; jede andere falsche Option besitzt ebenfalls einen konkreten Grund in data/learning.js. Einmal ansehen und weiter; keine Richtig-falsch-Wiederholung. Vermutung und persönlicher Rückblick werden nie als falsch markiert. Das Wörterbuch gibt nach Schließen oder Escape den Fokus ausdrücklich an seine Startschaltfläche zurück; Antworten und Punkte bleiben erhalten.
+
+Kostenlose deutsche Hilfen, aus data/word-help.js; die vollständigen Erklärungen stehen in der App und beim Nachschlagen im Wörterbuch: ${wordHelp.map(([word])=>word).join('; ')}. Keine neuen Übersetzungen oder erfundene sprachkundige Abnahmen.
+
+Schülerbogen: Der Satz „Vier Fotos zeigen …“ ist offen und wird erst nach Akte 002 ergänzt. Die unausgefüllte Vorderseite nennt die bewertete Erkenntnis nicht. Alle vier Hauptakten haben getrennte Tabellenfelder mit Maximalwerten; Gesamt 30, Bonus getrennt 5.
+
+Lagos in 2.2: Original-Bildrevisionen erneut abgeglichen. Zwei datierte Bildbeobachtungen: Lagos Island 2016 und Makoko 2019. Keine verifizierten zusätzlichen örtlichen Wasser-/Sanitärdaten zugänglich. Deshalb Lernziel ausdrücklich auf Bebauung/Blickrichtung verengt; generische Versorgungsbehauptungen entfernt. Ort/Jahr aus Quelle und Beobachtung am Foto bleiben getrennt. Einzelheiten und Abrufgrenzen: docs/lagos-quellen-v22.md. Keine Armutsquote, Haushaltsgeschichte oder allgemeine Aussage über sämtliche Bewohner.
+
 ## Verbindlicher unbewerteter Kern in Akte 003
 
 ${lessonDetails}
@@ -132,11 +145,11 @@ Die erfundene Redaktion behauptet ausdrücklich pauschal – keine Tatsachen:
 
 ${editorialClaims.map((c,i)=>`${i+1}. „${c.text}“`).join('\n')}
 
-Eine kurze mündliche Frage genügt: Welche Aussage ist besonders pauschal? Akte 002 prüft danach nur Grenzen der Viererwahl und fehlende Themen. Die eigentliche Differenzierung folgt in Akte 003 an örtlich belegten Beispielen. Zulässige Gegenbelege zur bewerteten Auswahlaufgabe: Arbeit 8 (Bergbau) oder 10 (Markt/Handel); Lern-/Behandlungsort 9 (Schulraum) oder 12 (Gesundheitsstation). Die Frage lautet ausdrücklich Bergbau oder Handel; eine moderne Skyline allein erfüllt sie nicht. Das sind Beispiele, keine Aussagen über Häufigkeiten oder allgemeine Versorgungsqualität.
+Eine kurze mündliche Frage genügt: Welche Aussage tut so, als wäre es überall gleich? Akte 002 prüft danach nur Grenzen der Viererwahl und fehlende Themen. Die eigentliche Differenzierung folgt in Akte 003 an örtlich belegten Beispielen. Zulässige Gegenbelege zur bewerteten Auswahlaufgabe: Arbeit 8 (Bergbau) oder 10 (Markt/Handel); Lern-/Behandlungsort 9 (Schulraum) oder 12 (Gesundheitsstation). Die Frage lautet ausdrücklich Bergbau oder Handel; eine moderne Skyline allein erfüllt sie nicht. Das sind Beispiele, keine Aussagen über Häufigkeiten oder allgemeine Versorgungsqualität.
 
 Vier kurze, unbewertete Rückbezüge in Akte 003: verschiedene Arbeiten; Wohnen/Geld; Bildung/medizinische Einrichtungen; Wassertransport/Speicherung. „Keine Schulbildung“ und „nur Landwirtschaft“ widersprechen den konkreten Gegenbeispielen. Aussagen über verbreitete Armut, Krankenhausdichte oder Wasserqualität sind mit diesen Fotos nicht entschieden. Eine medizinische Station und ein Krankenhaus erlauben keine Schlussfolgerung, ob andernorts Einrichtungen fehlen. Dafür braucht es zusätzliche geeignete Daten.
 
-Akte 004 verwendet denselben Zwölferkatalog. Fragen: Was hat sich verändert oder ergänzt? Was ist gleich geblieben? Dazu passt Beleg … Eine unveränderte Auswahl ist zulässig. Reflexion, erster/zweiter Fotoentscheid und Rückbezüge erhalten keine Punkte. Ein Stichwort, Bildverweis oder kurzer mündlicher Satz genügt.
+Akte 004 verwendet denselben Zwölferkatalog. Fragen: Was hat sich verändert oder ergänzt? Was ist gleich geblieben? Satzanfänge: „Gleich geblieben ist …“, „Neu ist für uns …“, „Dazu passt Bild …“. Auch eigene Wörter sind möglich. Eine unveränderte Auswahl ist zulässig. Reflexion, erster/zweiter Fotoentscheid und Rückbezüge erhalten keine Punkte. Ein Stichwort, eine Bildnummer oder ein kurzer mündlicher Satz genügt.
 
 ## Zusätzliche Belegbilder – nicht Teil des Zwölferkatalogs
 
@@ -154,9 +167,9 @@ Die bisherigen Fotos von Küste, Industrie, Universität, Wassertank und Kranken
 
 ${Object.values(evidenceSources).map(x=>`**${x.title}:** ${x.url||x.local} (Abschnitt ${x.section}). ${x.status}`).join('\n\n')}
 
-Renault-/SIGA-/UNESCO-Aussagen sind im geprüften Projektauftrag benannte Beispiele; die direkten Originalabrufe sind technisch blockiert und nicht als selbst erfolgreich geprüft ausgegeben. Schemata sind ausdrücklich Schemata, keine erzeugten dokumentarischen Fotos. Allgemeine qualitative Kontextkarten ersetzen keine lokalen Einkommen-/Versorgungsstatistiken. Keine Rankings oder erfundenen Zahlen.
+Renault-/SIGA-/UNESCO-Aussagen sind im geprüften Projektauftrag benannte Beispiele; die direkten Originalabrufe sind technisch blockiert und nicht als selbst erfolgreich geprüft ausgegeben. Schemata sind ausdrücklich Schemata, keine erzeugten dokumentarischen Fotos. Bildbeobachtungen ersetzen keine lokalen Einkommen-/Versorgungsstatistiken. Keine Rankings oder erfundenen Zahlen.
 
-Die ${Object.keys(media.images).length} echten Fotografien besitzen Commons-Quellenrevisionen, Ortsbelege in dokumentierter Genauigkeit, Urheber, freie Lizenzen und Prüfsummen in data/media.json und docs/media/. Die fünf Ergänzungen dieser Version wurden anhand ihrer Originaldownloads per SHA1 verifiziert; alle lokalen Ableitungen per SHA256. Die 19 vorherigen Fotos bleiben bytegleich. Bilder behalten ihre Einzellizenzen. Vollständige Einzelquellen mit Titel, Original-/Lizenzlink und Grenzen: bildnachweise.html und docs/bildquellen.md. Das kleinere Original des Balogun-Fotos wurde nicht hochskaliert.
+Die ${Object.keys(media.images).length} echten Fotografien besitzen Commons-Quellenrevisionen, Ortsbelege in dokumentierter Genauigkeit, Urheber, freie Lizenzen und Prüfsummen in data/media.json und docs/media/. Die fünf Ergänzungen aus Version 2.1 wurden anhand ihrer Originaldownloads per SHA1 verifiziert; alle lokalen Ableitungen per SHA256. Alle 24 Fotos bleiben in Version 2.2 bytegleich. Bilder behalten ihre Einzellizenzen. Vollständige Einzelquellen mit Titel, Original-/Lizenzlink und Grenzen: bildnachweise.html und docs/bildquellen.md. Das kleinere Original des Balogun-Fotos wurde nicht hochskaliert.
 
 Karten: Natural Earth 1:110 Millionen, Public Domain; vereinfachte Länderumrisse, keine Navigation. Westsahara als eigener Raum, keine politische Anerkennungsaussage. Beim Stadtvergleich ist der Punkt eine grobe Lage von Lagos, keine punktgenaue Verortung beider Stadtteile.
 
@@ -166,11 +179,11 @@ ${dictionary.length} deutsche Einträge; ${coverage}. Sieben Sprachen: Russisch,
 
 ## Technik, Datenschutz und verbleibende Abnahme
 
-Kein Konto, keine Datenbank, keine Zeitwertung und kein Audio. Alle Akten funktionieren im Arbeitsspeicher ohne erlaubten Browser-Speicher. Optionale sessionStorage-Wiederherstellung kann Neuladen abfedern; bei gesperrtem Speicher verliert Neuladen die Sitzung. Schema 1 und Sitzungen aus Version 2.0 werden mit verständlicher Meldung zurückgesetzt, damit alte Bildnummern nicht unbemerkt andere Motive bedeuten. Innerhalb von 2.1 bleiben Entwürfe, Punkte und getrennte Auswahlen erhalten. Für einen 2.1-Durchlauf einen neuen Bogen verwenden; alte Papierauswahlen beziehen sich auf den alten Katalog und bleiben als alter Stand erhalten. Papier bleibt die Sicherung zwischen Geräten und Stunden.
+Kein Konto, keine Datenbank, keine Zeitwertung und kein Audio. Alle Akten funktionieren im Arbeitsspeicher ohne erlaubten Browser-Speicher. Optionale sessionStorage-Wiederherstellung kann Neuladen abfedern; bei gesperrtem Speicher verliert Neuladen die Sitzung. Schema 1 und Sitzungen aus Version 2.0 werden mit verständlicher Meldung zurückgesetzt, damit alte Bildnummern nicht unbemerkt andere Motive bedeuten. 2.1 und 2.2 haben dieselben Bildidentitäten: Sitzungen, Entwürfe und Punkte bleiben erhalten. Papierauswahlen aus 2.0 gehören zum alten Katalog. Der neue leere Bogen hat eine offene Sicherung und getrennte Punktefelder. Papier bleibt die Sicherung zwischen Geräten und Stunden.
 
 Kein garantierter vollständiger Offline-Neustart: noch nicht geladene Ressourcen benötigen den eigenen statischen Server. Die App überträgt keine Schülerantworten an externe Dienste; der Host kann Zugriffsprotokolle einschließlich IP-Adressen führen. Keine pauschale DSGVO-Freigabe behauptet. Schulische Datenschutzprüfung getrennt beurteilen.
 
-Offen ohne tatsächliche Durchführung: echtes Schul-iPad/Safari, reale Druckprobe, sprachkundige Prüfung, Lerngruppenerprobung/Lernwirkung und gemessene Bearbeitungszeit. Außerdem direkter Originalabgleich der blockierten Sachquellen und Live-Browserabnahme. Automatische Tests und ein erfolgreicher Pages-Build ersetzen diese Prüfungen nicht. Keine pauschale Unterrichtsfreigabe.
+Offen ohne tatsächliche Durchführung: echtes Schul-iPad/Safari, Schulnetz, reale Druckprobe, sprachkundige Prüfung, Lerngruppenerprobung/Lernwirkung und gemessene Bearbeitungszeit. Außerdem direkter Originalabgleich der blockierten Sachquellen und Live-Browserabnahme. Automatische Tests und ein erfolgreicher Pages-Build ersetzen diese Prüfungen nicht. Keine pauschale Unterrichtsfreigabe.
 `;
 function inline(text){return esc(text).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\[([^\]]+)\]\((\.\.\/bildnachweise\.html#F\d+)\)/g,'<a href="$2">$1</a>');}
 function markdownHTML(text){
@@ -192,7 +205,7 @@ function markdownHTML(text){
  close();return out.join('\n');
 }
 const cleanTeacher=teacher.split('\n').map(line=>line.trimEnd()).join('\n');
-const teacherHTML=`<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Erwartungshorizont · Ermittlungszentrale 2.1</title><style>@page{size:A4;margin:16mm 15mm 20mm}body{font:10.5pt/1.4 Arial,sans-serif;color:#111;max-width:180mm;margin:20px auto}h1{font-size:21pt;line-height:1.15}h2{font-size:15pt;margin-top:7mm;break-after:avoid}h3{font-size:12pt;break-after:avoid}p{orphans:3;widows:3;overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;font-size:9pt;margin:4mm 0;table-layout:fixed}thead{display:table-header-group}th,td{border:1px solid #aaa;text-align:left;padding:2mm;overflow-wrap:anywhere;vertical-align:top}tr{break-inside:avoid}li{margin:1.5mm 0}@media print{body{max-width:none;margin:0}}</style></head><body>${markdownHTML(cleanTeacher)}</body></html>`;
+const teacherHTML=`<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Erwartungshorizont · Ermittlungszentrale 2.2</title><style>@page{size:A4;margin:16mm 15mm 20mm}body{font:10.5pt/1.35 Arial,sans-serif;color:#111;max-width:180mm;margin:20px auto}h1{font-size:21pt;line-height:1.15}h2{font-size:15pt;margin-top:6mm;break-after:avoid}h3{font-size:12pt;break-after:avoid}p{margin:2mm 0;orphans:3;widows:3;overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;font-size:9pt;margin:4mm 0;table-layout:fixed}thead{display:table-header-group}th,td{border:1px solid #aaa;text-align:left;padding:1.5mm;overflow-wrap:anywhere;vertical-align:top}tr{break-inside:avoid}li{margin:1.5mm 0}@media print{body{max-width:none;margin:0}}</style></head><body>${markdownHTML(cleanTeacher)}</body></html>`;
 await mkdir(resolve(root,'materials'),{recursive:true});await mkdir(resolve(root,'docs'),{recursive:true});
 await writeFile(resolve(root,'materials/ermittlungsbogen.html'),worksheet);
 await writeFile(resolve(root,'docs/erwartungshorizont.md'),cleanTeacher.trimEnd()+"\n");

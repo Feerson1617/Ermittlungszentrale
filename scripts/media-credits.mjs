@@ -1,4 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
+import {photos} from "../data/cases.js";
 const root = new URL("../", import.meta.url);
 const media = JSON.parse(await readFile(new URL("data/media.json", root)));
 const esc = (value) => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;")
@@ -8,6 +9,8 @@ const authorHtml = i => i.authorUrl ? `<a href="${esc(i.authorUrl)}" rel="noopen
 const intro = `# Bildquellen und Karten
 
 ## Dokumentarische Fotografien
+
+Version 2.2 präzisiert nur die Auswahlbeschriftung von Bild 9: „${photos.find(p=>p.id===9).title}“. Das Foto, seine Ortsangabe und seine Lizenz bleiben unverändert. Weitere Quellenprüfung zum engeren Lagos-Lernziel: [Lagos](lagos-quellen-v22.md).
 
 ${rows.length} authentische Fotografien sind lokal eingebunden. Recherche, Abgleich der Aufnahmeorte, Lizenzprüfung und Sichtprüfung: 20.–21.10.2026. Keine generierten Beweisbilder; keine externen Bildabrufe beim Spielen.
 

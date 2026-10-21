@@ -1,0 +1,16 @@
+desktop: bildkatalog
+desktop: redaktion-einfache-sprache
+desktop: antworten-richtig-falsch
+desktop: mehr-erfahren
+desktop: lagos-datierte-beobachtung
+desktop: satzanfaenge
+desktop: woerterbuch-deutsche-hilfe
+desktop: Sprache, richtige/falsche Rückmeldung, Mehr erfahren, Lagos, Reflexion und Wörterbuch bedient; keine Fehler.
+ipad: bildkatalog
+ipad: redaktion-einfache-sprache
+ipad: antworten-richtig-falsch
+ipad: mehr-erfahren
+ipad: lagos-datierte-beobachtung
+ipad: satzanfaenge
+ipad: woerterbuch-deutsche-hilfe
+ipad: Sprache, richtige/falsche Rückmeldung, Mehr erfahren, Lagos, Reflexion und Wörterbuch bedient; keine Fehler.

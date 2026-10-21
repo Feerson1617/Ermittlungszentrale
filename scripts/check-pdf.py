@@ -12,6 +12,8 @@ front,back=[p.extract_text() for p in pdf.pages]
 assert not re.search(r'Afrika|Africa|Marokko|Nigeria|Ghana',front+'\n'+back,re.I), 'Lösung auf dem unausgefüllten Bogen'
 for term in ['Meine geheime Ermittlungsakte','Name:','Team:','Akte 001','Akte 002','1 / 2']:
     assert term in front, term
+assert 'Vier Fotos zeigen einige Orte' not in front and 'Sie stehen nicht für alle Lebensbedingungen' not in front
+assert 'Erst nach der Aufgabe ergänzen' in front and 'Vier Fotos zeigen' in front
 for term in ['Akte 003','Akte 004','Akte 005','Gesamt:','/ 30','Bonus-Akte 5:','2 / 2']:
     assert term in back, term
 teacher=PdfReader(root/'materials/erwartungshorizont.pdf')
@@ -30,7 +32,7 @@ for n in range(1,13):
 for term in ['Kajiado','Butaro','Versorgung','Maximal','Abschlussaufgabe','Keine menschliche Abnahme wurde erfunden']:
     assert term in text,term
 normalized=re.sub(r'\s+',' ',text)
-for term in ['Ermittlungszentrale 2.1','Lehmhäuser mit Strohdächern','Bergbau','Schule mit einfacher Ausstattung','Wasser holen und transportieren','Gesundheitsstation','Phalaborwa','Dankh Sene','keine Tatsachen']:
+for term in ['Ermittlungszentrale 2.2','Lehmhäuser mit Strohdächern','Bergbau','Klassenraum mit Holztischen und Stühlen','Wasser holen und transportieren','Gesundheitsstation','Phalaborwa','Dankh Sene','keine Tatsachen']:
     assert term in normalized,term
 assert re.search(r'PD-\s*USGov-HHS',text), 'Lizenzgrundlage fehlt'
 assert text.count('Neue Beweise gefunden!')==4, 'Vier Beleg-Rückbezüge fehlen im Lehrertext'

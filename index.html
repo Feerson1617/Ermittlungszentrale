@@ -13,7 +13,7 @@
     />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-nwCe7qTBt6SMuysfazfgtH/lZbnvli1GwiS4nlGPC+U='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-348oWv6pcucmMdnwNOaZqlRu1R0rhuGnnk4yh0Ctp3M='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"
     />
     <title>Die geheime Ermittlungszentrale</title>
     <link rel="icon" href="assets/icons/detective.svg" type="image/svg+xml" />
@@ -32,7 +32,7 @@
             if (!status) {
               status = document.createElement("section");
               status.className = "panel";
-              status.innerHTML = '<h1></h1><p id="startup-detail"></p><p>Prüft den HTTP-Webserver und ladet die Seite erneut.</p><a href="">Seite erneut laden</a>';
+              status.innerHTML = '<h1></h1><p id="startup-detail"></p><p>Öffnet das Spiel direkt in Safari oder einem normalen Browser. Eine eingebettete Vorschau kann wichtige Spieldateien blockieren.</p><a href="">Seite erneut laden</a>';
               document.querySelector("#main").replaceChildren(status);
             }
             status.setAttribute("role", "alert");
@@ -53,9 +53,9 @@
         }, true);
         document.addEventListener("securitypolicyviolation", (event) => {
           if (event.disposition === "enforce" && /^(script|style|connect)-src/.test(event.effectiveDirective))
-            fail(new Error("Eine Sicherheitsrichtlinie blockiert benötigte Spieldateien. Öffnet die vollständige Anwendung über einen HTTP-Webserver."));
+            fail(new Error("Eine Sicherheitsrichtlinie blockiert wichtige Spieldateien. Öffnet das Spiel direkt in Safari oder einem normalen Browser."));
         });
-        timer = setTimeout(() => fail(new Error("Der Start dauert zu lange. Prüft die Verbindung zum Webserver und ladet die Seite erneut.")), 18000);
+        timer = setTimeout(() => fail(new Error("Der Start dauert zu lange. Prüft eure Internetverbindung und ladet die Seite erneut. Öffnet das Spiel direkt in Safari oder einem normalen Browser.")), 18000);
         document.addEventListener("DOMContentLoaded", async () => {
           if (settled) return;
           document.querySelector("#startup-status h1").textContent = "Die Akten werden geöffnet …";
@@ -111,9 +111,9 @@
       <section id="startup-status" class="panel" role="status" aria-live="polite">
         <h1 class="boot-message">Das Spiel ist noch nicht gestartet.</h1>
         <p id="startup-detail">JavaScript, Gestaltung und lokale Spieldaten müssen geladen werden. Falls diese Meldung bleibt, ist der Start blockiert.</p>
-        <p>Öffnet die vollständige Anwendung über einen HTTP-Webserver. Eine Vorschau nur dieser HTML-Datei reicht nicht aus.</p>
+        <p>Öffnet das Spiel direkt in Safari oder einem normalen Browser. Eine eingebettete Vorschau kann wichtige Spieldateien blockieren.</p>
         <details>
-          <summary>So startet ihr die Anwendung</summary>
+          <summary>Hilfe für eine lokale Kopie</summary>
           <p>Im gesamten Projektordner <code>npm start</code> ausführen und den Serverport 4173 im Browser öffnen. In einer Cloud-Umgebung muss dieser Port weitergeleitet sein. Alle Unterordner müssen mit ausgeliefert werden.</p>
         </details>
         <p><a href="" class="outline">Seite erneut laden</a></p>

@@ -1,10 +1,10 @@
-# Die geheime Ermittlungszentrale 2.1
+# Die geheime Ermittlungszentrale 2.2
 
 Geographie-Detektivspiel für Klasse 7: fünf unabhängig startbare Akten, Zweierteams, kurze Arbeitsschritte und Ergebnisse auf Papier. Statisches HTML/CSS/JavaScript; kein Build für das Spiel erforderlich.
 
-Version 2.1 überarbeitet gezielt die Bildauswahl und den Umgang mit pauschalen Afrikabildern. Fünf neue Motive ersetzen im gemeinsamen Zwölferkatalog die Nummern 7/8/9/11/12: Lehmhäuser, Bergbau, Klassenraum, Wassertransport und Gesundheitsstation. Alle 19 bisherigen Fotos bleiben erhalten. Nach der offenen, unbewerteten Viererwahl zeigt eine ausdrücklich erfundene Redaktion sechs Behauptungen. Akte 003 prüft diese an konkreten Belegen; Akte 004 bietet einen offenen Rückblick. **30 Hauptpunkte, fünf getrennte Bonuspunkte und 5/3/2/1 bleiben erhalten.** [Umsetzung und Grenzen](docs/v21-umsetzung.md); [historischer V2-Stand](docs/v2-umsetzung.md).
+Version 2.2 übernimmt den vollständigen Stand von 2.1 und korrigiert gezielt Sprache, Rückmeldungen, Wörterbuch-Fokus und Materialien. Der Lagos-Vergleich beschränkt sich auf verifizierte Bildorte/-jahre und sichtbare Gebäude/Blickrichtungen. Lange Grenzen stehen unter „Mehr erfahren“. Jede fachliche Auswahl im unbewerteten Lernweg erhält eine passende Erklärung; persönliche Vermutungen bleiben frei. **Alle 24 Fotos, fünf Akten, 30+5 Punkte und 5/3/2/1 bleiben erhalten.** [Befundmatrix](docs/v22-umsetzung.md).
 
-**Push freigegeben und ausgeführt:** Nach lokaler Abnahme hat der Nutzer ausdrücklich „pushen ja, kein merge“ bestätigt. Implementierungscommit `e422525` liegt auf `feature/detektivspiel-komplett`; `main` wurde nicht verändert. Der vorhandene Pages-Build startet automatisch. PR #1 ist bereits gemergt/geschlossen und wird durch den Push nicht ergänzt. Kein neuer PR und kein eigener Merge. [Änderungsvergleich](https://github.com/Feerson1617/Ermittlungszentrale/compare/main...feature/detektivspiel-komplett).
+**Neuer PR-Branch:** `fix/ermittlungszentrale-2-2-abnahme`, auf Grundlage von `main` mit den dort fehlenden 2.1-Änderungen. Neuer Draft-PR ausdrücklich vom Nutzer beauftragt. Kein Merge, kein Push auf den bisherigen Pages-Quellbranch und keine Änderung der Pages-Einstellungen.
 
 **Abnahme:** lokal technisch geprüft; keine pauschale Unterrichtsfreigabe. Offen sind sprachkundige Prüfungen, echte iPad-Safari- und Druckprobe, Lerngruppenerprobung/Zeitmessung, direkte Originalabgleiche einzelner Sach-/Curriculumquellen sowie die öffentliche Live-Funktion. [Abnahmestatus](docs/abnahme.md), [Testbericht](docs/testbericht.md).
 
@@ -84,7 +84,7 @@ Schülerbogen mit 100 %, beidseitig an langer Kante drucken. Alle PDF-Seiten wur
 
 Keine Konten, Cookies, Datenbank, Analytics, Audio oder externe Übersetzungs-/Bewertungsdienste. Die App sendet keine Antworten an externe Dienste. Der statische Host kann Zugriffsprotokolle einschließlich IP-Adressen führen; keine pauschale schulische Datenschutzfreigabe.
 
-`sessionStorage` ist optional. Ohne Speicher funktioniert das Spiel im Arbeitsspeicher; Neuladen verliert dann den Stand. Alte V1- und 2.0-Sitzungen werden mit verständlicher Meldung zurückgesetzt, damit die geänderten Bildnummern keine falschen Erinnerungen übernehmen. Für 2.1 einen neuen Papierbogen nutzen; alte Papiernotizen gehören zum alten Bildkatalog. Erste/zweite bestätigte Bildauswahl bleiben getrennt; Neustart setzt nur die gewählte Akte zurück. Papier sichert die Arbeit über Stunden/Geräte hinweg. Keine garantierte Offline-Neuladung: noch nicht geladene Ressourcen benötigen den eigenen Server. Keine Schülernamen im Spiel eingeben.
+`sessionStorage` ist optional. Ohne Speicher funktioniert das Spiel im Arbeitsspeicher; Neuladen verliert dann den Stand. Alte V1- und 2.0-Sitzungen werden mit verständlicher Meldung zurückgesetzt, damit die geänderten Bildnummern keine falschen Erinnerungen übernehmen. Sitzungen aus 2.1 bleiben mit 2.2 kompatibel; alte Papiernotizen gehören zum alten Bildkatalog. Erste/zweite bestätigte Bildauswahl bleiben getrennt; Neustart setzt nur die gewählte Akte zurück. Papier sichert die Arbeit über Stunden/Geräte hinweg. Keine garantierte Offline-Neuladung: noch nicht geladene Ressourcen benötigen den eigenen Server. Keine Schülernamen im Spiel eingeben.
 
 ## Entwicklung und Prüfungen
 
@@ -104,6 +104,6 @@ Playwright prüft Desktop, iPad quer/hoch und schmales Touch-Format; mit `TEST_W
 
 ## GitHub Pages und Übergabe
 
-GitHub Pages veröffentlicht laut zuletzt gelesener API automatisch aus `feature/detektivspiel-komplett` und `/`; `.nojekyll` und relative Pfade bleiben erhalten. Ein Push kann deshalb veröffentlichen. **Die neue ausdrückliche Push-Freigabe für Version 2.1 wurde erteilt und ausgeführt**, ohne Merge (Auftrag Abschnitt 12). Keine Pages-Einstellungen ändern, kein neuer PR, kein Merge. Der abgeschlossene lokale Stand wird mit Commit, Bundle und Projektarchiv übergeben. Eine tatsächliche öffentliche Browserprüfung bleibt vom technischen lokalen Start getrennt.
+GitHub Pages bezieht weiterhin `feature/detektivspiel-komplett` und `/`. Dieser Quellbranch wird für 2.2 nicht verändert. Der neue Branch `fix/ermittlungszentrale-2-2-abnahme` wird nach Prüfung mit einem neuen Draft-PR gegen `main` veröffentlicht; die Freigabe dazu steht im [Auftrag 2.2](sources/auftrag-v2.2.md). Kein Merge oder Deployment durch diese Entwicklungsrunde. Der Nutzer entscheidet selbst über die Übernahme. `.nojekyll` und relative Pfade bleiben erhalten.
 
-`index.html`, `css/`, `js/`, `data/`, `assets/` bilden die statische Anwendung. `materials/` enthält Druckdateien, `docs/` Quellen und Abnahme, `scripts/` Prüfwerkzeuge, `tests/` Node/Playwright, `sources/auftrag-v2.1.md` die unveränderte aktuelle Aufgabenreferenz; `sources/auftrag-v2.md` bleibt als Vorgänger erhalten.
+`index.html`, `css/`, `js/`, `data/`, `assets/` bilden die statische Anwendung. `materials/` enthält Druckdateien, `docs/` Quellen und Abnahme, `scripts/` Prüfwerkzeuge, `tests/` Node/Playwright, `sources/auftrag-v2.2.md` die unveränderte aktuelle Aufgabenreferenz; die Vorgänger bleiben erhalten.

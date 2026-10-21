@@ -6,8 +6,10 @@ import {
   caseTasks,
   editorialClaims,
 } from "../data/cases.js";
+import {learningFeedback} from "./learning-feedback.js";
+import {wordHelp} from "../data/word-help.js";
 import { maps } from "../data/maps.js";
-import { createTask, openHint, submitTask, attemptResolution, confirmResolution, correctionKeys } from "./scoring.js";
+import { createTask, openHint, submitTask, attemptResolution, confirmResolution, correctionKeys, normalize } from "./scoring.js";
 import { freshState, loadState, saveState } from "./session.js";
 import { languages, lookup } from "./dictionary.js";
 import { geographyFlow, coreLearning, extraSpurs, evidenceSources } from "../data/learning.js";
@@ -49,7 +51,10 @@ function activeTaskId() {
   return null;
 }
 function conceptHelp() {
- return `<details class="concept-help"><summary>Begriffe erklären · kostenlos</summary><dl><dt>Redaktion</dt><dd>Menschen, die Beiträge auswählen und bearbeiten.</dd><dt>Ausschnitt</dt><dd>Ein Teil eines Ganzen.</dd><dt>Hinweis</dt><dd>Eine Hilfe beim Rätsel. Nur Lösungshinweise senken das Punktelimit.</dd><dt>zuordnen</dt><dd>Passende Dinge zusammenbringen.</dd><dt>ernten</dt><dd>Reife Früchte oder andere Pflanzenteile einsammeln.</dd><dt>aufbereiten</dt><dd>Material für den nächsten Arbeitsschritt vorbereiten.</dd><dt>Bohnen</dt><dd>Hier: die Samen in einer Kakaofrucht. Aus ihnen können Kakaoprodukte entstehen.</dd><dt>Versorgung</dt><dd>Menschen bekommen, was sie brauchen, zum Beispiel Wasser oder medizinische Behandlung.</dd><dt>Bergbau</dt><dd>Menschen holen Rohstoffe wie Erze aus dem Boden.</dd><dt>Klischee</dt><dd>Eine feste Vorstellung, die Unterschiede oft ausblendet.</dd><dt>Gesundheitsstation</dt><dd>Eine örtliche Einrichtung für medizinische Versorgung; sie ist nicht dasselbe wie ein großes Krankenhaus.</dd></dl></details>`;
+ return `<details class="concept-help"><summary>Begriffe erklären · kostenlos</summary><dl>${wordHelp.map(([word,meaning])=>`<dt>${escape(word)}</dt><dd>${escape(meaning)}</dd>`).join("")}</dl></details>`;
+}
+function moreInfo(text) {
+ return text?`<details class="more-info"><summary>Mehr erfahren</summary><p>${escape(text)}</p></details>`:"";
 }
 function currentLearning() {
  return state.current === 3 ? coreLearning[geographyFlow[cstate().phase]?.learning] : null;
@@ -152,7 +157,7 @@ function selection() {
   `<p class="instruction">Zeigen die vier Fotos alle Orte oder einige Orte?</p>${radios("scope",[["all","Alle Orte"],["some","Einige Orte"]],a.scope)}`,
   `<p class="instruction">Sieht es überall auf dem Kontinent gleich aus?</p>${radios("diversity",[["different","Nein, Orte unterscheiden sich."],["same","Ja, überall gleich."]],a.diversity)}`,
   `<label for="work-answer">Welches fehlende Bild zeigt Bergbau oder Handel?</label>${selectPicture("work",a.work)}`,
-  `<label for="education-answer">Welches fehlende Bild zeigt Lernen oder medizinische Versorgung?</label>${selectPicture("education",a.education)}`,
+  `<label for="education-answer">Welches fehlende Bild zeigt Lernen oder Hilfe bei Krankheit?</label>${selectPicture("education",a.education)}`,
  ];
  const review=step===4;
  return `<p class="eyebrow">EIN ERFUNDENES REDAKTIONSBEISPIEL</p><h2>„So sieht Afrika aus!“</h2>${smallPhotos(r.editorial)}<p>Ihr gebt alle vier Antworten gemeinsam ab. Vorher wird nichts bewertet.</p><p class="question-progress">${review?"Eure Gesamtabgabe":`Teilfrage ${step+1} von 4`}</p>${review ? `<ul><li>Orte: ${a.scope==="some"?"einige":"alle"}</li><li>Überall gleich: ${a.diversity==="different"?"nein":"ja"}</li><li>Arbeit: Bild ${escape(a.work)}</li><li>Lernen/Behandlung: Bild ${escape(a.education)}</li></ul>` : questions[step]}<div class="actions">${step>0?'<button type="button" class="outline" data-action="question-prev">Zurück zur Teilfrage</button>':""}${review?"":'<button type="button" class="primary" data-action="question-next">Antwort behalten und weiter</button>'}</div>${conceptHelp()}`;
@@ -162,16 +167,16 @@ function selectPicture(name,value) {
  return `<div class="compact-photos">${available.map(p=>photo(p,{compact:true})).join("")}</div><select name="${name}" id="${name}-answer"><option value="">Bitte auswählen</option>${available.map(p=>`<option value="${p.id}" ${String(p.id)===String(value)?"selected":""}>Bild ${p.id} · ${escape(p.title)}</option>`).join("")}</select>`;
 }
 function geography(id) {
- const data={atlas:{key:"atlas",prompt:"Auf diesem Foto liegt Schnee. Findet das Land!",evidence:"Der rote Punkt liegt im Gebirge im Norden/Nordwesten des Kontinents."},city:{key:"lagos",prompt:"Findet das Land dieser Großstadt!",evidence:"Der rote Punkt zeigt eine Stadt an der Küste Westafrikas."},cocoa:{key:"cocoa",prompt:"Aus diesen Früchten wird Kakao hergestellt. Findet das Land!",evidence:"Der rote Punkt zeigt den belegten Aufnahmeort in Westafrika."}}[id];
+ const data={atlas:{key:"atlas",prompt:"Auf diesem Foto liegt Schnee. Findet das Land!",evidence:"Der rote Punkt liegt im Gebirge im Norden/Nordwesten des Kontinents."},city:{key:"lagos",prompt:"Findet das Land dieser Großstadt!",evidence:"Der rote Punkt zeigt eine Stadt an der Küste Westafrikas."},cocoa:{key:"cocoa",prompt:"Aus diesen Früchten wird Kakao hergestellt. Findet das Land!",evidence:"Der rote Punkt zeigt den bekannten Aufnahmeort in Westafrika."}}[id];
  return `<h2>${escape(rubrics.tasks[id].label)}</h2><p class="instruction">${data.prompt}</p><div class="geography-layout">${photo(imageItem(data.key),{anonymous:true})}${map(id,"Afrikakarte mit Ländernamen und rotem Punkt am gesuchten Ort.")}</div><button type="button" class="outline" data-action="map" data-map="${id}">Karte groß ansehen</button><p class="map-caption">${data.evidence} Lest die Ländernamen.</p>${nameAnswer(id,"Wie heißt das Land?")}`;
 }
 function headline() {
  const r=rubrics.tasks.headline;
- return `<p class="instruction">Welche Überschrift passt zu Foto und Ortsbeleg?</p><div class="photo-grid">${photo(photos.find(p=>p.key==="market"))}</div>${radios("headline",r.options.map(o=>[o.id,o.label]),state.tasks.headline.answers.headline)}`;
+ return `<p class="instruction">Welche Überschrift passt zum Foto und zum bekannten Ort?</p><div class="photo-grid">${photo(photos.find(p=>p.key==="market"))}</div>${radios("headline",r.options.map(o=>[o.id,o.label]),state.tasks.headline.answers.headline)}`;
 }
 function matching() {
  const a=state.tasks.future.answers;
- return `<h2>Welche Frage passt zum gefragten Schwerpunkt?</h2><p>Mehrere Themen können zusammenhängen. Gebt die vier Zuordnungen gemeinsam ab.</p>${clues.map(c=>`<div class="match-row"><h3>${escape(c.name)}</h3><p>${escape(c.text)}</p><label for="match-${c.key}">Passende Untersuchungsfrage</label><select id="match-${c.key}" name="match-${c.key}"><option value="">Bitte auswählen</option>${futureQuestions.map(q=>`<option value="${q.id}" ${a.matches?.[c.key]===q.id?"selected":""}>${escape(q.text)}</option>`).join("")}</select></div>`).join("")}`;
+ return `<h2>Welche Frage passt zu dieser Nachricht?</h2><p>Manche Themen hängen zusammen. Wählt zu jeder Nachricht die passendste Frage. Gebt alle vier gemeinsam ab.</p>${clues.map(c=>`<div class="match-row"><h3>${escape(c.name)}</h3><p>${escape(c.text)}</p><label for="match-${c.key}">Passende Untersuchungsfrage</label><select id="match-${c.key}" name="match-${c.key}"><option value="">Bitte auswählen</option>${futureQuestions.map(q=>`<option value="${q.id}" ${a.matches?.[c.key]===q.id?"selected":""}>${escape(q.text)}</option>`).join("")}</select></div>`).join("")}`;
 }
 function resolution(id) {
  const t=state.tasks[id], r=rubrics.tasks[id], keys=correctionKeys(r);
@@ -188,7 +193,7 @@ function correctionOptions(id,key) {
 function resultView(id) {
  const t=state.tasks[id], r=rubrics.tasks[id];
  const message=t.usedFallback?"Abschlussaufgabe gelöst: 1 Punkt.":t.fullCorrect?`Alle Teile stimmen.${t.hint?` Mit ${t.hint===1?"einem Hinweis":`${t.hint} Hinweisen`}: ${t.points} Punkte.`:""}`:"Ein Teil stimmt. Eure Punkte bleiben erhalten. Schaut euch die übrigen Spuren an.";
- return `<section class="panel result"><p class="result-stamp">${message}</p><h2>${escape(t.fullCorrect||t.usedFallback?r.success:t.resolved?"Punkte gesichert – Auflösung abgeschlossen":"Punkte gesichert – Auflösung noch wichtig")}</h2>${id==="title"?map("reveal","Weltkarte. Der gesuchte Kontinent Afrika ist hervorgehoben."):""}<div class="points">${t.points} <small>${state.current===5?"Bonuspunkte":t.points===1?"Punkt":"Punkte"}</small></div><p>Diese Wertung bleibt festgeschrieben. Es gibt keine Nachbepunktung.</p>${resolution(id)}<p>${escape(r.paper)}</p><label class="check-label"><input type="checkbox" id="points-recorded" ${t.ack?"checked":""}>Wir haben unsere Punkte notiert.</label><div class="actions"><button type="button" class="primary" data-action="result-next" ${!t.ack||!t.resolved?"disabled":""}>${id==="title"?"Zur Ermittlungszentrale":"Weiter"}</button></div>${!t.resolved?'<p>Zur Zentrale könnt ihr zurückkehren. Die offene Auflösung bleibt gespeichert.</p>':""}</section>`;
+ return `<section class="panel result"><p class="result-stamp">${message}</p><h2>${escape(t.fullCorrect||t.usedFallback?r.success:t.resolved?"Punkte gesichert – Auflösung abgeschlossen":"Punkte gesichert – Auflösung noch wichtig")}</h2>${id==="title"?map("reveal","Weltkarte. Der gesuchte Kontinent Afrika ist hervorgehoben."):""}<div class="points">${t.points} <small>${state.current===5?"Bonuspunkte":t.points===1?"Punkt":"Punkte"}</small></div><p>Diese Punkte bleiben so. Es kommen keine Punkte mehr dazu.</p>${resolution(id)}<p>${escape(r.paper)}</p><label class="check-label"><input type="checkbox" id="points-recorded" ${t.ack?"checked":""}>Wir haben unsere Punkte notiert.</label><div class="actions"><button type="button" class="primary" data-action="result-next" ${!t.ack||!t.resolved?"disabled":""}>${id==="title"?"Zur Ermittlungszentrale":"Weiter"}</button></div>${!t.resolved?'<p>Zur Zentrale könnt ihr zurückkehren. Die offene Auflösung bleibt gespeichert.</p>':""}</section>`;
 }
 function taskView(id) {
   const t = state.tasks[id];
@@ -215,16 +220,17 @@ function paperSelection() {
  return `<section class="panel"><h2>Eure erste gemeinsame Auswahl</h2><p class="number-list">${cstate().selected.map(n=>String(n).padStart(2,"0")).join(" · ")}</p>${smallPhotos(cstate().selected)}<p>Notiert die vier Bildnummern auf Papier. Akte 001 hat eure Auswahl vielleicht schon beeinflusst.</p><label class="check-label"><input type="checkbox" id="paper-recorded" ${cstate().paperAck?"checked":""}>Wir haben die Bildnummern notiert.</label><div class="actions"><button type="button" class="primary" data-action="phase-next" ${!cstate().paperAck?"disabled":""}>Zur Redaktion</button></div></section>`;
 }
 function compare() {
- return `<section class="panel"><p class="eyebrow">EIN ERFUNDENES UNTERRICHTSBEISPIEL</p><h2>Die erfundene Redaktion behauptet …</h2><div class="comparison"><div><h3>Eure Auswahl</h3>${smallPhotos(cstate().confirmedSelection)}</div><div><h3>Die Redaktion: nur vier Bilder</h3>${smallPhotos(rubrics.tasks.selection.editorial)}</div></div><section class="editorial-claims" aria-label="Pauschale Behauptungen zum Prüfen"><p><strong>Behauptungen zum Prüfen – keine Tatsachen!</strong></p><ul>${editorialClaims.map(claim=>`<li data-claim="${claim.id}">„${escape(claim.text)}“</li>`).join("")}</ul></section><p>Die Redaktion ist erfunden. Sie steht nicht für alle Medien. Ihre vier Fotos reichen für solche Aussagen nicht aus.</p><p class="instruction">Welche Aussage ist besonders pauschal? Sprecht kurz darüber. Eure Gedanken werden nicht bewertet.</p>${conceptHelp()}<div class="actions"><button type="button" class="primary" data-action="phase-next">Die Auswahl prüfen</button></div></section>`;
+ return `<section class="panel"><p class="eyebrow">EIN ERFUNDENES UNTERRICHTSBEISPIEL</p><h2>Die erfundene Redaktion behauptet …</h2><div class="comparison"><div><h3>Eure Auswahl</h3>${smallPhotos(cstate().confirmedSelection)}</div><div><h3>Die Redaktion: nur vier Bilder</h3>${smallPhotos(rubrics.tasks.selection.editorial)}</div></div><section class="editorial-claims" aria-label="Pauschale Behauptungen zum Prüfen"><p><strong>Behauptungen zum Prüfen – keine Tatsachen!</strong></p><ul>${editorialClaims.map(claim=>`<li data-claim="${claim.id}">„${escape(claim.text)}“</li>`).join("")}</ul></section><p>Die Redaktion ist erfunden. Sie steht nicht für alle Medien. Ihre vier Fotos reichen für solche Aussagen nicht aus.</p><p class="instruction">Welche Aussage tut so, als wäre es überall gleich? Sprecht kurz darüber. Eure Gedanken werden nicht bewertet.</p>${conceptHelp()}<div class="actions"><button type="button" class="primary" data-action="phase-next">Die Auswahl prüfen</button></div></section>`;
 }
 
 function reflection() {
  const first=state.cases[2].confirmedSelection;
- return `<section class="panel"><h2>Vergleicht eure Auswahlen.</h2><p>Neue Auswahl: <strong>${cstate().selected.join(" · ")}</strong></p>${first.length===4?`<p>Bestätigte erste Auswahl: ${first.join(" · ")}</p>`:'<p>Eine bestätigte erste Auswahl fehlt in dieser Sitzung. Nutzt euren Papierbogen. Fehlt auch er, beschreibt euren jetzigen Stand; ein früherer Vergleich wird nicht erfunden.</p>'}<p class="instruction">Was hat sich verändert oder ergänzt? Was ist gleich geblieben? Dazu passt Beleg …</p><p>Wählt einen passenden Satzanfang. Ein Stichwort oder Bildverweis auf Papier genügt; eure Meinung wird nicht bewertet.</p><p>Auch zwölf Bilder zeigen nicht, wie alle Menschen leben.</p><label class="check-label"><input type="checkbox" id="paper-recorded" ${cstate().paperAck?"checked":""}>Wir haben etwas auf Papier festgehalten.</label><div class="actions"><button type="button" class="primary" data-action="phase-next" ${!cstate().paperAck?"disabled":""}>Die Überschrift prüfen</button></div></section>`;
+ return `<section class="panel"><h2>Vergleicht eure Auswahlen.</h2><p>Neue Auswahl: <strong>${cstate().selected.join(" · ")}</strong></p>${first.length===4?`<p>Bestätigte erste Auswahl: ${first.join(" · ")}</p>`:'<p>Eine bestätigte erste Auswahl fehlt in dieser Sitzung. Nutzt euren Papierbogen. Fehlt auch er, beschreibt euren jetzigen Stand; ein früherer Vergleich wird nicht erfunden.</p>'}<p class="instruction">Was hat sich verändert oder ergänzt? Was ist gleich geblieben?</p><p>Wählt einen Satzanfang oder eigene Wörter. Eine Bildnummer oder ein Stichwort auf Papier genügt. Eure Meinung bekommt keine Punkte.</p><ul class="sentence-starters"><li>Gleich geblieben ist …</li><li>Neu ist für uns …</li><li>Dazu passt Bild …</li></ul><p>Auch zwölf Bilder zeigen nicht, wie alle Menschen leben.</p><label class="check-label"><input type="checkbox" id="paper-recorded" ${cstate().paperAck?"checked":""}>Wir haben etwas auf Papier festgehalten.</label><div class="actions"><button type="button" class="primary" data-action="phase-next" ${!cstate().paperAck?"disabled":""}>Die Überschrift prüfen</button></div></section>`;
 }
 function sourceLink(key) {
  const source=evidenceSources[key];
- return source?.url?`<p class="source-note">Sachquelle: <a href="${escape(source.url)}" target="_blank" rel="noopener noreferrer">${escape(source.title)}</a></p>`:"";
+ const href=source?.url||source?.local;
+ return href?`<p class="source-note">${key==="housing"?"Nachsehen: Ort und Jahr":"Sachquelle"}: <a href="${escape(href)}" target="_blank" rel="noopener noreferrer">${escape(source.title)}</a></p>`:"";
 }
 function optionalSpurs(keys=[]) {
  return keys.length?`<details class="optional-spurs"><summary>Weitere Spuren · freiwillig und ohne Punkte</summary>${keys.map(key=>{const x=extraSpurs[key];return `<article><h3>${escape(x.title)}</h3>${(x.photos||[]).map(k=>photo(imageItem(k),{compact:true})).join("")}<p>${escape(x.text)}</p>${sourceLink(x.source)}</article>`;}).join("")}</details>`:"";
@@ -244,11 +250,11 @@ function newEvidence(step) {
 }
 function learningView() {
  const c=cstate(), lesson=currentLearning(), step=lesson.steps[c.learningStep], answers=c.learningAnswers;
- const fields=step.reflection?`<label for="learning-evidence">Eure Spur oder euer Rückblick</label><select id="learning-evidence" data-learning="evidence"><option value="">Bitte auswählen</option>${photos.map(p=>`<option value="${p.id}" ${answers.evidence===String(p.id)?"selected":""}>Bild ${p.id} · ${escape(p.title)}</option>`).join("")}<option value="A3-B1" ${answers.evidence==="A3-B1"?"selected":""}>A3-B1 · Stadtvergleich Lagos</option><option value="known" ${answers.evidence==="known"?"selected":""}>Das wussten wir schon.</option><option value="question" ${answers.evidence==="question"?"selected":""}>Wir haben eine offene Frage.</option></select><label for="learning-note">Wenige Wörter, wenn ihr möchtet</label><textarea id="learning-note" data-learning="note" maxlength="140">${escape(answers.note||"")}</textarea>`:(step.questions||[]).map(q=>`<label for="learning-${q.key}">${escape(q.label)}</label><select id="learning-${q.key}" data-learning="${q.key}"><option value="">Bitte auswählen</option>${q.options.map(o=>`<option value="${o.id}" ${String(answers[q.key])===o.id?"selected":""}>${escape(o.label)}</option>`).join("")}</select>`).join("");
- return `<section class="panel learning" data-learning-step="${step.id}"><p class="intro-label">Belege prüfen · ohne Punkte</p><h2>${escape(step.title)}</h2><p>${escape(step.text)}</p>${step.schema==="vehicles"?'<div class="evidence-schema" role="img" aria-label="Schema: Fabrik und Fahrzeug"><span aria-hidden="true">▥ → ▰</span><p>Schema zur Fahrzeugproduktion · kein dokumentarisches Foto</p></div>':step.schema==="cocoa"?`<div class="evidence-schema"><p>Vereinfachtes Schema mit vier Schritten · keine zusätzlichen Beweisfotos</p><ol class="cocoa-chain" aria-label="Vier Schritte vom Anbau zum Produkt">${step.chain.map((label,index)=>`<li>${cocoaSymbols(index)}<span>${escape(label)}</span></li>`).join("")}</ol></div>`:""}<div class="learning-photos">${(step.photos||[]).map((key,i)=>photo({...imageItem(key),anonymousId:String.fromCharCode(65+i)},{anonymous:step.anonymousPhotos,year:step.showYears})).join("")}</div>${step.map?map(step.map,"Karte: roter Punkt bei Lagos. Die Karte zeigt nicht die genaue Lage einzelner Stadtteile."):""}${step.cards?`<div class="context-cards">${step.cards.map(card=>`<article><h3>${escape(card.title)}</h3><p>${escape(card.text)}</p></article>`).join("")}</div>`:""}${c.learningChecked?`<div class="feedback neutral" role="status"><h3>Kurze Auflösung · eure Punkte bleiben gleich</h3><p>${escape(step.explanation)}</p></div>${newEvidence(step)}${sourceLink(step.source)}${optionalSpurs(lesson.extras)}<p>Wechselt jetzt, wenn möglich, die Bedienung im Team.</p><button type="button" class="primary" data-action="learning-next">Weiter ermitteln</button>`:`<div class="learning-fields">${fields}</div>${c.learningFeedback?`<p role="status">${escape(c.learningFeedback)}</p>`:""}<button type="button" class="primary" data-action="learning-check">Belege auswerten · ohne Punkte</button>`}${conceptHelp()}</section>`;
+ const fields=step.reflection?`<label for="learning-evidence">Euer Bild oder euer Rückblick</label><select id="learning-evidence" data-learning="evidence"><option value="">Bitte auswählen</option>${photos.map(p=>`<option value="${p.id}" ${answers.evidence===String(p.id)?"selected":""}>Bild ${p.id} · ${escape(p.title)}</option>`).join("")}<option value="A3-B1" ${answers.evidence==="A3-B1"?"selected":""}>A3-B1 · Stadtvergleich Lagos</option><option value="known" ${answers.evidence==="known"?"selected":""}>Das wussten wir schon.</option><option value="question" ${answers.evidence==="question"?"selected":""}>Wir haben eine offene Frage.</option></select><label for="learning-note">Wenige Wörter, wenn ihr möchtet</label><textarea id="learning-note" data-learning="note" maxlength="140">${escape(answers.note||"")}</textarea>`:(step.questions||[]).map(q=>`<label for="learning-${q.key}">${escape(q.label)}</label><select id="learning-${q.key}" data-learning="${q.key}"><option value="">Bitte auswählen</option>${q.options.map(o=>`<option value="${o.id}" ${String(answers[q.key])===o.id?"selected":""}>${escape(o.label)}</option>`).join("")}</select>`).join("");
+ return `<section class="panel learning" data-learning-step="${step.id}"><p class="intro-label">Bilder und Angaben prüfen · ohne Punkte</p><h2>${escape(step.title)}</h2><p>${escape(step.text)}</p>${step.schema==="vehicles"?'<div class="evidence-schema" role="img" aria-label="Schema: Fabrik und Fahrzeug"><span aria-hidden="true">▥ → ▰</span><p>Schema zur Fahrzeugproduktion · kein dokumentarisches Foto</p></div>':step.schema==="cocoa"?`<div class="evidence-schema"><p>Vereinfachtes Schema mit vier Schritten · keine zusätzlichen Beweisfotos</p><ol class="cocoa-chain" aria-label="Vier Schritte vom Anbau zum Produkt">${step.chain.map((label,index)=>`<li>${cocoaSymbols(index)}<span>${escape(label)}</span></li>`).join("")}</ol></div>`:""}<div class="learning-photos">${(step.photos||[]).map((key,i)=>photo({...imageItem(key),anonymousId:String.fromCharCode(65+i)},{anonymous:step.anonymousPhotos,year:step.showYears})).join("")}</div>${step.map?map(step.map,"Karte: roter Punkt bei Lagos. Die Karte zeigt nicht die genaue Lage einzelner Stadtteile."):""}${step.cards?`<div class="context-cards">${step.cards.map(card=>`<article><h3>${escape(card.title)}</h3><p>${escape(card.text)}</p></article>`).join("")}</div>`:""}${c.learningChecked?`<div class="feedback neutral" role="status"><h3>Kurze Auflösung · eure Punkte bleiben gleich</h3><div class="answer-feedback">${learningFeedback(step,answers).map(item=>`<p data-learning-feedback="${escape(item.key||"reflection")}" data-feedback-kind="${item.kind}">${escape(item.text)}</p>`).join("")}</div><p class="learning-summary">${escape(step.explanation)}</p></div>${moreInfo(step.more)}${newEvidence(step)}${sourceLink(step.source)}${optionalSpurs(lesson.extras)}<p>Wechselt jetzt, wenn möglich, die Bedienung im Team.</p><button type="button" class="primary" data-action="learning-next">Weiter ermitteln</button>`:`<div class="learning-fields">${fields}</div>${c.learningFeedback?`<p role="status">${escape(c.learningFeedback)}</p>`:""}<button type="button" class="primary" data-action="learning-check">Antworten ansehen · ohne Punkte</button>`}${conceptHelp()}</section>`;
 }
 function futureIntro() {
- return `<section class="panel"><p class="instruction">Erfundene Nachrichten zu echten Orten und Fotos.</p><p>Die Fotos illustrieren die Nachrichten; sie beweisen nicht, dass die erfundene Situation dort geschehen ist.</p><div class="clue-grid">${clues.map(c=>`<article class="clue-card">${photo(c)}<h2>${escape(c.name)}</h2><p>${escape(c.text)}</p></article>`).join("")}</div><p>Zuzug und natürliches Bevölkerungswachstum sind verschiedene Ursachen. Die Stadtansicht beweist keinen Wachstumstrend.</p><div class="actions"><button type="button" class="primary" data-action="phase-next">Spuren zuordnen</button></div></section>`;
+ return `<section class="panel"><p class="instruction">Erfundene Nachrichten zu echten Orten und Fotos.</p><p>Die Nachrichten sind erfunden. Die Fotos zeigen echte Orte. Sie zeigen nicht, dass die Nachricht dort passiert ist.</p><div class="clue-grid">${clues.map(c=>`<article class="clue-card">${photo(c)}<h2>${escape(c.name)}</h2><p>${escape(c.text)}</p></article>`).join("")}</div><p>Eine Stadt kann wachsen, weil Menschen zuziehen oder mehr Kinder geboren werden als Menschen sterben. Ein Foto allein zeigt kein Wachstum.</p><div class="actions"><button type="button" class="primary" data-action="phase-next">Spuren zuordnen</button></div></section>`;
 }
 function futureQuestion() {
  return `<section class="panel"><h2>Welche Zukunftsfrage habt ihr?</h2><p>Eine freiwillige Frage, ohne Punkte.</p><div class="question-ideas">${["Warum gibt es …?","Wer kann … nutzen?","Welche Folgen hat …?","Wie könnte man …?"].map(text=>`<button type="button" data-action="sentence" data-sentence="${escape(text)}">${escape(text)}</button>`).join("")}</div><label for="future-question">Eure Frage (freiwillig)</label><textarea id="future-question" maxlength="300">${escape(cstate().question||"")}</textarea><p>Die Frage kann auch nur auf Papier stehen.</p><button type="button" class="primary" data-action="finish">Ermittlung abschließen</button></section>`;
@@ -261,7 +267,7 @@ function summary() {
       : id === 4
         ? `<h2>Ermittlung abgeschlossen!</h2><p>Ihr habt viele unterschiedliche Orte entdeckt.<br>Prüft eure Punkte und euren Ermittlungsbogen.</p><h3>Rechnet eure Punkte zusammen.</h3><p class="quiet">Nutzt euren Papierbogen. Ihr braucht keinen alten digitalen Spielstand.</p><div class="calculator">${[5, 5, 15, 5].map((max, i) => `<label>Akte ${i + 1} / ${max}<input type="number" inputmode="numeric" min="0" max="${max}" step="1" class="score-input" aria-label="Punkte Akte ${i + 1}"></label>`).join("")}</div><p id="calculator-total" class="calculator-total" aria-live="polite">Gesamt: — / 30</p><p>Bonus-Akte 005: extra aufschreiben. Maximal 5 Bonuspunkte.</p>`
         : id === 2
-          ? `<h2>Fotos zeigen nur einen Teil der Wirklichkeit. Auch zwölf Bilder zeigen nicht alle Lebensbedingungen.</h2><p>Ergänzt auf Papier: „Vier Fotos zeigen nur …“</p>`
+          ? `<h2>Ein Foto zeigt einen Ort. Es zeigt nicht, wie alle Menschen leben.</h2><p>Ergänzt jetzt auf Papier: „Vier Fotos zeigen …“</p>`
           : id === 5
             ? `<h2>Neue Spuren gefunden!</h2><p>Im Geographieunterricht könnt ihr eure Fragen weiter untersuchen.</p><p class="points">${state.tasks.future.points} / 5 Bonuspunkte</p><p>Die Bonuspunkte zählen getrennt.</p>`
             : `<h2>Unser neues Thema ist AFRIKA!</h2>${map("reveal", "Weltkarte mit hervorgehobenem Afrika.")}`;
@@ -379,9 +385,18 @@ main.addEventListener("submit",event=>{
  render({focus:task.scored,scroll:task.scored});if(!task.scored)main.querySelector(".feedback")?.focus();
 });
 
+let dictionaryTrigger;
 const dictionaryDialog = document.querySelector("#dictionary");
-document.querySelector("#dictionary-open").addEventListener("click", () => {
+dictionaryDialog.addEventListener("close",()=>{
+ if(dictionaryTrigger?.isConnected && !dictionaryTrigger.disabled)dictionaryTrigger.focus({preventScroll:true});
+});
+dictionaryDialog.addEventListener("keydown",event=>{
+ if(event.key==="Escape" && !event.isComposing){event.preventDefault();dictionaryDialog.close();}
+});
+document.querySelector("#dictionary-open").addEventListener("click", event => {
+  dictionaryTrigger=event.currentTarget;
   captureDraft();
+  persist();
   dictionaryDialog.showModal();
   document.querySelector("#dictionary-input").focus();
 });
@@ -401,8 +416,9 @@ function dictionarySearch() {
       : r.status === "found"
         ? r.translation
         : "Keine Übersetzung vorhanden.";
-  document.querySelector("#dictionary-context").textContent = r.entry?.context
-    ? `Bedeutung im Spiel: ${r.entry.context}` : "";
+  const help=wordHelp.find(([word])=>word.split(" / ").some(alias=>normalize(alias)===normalize(input)));
+  document.querySelector("#dictionary-context").textContent = help
+    ? `Einfach erklärt: ${help[1]}` : r.entry?.context ? `Bedeutung im Spiel: ${r.entry.context}` : "";
   const suggestions = document.querySelector("#dictionary-suggestions");
   suggestions.innerHTML = r.suggestions
     .map(

@@ -1,0 +1,13 @@
+
+> die-geheime-ermittlungszentrale@2.2.0 check:start
+> node scripts/check-start.mjs http://127.0.0.1:4175/ http://127.0.0.1:4174/Ermittlungszentrale/
+
+BESTANDEN desktop: http://127.0.0.1:4175/ – CSS, Motiv, fünf Akten, Hinweise/Punkte, Wörterbuch, 24 Fotos.
+BESTANDEN ipad: http://127.0.0.1:4175/ – CSS, Motiv, fünf Akten, Hinweise/Punkte, Wörterbuch, 24 Fotos.
+BESTANDEN desktop: http://127.0.0.1:4174/Ermittlungszentrale/ – CSS, Motiv, fünf Akten, Hinweise/Punkte, Wörterbuch, 24 Fotos.
+BESTANDEN ipad: http://127.0.0.1:4174/Ermittlungszentrale/ – CSS, Motiv, fünf Akten, Hinweise/Punkte, Wörterbuch, 24 Fotos.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
