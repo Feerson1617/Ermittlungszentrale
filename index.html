@@ -13,12 +13,79 @@
     />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-nwCe7qTBt6SMuysfazfgtH/lZbnvli1GwiS4nlGPC+U='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"
     />
     <title>Die geheime Ermittlungszentrale</title>
     <link rel="icon" href="assets/icons/detective.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script type="module" src="js/app.js"></script>
+    <script data-startup>
+      (() => {
+        const controller = new AbortController();
+        let settled = false, timer;
+        const fail = (error) => {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          controller.abort();
+          document.documentElement.dataset.appState = "failed";
+          const show = () => {
+            let status = document.querySelector("#startup-status");
+            if (!status) {
+              status = document.createElement("section");
+              status.className = "panel";
+              status.innerHTML = '<h1></h1><p id="startup-detail"></p><p>Prüft den HTTP-Webserver und ladet die Seite erneut.</p><a href="">Seite erneut laden</a>';
+              document.querySelector("#main").replaceChildren(status);
+            }
+            status.setAttribute("role", "alert");
+            status.querySelector("h1").textContent = "Die Akten konnten nicht geladen werden.";
+            status.querySelector("h1").classList.remove("boot-message");
+            document.querySelector("#startup-detail").textContent = error.message;
+            document.querySelector("#dictionary-open").disabled = true;
+          };
+          if (document.readyState === "loading")
+            document.addEventListener("DOMContentLoaded", show, { once: true });
+          else show();
+          console.error("Spielstart fehlgeschlagen:", error);
+        };
+        // This guard precedes the stylesheet and the module graph, so their failures are visible.
+        window.addEventListener("error", (event) => {
+          if (event.target?.id === "app-style")
+            fail(new Error("Die Gestaltung (css/style.css) fehlt oder wird vom Browser blockiert."));
+        }, true);
+        document.addEventListener("securitypolicyviolation", (event) => {
+          if (event.disposition === "enforce" && /^(script|style|connect)-src/.test(event.effectiveDirective))
+            fail(new Error("Eine Sicherheitsrichtlinie blockiert benötigte Spieldateien. Öffnet die vollständige Anwendung über einen HTTP-Webserver."));
+        });
+        timer = setTimeout(() => fail(new Error("Der Start dauert zu lange. Prüft die Verbindung zum Webserver und ladet die Seite erneut.")), 18000);
+        document.addEventListener("DOMContentLoaded", async () => {
+          if (settled) return;
+          document.querySelector("#startup-status h1").textContent = "Die Akten werden geöffnet …";
+          try {
+            if (!["http:", "https:"].includes(location.protocol))
+              throw new Error("Einzelne HTML-Dateien können das Spiel nicht starten. Nutzt einen HTTP-Webserver für den gesamten Projektordner.");
+            const style = document.querySelector("#app-style");
+            const styled = new Promise((resolve, reject) => {
+              const check = () => getComputedStyle(document.documentElement).getPropertyValue("--paper").trim()
+                ? resolve() : reject(new Error("Die geladene CSS-Datei enthält nicht die Gestaltung des Spiels."));
+              if (style.sheet) check();
+              else {
+                style.addEventListener("load", check, { once: true });
+                style.addEventListener("error", () => reject(new Error("Die Gestaltung konnte nicht geladen werden.")), { once: true });
+              }
+            });
+            const [app] = await Promise.all([import("./js/app.js"), styled]);
+            if (settled) return;
+            await app.boot({ signal: controller.signal });
+            if (settled) return;
+            settled = true;
+            clearTimeout(timer);
+            document.documentElement.dataset.appState = "ready";
+          } catch (error) {
+            fail(new Error("JavaScript oder lokale Spieldaten konnten nicht gestartet werden. " + error.message));
+          }
+        }, { once: true });
+      })();
+    </script>
+    <link id="app-style" rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <a class="skip" href="#main">Zum Inhalt</a>
@@ -41,7 +108,16 @@
       </button>
     </header>
     <main id="main" tabindex="-1">
-      <p class="boot-message">Die Akten werden geöffnet …</p>
+      <section id="startup-status" class="panel" role="status" aria-live="polite">
+        <h1 class="boot-message">Das Spiel ist noch nicht gestartet.</h1>
+        <p id="startup-detail">JavaScript, Gestaltung und lokale Spieldaten müssen geladen werden. Falls diese Meldung bleibt, ist der Start blockiert.</p>
+        <p>Öffnet die vollständige Anwendung über einen HTTP-Webserver. Eine Vorschau nur dieser HTML-Datei reicht nicht aus.</p>
+        <details>
+          <summary>So startet ihr die Anwendung</summary>
+          <p>Im gesamten Projektordner <code>npm start</code> ausführen und den Serverport 4173 im Browser öffnen. In einer Cloud-Umgebung muss dieser Port weitergeleitet sein. Alle Unterordner müssen mit ausgeliefert werden.</p>
+        </details>
+        <p><a href="" class="outline">Seite erneut laden</a></p>
+      </section>
     </main>
     <footer class="site-footer">
       <a id="photo-sources" href="bildnachweise.html" target="_blank" rel="noopener" hidden>Bildquellen und Lizenzen</a>

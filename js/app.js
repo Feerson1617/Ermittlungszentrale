@@ -504,14 +504,20 @@ document.querySelector("#restart-confirm").addEventListener("click", () => {
   restartDialog.close();
   render({ focus: true, scroll: true });
 });
-async function boot() {
+export async function boot({ signal } = {}) {
   [rubrics, entries, media] = await Promise.all(
     ["rubrics.json", "dictionary.json", "media.json"].map(async (file) => {
-      const response = await fetch(new URL("../data/" + file, import.meta.url));
-      if (!response.ok) throw new Error("Lokale Spieldaten fehlen.");
-      return response.json();
+      const response = await fetch(new URL("../data/" + file, import.meta.url), { signal });
+      if (!response.ok) throw new Error(`${file}: HTTP ${response.status}.`);
+      if (!response.headers.get("Content-Type")?.includes("application/json"))
+        throw new Error(`${file}: Der Server liefert keine JSON-Datei.`);
+      try { return await response.json(); }
+      catch { throw new Error(`${file}: Die JSON-Datei ist ungültig.`); }
     }),
   );
+  if (signal?.aborted) return;
+  if (!rubrics?.tasks || !Array.isArray(rubrics.limits) || !Array.isArray(entries) || !media?.images)
+    throw new Error("Die lokalen Spieldaten haben ein ungültiges Format.");
   document.querySelector("#dictionary-language").innerHTML = languages
     .map(([code, name]) => `<option value="${code}">${name}</option>`)
     .join("");
@@ -519,8 +525,3 @@ async function boot() {
   document.querySelector("#dictionary-open").disabled = false;
   render();
 }
-boot().catch((error) => {
-  main.innerHTML =
-    '<section class="panel"><h1>Die Akten konnten nicht geladen werden.</h1><p>Ladet die Seite neu. Nutzt den GitHub-Pages-Link oder einen lokalen Webserver.</p></section>';
-  console.error(error);
-});

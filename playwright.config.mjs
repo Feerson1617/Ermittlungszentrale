@@ -18,6 +18,17 @@ export default defineConfig({
   },
   projects: [
     {
+      name: "chromium-desktop",
+      use: {
+        viewport: { width: 1440, height: 1000 },
+        browserName: "chromium",
+        launchOptions: {
+          executablePath: process.env.CHROMIUM_PATH || "/usr/bin/chromium",
+          args: ["--no-sandbox"],
+        },
+      },
+    },
+    {
       name: "chromium-ipad",
       use: {
         ...devices["iPad (gen 7) landscape"],

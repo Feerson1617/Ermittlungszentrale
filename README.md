@@ -2,7 +2,7 @@
 
 Ein browserbasiertes Geographie-Detektivspiel für Klasse 7: fünf unabhängige Akten, kurze Texte, Zweierteams und Ergebnisse auf Papier. Reines HTML, CSS und JavaScript, ohne Build-Schritt für das Spiel.
 
-**Abnahmestatus:** Alle fünf Akten enthalten die 15 authentischen, lokal gespeicherten Fotografien mit belegten Aufnahmeorten und freien Lizenzen. Das Wörterbuch ist auf 176 Kurmandschi- und 177 Sorani-Werte erweitert; alle sieben Sprachen sind redaktionell plausibilisiert. Offen bleiben 21 kurdische Einträge, die muttersprachliche Abnahme aller sieben Sprachen und Safari auf einem echten Schul-iPad. Einzelheiten in [Abnahme](docs/abnahme.md), [Wörterbuchprüfung](docs/woerterbuch-pruefung.md), [Bildquellen](docs/bildquellen.md) und [Testbericht](docs/testbericht.md).
+**Abnahmestatus:** Alle fünf Akten enthalten die 15 authentischen, lokal gespeicherten Fotografien mit belegten Aufnahmeorten und freien Lizenzen. Das Wörterbuch ist auf 176 Kurmandschi- und 177 Sorani-Werte erweitert; alle sieben Sprachen sind redaktionell plausibilisiert. Offen bleiben 21 kurdische Einträge, die muttersprachliche Abnahme aller sieben Sprachen und Safari auf einem echten Schul-iPad. Die gemeldete Störung auf der öffentlichen Vorschau ist mangels Live-Zugriff ebenfalls noch nicht abschließend diagnostiziert; die lokale Startkorrektur ist geprüft. Einzelheiten in [Abnahme](docs/abnahme.md), [Wörterbuchprüfung](docs/woerterbuch-pruefung.md), [Bildquellen](docs/bildquellen.md) und [Testbericht](docs/testbericht.md).
 
 ## Lokal starten
 
@@ -12,11 +12,15 @@ Mit Node.js 24 (getestet; keine Laufzeitpakete nötig):
 npm start
 ```
 
-Danach Port 4173 im Browser öffnen. Alternativ `python3 -m http.server 4173` im Repository. `index.html` nicht als `file://` öffnen, weil ES-Module und lokale JSON-Daten einen HTTP-Server benötigen.
+Danach den laufenden Server auf Port 4173 im Browser öffnen, unter `/` oder `/Ermittlungszentrale/`. In einer Cloud-Umgebung ist dafür eine unterstützte Portweiterleitung nötig; eine Einzeldateivorschau reicht nicht. Alternativ `python3 -m http.server 4173` im Repository. `index.html` nicht als `file://` öffnen, weil ES-Module und lokale JSON-Daten einen HTTP-Server benötigen.
+
+`npm run check:start -- <vollständige HTTP(S)-URL>` prüft eine bereits laufende Vorschau auf sichtbare Gestaltung, alle fünf bedienbaren Akten, alle 15 Bilder, Wörterbuch sowie Hinweise/Punkte. Der Befehl startet keinen Testserver. Befunde und Startwege: [Vorschauprüfung](docs/vorschau.md).
 
 ## GitHub Pages
 
-Nach Prüfung und Merge: im Repository **Settings → Pages → Deploy from a branch → main → / (root)** auswählen und speichern. GitHub Pages veröffentlicht `index.html` und die relativen Ressourcen. Es gibt keinen Build oder App-Server im Deployment. `.nojekyll` verhindert Jekyll-Verarbeitung. Die Anwendung ist auch unter dem Projektpfad `/Ermittlungszentrale/` getestet. Es wurde durch die Entwicklung noch kein Merge oder Pages-Deployment ausgelöst.
+GitHub Pages benötigt nur `index.html` und die lokalen relativen Ressourcen. Es gibt keinen Build oder App-Server im Deployment; `.nojekyll` bleibt erhalten. Root und Projektpfad sind auch mit einem unabhängigen statischen HTTP-Server getestet.
+
+**Tatsächliche Konfiguration laut GitHub-API am 20.10.2026:** Pages veröffentlicht automatisch `feature/detektivspiel-komplett` aus `/`, zuletzt Commit `84f5467`. Die frühere Annahme, Pages werde erst nach einem Merge aus `main` veröffentlicht, war falsch. Ein Push auf den Entwicklungsbranch kann deshalb ein Deployment auslösen. Solange der Auftrag „kein Deployment“ gilt, bleibt der Push der Startkorrektur aus; Pages-Einstellungen werden nicht eigenmächtig geändert. Die Live-Seite war aus dieser Cloud wegen einer Netzwerkfreigabe nicht abrufbar und gilt nicht als repariert. Einzelheiten und geprüfte Alternative: [Vorschauprüfung](docs/vorschau.md).
 
 Unterricht erst nach den offenen Abnahmen freigeben. Alle Akten starten über denselben Link. Lösungen und Lehrermaterialien sind im öffentlichen Repository technisch einsehbar; es gibt keine behauptete Zugriffssperre.
 

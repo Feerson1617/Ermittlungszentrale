@@ -1,12 +1,15 @@
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { resolve, sep, extname } from "node:path";
-const root = resolve(new URL("..", import.meta.url).pathname);
+import { fileURLToPath } from "node:url";
+const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const mime = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
+  ".mjs": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
+  ".geojson": "application/geo+json; charset=utf-8",
   ".svg": "image/svg+xml",
   ".jpg": "image/jpeg",
   ".webp": "image/webp",
@@ -15,9 +18,12 @@ const mime = {
 };
 createServer(async (req, res) => {
   try {
-    let pathname = decodeURIComponent(
-      new URL(req.url, "http://local").pathname,
-    );
+    const url = new URL(req.url, "http://local");
+    let pathname = decodeURIComponent(url.pathname);
+    if (pathname === "/Ermittlungszentrale") {
+      res.writeHead(308, { Location: "/Ermittlungszentrale/" + url.search }).end();
+      return;
+    }
     if (pathname.startsWith("/Ermittlungszentrale/"))
       pathname = pathname.slice("/Ermittlungszentrale".length);
     const target = resolve(root, "." + pathname);
@@ -25,14 +31,18 @@ createServer(async (req, res) => {
       res.writeHead(403).end();
       return;
     }
-    const path = (await stat(target)).isDirectory()
-      ? resolve(target, "index.html")
-      : target;
+    const directory = (await stat(target)).isDirectory();
+    if (directory && !pathname.endsWith("/")) {
+      res.writeHead(308, { Location: url.pathname + "/" + url.search }).end();
+      return;
+    }
+    const path = directory ? resolve(target, "index.html") : target;
     const file = await readFile(path);
     res
       .writeHead(200, {
         "Content-Type": mime[extname(path)] || "application/octet-stream",
         "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
       })
       .end(file);
   } catch {

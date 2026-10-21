@@ -11,6 +11,10 @@
 
 `data/review.json` trennt die datierte redaktionelle Prüfung (`dictionaryEditorial`, an den Datei-Hash gebunden) von den sieben weiterhin unbestätigten muttersprachlichen Abnahmen (`dictionary`). Eine redaktionelle oder automatisierte Prüfung setzt diese Abnahmen nicht auf wahr. Der Safari-Eintrag bleibt ebenfalls offen; den echten Schul-iPad-Test übernimmt das Projektteam anschließend selbst.
 
+## Gemeldeter Ausfall der veröffentlichten Seite
+
+Der Start der bereits laufenden Anwendung ist unter Root und Projektpfad auf Desktop/iPad geprüft; CSS-/Modul-/JSON-Fehler haben jetzt eine verständliche Starthilfe statt einer dauerhaften Lademeldung. Der gemeldete Ausfall auf der tatsächlichen GitHub-Pages-Adresse bleibt **nicht abschließend diagnostiziert**: der Cloud-Proxy blockiert den Abruf, und es steht kein bedienbarer Codex-Vorschauendpunkt zur Verfügung. Diese Live-Abnahme wird vom dateibasierten Release-Audit nicht erfasst. Die Startkorrektur wird wegen der automatisch aus dem Entwicklungsbranch veröffentlichenden Pages-Konfiguration zunächst nicht gepusht. Nachweise, unabhängige statische Alternative und Konflikt zum Deployment-Verbot: [Vorschauprüfung](vorschau.md).
+
 ## Geprüfte Technik
 
 Siehe `testbericht.md` für tatsächlich ausgeführte Befehle und Ergebnisse. Keine Anmeldung; keine externe Antwortbewertung, Übersetzung oder Schrift. `sessionStorage` ist optional und nur für die laufende Tabsitzung. Ohne Browser-Persistenz bleibt das Spiel funktionsfähig; ein Neuladen verliert dann die laufende Ermittlung. Papier ist die verlässliche Sicherung über Stunden und Geräte hinweg.
@@ -25,4 +29,4 @@ Die aktive Policy erlaubt `commons.wikimedia.org`, `upload.wikimedia.org`, `cdn.
 
 ## GitHub-Übergabe
 
-Der bestehende offene Draft-PR [#1](https://github.com/Feerson1617/Ermittlungszentrale/pull/1) verwendet `feature/detektivspiel-komplett` gegen `main`. Die Wörterbuchergänzung wird direkt auf diesen Entwicklungsbranch übertragen; kein zweiter PR, kein Merge und kein Deployment. Beschreibung: `docs/pull-request.md`.
+Der bestehende offene Draft-PR [#1](https://github.com/Feerson1617/Ermittlungszentrale/pull/1) verwendet `feature/detektivspiel-komplett` gegen `main`. Die Wörterbuchergänzung liegt auf diesem Entwicklungsbranch. Die neue Startkorrektur wird lokal auf demselben Branch vorbereitet; ein Push würde laut aktueller Pages-Konfiguration automatisch veröffentlichen und bleibt bis zur Klärung des Deployment-Verbots aus. Kein zweiter PR und kein Merge. Beschreibung: `docs/pull-request.md`.

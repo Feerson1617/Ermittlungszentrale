@@ -1,3 +1,9 @@
+**Vorbereitete Startkorrektur – noch nicht in den Remote-Commits dieses PR enthalten:** CSS-/Modul-/JSON-Fehler führen nun zu einer verständlichen Starthilfe; ein Zeitlimit verhindert die dauerhafte Lademeldung. Root, Projektpfad und Weiterleitung ohne Slash sind geprüft. Separat gestarteter Node-Server und unabhängige statische Python-Server wurden auf Desktop/iPad tatsächlich bedient: fünf Akten, alle 15 Fotos, Wörterbuch, Hinweise und Punkte. Neue Regressionstests prüfen außerdem fehlende, falsch ausgelieferte und hängende Ressourcen. Aktueller lokaler Stand: **192/192 Node-Tests, 152/152 Browserfälle einschließlich 38 WebKit**, PDF-Prüfung bestanden.
+
+Die GitHub-API meldet Pages als automatische Veröffentlichung aus `feature/detektivspiel-komplett`. Der Push der lokalen Startkorrektur bleibt deshalb wegen des ausdrücklichen Deployment-Verbots aus. Die öffentliche URL ist hier vom Cloud-Proxy blockiert und wird nicht als repariert behauptet. Der bestehende PR bleibt ein Draft, kein neuer PR und kein Merge. Befunde/Startweg: `docs/vorschau.md`, Nachweise: `docs/testbericht.md`.
+
+---
+
 Das Projekt enthält ein Geographie-Detektivspiel mit fünf unabhängig startbaren Akten, lokaler Bewertung, Wörterbuch und druckbaren Unterrichtsmaterialien. Alle 15 authentischen Beweisfotografien sind integriert. Das lokale Wörterbuch wurde um 248 belegte Kurmandschi-/Sorani-Werte ergänzt. Der PR bleibt wegen ausstehender Sprach- und echter iPad-Abnahmen ein Entwurf.
 
 - Akte 001 erschließt den Kontinent aus vier Fotos; Bildbeschriftungen, neutrale Dateinamen und verzögert eingeblendete Quellen verraten ihn vor der Lösung nicht.

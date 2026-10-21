@@ -6,6 +6,7 @@
   "description": "Lokales Geographie-Detektivspiel für Klasse 7",
   "scripts": {
     "start": "node scripts/serve.mjs",
+    "check:start": "node scripts/check-start.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
     "materials": "node scripts/materials.mjs",
