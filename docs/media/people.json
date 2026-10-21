@@ -1,0 +1,184 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "5051643": {
+        "pageid": 5051643,
+        "ns": 6,
+        "title": "File:Nairobi skyline P1000019.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2008-10-23T13:36:11Z",
+            "size": 4517956,
+            "width": 3648,
+            "height": 2736,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Nairobi_skyline_P1000019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Nairobi_skyline_P1000019.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=5051643",
+            "sha1": "2957f68bb2dc5bb57181c069a375f9c070494571",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2008-10-23 13:36:11",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Nairobi skyline P1000019",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Taken with Panasonic Lumix DMC-FS5|2008 in Kenya|Skyscrapers in Nairobi|Self-published work|Skylines in Kenya|140-meter-tall buildings|FoP-Kenya|Photographs taken on 2008-04-19|Files with coordinates missing SDC location of creation|Skylines of Nairobi",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "-1.296500",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "36.817778",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Nairobi skyline from Upperhill",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "19 April 2008<span typeof=\"mw:Entity\"> </span>(according to <span lang=\"en\" dir=\"ltr\"><a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/Exif\" title=\"en:Exif\" class=\"extiw\">Exif</a></span> data)<link rel=\"mw:PageProp/Category\" href=\"./Category:Photographs_taken_on_2008-04-19\">",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a rel=\"mw:WikiLink\" href=\"https://commons.wikimedia.org/wiki/User:Lmwangi?action=edit&amp;redlink=1\" title=\"User:Lmwangi (page does not exist)\" class=\"new\" typeof=\"mw:LocalizedAttrs\" data-mw-i18n='{\"title\":{\"lang\":\"x-page\",\"key\":\"red-link-title\",\"params\":[\"User:Lmwangi\"]}}'>Lmwangi</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 3.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 3.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-3.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1251738834,
+            "parentid": 1073256579,
+            "timestamp": "2026-07-25T07:25:42Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "== {{int:filedesc}} ==\n{{Information\n|Description={{en|1=Nairobi skyline from Upperhill}}\n|Source={{own}}\n|Author=[[User:Lmwangi|Lmwangi]]\n|Date={{accordingtoexif|2008-04-19}}\n|Permission=\n|other_versions=\n}}\n{{Location|1|17|47.4|S|36|49|4|E|region:KE}}\n\n== {{int:license-header}} ==\n{{self|cc-by-sa-3.0}}\n{{FoP-Kenya}}\n\n\n[[Category:Skyscrapers in Nairobi]]\n[[Category:140-meter-tall buildings]]\n[[Category:Skylines in Kenya]]\n[[Category:Taken with Panasonic Lumix DMC-FS5]]\n[[Category:2008 in Kenya]]\n[[Category:Skylines of Nairobi]]"
+              }
+            }
+          }
+        ],
+        "coordinates": [
+          {
+            "lat": -1.2965,
+            "lon": 36.81777778,
+            "primary": "",
+            "globe": "earth"
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:140-meter-tall buildings"
+          },
+          {
+            "ns": 14,
+            "title": "Category:2008 in Kenya"
+          },
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-3.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Files with coordinates missing SDC location of creation"
+          },
+          {
+            "ns": 14,
+            "title": "Category:FoP-Kenya"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Photographs taken on 2008-04-19"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Skylines in Kenya"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Skylines of Nairobi"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Skyscrapers in Nairobi"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Taken with Panasonic Lumix DMC-FS5"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}

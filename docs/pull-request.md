@@ -1,0 +1,20 @@
+Version 2.0 korrigiert fachlich falsche Namensbewertungen, verlorene Antwortentwürfe und den verfrühten Abschluss bei Teilpunkten. Beispielsweise sind drei Rohpunkte bei einem Hinweis weiterhin ein Teilerfolg; offene Kriterien werden jetzt unbewertet geklärt, die drei Punkte bleiben fest. „Afrika ist ein Land“ ist falsch, die richtige Kontinent-Negation wird erkannt. Neutrale Namensklärung und unterschiedliche feste Abschlusspositionen erhalten die einfache Bedienung.
+
+Die fünf unabhängigen Akten behalten sieben Wertungen mit 30 Haupt- und fünf getrennten Bonuspunkten. Akte 002 nutzt vier geschlossene Teilfragen und eine Gesamtabgabe. Akte 003 ergänzt die drei Länderfälle um neun kurze unbewertete Belegschritte: Industrie in Marokko, Handel und verschiedene Lebensbedingungen in Lagos, Kakao vom Anbau zum Produkt, Bildung/Gesundheit und Rückbezug. Zusätzliche Film-, Digital-, Energie- und Logistikspuren bleiben freiwillig. Persönliche Auswahlen und Reflexionen werden nicht bewertet.
+
+- Gemeinsamer Zwölferkatalog in Akte 002/004; erste/zweite bestätigte Auswahl getrennt. Alle 15 bisherigen Fotos bleiben bytegleich, vier authentische örtlich/lizenzrechtlich belegte Ergänzungen. Insgesamt 19 lokale WebP-Dateien, 3.59 MiB; kein externer Bildabruf. Bildquellen/Revisionen, Rechte, Bearbeitungen und Grenzen vollständig dokumentiert.
+- Schema mit sichtbaren Kakaobohnen und vier Schritten, keine generierten geografischen Beweisfotos. Skyline und Wohnbilder belegen keine Einkommen oder Wachstumstrends. Zukunftsnachrichten sind ausdrücklich erfunden. Direkter Originalabgleich einzelner institutioneller Sachquellen bleibt mangels Zugriff offen und ist entsprechend gekennzeichnet.
+- Wörterbuch mit 197 deutschen Begriffen und zehn Ergänzungen; Kurmandschi und Sorani jeweils 184 belegte Werte. Alle neuen nichtleeren Werte in sieben Sprachen besitzen Einzelbelege; keine erfundenen Begriffe. Bekannte Flexionsformen/Aliasse und kostenlose deutsche Hilfen ergänzen den Zugang. Sprachkundige Abnahme bleibt offen.
+- Ein beidseitiger Schülerbogen mit genau zwei themenneutralen A4-Seiten. Erwartungshorizont elf Seiten, explizite Nummerntabelle 1–12, Extra-Belege und vollständige Wertungs-/Auflösungsregeln. Alle 13 PDF-Seiten gerendert und visuell geprüft.
+- Getrennter Fotozoom mit Fokus-Rückgabe, sichere Rücksetzung alter V1-Sitzungen, optionale Speicherung. Startüberwachung, CSP-Hash, MIME-Typen, relative Pfade und Pages-Kompatibilität bleiben erhalten.
+
+Validierung der Implementierung `c213e9f`:
+
+- **238 Node-Prüfungen und 250 Browserfälle bestanden**, darunter 50 tatsächliche WebKit-Läufe. Desktop, iPad quer/hoch und schmale Touch-Ansicht; keine übersprungenen Tests.
+- Nach Serverneustart Root/Projektpfad jeweils Desktop/iPad vollständig bedient. Weitere vier erfolgreiche Durchläufe über unabhängige statische Python-Server. Menü, CSS, Detektivmotiv, alle Akten, 19 dekodierte Fotos, Wörterbuch und Punkte geprüft.
+- PDF-, Quellen-/Hash-, Medienreproduktions- und Kartenprüfung bestanden. Protokolle/Screenshots: `docs/qa/v2/`; Befundmatrix: `docs/v2-umsetzung.md`; technische Ergebnisse: `docs/testbericht.md`.
+- Release-Audit endet bewusst mit **2 / 19 offenen Kategorien**: 32 leere Wörterbuchwerte, sieben Sprachabnahmen, echtes Schul-iPad/Safari, Originalabgleiche, reale Druckprobe, Lerngruppenerprobung und öffentliche Live-Funktion. Kein durchgeführter Muttersprachler- oder Gerätetest behauptet.
+
+Der direkte öffentliche Abruf ist hier beim Cloud-Proxy-CONNECT gesperrt; erfolgreiche lokale Tests oder ein Pages-Build sind keine Live-Funktionsabnahme. Der richtige HTTP-Start und eine geprüfte statische Alternative sind in `docs/vorschau.md` dokumentiert.
+
+Der Nutzer hat „Version 2.0 umsetzen, aber auch Push, PR und Deployment“ ausdrücklich beauftragt. Dieser bestehende PR #1 bleibt ein Draft auf `feature/detektivspiel-komplett` gegen `main`; kein neuer PR, kein Merge und keine Änderung der Pages-/Umgebungsberechtigungen. Die bestehende automatische Pages-Veröffentlichung des Entwicklungsbranches wird verwendet. Keine pauschale Unterrichtsfreigabe.

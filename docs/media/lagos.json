@@ -1,0 +1,135 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "76597310": {
+        "pageid": 76597310,
+        "ns": 6,
+        "title": "File:Lagos Island City Scape.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2019-02-15T16:02:24Z",
+            "size": 5523868,
+            "width": 4608,
+            "height": 2390,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Lagos_Island_City_Scape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Lagos_Island_City_Scape.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=76597310",
+            "sha1": "cff551c75769502507f0850b4e41f8d9f45d13d0",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2019-02-15 16:02:24",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Lagos Island City Scape",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Skylines|Lagos Island|Self-published work",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "The view of Lagos City scape, from the City Hall building in Lagos Island",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2016-05-27 01:33:44",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Jamie_Tubers\" title=\"User:Jamie Tubers\">Jamie Tubers</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 733816235,
+            "parentid": 480422313,
+            "timestamp": "2023-02-19T12:42:08Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "=={{int:filedesc}}==\n{{Information\n|description={{en|1=The view of Lagos City scape, from the City Hall building in Lagos Island}}\n|date=2016-05-27 01:33:44\n|source={{own}}\n|author=[[User:Jamie Tubers|Jamie Tubers]]\n|permission=\n|other versions=\n}}\n\n=={{int:license-header}}==\n{{self|cc-by-sa-4.0}}\n\n[[Category:Lagos Island]]\n[[Category:Skylines]]"
+              }
+            }
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-4.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Lagos Island"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Skylines"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}

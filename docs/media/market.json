@@ -1,0 +1,131 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "77376531": {
+        "pageid": 77376531,
+        "ns": 6,
+        "title": "File:MAKOLA.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2019-03-16T16:03:01Z",
+            "size": 5269246,
+            "width": 6000,
+            "height": 4000,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/MAKOLA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:MAKOLA.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=77376531",
+            "sha1": "66b1d4c343a725b9b5158210c160dee004f8d432",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2019-03-16 16:03:01",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "MAKOLA",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Markets|Self-published work",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "MAKOLA, is a market place in Accra Central where people shop. It has shops where people sale all sort of items and goods.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2019-03-12 15:17:01",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Amuzujoe\" title=\"User:Amuzujoe\">Amuzujoe</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1166103234,
+            "parentid": 1011751715,
+            "timestamp": "2026-02-15T08:12:34Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "=={{int:filedesc}}==\n{{Information\n|description={{en|1=MAKOLA, is a market place in Accra Central where people shop. It has shops where people sale all sort of items and goods.}}\n|date=2019-03-12 15:17:01\n|source={{own}}\n|author=[[User:Amuzujoe|Amuzujoe]]\n|permission=\n|other versions=\n}}\n\n=={{int:license-header}}==\n{{self|cc-by-sa-4.0}}\n\n[[Category:Markets]]"
+              }
+            }
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-4.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Markets"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}

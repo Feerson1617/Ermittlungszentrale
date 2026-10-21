@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#173f40" />
+    <meta
+      name="description"
+      content="Fünf geheime Akten. Eine gemeinsame Ermittlung. Ein Spiel für den Geographieunterricht."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'sha256-nwCe7qTBt6SMuysfazfgtH/lZbnvli1GwiS4nlGPC+U='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <title>Die geheime Ermittlungszentrale</title>
+    <link rel="icon" href="assets/icons/detective.svg" type="image/svg+xml" />
+    <script data-startup>
+      (() => {
+        const controller = new AbortController();
+        let settled = false, timer;
+        const fail = (error) => {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          controller.abort();
+          document.documentElement.dataset.appState = "failed";
+          const show = () => {
+            let status = document.querySelector("#startup-status");
+            if (!status) {
+              status = document.createElement("section");
+              status.className = "panel";
+              status.innerHTML = '<h1></h1><p id="startup-detail"></p><p>Prüft den HTTP-Webserver und ladet die Seite erneut.</p><a href="">Seite erneut laden</a>';
+              document.querySelector("#main").replaceChildren(status);
+            }
+            status.setAttribute("role", "alert");
+            status.querySelector("h1").textContent = "Die Akten konnten nicht geladen werden.";
+            status.querySelector("h1").classList.remove("boot-message");
+            document.querySelector("#startup-detail").textContent = error.message;
+            document.querySelector("#dictionary-open").disabled = true;
+          };
+          if (document.readyState === "loading")
+            document.addEventListener("DOMContentLoaded", show, { once: true });
+          else show();
+          console.error("Spielstart fehlgeschlagen:", error);
+        };
+        // This guard precedes the stylesheet and the module graph, so their failures are visible.
+        window.addEventListener("error", (event) => {
+          if (event.target?.id === "app-style")
+            fail(new Error("Die Gestaltung (css/style.css) fehlt oder wird vom Browser blockiert."));
+        }, true);
+        document.addEventListener("securitypolicyviolation", (event) => {
+          if (event.disposition === "enforce" && /^(script|style|connect)-src/.test(event.effectiveDirective))
+            fail(new Error("Eine Sicherheitsrichtlinie blockiert benötigte Spieldateien. Öffnet die vollständige Anwendung über einen HTTP-Webserver."));
+        });
+        timer = setTimeout(() => fail(new Error("Der Start dauert zu lange. Prüft die Verbindung zum Webserver und ladet die Seite erneut.")), 18000);
+        document.addEventListener("DOMContentLoaded", async () => {
+          if (settled) return;
+          document.querySelector("#startup-status h1").textContent = "Die Akten werden geöffnet …";
+          try {
+            if (!["http:", "https:"].includes(location.protocol))
+              throw new Error("Einzelne HTML-Dateien können das Spiel nicht starten. Nutzt einen HTTP-Webserver für den gesamten Projektordner.");
+            const style = document.querySelector("#app-style");
+            const styled = new Promise((resolve, reject) => {
+              const check = () => getComputedStyle(document.documentElement).getPropertyValue("--paper").trim()
+                ? resolve() : reject(new Error("Die geladene CSS-Datei enthält nicht die Gestaltung des Spiels."));
+              if (style.sheet) check();
+              else {
+                style.addEventListener("load", check, { once: true });
+                style.addEventListener("error", () => reject(new Error("Die Gestaltung konnte nicht geladen werden.")), { once: true });
+              }
+            });
+            const [app] = await Promise.all([import("./js/app.js"), styled]);
+            if (settled) return;
+            await app.boot({ signal: controller.signal });
+            if (settled) return;
+            settled = true;
+            clearTimeout(timer);
+            document.documentElement.dataset.appState = "ready";
+          } catch (error) {
+            fail(new Error("JavaScript oder lokale Spieldaten konnten nicht gestartet werden. " + error.message));
+          }
+        }, { once: true });
+      })();
+    </script>
+    <link id="app-style" rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Zum Inhalt</a>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">E<span>Z</span></span>
+        <div>
+          <span class="eyebrow">GEHEIMSACHE · NUR FÜR EUER TEAM</span>
+          <p>Die geheime Ermittlungszentrale</p>
+        </div>
+      </div>
+      <button
+        type="button"
+        id="dictionary-open"
+        disabled
+        class="dictionary-button"
+        aria-haspopup="dialog"
+      >
+        <span aria-hidden="true">A↔文</span> Wörterbuch
+      </button>
+    </header>
+    <main id="main" tabindex="-1">
+      <section id="startup-status" class="panel" role="status" aria-live="polite">
+        <h1 class="boot-message">Das Spiel ist noch nicht gestartet.</h1>
+        <p id="startup-detail">JavaScript, Gestaltung und lokale Spieldaten müssen geladen werden. Falls diese Meldung bleibt, ist der Start blockiert.</p>
+        <p>Öffnet die vollständige Anwendung über einen HTTP-Webserver. Eine Vorschau nur dieser HTML-Datei reicht nicht aus.</p>
+        <details>
+          <summary>So startet ihr die Anwendung</summary>
+          <p>Im gesamten Projektordner <code>npm start</code> ausführen und den Serverport 4173 im Browser öffnen. In einer Cloud-Umgebung muss dieser Port weitergeleitet sein. Alle Unterordner müssen mit ausgeliefert werden.</p>
+        </details>
+        <p><a href="" class="outline">Seite erneut laden</a></p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a id="photo-sources" href="bildnachweise.html" target="_blank" rel="noopener" hidden>Bildquellen und Lizenzen · mit Aufnahmeorten</a>
+      <span>Gemeinsam ermitteln. Punkte auf Papier sichern.</span
+      ><a href="materials/ermittlungsbogen.pdf" target="_blank" rel="noopener"
+        >Ermittlungsbogen · PDF</a
+      >
+    </footer>
+    <dialog id="dictionary" aria-labelledby="dictionary-title">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow">EURE SPRACHHILFE</p>
+          <h2 id="dictionary-title">Wörterbuch</h2>
+        </div>
+        <button type="button" id="dictionary-close" class="outline">
+          Schließen <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <p>Gebt ein deutsches Wort ein.</p>
+      <div class="dictionary-grid">
+        <label
+          >Deutsch<input
+            id="dictionary-input"
+            type="search"
+            placeholder="Zum Beispiel: Karte"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false" /></label
+        ><label>Zielsprache<select id="dictionary-language"></select></label>
+        <div>
+          <span class="field-label">Übersetzung</span>
+          <div id="dictionary-result" class="translation" aria-live="polite">
+            Hier steht die Übersetzung.
+          </div>
+        </div>
+      </div>
+      <div id="dictionary-suggestions" class="suggestions"></div>
+      <p id="dictionary-context" class="quiet" lang="de" dir="ltr"></p>
+      <p class="quiet">Redaktionell anhand von Quellen geprüft. Eine muttersprachliche Prüfung steht noch aus. <a href="woerterbuch.html" target="_blank" rel="noopener">Quellen und offene Begriffe</a></p>
+      <p class="quiet">Eure Antworten und Hinweise bleiben erhalten.</p>
+    </dialog>
+    <dialog id="map-dialog" aria-labelledby="map-title">
+      <div class="dialog-header">
+        <h2 id="map-title">Die Karte</h2>
+        <button type="button" id="map-close" class="outline">
+          Schließen ×
+        </button>
+      </div>
+      <div id="map-content" class="big-map"></div>
+    </dialog>
+    <dialog id="photo-dialog" aria-labelledby="photo-title">
+      <div class="dialog-header"><h2 id="photo-title">Beweisfoto</h2><button type="button" id="photo-close" class="outline">Schließen ×</button></div>
+      <div id="photo-content"></div>
+    </dialog>
+    <dialog id="restart-dialog" aria-labelledby="restart-title">
+      <h2 id="restart-title">Akte neu starten?</h2>
+      <p>
+        Antworten, Bildauswahl und Punkte dieser Akte werden zurückgesetzt. Andere Akten bleiben erhalten.<br />Habt ihr sie auf
+        Papier notiert?
+      </p>
+      <div class="actions">
+        <button type="button" id="restart-cancel" class="outline">
+          Akte behalten</button
+        ><button type="button" id="restart-confirm" class="primary">
+          Neu starten
+        </button>
+      </div>
+    </dialog>
+    <noscript
+      ><p>
+        Bitte aktiviert JavaScript. Das Spiel arbeitet vollständig auf diesem
+        Gerät.
+      </p></noscript
+    >
+  </body>
+</html>

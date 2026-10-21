@@ -1,0 +1,160 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "95799390": {
+        "pageid": 95799390,
+        "ns": 6,
+        "title": "File:Cocoa 002.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2020-11-04T13:22:51Z",
+            "size": 1991608,
+            "width": 2448,
+            "height": 2448,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Cocoa_002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cocoa_002.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=95799390",
+            "sha1": "c916075a863e734db44779af662983dab6a8e7a6",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2020-11-04 13:22:51",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Cocoa 002",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Theobroma cacao (fruit)|Cacao plantations|Self-published work|Files with coordinates missing SDC location of creation",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "6.599547",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "-0.881836",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Cocoa is a cash crop in Ghana. The seeds are processed into chocolate.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2020-11-04 11:19:36",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Otuo-Akyampong_Boakye\" title=\"User:Otuo-Akyampong Boakye\">Otuo-Akyampong Boakye</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1040313399,
+            "parentid": 1040313393,
+            "timestamp": "2025-06-05T05:33:41Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "=={{int:filedesc}}==\n{{Information\n|description={{en|1=Cocoa is a cash crop in Ghana. The seeds are processed into chocolate.}}\n|date=2020-11-04 11:19:36\n|source={{own}}\n|author=[[User:Otuo-Akyampong Boakye|Otuo-Akyampong Boakye]]\n|permission=\n|other versions=\n}}\n{{Location|6.599547|-0.881836|heading:295.17813121272366}}\n\n=={{int:license-header}}==\n{{self|cc-by-sa-4.0}}\n\n[[Category:Theobroma cacao (fruit)]]\n[[Category:Cacao plantations]]"
+              }
+            }
+          }
+        ],
+        "coordinates": [
+          {
+            "lat": 6.599547,
+            "lon": -0.881836,
+            "primary": "",
+            "globe": "earth"
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-SA-4.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Cacao plantations"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Files with coordinates missing SDC location of creation"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Theobroma cacao (fruit)"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "193517781": {
+        "pageid": 193517781,
+        "ns": 6,
+        "title": "File:Ghacem Manufacturing Plant.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "timestamp": "2026-06-07T12:55:37Z",
+            "size": 1355915,
+            "width": 4032,
+            "height": 2517,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Ghacem_Manufacturing_Plant.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ghacem_Manufacturing_Plant.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=193517781",
+            "sha1": "69a777b444d4580fb38414a38f6277db32259646",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2026-06-07 12:55:37",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Ghacem Manufacturing Plant",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Self-published work|Creative Commons Attribution 4.0 missing SDC copyright license|Creative Commons Attribution missing SDC copyright status|Self-published work missing SDC copyright license|Files with coordinates missing SDC location of creation|Images from Wiki Loves Earth 2026 in Ghana|Images from Wiki Loves Places 2026 in Ghana",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "5.666156",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "-0.061758",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Ghacem manufacturing plant in Accra",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2026-06-06 18:15:00",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Gideon_Fiadowu_Norkplim\" title=\"User:Gideon Fiadowu Norkplim\">Gideon Fiadowu Norkplim</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1272778096,
+            "parentid": 1228066770,
+            "timestamp": "2026-09-05T19:37:49Z",
+            "slots": {
+              "main": {
+                "contentmodel": "wikitext",
+                "contentformat": "text/x-wiki",
+                "*": "=={{int:filedesc}}==\n{{Information\n|description={{en|1=Ghacem manufacturing plant in Accra}}\n|date=2026-06-06 18:15:00\n|source={{own}}\n|author=[[User:Gideon Fiadowu Norkplim|Gideon Fiadowu Norkplim]]\n|permission=\n|other versions=\n}}\n{{Location|5.666156|-0.061758|heading:68.99020386550173}}\n\n=={{int:license-header}}==\n{{self|cc-by-4.0}}\n\n[[Category:Images from Wiki Loves Places 2026 in Ghana]]\n[[Category:Images from Wiki Loves Earth 2026 in Ghana]]"
+              }
+            }
+          }
+        ],
+        "coordinates": [
+          {
+            "lat": 5.666156,
+            "lon": -0.061758,
+            "primary": "",
+            "globe": "earth"
+          }
+        ],
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:CC-BY-4.0"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Creative Commons Attribution 4.0 missing SDC copyright license"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Creative Commons Attribution missing SDC copyright status"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Files with coordinates missing SDC location of creation"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Images from Wiki Loves Earth 2026 in Ghana"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Images from Wiki Loves Places 2026 in Ghana"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Self-published work missing SDC copyright license"
+          }
+        ]
+      }
+    }
+  },
+  "limits": {
+    "coordinates": 500
+  }
+}
