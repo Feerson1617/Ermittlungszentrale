@@ -1,79 +1,34 @@
-# Testbericht
+# Tatsächlich geprüfter Stand – Version 2.0
 
-Prüfstand: 21.10.2026 (Gesamttests am 20.10., abschließender Servercheck am 21.10.), nach der Startkorrektur und Wörterbuchergänzung. Die Live-Seite ist noch nicht abgenommen; siehe [Vorschauprüfung](vorschau.md). Die Fotoabnahme aus Commit 5321c9c bleibt gültig; die 15 Fotos wurden in diesem Durchlauf nicht verändert. Node.js 24.19.0, npm 11.9.0, Playwright 1.58.2, Chromium 154 und Playwright-WebKit 26.0 unter Debian 13. Die folgenden Durchläufe wurden tatsächlich ausgeführt; kein Test auf einem echten iPad wird behauptet.
+21.10.2026. Geprüfte Implementierung: **`c213e9fcb96d07a8830838e1a4b6881b5cedf62b`**, ausgehend von `ede9a89234c880bb81f7a4d1f64d6a9f741b101c`, Branch `feature/detektivspiel-komplett`. Nachfolgende Übergabedokumentation ändert die Anwendung nicht. [SHA256-Manifest der geprüften Dateien](qa/v2/verified-files.sha256). Node 24.19.0, npm 11.9.0, Playwright 1.58.2, Chromium 154, tatsächliches Playwright-WebKit 26.0 unter Debian 13. Keine echte iPad-, muttersprachliche oder Unterrichtsprüfung wird behauptet.
 
-| Prüfung | Ergebnis |
+## Frisch ausgeführte Prüfungen
+
+| Befehl / Prüfung | Tatsächliches Ergebnis |
 |---|---|
-| `npm test` | **192/192 bestanden**, keine fehlgeschlagenen oder übersprungenen Tests |
-| `TEST_WEBKIT=1 npm run test:e2e` mit den unten genannten Umgebungsvariablen | **152/152 bestanden**, je 38 unter Chromium/Desktop, Chromium/iPad, Chromium/iPhone und WebKit/iPad |
-| Separat gestarteter Node-Server + `npm run check:start -- …` | Vier erfolgreiche Läufe: Root/Projektpfad jeweils Desktop/iPad; sichtbares Menü, fünf Akten, 15 Fotos, Wörterbuch, Hinweise und Punkte |
-| Unabhängige Python-HTTP-Server + `npm run check:start -- …` | Dieselben vier Prüfungen bestanden, ohne Anwendungserver-Routing |
-| `npm run dictionary:report` (Wörterbuchdurchlauf) | Quellenbericht und lokale Statusseite aus den aktuellen Belegen erzeugt |
-| Wörterbuchquellen | 353 vorhandene kurdische Werte einzeln belegt; versionierte FreeDict-/Roj-Downloads zusätzlich gegen die dokumentierten Hashes abgeglichen |
-| `npm run materials` (Wörterbuchdurchlauf; Materialien seither unverändert) | Schülerbogen und aktualisierten Erwartungshorizont als HTML/PDF erzeugt; Seitenüberlauf geprüft |
-| `npm run test:pdf` | Schülerbogen exakt zwei DIN-A4-Seiten, Erwartungshorizont sieben Seiten, alle Aufgaben/Punktfelder vorhanden |
-| `sha256sum -c docs/kartendaten.sha256` | Ausgangsdaten unverändert und korrekt |
-| `git diff --check` | Keine Whitespace-Fehler |
-| `npm run audit:release` | **Exit-Code 2, zehn offene Abnahmepunkte**, 11 Kurmandschi-/10 Sorani-Lücken, sieben muttersprachliche Abnahmen und echter iPad-Safari-Test; keine offenen Bildpunkte oder beschädigten Quellenbelege |
+| `npm test` | **238/238 bestanden**, keine Fehler oder übersprungenen Tests. Logik, historische Freitext-Fixture, neue Kriterien, Sitzung, Inhalte, Wörterbuch-/Bildbelege, Start-CSP. |
+| `TEST_WEBKIT=1 npm run test:e2e` mit untenstehender Umgebung | **250/250 bestanden**, 50 Fälle in jedem der fünf Profile; keine übersprungenen Fälle oder Wiederholungsversuche. |
+| Separat neu gestartetes `npm start` und `check:start` | Vier erfolgreiche Läufe: Root/Projektpfad jeweils Desktop/iPad. Menü/CSS/Motiv, alle Akten, Wörterbuch, Hinweise/Punkte, kompletter Länder-/Belegweg und 19 dekodierte Fotos. |
+| Zwei unabhängige Python-HTTP-Server und `check:start` | Weitere vier erfolgreiche Läufe: Root und Projektpfad jeweils Desktop/iPad. Keine gemockten Ressourcen oder spezieller App-Testserver. |
+| `npm run dictionary:report` | Erfolgreich; 197 Begriffe, alle Quellenhashes konsistent, Lücken und menschliche Abnahmen offen. |
+| `npm run media:credits` | 19 konsistente lokale Nachweise erzeugt. |
+| `python3 scripts/prepare-media.py /tmp/approved-originals` | Alle 19 Originale per SHA1/SHA256 geprüft und Ableitungen reproduziert. Alle 15 Bestandsbilder bleiben bytegleich. |
+| `npm run materials`, `npm run test:pdf` | Erfolgreich: zwei neutrale Schülerseiten, elf Lehrerseiten, A4, Seitenzahlen, zwölf nummerierte Tabellenzeilen und Inhalte geprüft. |
+| Vollständiges PDF-Rendering und Sichtprüfung | Sämtliche 13 Seiten mit `pdftoppm -r 100 -png` gerendert, tatsächlich angesehen; kein Beschnitt/Überlauf erkannt. Keine reale Druckprobe. |
+| `sha256sum -c docs/kartendaten.sha256`, `git diff --check` | Erfolgreich. |
+| `npm run audit:release` | Erwarteter **Exit-Code 2 mit 19 offenen Kategorien**. Keine kaputten Dateien, Quellenhashes oder fehlenden Fotografien. Die offenen Abnahmen sind unten getrennt ausgewiesen. |
 
-## Startkorrektur und tatsächliche Auslieferung
+Vollständige aktuelle Protokolle: [Node](qa/v2/node-tests.txt), [Browser](qa/v2/browser-tests.txt), [PDF](qa/v2/pdf-check.txt), [Audit](qa/v2/release-audit.txt), [Medienreproduktion](qa/v2/media-reproduction.txt). Frühere Testzahlen 192/152 werden nicht als neue V2-Ergebnisse ausgegeben. Ein erster V2-Lauf mit 245 Browserfällen bestand ebenfalls; die finale Zahl 250 stammt aus der vollständigen Wiederholung nach dem sichtbaren Kakaoschema und dessen zusätzlicher Regression.
 
-Der bisherige Stand funktionierte auf dem korrekt gestarteten HTTP-Server bereits unter Root und Projektpfad. Fehlgeschlagene Module/CSS wurden jedoch von der bisherigen Fehlerbehandlung nicht erreicht; das konnte die Lademeldung dauerhaft stehen lassen. Jetzt laufen eine frühe, per CSP-Hash freigegebene Startüberwachung, konkrete JSON-Fehlerdiagnosen und ein 18-Sekunden-Zeitlimit. `/Ermittlungszentrale` ohne Slash wird mit HTTP 308 weitergeleitet. Die Spielmechanik und Inhaltsdaten wurden nicht geändert.
+## Browserprofile und Umgebung
 
-14 neue Browserfälle je Konfiguration prüfen echten Start unter beiden Pfaden, angewendetes CSS, Detektivmotiv, fünf sichtbare/bedienbare Akten, alle 15 im Spiel dekodierten Fotos, Wörterbuch und Hinweise/Punkte, Weiterleitung, sieben fehlerhafte Ressourcen-/Datenszenarien, drei hängende Abrufe und eine übergeordnete Skriptsperre. Ein zusätzlicher Node-Test sichert den exakten CSP-Hash. Erfolgsläufe prüfen auch die Browserkonsole und HTTP-/MIME-Fehler.
-
-Der erste Gesamtlauf lieferte 150 bestandene und zwei fehlgeschlagene Fälle. Der Trace zeigte bei beiden WebKit-Startfällen eine CSP-Meldung durch Playwrights Screenshot-Vorbereitung (temporäres Inline-Stylesheet `body {}`). Die Konsolenprüfung erfolgt nun ohne diesen Screenshot-Eingriff; Fehler werden nicht herausgefiltert und die App-CSP wurde dafür nicht gelockert. Die zwei Fälle bestanden gezielt erneut; danach wurde der vollständige Browserlauf wiederholt.
-
-Zusätzlich wurde `npm start` unabhängig vom Playwright-Testserver gestartet und mit `check:start` in Desktop/iPad bedient. Zwei unabhängig gestartete Python-Server prüfen außerdem statisches Hosting unter Root und Projektpfad. Diese Läufe starten keinen eigenen Testserver und mocken keine Ressourcen. Pro Lauf werden fünf Akten bedient, alle 15 Fotos im Spiel dekodiert, das Wörterbuch geöffnet und die Hinweis-/Punktevergabe geprüft. Nach Abschluss wurde der Node-Server neu gestartet und die Serverprüfung erneut ausgeführt. Sichtprüfung: [Desktop-Menü](qa/start-desktop.png), [iPad-Viewport-Menü](qa/start-ipad.png). Akte 001 wurde erfolgreich geöffnet und mit geladenen Fotos angesehen. Kein Bild stammt von einem echten iPad.
-
-Die gemeldete URL ist GitHub Pages. Deren direkter Abruf ist vom Cloud-Proxy blockiert; Status/MIME/CSP dieser Live-URL und eine vollständige Codex-Portvorschau konnten nicht geprüft werden. Es wird keine reparierte öffentliche Vorschau behauptet. Laut GitHub-API veröffentlicht Pages automatisch den Entwicklungsbranch. Das Projektteam hat den Push der Startkorrektur einschließlich dieser automatischen Veröffentlichung am 21.10.2026 ausdrücklich freigegeben. Diese Freigabe bestätigt keine Live-Funktion und verändert die Testergebnisse nicht. Vollständige Befunde und reproduzierbare Alternativen: [Vorschauprüfung](vorschau.md).
-
-## Wörterbuchergänzung und erneute Sprachprüfung
-
-123 neue Kurmandschi- und 125 neue Sorani-Werte (248 insgesamt) mit überprüfbaren Einzelbelegen ergänzt. Abdeckung: 187/187 in Russisch, Ukrainisch, Polnisch, Türkisch und Arabisch; 176/187 Kurmandschi und 177/187 Sorani. 21 unbelegte Werte bleiben ausdrücklich null. Keine bloße Wortzahl-Füllung mit erfundenen Fachbegriffen, falschen Bedeutungen oder automatisierter Umschrift. Vollständige Einzelliste und Grenzen: [Wörterbuchprüfung](woerterbuch-pruefung.md).
-
-Alle sieben Sprachfassungen wurden durch Codex redaktionell auf Bedeutung im Spiel, Wortform, Schrift und auffällige Mehrdeutigkeit geprüft. Das ist keine muttersprachliche oder professionelle Prüfung. Polnisch „alle“ um die nicht-männlich-personale Form *wszystkie* ergänzt; mehrdeutige deutsche Wörter erhalten eine Bedeutungshilfe. Arabische Verbalnomen, slawische Flexion sowie kurdische regionale/idiomatische Formen bleiben muttersprachlich zu prüfen. Die Daten-/Belegzuordnung ist per SHA256 gegen veraltete Abnahmeangaben abgesichert.
-
-11 zusätzliche Node-Tests prüfen die Einzelnachweise, Dateibindung, erhaltene Lücken, Schriften/NFC, Trennung der kurdischen Varietäten und die Trennung von redaktioneller Prüfung und muttersprachlicher Abnahme. Drei zusätzliche Browserfälle je Projekt prüfen neue Begriffe in allen sieben Sprachen, RTL und Sprachkennungen, deutsche Bedeutungshilfen, bewusst fehlende Fachwörter, erhaltenen Ermittlungsstand und die lokale Quellen-/Statusseite. Nach Sichtprüfung wurde zusätzlich die Erreichbarkeit des Quellenlinks im gescrollten schmalen Dialog abgesichert; die neun Wörterbuchdurchläufe wurden gezielt erneut ausgeführt.
-
-Wörterbuchdialog in Chromium/iPad, WebKit/iPad und schmalem Chromium-Viewport visuell angesehen: Sorani-Zeichen lesbar, RTL-Ausgabe korrekt, deutsche Bedeutungshilfe LTR, keine verdeckten Eingaben. Die schmale Dialogansicht benötigt vertikales Scrollen; der Quellenlink bleibt erreichbar. Reviewaufnahmen: [Chromium](qa/woerterbuch-chromium-ipad.jpg), [WebKit](qa/woerterbuch-webkit-ipad.jpg). Kein Screenshot stammt von einem echten iPad.
-
-## Bildprüfung (unveränderter Bestand, Medien-Browsertests erneut bestanden)
-
-Alle 15 Fotos stammen von Wikimedia Commons. Für jedes Bild wurden Motiv, dokumentierter Aufnahmeort, Urheber, konkrete freie Lizenz samt Version, Attribution und Bearbeitung geprüft. Die Ortsgenauigkeit wird nicht über die Quelle hinaus behauptet. Lokale Commons-Antworten unter `docs/media/` sichern Beschreibung, Kategorien, Original-SHA1, Lizenzvorlage und Beschreibungsrevision. Die tatsächlichen Originaldownloads wurden vor der Optimierung mit diesen SHA1-Werten abgeglichen; `data/media.json` enthält zusätzlich SHA256 für Originale, WebP-Dateien und Quellenbelege.
-
-Keine generierten Beweisfotos. Alle 15 ausgelieferten WebP-Dateien haben maximal 1400 × 1400 Pixel, mindestens 652 Pixel an der kürzeren Seite, jeweils weniger als 500 KiB und zusammen 2.975.140 Bytes (2,84 MiB). Keine externen Bildrequests. Auf dem Startbildschirm lädt kein Beweisfoto; Fotos werden erst beim Öffnen der Akte angefordert, kompakte Auswahlen zusätzlich bei Bedarf. Browserprüfungen kontrollieren nicht nur Dateipfade, sondern erfolgreiches Dekodieren und natürliche Bildbreite.
-
-Die Auswahl wurde nach der Sichtprüfung korrigiert: Das Atlasbild zeigt deutlich Schnee, und das Kakaobild zeigt gut erkennbare Früchte am Baum. Atlas- und Kakaopunkt auf der Karte folgen den dokumentierten Aufnahmekoordinaten. Lagos Island ist durch die Autorbeschreibung belegt. Quellen-/Ortsnamen bleiben in Akte 001 vor der Lösung unsichtbar; neutrale Dateinamen und Bildbeschreibungen verraten den Kontinent nicht. Der Quellenlink wird bei anonymen Rätseln erst nach ihrer Lösung sichtbar. Akte 002 und 004 liefern für alle zehn Nummern identische Bildpfade und Beschreibungen.
-
-Dokumentierte Alternativen: Kronendach-Luftaufnahme des Ituri-Regenwalds; Strand statt Küstenstadt auf Sansibar; Außenansichten von Ghacem und Cocoa Processing Company statt Innenansichten; abgeerntetes Hirsefeld in der Trockenzeit; historische Stadtansicht Nairobis; großes solarthermisches Kraftwerk mit Spiegeln statt kleiner Photovoltaikanlage. Das einzelne Feldbild beweist keine Missernte, das Stadtbild keinen Wachstumstrend. Die Alternativen passen zu den vorgesehenen vier Zukunftsthemen. Einzelbelege: `bildquellen.md`.
-
-## Logik, Inhalt und Browserabläufe
-
-Die bisherigen Bewertungs- und Inhaltstests bestehen weiter: alle sieben Wertungsaufgaben, Hinweislimits 5/3/2/1, Versuchssperren, unbegrenzte einfache Abschlussaufgaben nach Hinweis 3, Teilpunkte, Papierbestätigung, 30 Hauptpunkte und fünf getrennte Bonuspunkte. Schreibvarianten, Negationen, widersprüchliche/unklare Eingaben, Sitzungsneuladen und Betrieb ohne Browser-Persistenz sind abgedeckt. Wörterbuch mit 187 Begriffen, sieben Sprachen, RTL sowie vorhandenen und fehlenden Übersetzungen geprüft.
-
-17 zusätzliche Node-Tests prüfen die 15 eindeutigen Dateien, WebP-Format, Bildbudget, Prüfsummen, vollständige Attribution, zulässige Lizenzversionen und Übereinstimmung mit den gesicherten Commons-Revisionen. Die drei zusätzlichen Browsertests pro Konfiguration prüfen bedarfsgerechtes Laden, identische Aktenkataloge, Ortsanonymität, alle drei Fotokartenrätsel, vier Zukunftsfotos und alle 15 Bilder auf der lokalen Nachweisseite.
-
-Browserkonfigurationen: Chromium/Desktop 1440 × 1000; Chromium mit iPad-Querformat 1080 × 810 und Touch; Chromium mit iPhone-13-Hochformat 390 × 664 und Touch; WebKit mit iPad-Querformat 1080 × 810 und Touch. Starttests unter `/` und `/Ermittlungszentrale/`, übrige Fälle unter dem Projektpfad. Kein horizontaler Überlauf, keine fehlgeschlagenen Bildabrufe, keine externen Requests und keine JavaScript-Laufzeitfehler in den Medientests. Die bestehenden Tests kontrollieren außerdem Touch-Ziele, Dialogfokus, Escape, Wörterbuchzustand und vergrößerbare Karten.
-
-## Sichtprüfung
-
-Alle fünf Akten mit neuen Bildern visuell angesehen, einschließlich aller drei Länderfälle in Akte 003: sieben Fotodarstellungen je Konfiguration. Sämtliche Motive bleiben durch `object-fit: contain` vollständig sichtbar. Nummern, Quellenkurzangaben, Karten, Eingaben und Auswahlzustände sind lesbar; keine überlagerten oder abgeschnittenen Bedienelemente gefunden. Auf schmalen Geräten laufen die Fotokarten untereinander; längere Ansichten benötigen vertikales Scrollen.
-
-Reviewbare Übersichten der sieben Fotoansichten:
-
-- [Chromium mit iPad-Parametern](qa/akten-chromium-ipad.jpg)
-- [WebKit mit iPad-Parametern](qa/akten-webkit-ipad.jpg)
-
-Die Übersichten sind verkleinerte Browseraufnahmen, kein Nachweis eines echten iPads. Original-Screenshots entstehen beim Test unter `test-results/`; der HTML-Bericht liegt unter `playwright-report/`. Beide Verzeichnisse bleiben Entwicklungsartefakte. Die Fotobestandteile der Übersichten behalten die Einzellizenzen aus `bildquellen.md`.
-
-Das aktualisierte Lehrerdokument wurde erneut als PDF gerastert und die geänderte erste Seite visuell geprüft; keine abgeschnittenen Zeilen. Der Schülerbogen behält seine zwei Seiten und denselben Inhalt.
-
-## WebKit-Umgebung
-
-`PLAYWRIGHT_BROWSERS_PATH=/workspace/.playwright npx playwright install webkit` konnte WebKit 26.0 und FFmpeg herunterladen. Die fehlenden Debian-Bibliotheken wurden aus signierten Paketindizes heruntergeladen und unter `/tmp/webkit-libs` entpackt; keine Systeminstallation nötig. Der lokale WPE-Wrapper wurde um diesen Bibliothekssuchpfad ergänzt. Weil Playwrights Vorabprüfung dynamisch geladene Bibliotheken ausschließlich im Systemcache von `ldconfig` sucht, erkennt sie das lokal bereitgestellte GLES nicht. Nur diese Umgebungs-Vorabprüfung wurde abgeschaltet; der echte WebKit-Prozess und alle 38 WebKit-Funktionstests wurden ausgeführt.
-
-Tatsächlich verwendeter vollständiger Browserbefehl:
+| Profil | Browser / Viewport | Fälle |
+|---|---|---:|
+| chromium-desktop | Chromium, 1440 × 1000 | 50 |
+| chromium-ipad | Chromium, iPad-Parameter quer, 1080 × 810, Touch | 50 |
+| chromium-ipad-portrait | Chromium, iPad-Parameter hoch, 810 × 1080, Touch | 50 |
+| chromium-mobile | Chromium, iPhone-Parameter, 390 × 664, Touch | 50 |
+| webkit-ipad | Echtes WebKit unter Linux, iPad-Parameter quer, 1080 × 810, Touch | 50 |
 
 ```sh
 PLAYWRIGHT_BROWSERS_PATH=/workspace/.playwright \
@@ -82,10 +37,43 @@ PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=1 \
 TEST_WEBKIT=1 npm run test:e2e
 ```
 
-Diese lokale Einrichtung verändert keine Spielabhängigkeiten. Auf einem System mit regulär installierten Playwright-Bibliotheken genügt `TEST_WEBKIT=1 npm run test:e2e` nach der WebKit-Installation.
+Die benötigten WebKit-Bibliotheken wurden in dieser Cloud bereits lokal bereitgestellt. Nur die Host-Vorprüfung wird übersprungen, weil die Bibliotheken außerhalb des globalen Loader-Verzeichnisses liegen; der Browserprozess selbst wurde tatsächlich ausgeführt. Die Werte sind umgebungsspezifisch. Ein frischer Rechner braucht Browserinstallation/Systembibliotheken. Linux-WebKit ist kein Safari-Test auf einem echten iPad.
 
-## Verbleibende Abnahme
+WebKit-Screenshotvorbereitung kann ein eigenes Inline-Stylesheet einfügen, das die reale CSP zurückweist. Deshalb enthalten die strengen Konsolen-/Netzwerk-Startprüfungen keine Screenshotinstrumentierung; Ansichten werden separat erfasst. Weder CSP gelockert noch echte App-Fehler weggefiltert. In den ungestörten Start- und V2-Abläufen waren die überwachten Konsolen-, Ressourcen- und externen Requestlisten leer. Absichtlich simulierte Startfehler müssen dagegen eine verständliche Fehlermeldung zeigen.
 
-`npm run audit:release` meldet zehn offene Punkte: 11 fehlende Kurmandschi- und 10 fehlende Sorani-Übersetzungen (zwei Meldungen), muttersprachliche Prüfung aller sieben Sprachen (sieben Meldungen) sowie Safari auf einem echten Schul-iPad (eine Meldung). Die sieben muttersprachlichen Einträge und Safari in `data/review.json` bleiben unbestätigt. Die neue hashgebundene `dictionaryEditorial`-Prüfung ist davon getrennt und behauptet keine Muttersprachlerbeteiligung. Kein Bild oder fehlender Wörterbucheintrag wurde erfunden. Der automatische WebKit-Lauf ersetzt den echten Gerätetest mit Touch, Bildschirmtastatur, Scrollen und PDF-Druck nicht.
+## Welche Regressionen tatsächlich geprüft werden
 
-GitHub-Ziel ist ausschließlich der vorhandene Branch `feature/detektivspiel-komplett` und dessen offener Draft-PR #1 gegen `main`. Kein zweiter PR und kein Merge. Der Push der Startkorrektur einschließlich automatischer Pages-Veröffentlichung ist seit der ausdrücklichen Antwort „Ja“ vom 21.10.2026 freigegeben; Details in `vorschau.md`.
+- T1: historische Formulierungen bleiben in einer getrennten V1-Fixture nachvollziehbar. Die Anwendung verwendet vier geschlossene Teilfragen mit genau einer Gesamtabgabe; fehlende Felder verbrauchen keinen Versuch.
+- T2/D1: drei Rohpunkte bei einem Hinweis ergeben drei festgeschriebene Punkte, bleiben fachlich teilweise richtig. Richtige Kriterien, einmalige unbezahlte Korrektur, Erklärung/Bestätigung nach Fehlkorrektur, keine Nachbepunktung, Navigation/Reload und Papierbestätigung geprüft. Entsprechende Bonus-Teilauflösung geprüft.
+- T3: fokussierter Wert auch ohne künstlich ausgelöstes Input-Ereignis durch Hinweis/Dialog erhalten; normale und vereinfachte Entwürfe getrennt.
+- T4: „Afrika ist ein Land“ falsch, „Afrika ist kein Land, sondern ein Kontinent“ richtig, „Afrika Land?“ neutral geklärt. Länderregeln unterscheiden Land/Kontinent gesondert. Bekannte Aliasse bleiben erhalten; keine allgemeine Fuzzy-Suche.
+- D2: sieben vereinfachte Aufgaben mit wechselnden festen korrekten Positionen; Bonus nach stabilen Kennungen trotz veränderter Optionsreihenfolge. Rohpunkte 0/1/2/3/5 geprüft.
+- M1/M2: ganzer Schülerbogen ohne Afrika/Africa/Lösungsländer; zwei A4-Seiten. Datenbasierte Tabelle 1–12 in MD/HTML/PDF, Extra-Belege getrennt, alle Lehrerseiten nummeriert.
+- Vollständiger Akte-003-Weg: drei Länderwertungen und neun unbewertete Schritte, Quellen-/Datierungsgrenzen und sichtbares vierstufiges Kakaoschema. Weitere Spuren freiwillig und ohne Punkte. Kein Ende nach den drei Länderfragen allein.
+- Zwölf identische Motive/Dateien in Akte 002/004, getrennte bestätigte Auswahlen, Reset nur der aktuellen Akte, unabhängiger Start von Akte 004 ohne erfundene frühere Auswahl oder vorgegebene Nullpunkte.
+- Separater Fotozoom, keine verschachtelten Buttons, Fokus-Rückgabe, lesbare Karten, RTL, Dialoge, gesperrter Speicher, V1-Rücksetzinformation und strukturell beschädigter Sitzungsstand.
+- Echter sichtbarer HTTP-Start unter beiden Pfaden: Lademeldung verschwindet, CSS-Werte stimmen, alle fünf Schaltflächen/Motiv sind sichtbar und bedienbar. CSS-/Modul-/JSON-Fehler, MIME-Probleme, hängende Abrufe und übergeordnete Skriptsperre bleiben abgedeckt.
+
+## Sichtprüfung und reale Ladebedingungen
+
+Nach Ende der Tests den alten Node-Prozess beendet, **`npm start` neu gestartet** und beide Pfade erneut im Browser geöffnet. Ein vollständiges Spielmenü erschien, Akte 001 wurde geöffnet; anschließend alle fünf Akten und der Länder-/Belegweg bedient. Der Server bleibt auf Port 4173 verfügbar, solange die Cloud-Umgebung und der Prozess laufen.
+
+[HTTP-/Konsolenprotokoll Node](qa/v2/start-http-node.json) und [unabhängige statische Server](qa/v2/start-http-static.json): je vier erfolgreiche Läufe mit jeweils leeren Fehler-, Fehlanfrage- und Fremdanfragelisten; 33 Antworten je Lauf mit dokumentierten MIME-Typen. [Node-Startlog](qa/v2/node-start.txt), [statisches Startlog](qa/v2/static-start.txt). Alle 19 Fotografien wurden im Spiel dekodiert, nicht nur auf der Quellenseite.
+
+[Neu gestartetes Menü Desktop](qa/v2/start-desktop.png), [iPad-Viewport](qa/v2/start-ipad.png), [geöffnete Akte 001](qa/v2/start-ipad-akte-001.png). Weitere tatsächlich gesichtete Ansichten: alle fünf Akten, drei Fotokartenfälle, neue Belegschritte, Tabletvergleich, Kakaoschema, offene/abgeschlossene Teilauflösung, Wörterbuch/RTL sowie Hoch- und schmale Ansicht unter `docs/qa/v2/{desktop,ipad,portrait,mobile,webkit}/`. Beispiel: [Teilpunkte offen](qa/v2/ipad/teilpunkte-offen.png), [Auflösung abgeschlossen](qa/v2/ipad/teilpunkte-aufgeloest.png), [Sorani-Begriff](qa/v2/ipad/woerterbuch-neuer-begriff.png). Sämtliche Materialseiten: `docs/qa/v2/pdf/`.
+
+**Öffentliche Live-Seite bleibt ungeprüft.** Der frische direkte HTTPS-Versuch endet am Proxy-CONNECT mit 403, Curl-Exit 56, Ziel-HTTP 000: [Abrufprotokoll](qa/v2/live-access.txt). Es wird keine HTTP-403-Antwort des Pages-Servers behauptet. Es gibt hier keinen bedienbaren Codex-Portweiterleitungsendpunkt; eine öffentliche Codex-Vorschau wurde nicht als repariert ausgegeben. Die neu geprüften Node-/Python-Server sind die funktionierende lokale Alternative. Startwege und Grenzen: [Vorschau](vorschau.md).
+
+## Bild- und Wörterbuchprüfung
+
+19 echte Fotos, 3.59 MiB zusammen; jede Datei unter 500 KiB, längste Seite höchstens 1400, kürzeste mindestens 600 Pixel. Das Balogun-Original mit 963 × 640 bleibt ohne Hochskalierung. Alle 15 ursprünglichen Dateien sind unverändert; vier Ergänzungen haben eigene Commons-Revisionen, Original- und Ableitungsprüfsummen, Orts-/Lizenzbelege. Keine generierten Beweisfotos. Kleine selbst erstellte Symbole illustrieren ausdrücklich ein Schema. Tabellen/Katalog: [Bildquellen](bildquellen.md).
+
+Zehn Wörterbucheinträge hinzugefügt, darunter acht belegte Kurmandschi- und sieben belegte Sorani-Werte; vorhandene Werte erhalten. Jetzt 197 Begriffe, ru 196 / uk 195 / pl 197 / tr 195 / ar 196 / ku 184 / ckb 184. Alle neuen nichtleeren Werte aller Sprachen und sämtliche 368 kurdischen Werte sind einzeln an Sinn, Varietät und Originalauszug gebunden. Neue Quellen werden als tatsächlich abgerufene Wiki-Revision, versionierter Wörterbuchauszug oder FreeDict-Eintrag dokumentiert. Fünf nichtkurdische Altbestände bleiben redaktionell plausibilisiert; keine vollständigen Einzelbelege dieser Altbestände behauptet.
+
+24 tatsächlich benötigte Suchformen gegen den lokalen Wortschatz geprüft: [Zuordnung](qa/v2/word-coverage.json), [Kontext und Grenzen](v2-umsetzung.md). Zusätzliche deutsche Begriffshilfen erklären ernten/aufbereiten/Bohnen/Versorgung. Alle Sprach-Abnahmefelder bleiben falsch. Vollständiger Bericht: [Wörterbuch](woerterbuch-pruefung.md).
+
+## Offene Abnahme und Übergabe
+
+Audit: sechs Sprachlücken-Kategorien (insgesamt 32 leere Werte), sieben sprachkundige Abnahmen, echtes Safari-iPad sowie fünf V2-Kategorien: Curriculum-Originale, direkte Sachquellen-Originale, reale Druckprobe, Lerngruppe/Zeit/Lernwirkung, öffentliche Browserfunktion. **19 offene Kategorien**, keine pauschale Unterrichtsfreigabe. Die fremden Originalseiten sind teilweise am Proxy blockiert; benannte Aussagen aus dem bereitgestellten geprüften Auftrag sind entsprechend gekennzeichnet. Kein erfundenes aktuelles Recht, Haushaltseinkommen, Wachstumstrend oder flächendeckender Zugang.
+
+Der Nutzer hat V2 einschließlich Push, bestehendem PR #1 und Deployment ausdrücklich freigegeben. `feature/detektivspiel-komplett` bleibt der Entwicklungsbranch, PR #1 Draft gegen `main`. Kein neuer PR und kein Merge. Pages veröffentlicht diesen Branch automatisch; Veröffentlichung und Live-Funktionsabnahme bleiben getrennt. Start und Wiederherstellung stehen in [Übergabe](uebergabe-v2.md); der nach Push erhobene Remote-/Buildstand wird als zusätzliche Übergabedatei gesichert. Ein Git-Bundle und Projektarchiv ermöglichen die Wiederherstellung ohne installierte Entwicklungsabhängigkeiten.
