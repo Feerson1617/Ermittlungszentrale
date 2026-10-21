@@ -1,8 +1,8 @@
 # Lokaler Änderungsentwurf – PR #1 bereits geschlossen
 
-**Noch nicht auf GitHub übertragen.** Auftrag 2.1 Abschnitt 12 verlangt neue ausdrückliche Push-Freigabe; Pages kann den Entwicklungsbranch automatisch veröffentlichen. Kein zweiter PR, kein Merge.
+**Implementierungscommit `e422525` nach ausdrücklicher Freigabe gepusht.** Der vorhandene Pages-Build startet automatisch. Dieser Text bleibt eine Änderungsbeschreibung, da PR #1 bereits gemergt/geschlossen ist. Kein zweiter PR und kein Merge.
 
-Die reine Lesekontrolle vom 21.10.2026 meldet PR #1 bereits gemergt/geschlossen, Merge-Commit `3a6274f`. Ein neuer Push kann diesen PR nicht mehr ergänzen. Der folgende Text ist deshalb nur eine lokale Änderungsbeschreibung. Kein neuer PR wird eigenständig angelegt. Nach einer späteren Push-Freigabe wäre der Branch-Vergleich `main...feature/detektivspiel-komplett` ein überprüfbarer Änderungsnachweis.
+Die reine Lesekontrolle vom 21.10.2026 meldet PR #1 bereits gemergt/geschlossen, Merge-Commit `3a6274f`. Ein neuer Push kann diesen PR nicht mehr ergänzen. Der folgende Text ist deshalb nur eine lokale Änderungsbeschreibung. Kein neuer PR wird eigenständig angelegt. Nach der Freigabe dient der Branch-Vergleich `main...feature/detektivspiel-komplett` als überprüfbarer Änderungsnachweis.
 
 Vorgeschlagener Titel: „Ermittlungszentrale 2.1: Bildauswahl und Prüfung pauschaler Afrikabilder“
 
@@ -12,4 +12,4 @@ Die erste Viererwahl bleibt offen und unbewertet. Eine ausdrücklich erfundene R
 
 Bewertungsregeln und 30+5 Punkte bleiben erhalten. Materialien stammen aus gemeinsamen Daten: zwei neutrale Schülerseiten, 13 Lehrerseiten; alle Seiten digital gerendert. Neue Motive und Attribution stehen in `docs/bildquellen.md` und `data/media.json`.
 
-Tatsächliche Prüfprotokolle: `docs/testbericht.md`, `docs/qa/v21/`. Offene menschliche, Quellen- und Live-Abnahmen: `docs/abnahme.md`. Keine echte Geräte- oder muttersprachliche Prüfung behauptet. Veröffentlichung erst nach ausdrücklicher Freigabe.
+Tatsächliche Prüfprotokolle: `docs/testbericht.md`, `docs/qa/v21/`. Offene menschliche, Quellen- und Live-Abnahmen: `docs/abnahme.md`. Keine echte Geräte- oder muttersprachliche Prüfung behauptet. Die ausdrückliche Push-Freigabe wurde erteilt; kein Merge.

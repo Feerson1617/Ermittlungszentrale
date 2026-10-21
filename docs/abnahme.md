@@ -1,6 +1,6 @@
 # Abnahme der Version 2.1
 
-Stand: 21.10.2026. Grundlage: unveränderter [Auftrag 2.1](../sources/auftrag-v2.1.md), ausgehend vom tatsächlich geprüften Entwicklungsstand `d8a4c4c` auf `feature/detektivspiel-komplett`. Gezielt überarbeitet, kein Neubau. Abschnitt 12 verlangt eine erneute ausdrückliche Freigabe vor Push: **lokal umgesetzt und geprüft; noch nicht gepusht, PR #1 nicht aktualisiert, nicht veröffentlicht.** Kein Merge und keine Änderung von Pages-Einstellungen.
+Stand: 21.10.2026. Grundlage: unveränderter [Auftrag 2.1](../sources/auftrag-v2.1.md), ausgehend vom tatsächlich geprüften Entwicklungsstand `d8a4c4c` auf `feature/detektivspiel-komplett`. Gezielt überarbeitet, kein Neubau. Die nach Abschnitt 12 erforderliche Freigabe wurde nach lokaler Prüfung ausdrücklich erteilt: **Implementierungscommit `e422525` gepusht, ohne Merge.** PR #1 ist bereits geschlossen und wurde nicht aktualisiert. Der vorhandene Pages-Build wird automatisch angestoßen. Kein Merge und keine Änderung von Pages-Einstellungen.
 
 ## Lokal umgesetzt
 
@@ -15,7 +15,7 @@ Stand: 21.10.2026. Grundlage: unveränderter [Auftrag 2.1](../sources/auftrag-v2
 
 ## GitHub-Befund aus reiner Lesekontrolle
 
-PR #1 wurde laut API am 21.10.2026 um 09:08:09 UTC gemergt und geschlossen, Merge-Commit `3a6274f732696048a4d45ee63964992b02f9ef58`. Der Entwicklungsbranch steht remote weiterhin auf `d8a4c4c`. In dieser 2.1-Bearbeitung wurden keine Remote-Schreibaktionen ausgeführt. Der Auftrag beschreibt somit einen überholten PR-Zustand. Ein Branch-Push könnte diesen gemergten PR nicht aktualisieren; es wird kein zweiter PR angelegt. Nach ausdrücklicher Push-Freigabe kann ein Branch-Vergleich als Änderungsnachweis dienen. [API-Befund](qa/v21/github-readonly.json).
+PR #1 wurde laut API am 21.10.2026 um 09:08:09 UTC gemergt und geschlossen, Merge-Commit `3a6274f732696048a4d45ee63964992b02f9ef58`. Nach der neuen Nutzerfreigabe wurde Implementierungscommit `e422525` auf denselben Entwicklungsbranch gepusht; `main` bleibt unverändert auf `3a6274f`. Der Auftrag beschreibt somit einen überholten PR-Zustand. Der Branch-Push aktualisiert den gemergten PR nicht; es wird kein zweiter PR angelegt. Der Branch-Vergleich `main...feature/detektivspiel-komplett` dient als Änderungsnachweis. [API-Befund](qa/v21/github-readonly.json).
 
 ## Fachliche Grenzen der fünf neuen Motive
 
@@ -34,7 +34,7 @@ Das Dorfmotiv belegt traditionelle Bauweise, keinen nachgewiesenen Armuts- oder 
 | Sachquellen-Originale | Renault/SIGA/UNESCO aus dem bereitgestellten geprüften Auftrag; direkter Originalabgleich teilweise blockiert. Status in `data/learning.js` und Lehrerunterlagen. |
 | Reale Druckprobe | Beide Seiten auf tatsächlichem Drucker prüfen; digitales Rendering reicht nicht. |
 | Lerngruppe | Zeiten, Verständlichkeit, Bedienwechsel und Lernwirkung ungemessen. Neuer Wasserschritt erhöht Umfang leicht; Drei-Stunden-Alternative vorhanden. |
-| Öffentliche Live-Funktion | Bisher am Proxy-CONNECT gesperrt; 2.1 ist zudem noch nicht veröffentlicht. Keine reparierte öffentliche Codex-Vorschau oder Live-Browserprüfung behauptet. |
+| Öffentliche Live-Funktion | Bisher am Proxy-CONNECT gesperrt; Der Push löst den vorhandenen Pages-Build aus; dessen Erfolg ersetzt keine Live-Browserabnahme. Keine reparierte öffentliche Codex-Vorschau oder Live-Browserprüfung behauptet. |
 
 `data/review.json` bleibt unverändert. Kein menschlicher Status wird durch automatisierte Prüfungen bestätigt. Keine pauschale Unterrichts-, Datenschutz- oder Sprachfreigabe.
 
