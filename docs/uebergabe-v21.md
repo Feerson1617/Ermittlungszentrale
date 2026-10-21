@@ -1,6 +1,6 @@
 # Lokale Übergabe · Ermittlungszentrale 2.1
 
-Stand 21.10.2026. Branch `feature/detektivspiel-komplett`, Grundlage `d8a4c4cdbfa51f059bcca362cbccef31719d4c86`. Änderungen lokal committet; die konkrete Commit-ID steht im Abschlussbericht und im Bundle. Keine Remote-Schreibaktion, kein eigener Merge und kein Deployment von 2.1. Auftrag Abschnitt 12 verlangt eine erneute ausdrückliche Freigabe vor Push.
+Stand 21.10.2026. Branch `feature/detektivspiel-komplett`, Grundlage `d8a4c4cdbfa51f059bcca362cbccef31719d4c86`. Implementierungscommit `e422525` nach erneuter ausdrücklicher Nutzerfreigabe („pushen ja, kein merge“) auf denselben Entwicklungsbranch gepusht. Kein eigener Merge; `main` bleibt unverändert. Der vorhandene Pages-Build startet automatisch. Die separat vorbereiteten Archive enthalten den unveränderten Implementierungsstand `e422525`; der nachfolgende Dokumentationsnachtrag ändert keine geprüften Anwendungsdateien.
 
 ## Überprüfbarer Stand
 
@@ -22,7 +22,7 @@ npm ci
 npm run check:start -- http://127.0.0.1:4173/ http://127.0.0.1:4173/Ermittlungszentrale/
 ```
 
-Dies prüft die tatsächliche gesamte Anwendung. Cloud-Portweiterleitung ist hier kein bedienbares Werkzeug; es wird keine öffentliche Codex-Vorschauadresse erfunden. Die öffentliche Pages-Adresse scheitert weiterhin am Proxy-CONNECT und 2.1 ist noch nicht veröffentlicht. [Genaue Grenzen](vorschau.md).
+Dies prüft die tatsächliche gesamte Anwendung. Cloud-Portweiterleitung ist hier kein bedienbares Werkzeug; es wird keine öffentliche Codex-Vorschauadresse erfunden. Die öffentliche Pages-Adresse scheitert weiterhin am Proxy-CONNECT und eine tatsächliche öffentliche Browserprüfung bleibt offen. [Genaue Grenzen](vorschau.md).
 
 ## Archiv und Wiederherstellung
 
@@ -43,4 +43,4 @@ Das vollständige Projektarchiv enthält auch Tests und QA-Nachweise. Das kleine
 
 Reine GitHub-Lesekontrolle: PR #1 ist am 21.10.2026 um 09:08:09 UTC bereits gemergt/geschlossen worden, Merge-Commit `3a6274f732696048a4d45ee63964992b02f9ef58`. Sein alter Head ist `d8a4c4c`; der Remote-Entwicklungsbranch steht weiterhin dort. `main` ist dieser Merge mit demselben Ausgangs-Anwendungsbaum. [API-Antwort](qa/v21/github-readonly.json). In dieser Überarbeitung keine dieser Remote-Aktionen ausgeführt.
 
-Ein neuer Push kann den gemergten PR nicht mehr ergänzen. Kein zweiter PR wird eigenständig erstellt. Nach ausdrücklicher Freigabe wäre der Push auf **denselben Entwicklungsbranch** und anschließend die GitHub-Vergleichsansicht `main...feature/detektivspiel-komplett` ein nachvollziehbarer Änderungsnachweis. Der bestehende Pages-Workflow kann dabei automatisch veröffentlichen; deshalb Freigabe erst nach Sichtung dieses lokalen Ergebnisses. Keine Pages-Einstellungen ändern und kein Force-Push.
+Der neue Push ergänzt den gemergten PR nicht. Kein zweiter PR wird erstellt. Nach ausdrücklicher Freigabe wurde auf **denselben Entwicklungsbranch** gepusht; die GitHub-Vergleichsansicht `main...feature/detektivspiel-komplett` ist der nachvollziehbare Änderungsnachweis. Der vorhandene Pages-Build kann dabei automatisch veröffentlichen. Keine Pages-Einstellungen geändert, kein Force-Push und kein Merge. Die ergänzende Dokumentation ändert den per Manifest geprüften Anwendungsstand nicht.

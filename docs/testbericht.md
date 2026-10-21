@@ -1,6 +1,6 @@
 # Tatsächlich geprüfter Stand – Version 2.1
 
-21.10.2026, Branch `feature/detektivspiel-komplett`, Ausgangsstand `d8a4c4cdbfa51f059bcca362cbccef31719d4c86`. Die geprüften Dateien sind im [SHA256-Manifest](qa/v21/verified-files.sha256) festgehalten. Nur lokale Überarbeitung; noch kein Push oder Deployment. Der [V2-Testbericht](testbericht-v2.md) bleibt als historischer Befund erhalten und wird nicht als neues Testergebnis ausgegeben.
+21.10.2026, Branch `feature/detektivspiel-komplett`, Ausgangsstand `d8a4c4cdbfa51f059bcca362cbccef31719d4c86`. Die geprüften Dateien sind im [SHA256-Manifest](qa/v21/verified-files.sha256) festgehalten. Nach lokaler Prüfung und ausdrücklicher neuer Nutzerfreigabe wurde Implementierungscommit `e422525` gepusht, ohne Merge. Das SHA256-Manifest der geprüften Anwendung bleibt unverändert gültig. Der [V2-Testbericht](testbericht-v2.md) bleibt als historischer Befund erhalten und wird nicht als neues Testergebnis ausgegeben.
 
 Node 24.19.0, npm 11.9.0, Playwright 1.58.2, Chromium 154, tatsächliches Playwright-WebKit 26.0 unter Debian 13. Keine echte iPad-, muttersprachliche, Druck- oder Unterrichtsprüfung wird behauptet.
 
@@ -74,10 +74,10 @@ Neue Screenshots tatsächlich angesehen: sämtliche Akten, drei Fotokartenfälle
 | Unveränderter Zwölferkatalog in Akte 004 | [Zweite Auswahl](qa/v21/desktop/akte-004.jpg) |
 | Materialien | Alle Seiten unter `docs/qa/v21/pdf/` |
 
-**Öffentliche Live-Funktion weiterhin nicht geprüft:** Der erneute normale HTTPS-Abruf endet am Egress-Proxy-CONNECT mit 403, Curl 56, Ziel-HTTP 000 ([Protokoll](qa/v21/live-access.txt)). Das ist keine HTTP-403-Seite von Pages. Kein bedienbarer Codex-Portweiterleitungsendpunkt verfügbar; keine reparierte öffentliche Codex-Webvorschau behauptet. Die tatsächlich bedienten Node-/Python-Server sind die funktionierende lokale Alternative. 2.1 ist außerdem bewusst noch nicht veröffentlicht.
+**Öffentliche Live-Funktion weiterhin nicht geprüft:** Der erneute normale HTTPS-Abruf endet am Egress-Proxy-CONNECT mit 403, Curl 56, Ziel-HTTP 000 ([Protokoll](qa/v21/live-access.txt)). Das ist keine HTTP-403-Seite von Pages. Kein bedienbarer Codex-Portweiterleitungsendpunkt verfügbar; keine reparierte öffentliche Codex-Webvorschau behauptet. Die tatsächlich bedienten Node-/Python-Server sind die funktionierende lokale Alternative. Nach Freigabe wurde 2.1 auf den Pages-Quellbranch gepusht; eine erfolgreiche Veröffentlichung ist kein Live-Funktionsnachweis.
 
 ## Offene Abnahmen und GitHub
 
 19 Audit-Kategorien: sechs Sprachlücken (32 Werte), sieben sprachkundige Abnahmen, echtes iPad/Safari sowie Curriculum-Originale, direkte Sachquellen-Originale, reale Druckprobe, Lerngruppe/Zeit/Lernwirkung und öffentliche Live-Browserfunktion. Fachliche Aussagegrenzen der Fotos bleiben ausdrücklich benannt. [Abnahme](abnahme.md), [Umsetzung](v21-umsetzung.md).
 
-Die reine GitHub-Lesekontrolle stellte fest: **PR #1 bereits gemergt/geschlossen**, 21.10.2026 09:08:09 UTC, Merge-Commit `3a6274f`; Remote-Entwicklungsbranch weiterhin `d8a4c4c`. `main` enthält denselben Anwendungsbaum wie die Ausgangsbasis. [API-Befund](qa/v21/github-readonly.json). Für 2.1 keine Remote-Schreibaktion. Auftrag Abschnitt 12 verlangt frische Push-Freigabe; es wird weder ein neuer PR angelegt noch ein Merge ausgeführt. Ein Push könnte den alten gemergten PR nicht aktualisieren und kann Pages automatisch auslösen.
+Die reine GitHub-Lesekontrolle stellte fest: **PR #1 bereits gemergt/geschlossen**, 21.10.2026 09:08:09 UTC, Merge-Commit `3a6274f`; Remote-Entwicklungsbranch nach Freigabe auf Implementierungscommit `e422525` aktualisiert. `main` enthält denselben Anwendungsbaum wie die Ausgangsbasis. [API-Befund](qa/v21/github-readonly.json). Die nach Auftrag Abschnitt 12 erforderliche Freigabe wurde ausdrücklich erteilt. Implementierungscommit `e422525` wurde gepusht; `main` ist unverändert. Kein neuer PR und kein Merge. Der vorhandene Pages-Build startet automatisch; der geschlossene PR wird dadurch nicht aktualisiert.
