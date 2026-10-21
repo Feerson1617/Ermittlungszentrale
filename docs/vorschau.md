@@ -1,6 +1,6 @@
 # Start und Vorschau: Befund und Prüfweg
 
-Stand: 21.10.2026. Gesamttests am 20.10., abschließender Server-/Browsercheck am 21.10.2026. Die Startkorrektur ist lokal vorbereitet. Die öffentliche Website und die Codex-Vorschau werden ausdrücklich nicht als repariert oder abgenommen bezeichnet.
+Stand: 21.10.2026. Gesamttests am 20.10., abschließender Server-/Browsercheck am 21.10.2026. Die geprüfte Startkorrektur ist für den bestehenden Entwicklungsbranch und PR #1 freigegeben. Die öffentliche Website und die Codex-Vorschau werden ausdrücklich nicht als repariert oder abgenommen bezeichnet.
 
 ## Tatsächlich beobachtet
 
@@ -72,8 +72,8 @@ Dann liegt die Anwendung unter `/Ermittlungszentrale/`. Beide Varianten wurden u
 - [HTTP-/Konsolenprotokoll unabhängiger statischer Server](qa/start-http-static.json): ebenfalls vier erfolgreiche Läufe.
 - [Gesamttests und Grenzen](testbericht.md): 192 Node-Tests, 152 Browserfälle einschließlich 38 WebKit; PDF-Prüfung bestanden.
 
-## GitHub-Übergabe ohne unbeabsichtigtes Deployment
+## GitHub-Übergabe und ausdrückliche Freigabe
 
-**Die aktuelle Pages-Konfiguration veröffentlicht den Entwicklungsbranch automatisch. Ein Push auf `feature/detektivspiel-komplett` kann daher gleichzeitig ein Deployment auslösen.** Das widerspricht dem aktuellen Auftrag „kein Deployment“. Pages-Einstellungen wurden nicht geändert und es wurde kein Build-/Deployment-Endpunkt aufgerufen. Die Startkorrektur wird lokal auf demselben Branch committet und als übertragbarer Patch/Projektstand bereitgestellt. Der Push bleibt aus, bis dieser Widerspruch geklärt ist. PR #1 bleibt der einzige Draft-PR; kein Merge in `main`.
+**Die aktuelle Pages-Konfiguration veröffentlicht den Entwicklungsbranch automatisch. Ein Push auf `feature/detektivspiel-komplett` kann daher gleichzeitig ein Deployment auslösen.** Der Push war zunächst wegen des Deployment-Verbots zurückgestellt. Am 21.10.2026 hat das Projektteam die konkrete Nachfrage zum Push von Commit `5496125` trotz automatischer Pages-Veröffentlichung mit „Ja“ beantwortet. Damit ist dieser Push einschließlich der begleitenden Statusdokumentation freigegeben. Die Pages-Einstellungen bleiben unverändert; es wird kein separater Build-/Deployment-Endpunkt aufgerufen. PR #1 bleibt der einzige Draft-PR; kein Merge in `main`. Eine erfolgreiche Pages-Buildmeldung wäre weiterhin keine Browser- oder Geräteabnahme der Live-Seite.
 
 Für eine spätere direkte Live-Diagnose wird Netzwerkzugriff auf `feerson1617.github.io` benötigt. Danach HTML, `css/style.css`, `js/app.js`, den gesamten Modulgraphen und `data/{rubrics,dictionary,media}.json` auf der tatsächlichen Website abfragen und `check:start` mit genau dieser URL ausführen. Erst ein erfolgreicher Live-Lauf erlaubt die Aussage, dass diese Vorschau funktioniert.

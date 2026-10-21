@@ -1,8 +1,8 @@
-**Vorbereitete Startkorrektur – noch nicht in den Remote-Commits dieses PR enthalten:** CSS-/Modul-/JSON-Fehler führen nun zu einer verständlichen Starthilfe; ein Zeitlimit verhindert die dauerhafte Lademeldung. Root, Projektpfad und Weiterleitung ohne Slash sind geprüft. Separat gestarteter Node-Server und unabhängige statische Python-Server wurden auf Desktop/iPad tatsächlich bedient: fünf Akten, alle 15 Fotos, Wörterbuch, Hinweise und Punkte. Neue Regressionstests prüfen außerdem fehlende, falsch ausgelieferte und hängende Ressourcen. Aktueller lokaler Stand: **192/192 Node-Tests, 152/152 Browserfälle einschließlich 38 WebKit**, PDF-Prüfung bestanden.
+Fehlende oder blockierte CSS-/JavaScript-Dateien konnten die Seite dauerhaft bei „Die Akten werden geöffnet …“ stehen lassen: Die frühere Fehlerbehandlung wurde bei Importfehlern nie ausgeführt. Die Startkorrektur zeigt jetzt verständliche Fehler für CSS, Module und JSON-Daten sowie nach 18 Sekunden bei hängenden Abrufen. Eine statische Starthilfe bleibt auch bei vollständiger Skriptsperre sichtbar; die CSP erlaubt das frühe Prüfskript ausschließlich über seinen exakten Hash. Der Entwicklungsserver korrigiert außerdem den Projektpfad ohne abschließenden Slash.
 
-Die GitHub-API meldet Pages als automatische Veröffentlichung aus `feature/detektivspiel-komplett`. Der Push der lokalen Startkorrektur bleibt deshalb wegen des ausdrücklichen Deployment-Verbots aus. Die öffentliche URL ist hier vom Cloud-Proxy blockiert und wird nicht als repariert behauptet. Der bestehende PR bleibt ein Draft, kein neuer PR und kein Merge. Befunde/Startweg: `docs/vorschau.md`, Nachweise: `docs/testbericht.md`.
+Root und Projektpfad wurden auf Desktop/iPad über einen separat gestarteten Node-Server und unabhängige statische Python-Server tatsächlich bedient: vollständiges Menü, Detektivmotiv, fünf Akten, alle 15 Fotos, Wörterbuch und Hinweise/Punkte. Neue Regressionstests prüfen den sichtbaren Start, Ressourcenfehler und hängende Abrufe. Spielinhalte, Übersetzungen, Bewertungsregeln und Unterrichtsmaterialien bleiben erhalten.
 
----
+Die öffentliche URL ist hier vom Cloud-Proxy blockiert und wird nicht als repariert behauptet. Das Projektteam hat den Push der geprüften Startkorrektur einschließlich der automatischen Pages-Veröffentlichung aus `feature/detektivspiel-komplett` am 21.10.2026 ausdrücklich freigegeben. Der bestehende PR bleibt ein Draft; kein neuer PR und kein Merge. Befunde: `docs/vorschau.md`, Validierung: `docs/testbericht.md`.
 
 Das Projekt enthält ein Geographie-Detektivspiel mit fünf unabhängig startbaren Akten, lokaler Bewertung, Wörterbuch und druckbaren Unterrichtsmaterialien. Alle 15 authentischen Beweisfotografien sind integriert. Das lokale Wörterbuch wurde um 248 belegte Kurmandschi-/Sorani-Werte ergänzt. Der PR bleibt wegen ausstehender Sprach- und echter iPad-Abnahmen ein Entwurf.
 
@@ -24,10 +24,10 @@ Wörterbuch und Abnahme:
 - Lokale Quellen-/Statusseite und vollständige Einzelliste: `woerterbuch.html`, `docs/woerterbuch-pruefung.md`, `data/dictionary-evidence.json`. Der Release-Audit erkennt veraltete oder beschädigte Wörterbuchbelege. Redaktionelle und muttersprachliche Abnahme sind getrennte Felder.
 - 21 Werte bleiben bewusst leer: elf Kurmandschi und zehn Sorani. Für diese Fachbegriffe/Formulierungen fand sich in den geprüften Quellen kein hinreichend passender Beleg. Keine erfundenen Fachwörter oder ungeprüften zusammengesetzten Ersatzbegriffe.
 
-Tatsächlich nach der Wörterbuchergänzung ausgeführt:
+Validierung des aktuellen Spielstands:
 
-- `npm test`: **191/191 bestanden**, nichts übersprungen.
-- `TEST_WEBKIT=1 npm run test:e2e` mit dokumentierter lokaler WebKit-Umgebung: **72/72 bestanden**; je 24 unter Chromium/iPad, Chromium/iPhone und WebKit/iPad. Keine externen Requests, Bildlade- oder Laufzeitfehler in den Medienprüfungen.
+- `npm test`: **192/192 bestanden**, nichts übersprungen.
+- `TEST_WEBKIT=1 npm run test:e2e` mit dokumentierter lokaler WebKit-Umgebung: **152/152 bestanden**; je 38 unter Chromium/Desktop, Chromium/iPad, Chromium/iPhone und WebKit/iPad. Keine externen Requests, Bildlade- oder Laufzeitfehler in den Medienprüfungen.
 - Alle fünf Akten und drei Länderfälle visuell geprüft; Chromium-/WebKit-Übersichten unter `docs/qa/`.
 - `npm run dictionary:report`, `npm run materials`, `npm run test:pdf`: erfolgreich. Quellen-Hashes zusätzlich abgeglichen; neun Wörterbuch-Browserdurchläufe nach ergänzter Scrollprüfung erneut bestanden. Schülerbogen zwei A4-Seiten; Erwartungshorizont sieben Seiten.
 - `sha256sum -c docs/kartendaten.sha256` und `git diff --check`: erfolgreich.
@@ -41,4 +41,4 @@ Vor Unterrichtsfreigabe bleiben offen:
 
 Der echte iPad-Test wird anschließend vom Projektteam übernommen. Es wird kein durchgeführter Geräte- oder Muttersprachlertest behauptet.
 
-Fortsetzung direkt auf `feature/detektivspiel-komplett` für den bestehenden Draft-PR #1 gegen `main`. Kein zweiter PR, kein Merge und kein Deployment. Einzelheiten: `docs/testbericht.md` und `docs/abnahme.md`.
+Fortsetzung direkt auf `feature/detektivspiel-komplett` für den bestehenden Draft-PR #1 gegen `main`. Kein zweiter PR und kein Merge. Der Push einschließlich der dadurch ausgelösten automatischen Pages-Veröffentlichung ist ausdrücklich freigegeben. Einzelheiten: `docs/testbericht.md` und `docs/abnahme.md`.

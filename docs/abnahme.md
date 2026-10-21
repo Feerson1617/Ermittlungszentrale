@@ -13,7 +13,7 @@
 
 ## Gemeldeter Ausfall der veröffentlichten Seite
 
-Der Start der bereits laufenden Anwendung ist unter Root und Projektpfad auf Desktop/iPad geprüft; CSS-/Modul-/JSON-Fehler haben jetzt eine verständliche Starthilfe statt einer dauerhaften Lademeldung. Der gemeldete Ausfall auf der tatsächlichen GitHub-Pages-Adresse bleibt **nicht abschließend diagnostiziert**: der Cloud-Proxy blockiert den Abruf, und es steht kein bedienbarer Codex-Vorschauendpunkt zur Verfügung. Diese Live-Abnahme wird vom dateibasierten Release-Audit nicht erfasst. Die Startkorrektur wird wegen der automatisch aus dem Entwicklungsbranch veröffentlichenden Pages-Konfiguration zunächst nicht gepusht. Nachweise, unabhängige statische Alternative und Konflikt zum Deployment-Verbot: [Vorschauprüfung](vorschau.md).
+Der Start der bereits laufenden Anwendung ist unter Root und Projektpfad auf Desktop/iPad geprüft; CSS-/Modul-/JSON-Fehler haben jetzt eine verständliche Starthilfe statt einer dauerhaften Lademeldung. Der gemeldete Ausfall auf der tatsächlichen GitHub-Pages-Adresse bleibt **nicht abschließend diagnostiziert**: der Cloud-Proxy blockiert den Abruf, und es steht kein bedienbarer Codex-Vorschauendpunkt zur Verfügung. Diese Live-Abnahme wird vom dateibasierten Release-Audit nicht erfasst. Das Projektteam hat den Push der geprüften Startkorrektur einschließlich der automatischen Pages-Veröffentlichung am 21.10.2026 ausdrücklich freigegeben. Die fehlende Live-Abnahme bleibt davon unabhängig offen. Nachweise, unabhängige statische Alternative und Konflikt zum Deployment-Verbot: [Vorschauprüfung](vorschau.md).
 
 ## Geprüfte Technik
 
@@ -29,4 +29,4 @@ Die aktive Policy erlaubt `commons.wikimedia.org`, `upload.wikimedia.org`, `cdn.
 
 ## GitHub-Übergabe
 
-Der bestehende offene Draft-PR [#1](https://github.com/Feerson1617/Ermittlungszentrale/pull/1) verwendet `feature/detektivspiel-komplett` gegen `main`. Die Wörterbuchergänzung liegt auf diesem Entwicklungsbranch. Die neue Startkorrektur wird lokal auf demselben Branch vorbereitet; ein Push würde laut aktueller Pages-Konfiguration automatisch veröffentlichen und bleibt bis zur Klärung des Deployment-Verbots aus. Kein zweiter PR und kein Merge. Beschreibung: `docs/pull-request.md`.
+Der bestehende offene Draft-PR [#1](https://github.com/Feerson1617/Ermittlungszentrale/pull/1) verwendet `feature/detektivspiel-komplett` gegen `main`. Die Wörterbuchergänzung liegt auf diesem Entwicklungsbranch. Die geprüfte Startkorrektur und ihre Statusdokumentation werden mit ausdrücklicher Freigabe vom 21.10.2026 direkt auf denselben Branch übertragen; die damit verbundene automatische Pages-Veröffentlichung ist ebenfalls freigegeben. Kein zweiter PR und kein Merge. Beschreibung: `docs/pull-request.md`.
