@@ -1,8 +1,10 @@
 # SCORM 1.2 – Test- und Abnahmebericht
 
-Prüfdatum: 25.10.2026. **Die lokale automatisierte Abnahme ist bestanden.**
-Der GitHub-Workflow zur Bereitstellung des Downloads läuft noch. Echte
-itslearning-Importe und Schul-iPad-Tests wurden nicht durchgeführt.
+Prüfdatum: 25.10.2026. **Bereit für den itslearning-Praxistest.**
+Lokale Abnahme und vollständige GitHub-CI sind bestanden; die veröffentlichte
+ZIP wurde heruntergeladen, erneut validiert und bytegleich mit der lokalen
+Fassung verglichen. Ein tatsächlicher itslearning-Import und ein Test auf
+einem echten verwalteten Schul-iPad wurden nicht durchgeführt.
 
 ## Grundlage und Abgrenzung
 
@@ -91,6 +93,7 @@ bleiben negative Tests; sie sind keine ungeklärten Auslieferungsfehler.
 | PDF-Prüfung | bestanden; Schülerbogen 2 × A4, Lehrerfassung 13 Seiten ausschließlich im Repository |
 | Bestehende Browserfälle auf Webfassung | **290/290 bestanden**, 9,5 Minuten: Desktop, iPad quer/hoch, Mobil (Chromium), iPad quer (WebKit) |
 | Browserfälle auf entpackter SCORM-ZIP | **414/414 bestanden**, 15,6 Minuten, 0 Fehler, 0 übersprungen, 0 flaky, keine Retries; je 69 Fälle auf sechs Profilen einschließlich WebKit quer/hoch |
+| GitHub-Abnahme | **704/704 bestanden** (290 Web + 414 ZIP), 0 Fehler/Flaky/Skip; [grüner Lauf](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40182137568), veröffentlichter Download geprüft |
 | Originaler Release-Audit | Exit 2, exakt 20 bekannte offene Abnahmepunkte; keine technische Freigabe daraus abgeleitet |
 
 ## Während der Entwicklung behobener SCORM-Befund
@@ -211,10 +214,14 @@ Ausgeführte Hauptbefehle: `npm test`, `node --test tests/scorm-runtime.test.mjs
 unveränderte Standard-Parallelität von zwei Workern. Zusätzlich wurde
 `npm run audit:release` ausgeführt; dessen Exitcode 2 ist oben aufgeschlüsselt.
 
-Getesteter Implementierungs-/Paketstand: `80851df1d436bd6a941e888380e37d2730e4bf25`.
+Paketimplementierung: `80851df1d436bd6a941e888380e37d2730e4bf25`.
+Vollständig bestandener CI-/Testserverstand: `e7f7d9b9e57220c9c1a9824af48cdf424dd3d274`.
 Die abschließenden Berichte und Screenshots verändern keine Paketdatei.
 
 - [SCORM-ZIP: vollständiges Browserprotokoll](qa/scorm/scorm-browser-tests.txt)
+- [GitHub-Abnahme einschließlich verifiziertem Download](qa/scorm/ci-summary.json)
+- [18 Reloadprüfungen der ZIP mit statischem HTTP-Cache](qa/scorm/cache-reload-tests.txt)
+- [15 Reloadprüfungen der unveränderten Webfassung mit denselben Headern](qa/scorm/source-cache-reload-tests.txt)
 - [Maschinenlesbare Browserzusammenfassung](qa/scorm/browser-summary.json)
 - [Paketprüfung](qa/scorm/package-validation.txt), [Paketgröße und Hash](qa/scorm/package-summary.json)
 - WebKit-Screenshots des Testplayers: [quer](qa/scorm/webkit-quer.png), [hoch](qa/scorm/webkit-hoch.png); gesichtet, Dialog und RTL lesbar
@@ -226,7 +233,16 @@ Die abschließenden Berichte und Screenshots verändern keine Paketdatei.
 - [Kurzanleitung für die Lehrkraft](scorm-kurzanleitung.md)
 - Build-, Testbefehle, Datenschutz und Importanleitung: [SCORM-Dokumentation](scorm-itslearning.md)
 
-GitHub Actions führt denselben Ablauf aus und stellt nach erfolgreicher
-Prüfung die ZIP und vollständige Browserberichte als Artefakte bereit.
-Die Download- und PR-Verweise werden nach Abschluss des tatsächlichen
-Workflow-Laufs ergänzt; ein Upload wird nicht vorab als erfolgreich bezeichnet.
+GitHub Actions hat alle fünf Web- und sechs SCORM-Browserprofile bestanden.
+Die Freigabestufe hat sämtliche JSON-Ergebnisse und den Paket-Hash geprüft.
+[Veröffentlichter Lehrkraft-Download](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40182137568/artifacts/12594866613) ·
+[erfolgreicher Workflow](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40182137568) ·
+[Pull Request #4](https://github.com/Feerson1617/Ermittlungszentrale/pull/4).
+Das endgültige Artefakt wurde tatsächlich heruntergeladen. Seine innere ZIP
+und die Prüfsumme entsprechen bytegenau der lokal geprüften Fassung.
+
+Die vorherigen CI-Fehler und die vorgenommenen HTTP-/Runnerkorrekturen stehen
+oben; sie werden nicht als bestandene Läufe umgedeutet. Der Abschlussstand
+benötigt keine Wiederholungen und überspringt keinen Browserfall.
+Die dokumentierten manuellen Geräte-/Plattform- und ursprünglichen
+fachlichen Abnahmen bleiben offen. Keine automatische Zusammenführung.

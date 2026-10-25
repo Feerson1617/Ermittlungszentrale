@@ -4,6 +4,7 @@ Die Ausgabe enthält das vollständige Spiel 2.2 mit fünf unabhängig startbare
 Akten, 24 Fotos, sieben Wörterbuchsprachen und der ursprünglichen Bewertung
 (30 reguläre + 5 Bonuspunkte, Hinweislimits 5/3/2/1). Es gibt ein einziges SCO.
 Die normale GitHub-Pages-Fassung und ihre Veröffentlichungswege bleiben unverändert.
+[Geprüfter Download](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40182137568/artifacts/12594866613) · [Kurzanleitung](scorm-kurzanleitung.md).
 
 ## Anleitung für Lehrkräfte – ohne Terminal
 

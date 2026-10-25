@@ -1,5 +1,9 @@
 # Die Ermittlungszentrale in itslearning öffnen
 
+**Stand: bereit für den itslearning-Praxistest.**
+
+[Geprüftes ZIP-Artefakt herunterladen](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40182137568/artifacts/12594866613) · [erfolgreicher Testlauf](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40182137568).
+
 ## ZIP herunterladen
 
 1. Den [SCORM-Build auf GitHub](https://github.com/Feerson1617/Ermittlungszentrale/actions/workflows/scorm-itslearning.yml)

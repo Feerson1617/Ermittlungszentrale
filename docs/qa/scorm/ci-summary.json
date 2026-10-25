@@ -1,0 +1,15 @@
+{
+  "webPassed": 290,
+  "scormPassed": 414,
+  "flaky": 0,
+  "skipped": 0,
+  "zipSha256": "1356377f55d930aceebdd223eb1495a28234d54ad14616320a69aff2d305c9de",
+  "zipBytes": 6046873,
+  "realItslearningImport": false,
+  "physicalSchoolIpadTest": false,
+  "workflowRun": 40182137568,
+  "artifactId": 12594866613,
+  "testedCommit": "e7f7d9b9e57220c9c1a9824af48cdf424dd3d274",
+  "downloadedAndCompared": true,
+  "workflowConclusion": "success"
+}
