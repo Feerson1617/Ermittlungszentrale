@@ -134,6 +134,23 @@ prüfen dieselbe zuvor gebaute ZIP. Eine abschließende Freigabestufe kontrollie
 die JSON-Ergebnisse aller elf Profile, Nullwerte für Fehler/Flaky/Skip sowie
 den ZIP-Hash, bevor das Lehrkraft-Artefakt veröffentlicht wird.
 
+## CI: Bildanforderungen bei Navigation
+
+Der isolierte CI-Lauf bestand auf der Webfassung in allen fünf Profilen.
+In zwei Chromium-Profilen des ZIP-Servers meldeten die bestehenden
+`requestfailed`-Beobachter beim Reload noch je eine Foto-/Icon-URL; die
+fachlichen Zustandsprüfungen selbst bestanden. HTTP-404-Meldungen traten
+dabei nicht auf. Diese Tests zählen auch das vom Browser beim Navigieren
+abgebrochene Nachladen eines noch offenen Bildes als Fehler.
+
+Der ZIP-Testserver liefert deshalb unveränderliche Fotos, Karten-SVGs und
+Icons mit regulärer HTTP-Cachebarkeit (`public, max-age=3600`) aus. HTML,
+Skripte und JSON bleiben `no-store`. Fehlende/fehlerhafte Bilder werden
+weiterhin durch ZIP-/Hashprüfung, echte HTTP-GETs und Bilddekodierung erkannt;
+kein Netzwerkereignis wird ausgefiltert, keine bestehende Assertion geändert.
+Diese Serverheader sind nur Eigenschaften der Testumgebung; im tatsächlichen
+itslearning bestimmt die Plattform die HTTP-Header.
+
 ## Testumgebung und Grenzen
 
 Cloud-Linux/Debian 13, Node.js 24.19.0, Python 3.12.14, zlib 1.3.2,

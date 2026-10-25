@@ -23,6 +23,6 @@ createServer(async(req,res)=>{
    if((await stat(target)).isDirectory())target=resolve(target,'index.html');
   }
   const data=await readFile(target);
-  res.writeHead(200,{'Content-Type':mime[extname(target)]||'application/octet-stream','X-Content-Type-Options':'nosniff','Cache-Control':'no-store'}).end(data);
+  res.writeHead(200,{'Content-Type':mime[extname(target)]||'application/octet-stream','X-Content-Type-Options':'nosniff','Cache-Control':['.webp','.svg','.png'].includes(extname(target))?'public, max-age=3600':'no-store'}).end(data);
  }catch{res.writeHead(404,{'Content-Type':'text/plain'}).end('Datei nicht gefunden');}
 }).listen(4173,'0.0.0.0',()=>console.log('SCORM-ZIP-Testserver: 4173'));
