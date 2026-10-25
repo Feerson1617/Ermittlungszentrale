@@ -1,0 +1,2 @@
+# Preserve the historical schema files, including upstream whitespace.
+scorm/schemas/*.xsd -text -whitespace

@@ -1,0 +1,5 @@
+
+> die-geheime-ermittlungszentrale@2.2.0 test:pdf
+> python3 scripts/check-pdf.py
+
+PDF geprüft: Schülerbogen 2 × DIN A4, Erwartungshorizont 13 Seiten, alle Aufgaben und Punktfelder vorhanden.

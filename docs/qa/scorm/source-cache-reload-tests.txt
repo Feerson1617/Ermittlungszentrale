@@ -1,0 +1,68 @@
+
+> die-geheime-ermittlungszentrale@2.2.0 test:e2e
+> playwright test --config=playwright.ci.config.mjs --grep=Teilpunkte am Limit|identische erste und zweite|Neuladen erhält
+
+[WebServer] (node:69089) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 15 tests using 2 workers
+
+(node:69102) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69101) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69101) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69102) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium-desktop] › tests/browser/game.spec.mjs:248:1 › Neuladen erhält Hinweisstufe und Versuchssperre; Neustart bestätigt Rücksetzen (2.3s)
+  ✓   1 [chromium-desktop] › tests/browser/v2.spec.mjs:28:1 › T2/D1 Teilpunkte am Limit: Auflösung bleibt nach Navigation und Reload offen (3.7s)
+(node:69394) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [chromium-desktop] › tests/browser/v21.spec.mjs:61:1 › 2.1: identische erste und zweite Viererwahl ist zulässig und bleibt getrennt gespeichert (2.2s)
+(node:69407) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69394) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69407) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [chromium-ipad] › tests/browser/game.spec.mjs:248:1 › Neuladen erhält Hinweisstufe und Versuchssperre; Neustart bestätigt Rücksetzen (2.2s)
+  ✓   5 [chromium-ipad] › tests/browser/v2.spec.mjs:28:1 › T2/D1 Teilpunkte am Limit: Auflösung bleibt nach Navigation und Reload offen (3.4s)
+  ✓   6 [chromium-ipad] › tests/browser/v21.spec.mjs:61:1 › 2.1: identische erste und zweite Viererwahl ist zulässig und bleibt getrennt gespeichert (2.3s)
+(node:69688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69695) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69695) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [chromium-ipad-portrait] › tests/browser/game.spec.mjs:248:1 › Neuladen erhält Hinweisstufe und Versuchssperre; Neustart bestätigt Rücksetzen (2.3s)
+  ✓   8 [chromium-ipad-portrait] › tests/browser/v2.spec.mjs:28:1 › T2/D1 Teilpunkte am Limit: Auflösung bleibt nach Navigation und Reload offen (3.7s)
+(node:69989) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [chromium-ipad-portrait] › tests/browser/v21.spec.mjs:61:1 › 2.1: identische erste und zweite Viererwahl ist zulässig und bleibt getrennt gespeichert (2.3s)
+(node:69999) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69989) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69999) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [chromium-mobile] › tests/browser/game.spec.mjs:248:1 › Neuladen erhält Hinweisstufe und Versuchssperre; Neustart bestätigt Rücksetzen (1.9s)
+  ✓  12 [chromium-mobile] › tests/browser/v21.spec.mjs:61:1 › 2.1: identische erste und zweite Viererwahl ist zulässig und bleibt getrennt gespeichert (2.2s)
+  ✓  11 [chromium-mobile] › tests/browser/v2.spec.mjs:28:1 › T2/D1 Teilpunkte am Limit: Auflösung bleibt nach Navigation und Reload offen (3.1s)
+(node:70293) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:70302) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:70293) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+(node:70302) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+  ✓  13 [webkit-ipad] › tests/browser/game.spec.mjs:248:1 › Neuladen erhält Hinweisstufe und Versuchssperre; Neustart bestätigt Rücksetzen (4.6s)
+  ✓  14 [webkit-ipad] › tests/browser/v2.spec.mjs:28:1 › T2/D1 Teilpunkte am Limit: Auflösung bleibt nach Navigation und Reload offen (9.8s)
+  ✓  15 [webkit-ipad] › tests/browser/v21.spec.mjs:61:1 › 2.1: identische erste und zweite Viererwahl ist zulässig und bleibt getrennt gespeichert (7.0s)
+
+  15 passed (36.5s)

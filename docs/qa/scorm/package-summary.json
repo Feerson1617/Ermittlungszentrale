@@ -1,0 +1,24 @@
+{
+  "baseCommit": "9fa662f1ece86097db107dd75dadbb202549834f",
+  "packageSourceCommit": "80851df1d436bd6a941e888380e37d2730e4bf25",
+  "zipName": "Ermittlungszentrale-SCORM-1.2.zip",
+  "bytes": 6046873,
+  "uncompressedBytes": 8805548,
+  "sha256": "1356377f55d930aceebdd223eb1495a28234d54ad14616320a69aff2d305c9de",
+  "files": 96,
+  "runtimeMethods": [
+    "LMSInitialize(\"\")",
+    "LMSFinish(\"\")"
+  ],
+  "realItslearningImport": false,
+  "physicalSchoolIpadTest": false,
+  "localPython": "3.12.14",
+  "ciStageDownloadedAndValidated": true,
+  "ciStageRun": 40181011791,
+  "ciStageAllFilesByteEqual": true,
+  "ciStageZipSha256": "1356377f55d930aceebdd223eb1495a28234d54ad14616320a69aff2d305c9de",
+  "finalWorkflowRun": 40182137568,
+  "finalArtifactId": 12594866613,
+  "finalArtifactDownloadedAndValidated": true,
+  "finalArtifactByteEqual": true
+}

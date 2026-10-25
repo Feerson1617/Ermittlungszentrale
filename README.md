@@ -8,6 +8,10 @@ Version 2.2 übernimmt den vollständigen Stand von 2.1 und korrigiert gezielt S
 
 **Abnahme:** lokal technisch geprüft; keine pauschale Unterrichtsfreigabe. Offen sind sprachkundige Prüfungen, echte iPad-Safari- und Druckprobe, Lerngruppenerprobung/Zeitmessung, direkte Originalabgleiche einzelner Sach-/Curriculumquellen sowie die öffentliche Live-Funktion. [Abnahmestatus](docs/abnahme.md), [Testbericht](docs/testbericht.md).
 
+## SCORM 1.2 für itslearning
+
+Der getrennte SCORM-Export wird mit `npm run build:scorm` erzeugt. Die ZIP enthält das vollständige Spiel 2.2 und verändert die Pages-Fassung nicht. [Kurzanleitung für Lehrkräfte](docs/scorm-kurzanleitung.md) · [Technik und Datenschutz](docs/scorm-itslearning.md) · [Test- und Abnahmebericht](docs/scorm-testbericht.md).
+
 ## Start und Vorschau
 
 Im vollständigen Repository, mit Node.js 24:

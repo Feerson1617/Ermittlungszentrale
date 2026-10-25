@@ -1,0 +1,5 @@
+/* Explicitly mark voluntary external source links; no remote resource is loaded. */
+a[href^="https://"]::after, a[href^="http://"]::after {
+  content: " (extern)";
+  font-size: .85em;
+}
