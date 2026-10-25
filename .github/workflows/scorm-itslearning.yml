@@ -1,0 +1,76 @@
+name: SCORM 1.2 für itslearning
+on:
+  workflow_dispatch:
+  push:
+    branches: [feature/scorm-itslearning-1-2]
+  pull_request:
+    paths:
+      - 'scorm/**'
+      - 'scripts/*scorm*'
+      - 'tests/**'
+      - 'js/**'
+      - 'css/**'
+      - 'data/**'
+      - 'assets/**'
+      - 'materials/**'
+      - '*.html'
+      - 'package*.json'
+      - 'playwright*.mjs'
+      - 'requirements-scorm.txt'
+      - '.github/workflows/scorm-itslearning.yml'
+permissions:
+  contents: read
+jobs:
+  verify-and-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: npm ci
+      - run: python -m pip install -r requirements-scorm.txt
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Browserpfad für die bestehenden Tests
+        run: node --input-type=module -e 'import {chromium} from "playwright"; console.log("CHROMIUM_PATH="+chromium.executablePath())' >> "$GITHUB_ENV"
+      - name: Bestehende Unit- und Materialprüfungen
+        run: npm test && npm run test:pdf
+      - name: Bestehende Browserprüfungen auf der unveränderten Webfassung
+        run: npm run test:e2e
+        env:
+          TEST_WEBKIT: '1'
+      - name: SCORM bauen und validieren
+        run: npm run build:scorm && npm run validate:scorm && python3 tests/scorm-package.py
+      - name: Reproduzierbarkeit prüfen
+        run: |
+          cp artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip /tmp/scorm-first.zip
+          npm run build:scorm
+          cmp /tmp/scorm-first.zip artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip
+      - name: Vollständige Browserprüfung der entpackten ZIP
+        run: npm run test:scorm
+      - name: Direkt importierbare ZIP bereitstellen
+        uses: actions/upload-artifact@v4
+        with:
+          name: Ermittlungszentrale-SCORM-1.2
+          path: |
+            artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip
+            artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip.sha256
+          if-no-files-found: error
+          retention-days: 90
+      - name: Prüfprotokolle und Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SCORM-Testberichte
+          path: |
+            playwright-report/
+            test-results/
+            artifacts/scorm/browser-report/
+            artifacts/scorm/browser-results/
+            artifacts/scorm/browser-results.json
+          retention-days: 30

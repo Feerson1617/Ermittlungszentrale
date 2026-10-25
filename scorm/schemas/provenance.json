@@ -1,0 +1,22 @@
+{
+  "adlcp_rootv1p2.xsd": {
+    "source": "https://raw.githubusercontent.com/Education-Numerique/authoring.js/fe7fb92bce8cd844d7397b2fe0a7b47b8ec42ad1/src/activity/scorm/adlcp_rootv1p2.xsd",
+    "originalSha256": "173decaf9cd31ea847e6ff6853c702137974aca6b56567151aa4a885e0aa4883",
+    "sha256": "173decaf9cd31ea847e6ff6853c702137974aca6b56567151aa4a885e0aa4883"
+  },
+  "ims_xml.xsd": {
+    "source": "https://raw.githubusercontent.com/Education-Numerique/authoring.js/fe7fb92bce8cd844d7397b2fe0a7b47b8ec42ad1/src/activity/scorm/ims_xml.xsd",
+    "originalSha256": "5209ff1d1e89cac16e797a2cdb0d5f345343ad97c1b125483a4bc6fc29319bd5",
+    "sha256": "a3cb190db7a3ee00a264531b03490142125b1180d09b48745a8862fa880e5d48"
+  },
+  "imscp_rootv1p1p2.xsd": {
+    "source": "https://raw.githubusercontent.com/Education-Numerique/authoring.js/fe7fb92bce8cd844d7397b2fe0a7b47b8ec42ad1/src/activity/scorm/imscp_rootv1p1p2.xsd",
+    "originalSha256": "d9ee699094e0db4518cf0143c81873d196b2683cf1c5ed770f108239ee079dda",
+    "sha256": "d9ee699094e0db4518cf0143c81873d196b2683cf1c5ed770f108239ee079dda"
+  },
+  "imsmd_rootv1p2p1.xsd": {
+    "source": "https://raw.githubusercontent.com/Education-Numerique/authoring.js/fe7fb92bce8cd844d7397b2fe0a7b47b8ec42ad1/src/activity/scorm/imsmd_rootv1p2p1.xsd",
+    "originalSha256": "51310a1097f373e619e54ef2ba9c050117de4822e6119a1cc2a3d07cfe450db9",
+    "sha256": "f790c3216e763ff10910e0823b0b71d670b62ed2abca52b09931cafed832ca1f"
+  }
+}

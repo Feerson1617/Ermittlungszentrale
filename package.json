@@ -13,7 +13,10 @@
     "audit:release": "node scripts/release-audit.mjs",
     "media:credits": "node scripts/media-credits.mjs",
     "dictionary:report": "node scripts/dictionary-report.mjs",
-    "test:pdf": "python3 scripts/check-pdf.py"
+    "test:pdf": "python3 scripts/check-pdf.py",
+    "build:scorm": "python3 scripts/build-scorm.py",
+    "validate:scorm": "python3 scripts/validate-scorm.py",
+    "test:scorm": "playwright test --config playwright.scorm.config.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.58.2"
