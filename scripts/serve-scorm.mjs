@@ -6,7 +6,7 @@ import {resolve,sep,extname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const testingSource=process.env.SCORM_TEST_SOURCE==='1';
-const extracted=testingSource?root:resolve(root,'artifacts/scorm/served');
+const extracted=testingSource?resolve(root):resolve(root,'artifacts/scorm/served');
 if(!testingSource)execFileSync('python3',['-c',`import zipfile,shutil; from pathlib import Path; p=Path(${JSON.stringify(extracted)}); shutil.rmtree(p,ignore_errors=True); zipfile.ZipFile('artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip').extractall(p)`],{cwd:root});
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.geojson':'application/geo+json; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.pdf':'application/pdf','.md':'text/plain; charset=utf-8','.txt':'text/plain; charset=utf-8','.xsd':'application/xml','.xml':'application/xml'};
 createServer(async(req,res)=>{
