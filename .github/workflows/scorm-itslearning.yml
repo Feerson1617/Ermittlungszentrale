@@ -82,7 +82,7 @@ jobs:
       - name: Chromium-Pfad für die bestehenden Tests
         run: node --input-type=module -e 'import {chromium} from "playwright"; console.log("CHROMIUM_PATH="+chromium.executablePath())' >> "$GITHUB_ENV"
       - name: Bestehende Tests ohne Änderung der Limits oder Wiederholungen
-        run: npm run test:e2e -- --project=${{ matrix.project }} --workers=1 --reporter=list,json,html
+        run: npm run test:e2e -- --config=playwright.ci.config.mjs --project=${{ matrix.project }} --workers=1 --reporter=list,json,html
         env:
           TEST_WEBKIT: '1'
           PLAYWRIGHT_JSON_OUTPUT_NAME: regression-results.json

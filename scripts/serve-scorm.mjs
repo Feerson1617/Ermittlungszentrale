@@ -5,8 +5,9 @@ import {readFile,stat} from 'node:fs/promises';
 import {resolve,sep,extname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=fileURLToPath(new URL('../',import.meta.url));
-const extracted=resolve(root,'artifacts/scorm/served');
-execFileSync('python3',['-c',`import zipfile,shutil; from pathlib import Path; p=Path(${JSON.stringify(extracted)}); shutil.rmtree(p,ignore_errors=True); zipfile.ZipFile('artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip').extractall(p)`],{cwd:root});
+const testingSource=process.env.SCORM_TEST_SOURCE==='1';
+const extracted=testingSource?root:resolve(root,'artifacts/scorm/served');
+if(!testingSource)execFileSync('python3',['-c',`import zipfile,shutil; from pathlib import Path; p=Path(${JSON.stringify(extracted)}); shutil.rmtree(p,ignore_errors=True); zipfile.ZipFile('artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip').extractall(p)`],{cwd:root});
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.geojson':'application/geo+json; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.pdf':'application/pdf','.md':'text/plain; charset=utf-8','.txt':'text/plain; charset=utf-8','.xsd':'application/xml','.xml':'application/xml'};
 createServer(async(req,res)=>{
  try{
@@ -25,4 +26,4 @@ createServer(async(req,res)=>{
   const data=await readFile(target);
   res.writeHead(200,{'Content-Type':mime[extname(target)]||'application/octet-stream','X-Content-Type-Options':'nosniff','Cache-Control':['.webp','.svg','.png'].includes(extname(target))?'public, max-age=3600':'no-store'}).end(data);
  }catch{res.writeHead(404,{'Content-Type':'text/plain'}).end('Datei nicht gefunden');}
-}).listen(4173,'0.0.0.0',()=>console.log('SCORM-ZIP-Testserver: 4173'));
+}).listen(4173,'0.0.0.0',()=>console.log((testingSource?'Webfassung':'SCORM-ZIP')+'-Testserver: 4173'));

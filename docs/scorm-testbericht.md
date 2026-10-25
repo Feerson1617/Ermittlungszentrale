@@ -148,6 +148,13 @@ Icons mit regulärer HTTP-Cachebarkeit (`public, max-age=3600`) aus. HTML,
 Skripte und JSON bleiben `no-store`. Fehlende/fehlerhafte Bilder werden
 weiterhin durch ZIP-/Hashprüfung, echte HTTP-GETs und Bilddekodierung erkannt;
 kein Netzwerkereignis wird ausgefiltert, keine bestehende Assertion geändert.
+Die unveränderten Webtests werden in CI mit `playwright.ci.config.mjs`
+gegen denselben HTTP-Server im Quellmodus ausgeführt; ihre Dateien und
+Zeitlimits bleiben unverändert. Auch die Webfassung erzeugte unter dem
+bisherigen `no-store`-Server dieselben Foto-/Icon-Meldungen beim Reload
+(Lauf 40181697187); die SCORM-Chromiumprofile bestanden dort nach der
+Headerkorrektur vollständig.
+
 Diese Serverheader sind nur Eigenschaften der Testumgebung; im tatsächlichen
 itslearning bestimmt die Plattform die HTTP-Header.
 
