@@ -37,7 +37,7 @@ def build():
             prefix = '../' if name.startswith('materials/') else ''
             content = content.replace(b'</head>', f'<link rel="stylesheet" href="{prefix}scorm-export.css"></head>'.encode(), 1)
             if name == 'index.html':
-                content = content.replace(b'</head>', b'<script src="scorm-runtime.js" defer></script></head>', 1)
+                content = content.replace(b'</head>', b'<script src="scorm-runtime.js" async></script></head>', 1)
         target.write_bytes(content)
     shutil.copyfile(ROOT / 'scorm/runtime.js', PACKAGE / 'scorm-runtime.js')
     shutil.copyfile(ROOT / 'scorm/export.css', PACKAGE / 'scorm-export.css')

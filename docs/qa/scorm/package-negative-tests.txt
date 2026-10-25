@@ -1,0 +1,15 @@
+test_game_text_modified (__main__.PackageTests.test_game_text_modified) ... ok
+test_invalid_adl_type (__main__.PackageTests.test_invalid_adl_type) ... ok
+test_missing_photo (__main__.PackageTests.test_missing_photo) ... ok
+test_path_traversal (__main__.PackageTests.test_path_traversal) ... ok
+test_photo_bytes_modified (__main__.PackageTests.test_photo_bytes_modified) ... ok
+test_relative_reference_missing (__main__.PackageTests.test_relative_reference_missing) ... ok
+test_remote_automatic_resource (__main__.PackageTests.test_remote_automatic_resource) ... ok
+test_scoring_modification (__main__.PackageTests.test_scoring_modification) ... ok
+test_teacher_material (__main__.PackageTests.test_teacher_material) ... ok
+test_wrong_scorm_version (__main__.PackageTests.test_wrong_scorm_version) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.257s
+
+OK

@@ -1,0 +1,75 @@
+
+> die-geheime-ermittlungszentrale@2.2.0 test:scorm
+> playwright test --config playwright.scorm.config.mjs --grep=Hängender Abruf css/style.css|Verzögerte SCORM --workers=4
+
+[WebServer] (node:23160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 4 workers
+
+(node:23174) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23181) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23173) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23175) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23174) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23181) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23173) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23175) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [chromium-ipad] › tests/scorm/integration.spec.mjs:86:1 › Verzögerte SCORM-Datei blockiert weder Spielstart noch Antwortabgabe (3.6s)
+  ✓   3 [chromium-desktop] › tests/scorm/integration.spec.mjs:86:1 › Verzögerte SCORM-Datei blockiert weder Spielstart noch Antwortabgabe (3.2s)
+(node:23697) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23703) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23697) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23703) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium-desktop] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf css/style.css endet mit Fehler statt dauerhafter Lademeldung (6.9s)
+  ✓   1 [chromium-ipad] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf css/style.css endet mit Fehler statt dauerhafter Lademeldung (7.1s)
+  ✓   6 [chromium-ipad-portrait] › tests/scorm/integration.spec.mjs:86:1 › Verzögerte SCORM-Datei blockiert weder Spielstart noch Antwortabgabe (2.2s)
+(node:23956) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23963) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23974) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23956) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23963) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23974) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+  ✓   8 [chromium-mobile] › tests/scorm/integration.spec.mjs:86:1 › Verzögerte SCORM-Datei blockiert weder Spielstart noch Antwortabgabe (2.0s)
+  ✓   5 [chromium-ipad-portrait] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf css/style.css endet mit Fehler statt dauerhafter Lademeldung (6.0s)
+(node:24288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24296) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24296) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+  ✓   7 [chromium-mobile] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf css/style.css endet mit Fehler statt dauerhafter Lademeldung (6.2s)
+  ✓  11 [webkit-ipad] › tests/scorm/integration.spec.mjs:86:1 › Verzögerte SCORM-Datei blockiert weder Spielstart noch Antwortabgabe (2.6s)
+  ✓   9 [webkit-ipad] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf css/style.css endet mit Fehler statt dauerhafter Lademeldung (6.1s)
+(node:24457) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24457) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+  ✓  10 [webkit-ipad-portrait] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf css/style.css endet mit Fehler statt dauerhafter Lademeldung (5.8s)
+  ✓  12 [webkit-ipad-portrait] › tests/scorm/integration.spec.mjs:86:1 › Verzögerte SCORM-Datei blockiert weder Spielstart noch Antwortabgabe (2.4s)
+
+  12 passed (22.3s)

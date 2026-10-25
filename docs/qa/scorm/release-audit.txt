@@ -1,0 +1,25 @@
+
+> die-geheime-ermittlungszentrale@2.2.0 audit:release
+> node scripts/release-audit.mjs
+
+OFFEN Wörterbuch ru: 1 fehlende Übersetzungen
+OFFEN muttersprachliche Prüfung: ru
+OFFEN Wörterbuch uk: 2 fehlende Übersetzungen
+OFFEN muttersprachliche Prüfung: uk
+OFFEN muttersprachliche Prüfung: pl
+OFFEN Wörterbuch tr: 2 fehlende Übersetzungen
+OFFEN muttersprachliche Prüfung: tr
+OFFEN Wörterbuch ar: 1 fehlende Übersetzungen
+OFFEN muttersprachliche Prüfung: ar
+OFFEN Wörterbuch ku: 13 fehlende Übersetzungen
+OFFEN muttersprachliche Prüfung: ku
+OFFEN Wörterbuch ckb: 13 fehlende Übersetzungen
+OFFEN muttersprachliche Prüfung: ckb
+OFFEN: Test auf einem echten Schul-iPad in Safari
+OFFEN: Originalabgleich von Curriculum/Fachanforderungen und aktueller Geltung
+OFFEN: Direkter Originalabgleich der im Auftrag benannten Sachquellen
+OFFEN: Reale beidseitige Druckprobe
+OFFEN: Lerngruppenerprobung, Bearbeitungszeit und Lernwirkung
+OFFEN: Browserabnahme der tatsächlich veröffentlichten Website
+OFFEN: Prüfung im tatsächlichen Schulnetz
+20 offene Abnahmepunkte. Technische Tests separat ausführen.

@@ -43,7 +43,7 @@ verfügbar und lassen sich danach mit einem neuen Lauf erneut erzeugen.
 
 ## Reproduzierbarer Build für die technische Betreuung
 
-Voraussetzungen: Python 3.13 und Node.js 24 für die vorhandenen Tests.
+Voraussetzungen: Python ab 3.12 (CI: 3.13) und Node.js 24 für die vorhandenen Tests.
 Der Build selbst verwendet nur die Python-Standardbibliothek und kein Netzwerk.
 
 ```sh
@@ -77,7 +77,7 @@ Quellstand verwendet werden. Keine Node-Abhängigkeit gelangt ins Schülerpaket.
   Die drei Informations-/Startseiten und die Schülerbogen-HTML erhalten
   zusätzlich nur lokale SCORM-Dateiverweise; ihr Originalinhalt bleibt gleich.
 - `scorm/runtime.js`: isolierte technische SCORM-Sitzung, nur in der exportierten
-  `index.html` geladen. Die normale `index.html` im Repository wird nicht editiert.
+  `index.html` asynchron geladen, ohne den Spielstart zu blockieren. Die normale `index.html` im Repository wird nicht editiert.
 - `scorm/export.css`: Kennzeichnung bewusst aufrufbarer HTTP(S)-Quellenlinks
   mit „(extern)“. Kein automatischer Quellenabruf; vorhandene externe HTML-Links
   verwenden `noopener noreferrer`.

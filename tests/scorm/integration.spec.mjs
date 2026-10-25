@@ -5,7 +5,7 @@ import {choose,selectionTask,answerSelection,submit,result,solveCountries,home,o
 const media=JSON.parse(await readFile(new URL('../../data/media.json',import.meta.url)));
 const origin='http://127.0.0.1:4173';
 async function embedded(page,mode=''){
- await page.goto(`/player.html?mode=${mode}`);
+ await page.goto(`/player.html?mode=${mode}`,{waitUntil:"domcontentloaded"});
  await expect.poll(()=>page.frames().filter(f=>f.url().includes('/kurs/')).length).toBe(1);
  const game=page.frames().find(f=>f.url().includes('/kurs/'));
  await expect(game.locator('.case-card')).toHaveCount(5);
@@ -81,4 +81,15 @@ test('Touch, Scrollen, Fotozoom, Wörterbuch und Karte im Player',async({page},i
  // caret: initial avoids Playwright injecting a stylesheet rejected by the application's CSP.
  await page.screenshot({path:info.outputPath('scorm-player.png'),fullPage:true,caret:'initial'});
  await game.locator('#dictionary-close').click();await expect(game.locator('#dictionary-open')).toBeFocused();
+});
+
+test('Verzögerte SCORM-Datei blockiert weder Spielstart noch Antwortabgabe',async({page})=>{
+ let pending;
+ await page.route('**/scorm-runtime.js',route=>{pending=route;});
+ const game=await embedded(page);await expect.poll(()=>Boolean(pending)).toBeTruthy();
+ await open(game,1);await game.locator('#name-answer').fill('Afrika');await submit(game);await result(game,5);
+ expect(await calls(page)).toEqual([]);await pending.continue();
+ await expect.poll(()=>calls(page)).toEqual([['LMSInitialize','']]);
+ await game.goto(new URL('/woerterbuch.html',game.url()).href);
+ await expect.poll(()=>calls(page)).toEqual([['LMSInitialize',''],['LMSFinish','']]);
 });

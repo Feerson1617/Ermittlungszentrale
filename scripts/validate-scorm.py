@@ -137,10 +137,13 @@ def validate(archive_path):
                 prefix = '../' if name.startswith('materials/') else ''
                 exported = exported.replace(f'<link rel="stylesheet" href="{prefix}scorm-export.css">', '', 1)
                 if name == 'index.html':
-                    exported = exported.replace('<script src="scorm-runtime.js" defer></script>', '', 1)
+                    exported = exported.replace('<script src="scorm-runtime.js" async></script>', '', 1)
                 assert exported == original, f'Unzulässige HTML-Änderung: {name}'
+        provenance = json.loads((ROOT / 'scorm/schemas/provenance.json').read_text())
         for name in build.SCHEMAS:
-            assert (package / name).read_bytes() == (ROOT / 'scorm/schemas' / name).read_bytes()
+            schema_bytes = (package / name).read_bytes()
+            assert schema_bytes == (ROOT / 'scorm/schemas' / name).read_bytes()
+            assert hashlib.sha256(schema_bytes).hexdigest() == provenance[name]['sha256'], f'Schema-Provenienz: {name}'
         print(f'BESTANDEN: {len(names)} ZIP-Dateien, 1 SCO, XSD inkl. ADL-Negativtest, '
               f'{len(checked)} aufgelöste lokale Ziele, 24 Foto-Hashes, Quellgleichheit, '
               f'{len(external)} ausschließlich bewusst aufrufbare externe Quellenlinks.')

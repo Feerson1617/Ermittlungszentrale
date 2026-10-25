@@ -18,6 +18,9 @@ on:
       - 'playwright*.mjs'
       - 'requirements-scorm.txt'
       - '.github/workflows/scorm-itslearning.yml'
+concurrency:
+  group: scorm-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
