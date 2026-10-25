@@ -2,17 +2,16 @@
 
 **Stand: bereit für den itslearning-Praxistest.**
 
-[Geprüftes ZIP-Artefakt herunterladen](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40182137568/artifacts/12594866613) · [erfolgreicher Testlauf](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40182137568).
+[Aktuelle SCORM-Exporte in GitHub Actions](https://github.com/Feerson1617/Ermittlungszentrale/actions/workflows/scorm-itslearning.yml) · [früherer erfolgreicher Testlauf (noch mit äußerer Transport-ZIP)](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40182137568).
 
 ## ZIP herunterladen
 
 1. Den [SCORM-Build auf GitHub](https://github.com/Feerson1617/Ermittlungszentrale/actions/workflows/scorm-itslearning.yml)
    öffnen. Der fertige Lauf muss ein **grünes Häkchen** haben.
-2. Unten bei **Artifacts** auf **Ermittlungszentrale-SCORM-1.2** klicken.
-   Dafür ist die Anmeldung im bereits vorhandenen GitHub-Konto erforderlich.
-3. GitHub liefert eine äußere Download-ZIP. Diese **als Lehrkraft einmal öffnen**
-   und die darin enthaltene **`Ermittlungszentrale-SCORM-1.2.zip`** entnehmen.
-   Diese innere SCORM-ZIP **geschlossen lassen**. Nicht „Code → Download ZIP“ verwenden.
+2. Im erfolgreichen **neuen** Workflow-Lauf unter **Artifacts** direkt auf **`Ermittlungszentrale-SCORM-1.2.zip`** klicken (GitHub-Anmeldung erforderlich).
+3. **Genau diese heruntergeladene ZIP unverändert** in itslearning importieren. Sie enthält `imsmanifest.xml` in ihrer Wurzel. **Nicht entpacken, nicht neu komprimieren.** Nicht „Code → Download ZIP“ verwenden.
+
+   **Hinweis für alte Läufe:** Das oben verlinkte historische Artefakt enthält noch eine zusätzliche GitHub-Transport-ZIP. Diese einmal entpacken und nur die darin enthaltene SCORM-ZIP verwenden.
 
 ## In itslearning importieren
 

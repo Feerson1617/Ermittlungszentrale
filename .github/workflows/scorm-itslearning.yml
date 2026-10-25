@@ -198,15 +198,42 @@ jobs:
           print(json.dumps(summary, indent=2))
           PY
           python3 scripts/validate-scorm.py
-      - name: Direkt importierbare ZIP bereitstellen
-        uses: actions/upload-artifact@v4
+      - name: SCORM-ZIP ohne äußere GitHub-Verpackung bereitstellen
+        id: import_zip
+        uses: actions/upload-artifact@v7
         with:
-          name: Ermittlungszentrale-SCORM-1.2
-          path: |
-            artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip
-            artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip.sha256
+          path: artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip
+          archive: false
           if-no-files-found: error
           retention-days: 90
+      - name: Direkt herunterladbare Import-ZIP erneut beziehen
+        uses: actions/download-artifact@v8
+        with:
+          name: Ermittlungszentrale-SCORM-1.2.zip
+          path: artifacts/scorm/direct-download-check
+      - name: Direktdownload bytegleich mit geprüftem Paket vergleichen
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          from pathlib import Path
+          from zipfile import ZipFile
+          origin = Path('artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip')
+          received = Path('artifacts/scorm/direct-download-check/Ermittlungszentrale-SCORM-1.2.zip')
+          assert received.is_file() and received.read_bytes() == origin.read_bytes(), 'Direct download is not identical to validated original ZIP'
+          assert hashlib.sha256(received.read_bytes()).hexdigest() == Path(str(origin) + '.sha256').read_text().split()[0], 'SHA256 mismatch'
+          with ZipFile(received) as package:
+              names = package.namelist()
+              assert 'imsmanifest.xml' in names, 'Missing root manifest in direct download'
+              assert package.testzip() is None, 'Corrupt direct download'
+          print('Direct browser download is the validated SCORM import ZIP; no re-zipping required.')
+          PY
+      - name: Lehrkraft-Download direkt verlinken
+        env:
+          DIRECT_URL: ${{ steps.import_zip.outputs.artifact-url }}
+        run: |
+          echo "[Ermittlungszentrale-SCORM-1.2.zip direkt herunterladen](${DIRECT_URL})" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Diese ZIP **unverändert** in itslearning importieren. Nicht entpacken oder neu komprimieren. Ältere Workflow-Artefakte können noch eine äußere Transport-ZIP enthalten." >> "$GITHUB_STEP_SUMMARY"
       - name: Abnahmezusammenfassung bereitstellen
         uses: actions/upload-artifact@v4
         with:

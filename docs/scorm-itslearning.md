@@ -4,20 +4,21 @@ Die Ausgabe enthält das vollständige Spiel 2.2 mit fünf unabhängig startbare
 Akten, 24 Fotos, sieben Wörterbuchsprachen und der ursprünglichen Bewertung
 (30 reguläre + 5 Bonuspunkte, Hinweislimits 5/3/2/1). Es gibt ein einziges SCO.
 Die normale GitHub-Pages-Fassung und ihre Veröffentlichungswege bleiben unverändert.
-[Geprüfter Download](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40182137568/artifacts/12594866613) · [Kurzanleitung](scorm-kurzanleitung.md).
+[Aktuelle SCORM-Exporte](https://github.com/Feerson1617/Ermittlungszentrale/actions/workflows/scorm-itslearning.yml) · [Kurzanleitung](scorm-kurzanleitung.md).
 
 ## Anleitung für Lehrkräfte – ohne Terminal
 
 1. Im Repository oben **Actions** öffnen und links **SCORM 1.2 für itslearning**
    wählen. Den erfolgreichen Lauf mit grünem Häkchen für den SCORM-Branch bzw.
    später den übernommenen Stand öffnen. Auf Commit und Datum achten.
-2. Unten unter **Artifacts** das Artefakt **Ermittlungszentrale-SCORM-1.2**
-   herunterladen. Für Actions-Artefakte ist die Anmeldung im vorhandenen
-   GitHub-Konto erforderlich; ein zusätzlicher Dienst ist nicht nötig.
-3. GitHub verpackt das Artefakt selbst nochmals als Download-ZIP. **Nur die
-   Lehrkraft** öffnet diese äußere ZIP und entnimmt daraus
-   **`Ermittlungszentrale-SCORM-1.2.zip`**. Die eigentliche SCORM-ZIP geschlossen
-   lassen. Nicht das äußere GitHub-Artefakt und nicht „Code → Download ZIP“ importieren.
+2. Im erfolgreichen **neuen** Workflow-Lauf unter **Artifacts** direkt die Datei
+   **`Ermittlungszentrale-SCORM-1.2.zip`** herunterladen. GitHub-Anmeldung ist
+   erforderlich, ein zusätzlicher Dienst nicht.
+3. Diese Datei ist bereits die **fertige SCORM-Import-ZIP**. **Nicht entpacken,
+   nicht neu komprimieren und nicht „Code → Download ZIP“ verwenden.** Die
+   GitHub-Actions-Ausgabe wird nach dem Download byteweise gegengeprüft.
+   *Nur bei historischen Läufen vor der Direktdownload-Umstellung* die äußere
+   GitHub-Transport-ZIP einmal entpacken und die enthaltene SCORM-ZIP verwenden.
 4. Im itslearning-Kurs **Inhaltspaket importieren** öffnen, die eigentliche
    **`Ermittlungszentrale-SCORM-1.2.zip`** auswählen und als **SCORM 1.2**
    importieren. Die ZIP enthält `imsmanifest.xml` direkt im Hauptverzeichnis.
@@ -39,7 +40,7 @@ selektieren. Vor einem Merge startet der Push auf
 `feature/scorm-itslearning-1-2` den Workflow automatisch. Falls GitHub den
 manuellen Start noch nicht anbietet, liegt das an der Sichtbarkeit von
 `workflow_dispatch` auf dem Standardbranch. Kein Merge ist für den lokalen
-Build oder den automatischen Branch-Lauf nötig. Nur **Ermittlungszentrale-SCORM-1.2** ist der freigegebene Lehrkraft-Download;
+Build oder den automatischen Branch-Lauf nötig. Nur **`Ermittlungszentrale-SCORM-1.2.zip`** ist der Lehrkraft-Download;
 `intern-scorm-pruefpaket` ist ein kurzfristiges technisches Zwischenartefakt.
 Browserprofile laufen auf getrennten Runnern seriell; alle prüfen dieselbe ZIP.
 Die abschließende Freigabestufe kontrolliert die vollständigen Ergebnisse.
