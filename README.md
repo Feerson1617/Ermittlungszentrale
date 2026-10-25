@@ -10,7 +10,7 @@ Version 2.2 übernimmt den vollständigen Stand von 2.1 und korrigiert gezielt S
 
 ## SCORM 1.2 für itslearning
 
-Der getrennte SCORM-Export wird mit `npm run build:scorm` erzeugt. Die ZIP enthält das vollständige Spiel 2.2 und verändert die Pages-Fassung nicht. [Anleitung für Lehrkräfte und technische Dokumentation](docs/scorm-itslearning.md) · [Test- und Abnahmebericht](docs/scorm-testbericht.md).
+Der getrennte SCORM-Export wird mit `npm run build:scorm` erzeugt. Die ZIP enthält das vollständige Spiel 2.2 und verändert die Pages-Fassung nicht. [Kurzanleitung für Lehrkräfte](docs/scorm-kurzanleitung.md) · [Technik und Datenschutz](docs/scorm-itslearning.md) · [Test- und Abnahmebericht](docs/scorm-testbericht.md).
 
 ## Start und Vorschau
 

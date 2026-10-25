@@ -1,0 +1,20 @@
+{
+  "command": "npm run test:scorm",
+  "packageSourceCommit": "80851df1d436bd6a941e888380e37d2730e4bf25",
+  "stats": {
+    "startTime": "2026-10-25T08:51:56.293Z",
+    "duration": 938756.4060000001,
+    "expected": 414,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "passedByProject": {
+    "chromium-desktop": 69,
+    "chromium-ipad": 69,
+    "chromium-ipad-portrait": 69,
+    "chromium-mobile": 69,
+    "webkit-ipad": 69,
+    "webkit-ipad-portrait": 69
+  }
+}

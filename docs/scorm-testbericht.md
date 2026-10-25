@@ -1,8 +1,8 @@
 # SCORM 1.2 – Test- und Abnahmebericht
 
-Prüfdatum: 25.10.2026. **Die Abnahme der gebauten Fassung läuft noch.**
-Echte itslearning-Importe und Schul-iPad-Tests wurden nicht durchgeführt.
-Dieser Bericht wird mit den abschließenden Browserergebnissen ergänzt.
+Prüfdatum: 25.10.2026. **Die lokale automatisierte Abnahme ist bestanden.**
+Der GitHub-Workflow zur Bereitstellung des Downloads läuft noch. Echte
+itslearning-Importe und Schul-iPad-Tests wurden nicht durchgeführt.
 
 ## Grundlage und Abgrenzung
 
@@ -90,7 +90,7 @@ bleiben negative Tests; sie sind keine ungeklärten Auslieferungsfehler.
 | SCORM-Laufzeit einzeln | 14/14 bestanden |
 | PDF-Prüfung | bestanden; Schülerbogen 2 × A4, Lehrerfassung 13 Seiten ausschließlich im Repository |
 | Bestehende Browserfälle auf Webfassung | **290/290 bestanden**, 9,5 Minuten: Desktop, iPad quer/hoch, Mobil (Chromium), iPad quer (WebKit) |
-| Browserfälle auf entpackter SCORM-ZIP | läuft noch; sechs Profile einschließlich WebKit quer/hoch |
+| Browserfälle auf entpackter SCORM-ZIP | **414/414 bestanden**, 15,6 Minuten, 0 Fehler, 0 übersprungen, 0 flaky, keine Retries; je 69 Fälle auf sechs Profilen einschließlich WebKit quer/hoch |
 | Originaler Release-Audit | Exit 2, exakt 20 bekannte offene Abnahmepunkte; keine technische Freigabe daraus abgeleitet |
 
 ## Während der Entwicklung behobener SCORM-Befund
@@ -111,9 +111,9 @@ und vier CSS-Startfehler. Das zusätzliche separate Export-Stylesheet konnte
 noch laden, während der originale Startwächter bereits die Gestaltung prüfte.
 Die externe Linkkennzeichnung wird deshalb jetzt an die Exportkopie der
 bestehenden CSS angehängt, ohne zweiten Stylesheet-Abruf. Der unveränderte
-Wächter wartet damit wieder genau auf seine ursprüngliche Datei. Die Prüfung
-wird mit den ursprünglichen zwei Workern wiederholt; die Zeitlimits und
-bestehenden Tests werden nicht gelockert. Ein Timeout-Screenshot kann selbst
+Wächter wartet damit wieder genau auf seine ursprüngliche Datei. Die Wiederholung
+mit den ursprünglichen zwei Workern besteht vollständig (414/414); die
+Zeitlimits und bestehenden Tests wurden nicht gelockert. Ein Timeout-Screenshot kann selbst
 eine vom CSP blockierte Playwright-Stilregel protokollieren; solche sekundären
 Meldungen wurden nicht als erforderliche CSP-Ausnahme übernommen.
 
@@ -163,10 +163,26 @@ bestandene reale Geräte- oder Plattformtests.
 
 ## Nachweise und Wiederholung
 
+Ausgeführte Hauptbefehle: `npm test`, `node --test tests/scorm-runtime.test.mjs`,
+`npm run test:pdf`, `npm run build:scorm`, `npm run validate:scorm`,
+`python3 tests/scorm-package.py`, `TEST_WEBKIT=1 npm run test:e2e` und
+`npm run test:scorm`. Der letzte vollständige SCORM-Lauf verwendet die
+unveränderte Standard-Parallelität von zwei Workern. Zusätzlich wurde
+`npm run audit:release` ausgeführt; dessen Exitcode 2 ist oben aufgeschlüsselt.
+
+Getesteter Implementierungs-/Paketstand: `80851df1d436bd6a941e888380e37d2730e4bf25`.
+Die abschließenden Berichte und Screenshots verändern keine Paketdatei.
+
+- [SCORM-ZIP: vollständiges Browserprotokoll](qa/scorm/scorm-browser-tests.txt)
+- [Maschinenlesbare Browserzusammenfassung](qa/scorm/browser-summary.json)
+- [Paketprüfung](qa/scorm/package-validation.txt), [Paketgröße und Hash](qa/scorm/package-summary.json)
+- WebKit-Screenshots des Testplayers: [quer](qa/scorm/webkit-quer.png), [hoch](qa/scorm/webkit-hoch.png); gesichtet, Dialog und RTL lesbar
+- [16 gezielte WebKit-Start-/Reloadprüfungen nach der CSS-Korrektur](qa/scorm/webkit-startup-fix.txt)
 - [Unveränderte Webfassung: Browserprotokoll](qa/scorm/web-regression.txt)
 - [Node-Prüfdateien](qa/scorm/unit-tests.tap), [14 Runtime-Tests](qa/scorm/runtime-tests.tap)
 - [10 Paket-Negativtests](qa/scorm/package-negative-tests.txt)
 - [PDF-Prüfung](qa/scorm/pdf-tests.txt), [bestehender Release-Audit](qa/scorm/release-audit.txt)
+- [Kurzanleitung für die Lehrkraft](scorm-kurzanleitung.md)
 - Build-, Testbefehle, Datenschutz und Importanleitung: [SCORM-Dokumentation](scorm-itslearning.md)
 
 GitHub Actions führt denselben Ablauf aus und stellt nach erfolgreicher

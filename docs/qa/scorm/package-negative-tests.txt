@@ -10,6 +10,6 @@ test_teacher_material (__main__.PackageTests.test_teacher_material) ... ok
 test_wrong_scorm_version (__main__.PackageTests.test_wrong_scorm_version) ... ok
 
 ----------------------------------------------------------------------
-Ran 10 tests in 1.257s
+Ran 10 tests in 0.962s
 
 OK
