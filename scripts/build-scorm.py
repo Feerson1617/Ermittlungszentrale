@@ -32,15 +32,13 @@ def build():
         target = PACKAGE / name
         target.parent.mkdir(parents=True, exist_ok=True)
         content = (ROOT / name).read_bytes()
-        if name.endswith('.html'):
-            # Add a local stylesheet without changing any original text or CSP.
-            prefix = '../' if name.startswith('materials/') else ''
-            content = content.replace(b'</head>', f'<link rel="stylesheet" href="{prefix}scorm-export.css"></head>'.encode(), 1)
-            if name == 'index.html':
-                content = content.replace(b'</head>', b'<script src="scorm-runtime.js" async></script></head>', 1)
+        if name == 'css/style.css':
+            # One stylesheet preserves the original startup guard's load contract.
+            content += b'\n' + (ROOT / 'scorm/export.css').read_bytes()
+        if name == 'index.html':
+            content = content.replace(b'</head>', b'<script src="scorm-runtime.js" async></script></head>', 1)
         target.write_bytes(content)
     shutil.copyfile(ROOT / 'scorm/runtime.js', PACKAGE / 'scorm-runtime.js')
-    shutil.copyfile(ROOT / 'scorm/export.css', PACKAGE / 'scorm-export.css')
     for name in SCHEMAS:
         shutil.copyfile(ROOT / 'scorm/schemas' / name, PACKAGE / name)
     # The application links to its original teaching brief as a curriculum source.

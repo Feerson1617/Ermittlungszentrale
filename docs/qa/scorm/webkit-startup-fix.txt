@@ -1,0 +1,47 @@
+
+> die-geheime-ermittlungszentrale@2.2.0 test:scorm
+> playwright test --config playwright.scorm.config.mjs --project=webkit-ipad --project=webkit-ipad-portrait --grep=Realer Start|Teilpunkte am Limit|Bonus: drei richtige|identische erste und zweite|Hängender Abruf
+
+[WebServer] (node:44899) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 16 tests using 2 workers
+
+(node:44912) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:44913) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:44913) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:44912) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+  ✓   1 [webkit-ipad] › tests/browser/startup.spec.mjs:5:3 › Realer Start /Ermittlungszentrale/: CSS, Motiv, fünf bedienbare Akten und Wörterbuch (31.7s)
+  ✓   2 [webkit-ipad] › tests/browser/startup.spec.mjs:5:3 › Realer Start /: CSS, Motiv, fünf bedienbare Akten und Wörterbuch (32.1s)
+  ✓   3 [webkit-ipad] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf css/style.css endet mit Fehler statt dauerhafter Lademeldung (5.6s)
+  ✓   4 [webkit-ipad] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf js/app.js endet mit Fehler statt dauerhafter Lademeldung (5.6s)
+  ✓   5 [webkit-ipad] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf data/media.json endet mit Fehler statt dauerhafter Lademeldung (1.1s)
+  ✓   7 [webkit-ipad] › tests/browser/v2.spec.mjs:62:1 › Bonus: drei richtige Zuordnungen ergeben drei Punkte, keine Vollständigkeit (3.6s)
+  ✓   6 [webkit-ipad] › tests/browser/v2.spec.mjs:28:1 › T2/D1 Teilpunkte am Limit: Auflösung bleibt nach Navigation und Reload offen (9.4s)
+(node:45469) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:45469) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+  ✓   8 [webkit-ipad] › tests/browser/v21.spec.mjs:61:1 › 2.1: identische erste und zweite Viererwahl ist zulässig und bleibt getrennt gespeichert (7.3s)
+(node:45540) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:45540) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+  ✓   9 [webkit-ipad-portrait] › tests/browser/startup.spec.mjs:5:3 › Realer Start /: CSS, Motiv, fünf bedienbare Akten und Wörterbuch (26.6s)
+  ✓  10 [webkit-ipad-portrait] › tests/browser/startup.spec.mjs:5:3 › Realer Start /Ermittlungszentrale/: CSS, Motiv, fünf bedienbare Akten und Wörterbuch (26.8s)
+  ✓  11 [webkit-ipad-portrait] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf css/style.css endet mit Fehler statt dauerhafter Lademeldung (5.7s)
+  ✓  13 [webkit-ipad-portrait] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf data/media.json endet mit Fehler statt dauerhafter Lademeldung (857ms)
+  ✓  12 [webkit-ipad-portrait] › tests/browser/startup.spec.mjs:55:71 › Hängender Abruf js/app.js endet mit Fehler statt dauerhafter Lademeldung (5.6s)
+  ✓  15 [webkit-ipad-portrait] › tests/browser/v2.spec.mjs:62:1 › Bonus: drei richtige Zuordnungen ergeben drei Punkte, keine Vollständigkeit (3.4s)
+  ✓  14 [webkit-ipad-portrait] › tests/browser/v2.spec.mjs:28:1 › T2/D1 Teilpunkte am Limit: Auflösung bleibt nach Navigation und Reload offen (8.0s)
+  ✓  16 [webkit-ipad-portrait] › tests/browser/v21.spec.mjs:61:1 › 2.1: identische erste und zweite Viererwahl ist zulässig und bleibt getrennt gespeichert (5.8s)
+
+  16 passed (1.6m)

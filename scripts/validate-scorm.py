@@ -29,7 +29,7 @@ def validate(archive_path):
             assert not name.startswith('/') and '..' not in PurePosixPath(name).parts and '\\' not in name, name
             assert not archive.getinfo(name).is_dir(), 'Nur Dateien erwartet'
         expected = set(build.source_files()) | set(build.SCHEMAS) | {
-            'imsmanifest.xml', 'scorm-runtime.js', 'scorm-export.css', 'sources/auftrag-v2.md'}
+            'imsmanifest.xml', 'scorm-runtime.js', 'sources/auftrag-v2.md'}
         assert set(names) == expected, f'Unerwartete/fehlende Dateien: {set(names) ^ expected}'
         assert 'imsmanifest.xml' in names
         assert not any(re.search(r'erwartungshorizont|(^|/)(tests|scripts|node_modules|\.git|qa)/', n, re.I) for n in names)
@@ -129,13 +129,13 @@ def validate(archive_path):
         for ref in re.findall(r'local:"([^"]+)"', (package / 'data/learning.js').read_text()):
             reference('index.html', ref)
         for name in build.source_files():
-            if not name.endswith('.html'):
+            if name == 'css/style.css':
+                assert (package / name).read_bytes() == (ROOT / name).read_bytes() + b'\n' + (ROOT / 'scorm/export.css').read_bytes(), 'Nur ergänzende Linkkennzeichnung in der Export-CSS erlaubt'
+            elif not name.endswith('.html'):
                 assert (package / name).read_bytes() == (ROOT / name).read_bytes(), f'Quellabweichung: {name}'
             else:
                 original = (ROOT / name).read_text()
                 exported = (package / name).read_text()
-                prefix = '../' if name.startswith('materials/') else ''
-                exported = exported.replace(f'<link rel="stylesheet" href="{prefix}scorm-export.css">', '', 1)
                 if name == 'index.html':
                     exported = exported.replace('<script src="scorm-runtime.js" async></script>', '', 1)
                 assert exported == original, f'Unzulässige HTML-Änderung: {name}'

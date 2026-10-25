@@ -74,11 +74,14 @@ Quellstand verwendet werden. Keine Node-Abhängigkeit gelangt ins Schülerpaket.
 
 - `scripts/build-scorm.py`: feste Positivliste statt Kopie des Repositories.
   Alle Spielmodule, Spieldaten, Karten und Fotos werden bytegleich übernommen.
-  Die drei Informations-/Startseiten und die Schülerbogen-HTML erhalten
-  zusätzlich nur lokale SCORM-Dateiverweise; ihr Originalinhalt bleibt gleich.
+  Nur die exportierte Startseite erhält einen lokalen asynchronen Skriptverweis.
+  Die ursprüngliche CSS bleibt vollständig erhalten; ausschließlich die Regel
+  zur Kennzeichnung externer Links wird an ihre Exportkopie angehängt.
+  So gibt es weiterhin nur eine Start-Stylesheet-Datei.
 - `scorm/runtime.js`: isolierte technische SCORM-Sitzung, nur in der exportierten
   `index.html` asynchron geladen, ohne den Spielstart zu blockieren. Die normale `index.html` im Repository wird nicht editiert.
-- `scorm/export.css`: Kennzeichnung bewusst aufrufbarer HTTP(S)-Quellenlinks
+- `scorm/export.css`: Wird beim Build an die exportierte `css/style.css`
+  angehängt. Kennzeichnung bewusst aufrufbarer HTTP(S)-Quellenlinks
   mit „(extern)“. Kein automatischer Quellenabruf; vorhandene externe HTML-Links
   verwenden `noopener noreferrer`.
 - Die bestehende Content-Security-Policy einschließlich Hash der Startlogik

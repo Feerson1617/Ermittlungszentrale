@@ -31,19 +31,19 @@ an Einstellungen, kein Push auf `main`, kein automatischer Merge.
 | Ein SCO für das gesamte Spiel | bestanden; `index.html`, eine Organisation/ein Item/eine SCO-Ressource |
 | SCORM-1.2-Metadaten und XSD | bestanden, offline mit lxml; CP-, ADL- und MD-Schemata gemeinsam geladen |
 | Negativkontrolle der ADL-XSD | bestanden; ungültiges `scormtype` wird abgewiesen |
-| Vollständige Ressourcenliste | bestanden; 97 Dateien, alle Paketdateien im Manifest außer dem Manifest selbst |
-| Lokale Verweise | bestanden; 80 unterschiedliche lokale Ziele aus HTML, CSS, Modulimporten, JSON, SVG, Markdown und Quellennachweisen aufgelöst |
+| Vollständige Ressourcenliste | bestanden; 96 Dateien, alle Paketdateien im Manifest außer dem Manifest selbst |
+| Lokale Verweise | bestanden; 79 unterschiedliche lokale Ziele aus HTML, CSS, Modulimporten, JSON, SVG, Markdown und Quellennachweisen aufgelöst |
 | Fotos | bestanden; 24 unterschiedliche Katalogeinträge, Zuordnung/Pfade und SHA256 kontrolliert |
 | JSON und GeoJSON | bestanden; syntaktisch geprüft, vollständig enthalten |
 | Externe Abhängigkeiten | keine automatischen externen Ressourcen; 91 unterschiedliche bewusst aufrufbare externe Quellen-/Lizenzlinks |
-| Spielinhalt/Wertung | kopierte Module, Daten, Karten und Fotos bytegleich; HTML nach Entfernung ausschließlich der eingefügten lokalen Verweise identisch |
+| Spielinhalt/Wertung | kopierte Module, Daten, Karten und Fotos bytegleich; HTML bis auf den lokalen asynchronen Startskriptverweis identisch; CSS bis auf exakt angehängte Linkkennzeichnung identisch |
 | Lehrermaterial | ausgeschlossen; Positivliste und zusätzliche Namens-/Paketprüfung; ursprünglicher interner Auftrag nicht mitkopiert |
 | Reproduzierbarkeit | zwei Builds mit demselben Quellstand und derselben Laufzeit bytegleich |
 | Fehlererkennung | alle 10 gezielten Paket-Manipulationstests bestanden |
 
-Lokale ZIP: **6.047.101 Bytes**, entpackt **8.805.776 Bytes**.
+Lokale ZIP: **6.046.873 Bytes**, entpackt **8.805.548 Bytes**.
 SHA256:
-`0ff8eb477174150f13e18b8c47f3f7cde372a067df2457e8be2269b954ff52d9`.
+`1356377f55d930aceebdd223eb1495a28234d54ad14616320a69aff2d305c9de`.
 Eine andere Python-/zlib-Version kann andere komprimierte Bytes erzeugen;
 die im jeweiligen Build mitgelieferte Prüfsummendatei gilt für dessen ZIP.
 
@@ -104,6 +104,18 @@ Browsertest, dass bei absichtlich verzögertem SCORM-Skript bereits gespielt
 und geantwortet werden kann. Der ursprüngliche CSS-Fehlertest bleibt
 unverändert. Die betroffenen ersten CI-/Paketläufe wurden abgebrochen;
 sie sind keine freigegebenen Artefakte.
+
+In einem weiteren Gesamtlauf mit vier statt der ursprünglichen zwei Workern
+traten acht WebKit-Fehler auf: vier Zeitlimits beim kompletten Foto-/Spielweg
+und vier CSS-Startfehler. Das zusätzliche separate Export-Stylesheet konnte
+noch laden, während der originale Startwächter bereits die Gestaltung prüfte.
+Die externe Linkkennzeichnung wird deshalb jetzt an die Exportkopie der
+bestehenden CSS angehängt, ohne zweiten Stylesheet-Abruf. Der unveränderte
+Wächter wartet damit wieder genau auf seine ursprüngliche Datei. Die Prüfung
+wird mit den ursprünglichen zwei Workern wiederholt; die Zeitlimits und
+bestehenden Tests werden nicht gelockert. Ein Timeout-Screenshot kann selbst
+eine vom CSP blockierte Playwright-Stilregel protokollieren; solche sekundären
+Meldungen wurden nicht als erforderliche CSP-Ausnahme übernommen.
 
 ## Testumgebung und Grenzen
 
