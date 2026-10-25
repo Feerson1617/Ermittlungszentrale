@@ -117,6 +117,23 @@ Zeitlimits und bestehenden Tests wurden nicht gelockert. Ein Timeout-Screenshot 
 eine vom CSP blockierte Playwright-Stilregel protokollieren; solche sekundären
 Meldungen wurden nicht als erforderliche CSP-Ausnahme übernommen.
 
+## GitHub-Runner: vorhandener WebKit-Reloadtest
+
+Im ersten vollständigen CI-Lauf nach der lokalen Abnahme bestanden 289/290
+Tests der **unveränderten Webfassung**. Der negative Rubrics-404-Test erreichte
+beim anschließenden Reload sein 40-Sekunden-Limit (Job 121128071515, Lauf
+40179702750). Die SCORM-Prüfung wurde dadurch noch nicht gestartet. Das
+Jobprotokoll mit Fehlerstelle wurde ausgewertet; das lokale Nachladen des
+binären Trace-Artefakts war durch den Cloud-Proxy blockiert. Es wird kein
+gesichteter CI-Trace behauptet.
+
+Der Workflow isoliert daher jedes Browserprofil in einem eigenen Runner und
+führt dessen Fälle mit einem Worker aus. Alle 290 Web- und 414 SCORM-Fälle,
+40-Sekunden-Limits und null Retries bleiben bestehen. Alle sechs SCORM-Jobs
+prüfen dieselbe zuvor gebaute ZIP. Eine abschließende Freigabestufe kontrolliert
+die JSON-Ergebnisse aller elf Profile, Nullwerte für Fehler/Flaky/Skip sowie
+den ZIP-Hash, bevor das Lehrkraft-Artefakt veröffentlicht wird.
+
 ## Testumgebung und Grenzen
 
 Cloud-Linux/Debian 13, Node.js 24.19.0, Python 3.12.14, zlib 1.3.2,

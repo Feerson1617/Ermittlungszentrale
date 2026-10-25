@@ -38,7 +38,11 @@ selektieren. Vor einem Merge startet der Push auf
 `feature/scorm-itslearning-1-2` den Workflow automatisch. Falls GitHub den
 manuellen Start noch nicht anbietet, liegt das an der Sichtbarkeit von
 `workflow_dispatch` auf dem Standardbranch. Kein Merge ist für den lokalen
-Build oder den automatischen Branch-Lauf nötig. Artefakte bleiben 90 Tage
+Build oder den automatischen Branch-Lauf nötig. Nur **Ermittlungszentrale-SCORM-1.2** ist der freigegebene Lehrkraft-Download;
+`intern-scorm-pruefpaket` ist ein kurzfristiges technisches Zwischenartefakt.
+Browserprofile laufen auf getrennten Runnern seriell; alle prüfen dieselbe ZIP.
+Die abschließende Freigabestufe kontrolliert die vollständigen Ergebnisse.
+Artefakte für die Lehrkraft bleiben 90 Tage
 verfügbar und lassen sich danach mit einem neuen Lauf erneut erzeugen.
 
 ## Reproduzierbarer Build für die technische Betreuung

@@ -2,7 +2,7 @@
 
 ## ZIP herunterladen
 
-1. Den [SCORM-Build auf GitHub](https://github.com/Feerson1617/Ermittlungszentrale/actions/runs/40178307900)
+1. Den [SCORM-Build auf GitHub](https://github.com/Feerson1617/Ermittlungszentrale/actions/workflows/scorm-itslearning.yml)
    öffnen. Der fertige Lauf muss ein **grünes Häkchen** haben.
 2. Unten bei **Artifacts** auf **Ermittlungszentrale-SCORM-1.2** klicken.
    Dafür ist die Anmeldung im bereits vorhandenen GitHub-Konto erforderlich.

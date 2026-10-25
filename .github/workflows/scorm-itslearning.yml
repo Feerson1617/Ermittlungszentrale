@@ -25,9 +25,10 @@ concurrency:
 permissions:
   contents: read
 jobs:
-  verify-and-package:
+  package:
+    name: Paket und Unit-Prüfungen
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -39,24 +40,164 @@ jobs:
           python-version: '3.13'
       - run: npm ci
       - run: python -m pip install -r requirements-scorm.txt
-      - run: npx playwright install --with-deps chromium webkit
-      - name: Browserpfad für die bestehenden Tests
-        run: node --input-type=module -e 'import {chromium} from "playwright"; console.log("CHROMIUM_PATH="+chromium.executablePath())' >> "$GITHUB_ENV"
-      - name: Bestehende Unit- und Materialprüfungen
-        run: npm test && npm run test:pdf
-      - name: Bestehende Browserprüfungen auf der unveränderten Webfassung
-        run: npm run test:e2e
-        env:
-          TEST_WEBKIT: '1'
-      - name: SCORM bauen und validieren
-        run: npm run build:scorm && npm run validate:scorm && python3 tests/scorm-package.py
+      - run: npm test && npm run test:pdf
+      - run: npm run build:scorm && npm run validate:scorm && python3 tests/scorm-package.py
       - name: Reproduzierbarkeit prüfen
         run: |
           cp artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip /tmp/scorm-first.zip
           npm run build:scorm
           cmp /tmp/scorm-first.zip artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip
-      - name: Vollständige Browserprüfung der entpackten ZIP
-        run: npm run test:scorm
+      - name: Identisches Prüfpaket für alle Browser bereitstellen
+        uses: actions/upload-artifact@v4
+        with:
+          name: intern-scorm-pruefpaket
+          path: |
+            artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip
+            artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip.sha256
+          if-no-files-found: error
+          retention-days: 3
+
+  regression:
+    name: Webfassung / ${{ matrix.project }}
+    needs: package
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {project: chromium-desktop, browser: chromium}
+          - {project: chromium-ipad, browser: chromium}
+          - {project: chromium-ipad-portrait, browser: chromium}
+          - {project: chromium-mobile, browser: chromium}
+          - {project: webkit-ipad, browser: webkit}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Chromium-Pfad für die bestehenden Tests
+        run: node --input-type=module -e 'import {chromium} from "playwright"; console.log("CHROMIUM_PATH="+chromium.executablePath())' >> "$GITHUB_ENV"
+      - name: Bestehende Tests ohne Änderung der Limits oder Wiederholungen
+        run: npm run test:e2e -- --project=${{ matrix.project }} --workers=1 --reporter=list,json,html
+        env:
+          TEST_WEBKIT: '1'
+          PLAYWRIGHT_JSON_OUTPUT_NAME: regression-results.json
+      - name: Web-Prüfprotokolle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Webtests-${{ matrix.project }}
+          path: |
+            regression-results.json
+            playwright-report/
+            test-results/
+          retention-days: 14
+
+  scorm-browser:
+    name: SCORM / ${{ matrix.project }}
+    needs: package
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {project: chromium-desktop, browser: chromium}
+          - {project: chromium-ipad, browser: chromium}
+          - {project: chromium-ipad-portrait, browser: chromium}
+          - {project: chromium-mobile, browser: chromium}
+          - {project: webkit-ipad, browser: webkit}
+          - {project: webkit-ipad-portrait, browser: webkit}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Chromium-Pfad für die bestehenden Tests
+        run: node --input-type=module -e 'import {chromium} from "playwright"; console.log("CHROMIUM_PATH="+chromium.executablePath())' >> "$GITHUB_ENV"
+      - uses: actions/download-artifact@v4
+        with:
+          name: intern-scorm-pruefpaket
+          path: artifacts/scorm
+      - name: Tatsächlich entpackte ZIP seriell prüfen
+        run: npm run test:scorm -- --project=${{ matrix.project }} --workers=1
+      - name: SCORM-Prüfprotokolle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SCORM-Tests-${{ matrix.project }}
+          path: |
+            artifacts/scorm/browser-report/
+            artifacts/scorm/browser-results/
+            artifacts/scorm/browser-results.json
+          retention-days: 14
+
+  publish:
+    name: Geprüfte ZIP für die Lehrkraft
+    needs: [package, regression, scorm-browser]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r requirements-scorm.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: intern-scorm-pruefpaket
+          path: artifacts/scorm
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: Webtests-*
+          path: artifacts/ci/web
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: SCORM-Tests-*
+          path: artifacts/ci/scorm
+      - name: Prüfumfang, Ergebnis und unveränderte Paketbytes bestätigen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, hashlib
+          projects = {'chromium-desktop', 'chromium-ipad', 'chromium-ipad-portrait', 'chromium-mobile', 'webkit-ipad'}
+          def check(folder, filename, expected_projects, per_project):
+              reports = list(Path(folder).rglob(filename))
+              assert len(reports) == len(expected_projects), (folder, len(reports))
+              observed = set()
+              for path in reports:
+                  report = json.loads(path.read_text())
+                  stats = report['stats']
+                  assert stats['expected'] == per_project and all(stats[k] == 0 for k in ['unexpected', 'flaky', 'skipped']), (path, stats)
+                  names = set()
+                  def visit(suite):
+                      for spec in suite.get('specs', []):
+                          for test in spec.get('tests', []):
+                              assert test['status'] == 'expected' and test['results'][-1]['status'] == 'passed'
+                              names.add(test['projectName'])
+                      for child in suite.get('suites', []): visit(child)
+                  for suite in report['suites']: visit(suite)
+                  assert len(names) == 1 and not observed.intersection(names), (path, names)
+                  observed.update(names)
+              assert observed == expected_projects, observed
+              return len(reports) * per_project
+          web = check('artifacts/ci/web', 'regression-results.json', projects, 58)
+          scorm = check('artifacts/ci/scorm', 'browser-results.json', projects | {'webkit-ipad-portrait'}, 69)
+          package = Path('artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip')
+          digest = hashlib.sha256(package.read_bytes()).hexdigest()
+          assert digest == Path(str(package) + '.sha256').read_text().split()[0]
+          summary = {'webPassed': web, 'scormPassed': scorm, 'flaky': 0, 'skipped': 0, 'zipSha256': digest, 'zipBytes': package.stat().st_size, 'realItslearningImport': False, 'physicalSchoolIpadTest': False}
+          Path('artifacts/scorm/ci-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+          print(json.dumps(summary, indent=2))
+          PY
+          python3 scripts/validate-scorm.py
       - name: Direkt importierbare ZIP bereitstellen
         uses: actions/upload-artifact@v4
         with:
@@ -66,15 +207,10 @@ jobs:
             artifacts/scorm/Ermittlungszentrale-SCORM-1.2.zip.sha256
           if-no-files-found: error
           retention-days: 90
-      - name: Prüfprotokolle und Screenshots
-        if: always()
+      - name: Abnahmezusammenfassung bereitstellen
         uses: actions/upload-artifact@v4
         with:
-          name: SCORM-Testberichte
-          path: |
-            playwright-report/
-            test-results/
-            artifacts/scorm/browser-report/
-            artifacts/scorm/browser-results/
-            artifacts/scorm/browser-results.json
-          retention-days: 30
+          name: SCORM-Abnahme
+          path: artifacts/scorm/ci-summary.json
+          if-no-files-found: error
+          retention-days: 90
